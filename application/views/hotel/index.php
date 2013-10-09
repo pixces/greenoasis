@@ -4,7 +4,7 @@
             <h1>Hotel: Advance Search</h1>
         </div>
         <div class="bg-blue-grey span8">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="<?=SITE_URL.'/hotel/search/'; ?>">
                 <div class="control-group">
                     <label class="control-label" for="selectCountry">Country</label>
                     <div class="controls">
