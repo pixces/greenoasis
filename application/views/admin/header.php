@@ -7,11 +7,11 @@
     <link rel="shortcut icon" href="<?=SITE_IMAGE; ?>favicon.ico" type="image/x-icon" />
     <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Roboto|Source+Sans+Pro:900italic,400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>bootstrap.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>admin.css">
     <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>datepicker.css">
     <script src="<?=SITE_JS; ?>jquery.1.10.2.min.js" type="text/javascript" ></script>
-    <script src="<?=SITE_JS; ?>functions.js" type="text/javascript"></script>
-    <script src="<?=SITE_JS; ?>site-actions.js" type="text/javascript"></script>
+    <script src="<?=SITE_JS; ?>common.js" type="text/javascript"></script>
+    <script src="<?=SITE_JS; ?>admin.js" type="text/javascript"></script>
     <script src="<?=SITE_JS; ?>bootstrap.js" type="text/javascript"></script>
     <script src="<?=SITE_JS; ?>html5shiv.js" type="text/javascript"></script>
     <script src="<?=SITE_JS; ?>pngfix.js" type="text/javascript"></script>
