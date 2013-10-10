@@ -14,65 +14,48 @@
 <!-- End: Banner --->
 <!-- Start: Basic Search -->
 <div class="basic-search container">
-    <form class="form-inline">
-        <input type="text" class="span4" name="location" data-provide="typeahead" data-source='["Dubai","Jordan"]' data-items="2" placeholder="Find a place to stay..." required>
-        <div id="dpCheckin" class="input-append date" data-date-format="dd-mm-yyyy" data-date="<?=date('d-m-Y'); ?>">
-            <input name="date_checkin" class="span2" type="text" readonly value="" placeholder="Check In" required>
-            <span class="add-on"><i class="icon-calendar"></i></span>
+    <form class="form-inline" name="basicHotelSearch" id="hotelSearch" action="<?=SITE_URL.'/hotel/search/'; ?>" method="post">
+        <input type="hidden" name="search_type" id="searchType" value="basic">
+        <input type="hidden" name="request_type" id="requestType" value="gethotel">
+        <div class="frm-destination">
+            <input type="hidden" name="city" value="Dubai">
+            <input type="hidden" name="country" value="UAE">
+            <input type="hidden" name="area" value="">
+            <label>Place to stay..</label>
+            <input type="text" class="span6" id="txtLocation" name="location" data-provide="typeahead" data-source='["Bahrain, Bahrain","Manama, Bahrain","Muscat, Oman","Salalah, Oman","Doha, Qatar","Abu Dhabi, United Arab Emirates","Ajman, United Arab Emirates","Alain, United Arab Emirates","Dubai, United Arab Emirates","Fujairah, United Arab Emirates","Hatta, United Arab Emirates","Khorfakkan, United Arab Emirates","Ras Al Khaimah, United Arab Emirates","Sharjah, United Arab Emirates","Umm Al Quwain, United Arab Emirates", "Bahrain", "Qatar", "Oman", "United Arab Emirates"]' data-items="10" placeholder="Country, City, Hotel Name to stay..." required>
         </div>
-        <div id="dpCheckout" class="input-append date" data-date-format="dd-mm-yyyy" data-date="<?=date('d-m-Y'); ?>">
-            <input name="date_checkout" class="span2" type="text" readonly value="" placeholder="Check Out" required>
-            <span class="add-on"><i class="icon-calendar"></i></span>
+        <div class="frm-date">
+            <label>Check in:</label>
+            <div id="dpCheckin" class="input-append date" data-date-format="dd-mm-yyyy" data-date="<?=date('d-m-Y'); ?>">
+                <input id="txtCheckin" name="checkin" class="span2" type="text" readonly value="<?=date('d-m-Y'); ?>" placeholder="Check In" required="required">
+                <span class="add-on"><i class="icon-calendar"></i></span>
+            </div>
         </div>
-        <select class="span2">
-            <option>Rooms</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
-        <select class="span2">
-            <option>Room Type</option>
-            <option>Single Room</option>
-            <option>Double Room</option>
-            <option>Double Room with One Child</option>
-            <option>Double Room with Two Child</option>
-            <option>Twin Room</option>
-            <option>Twin Room with 1 Child</option>
-            <option>Twin Room with 2 Child</option>
-            <option>Triple Room</option>
-            <option>Quad Room</option>
-        </select>
-        <select class="span1" disabled="">
-            <option>Age</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-        </select>
-        <select class="span1" disabled="">
-            <option>Age</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-        </select>
-        <button class="btn btn-green" type="button"><i class="icon-search icon-white"></i> Search</button>
+        <div class="frm-date">
+            <label>Check out:</label>
+            <div id="dpCheckout" class="input-append date" data-date-format="dd-mm-yyyy" data-date="<?=date('d-m-Y'); ?>">
+                <input id="txtCheckout" name="checkout" class="span2" type="text" readonly value="<?=date('d-m-Y', (time()+(24*60*60))); ?>" placeholder="Check Out" required="required">
+                <span class="add-on"><i class="icon-calendar"></i></span>
+            </div>
+        </div>
+        <div class="frm-meta">
+            <label>Rooms:</label>
+            <select class="span2" name="rooms" id="txtRoomCount" required="required">
+                <option value="1">1 Room</option>
+                <option value="2">2 Rooms</option>
+                <option value="3">3 Rooms</option>
+            </select>
+        </div>
+        <div class="frm-meta">
+            <label>Room Type:</label>
+            <select class="span2" name="roomtype" id="txtRoomType" required="required">
+                <option value="Sgl">Single Room</option>
+                <option value="Dbl">Double Room</option>
+                <option value="Tpl">Triple Room</option>
+                <option value="Tpl">Unit Room</option>
+            </select>
+        </div>
+        <button class="btn btn-green frm-btn-bottom" type="submit"><i class="icon-search icon-white"></i> Search</button>
     </form>
 </div>
 <!-- End: Basic Search -->

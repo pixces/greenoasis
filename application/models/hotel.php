@@ -17,7 +17,6 @@ class Hotel extends Model {
     }
 
     public function getAll(){
-
         $this->showHasMany();
         $this->orderBy('date_modified','DESC');
         $result = $this->search();
@@ -25,7 +24,6 @@ class Hotel extends Model {
             return $result;
         }
         return false;
-
     }
 
     public function toggleStatus($status = 'active')
@@ -47,5 +45,8 @@ class Hotel extends Model {
             return false;
         }
     }
+
+
+
 
 }

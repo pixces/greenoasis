@@ -88,7 +88,6 @@ class AdminController extends Controller
         $hotelObj = new Hotel();
         $hotelList = $hotelObj->getAll();
 
-
         if ($hotelList){
             foreach($hotelList as &$hotel){
                 //amenities

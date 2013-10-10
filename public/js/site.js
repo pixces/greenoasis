@@ -9,8 +9,47 @@ $(function () {
     //Execute the slideShow
     slideShow();
 
+    //display the datepickers
+    $("#dpCheckin").datepicker();
+    $("#dpCheckout").datepicker();
+
+    $("#hotelSearch").submit(function(e){
+
+        e.preventDefault();
+
+        if ($("#txtLocation").val() != ""){
+            //identify the city, country or hotel name
+
+        }
+        if ($("#txtCheckin").val() != ""){
+            //check if is a date
+            //check if the dat is not less than today
+
+        }
+        if ($("#txtCheckout").val() != ""){
+            //check if is a date
+            //check if the date is not less than today
+            //check if the date is not less than date checkin
+
+        }
+        if ($("#txtRoomCount").val() != ""){
+            //check if not less than 1
+
+        }
+        //pass the search details to generate search query
+        var fetchUrl = SITE_URL + '/hotel/buildQuery/';
 
 
+        $.post(fetchUrl, $("#hotelSearch").serialize() , function (data) {
+
+            console.log(data);
+            if (data.status == 'success'){
+                window.location.href = data.url;
+            }
+            return false;
+        }, 'json');
+        return false;
+    });
 
 });
 
