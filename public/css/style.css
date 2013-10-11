@@ -23,6 +23,16 @@ input.span2{
     width: 115px;
 }
 
+.container > .green-span3{
+    margin-left: 0px;
+    width: 23%;
+}
+
+.container > .green-span9{
+    margin-left: 10px;
+    width: 76%;
+}
+
 .basic-search label{
     font-size: 12px;
     text-shadow: 0 1px 0px rgba(255, 255, 255, 0.25);
@@ -519,7 +529,7 @@ a {
 }
 
 a:hover{
-    color: #8dc63f;
+    color: #59923f;
     text-decoration: none;
 }
 
@@ -577,11 +587,18 @@ h1 {
     margin: 0 10px 10px 0px;
 }
 
-.bg-blue{
-    background: none repeat scroll 0 0 #E0EEFE;
+.bg-blue,
+.facet-blue{
+    background: none repeat scroll 0 0 #E5F1FF;
     border: 1px solid #D2E3F7;
     padding: 10px;
     margin: 0 10px 10px 0px;
+    width: 100%;
+}
+.facet-blue{
+    width: auto;
+    background-color: #FFFFFF;
+    border: 1px solid #EEEEEE;
 }
 
 .span825{
@@ -596,12 +613,131 @@ h1 {
     width: 250px;
 }
 
-.bg-blue-grey h5 {
+.facet-blue h5 {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
     font-family: "Ropa Sans";
     font-weight: normal;
+    margin: 0px 0px 5px 0px;
+    color: #3E9A3C;
+    font-size: 130%;
 }
 
+.box-shadow {
+    -moz-border-radius: 10px; /* Firefox */
+    -webkit-border-radius: 10px; /* Safari and Chrome */
+    border-radius: 10px; /* Opera 10.5+, future browsers, and now also our behavior htc file */
 
+    -moz-box-shadow: 0px 1px 10px #eee; /* Firefox */
+    -webkit-box-shadow: 0px 1px 10px #eee; /* Safari and Chrome */
+    box-shadow: 0px 1px 10px #eee; /* Opera 10.5+, future browsers and IE6+ using our behavior htc file */
 
+}
 
+/* hotel displat list */
+.media-list{
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.hotel-item{
+    border-bottom: 3px solid #E5F1FF;
+    padding: 15px;
+    width: 99%;
+}
+
+.media-body h4{
+    padding: 0px;
+    margin: 0px 0 10px 0;
+    font-family: "Ropa Sans";
+    float: left;
+    width: 100%;
+}
+.media-heading{
+    padding-right: 15px;
+    font-size: 24px;
+    color: #009CDD;
+    font-weight: normal;
+    float: left;
+}
+
+span.star1,
+span.star2,
+span.star3,
+span.star4,
+span.star5{
+    height: 16px;
+    float: left;
+    width: 14px;
+    position: relative;
+    top: 3px;
+}
+
+.star1,.star2,.star3,.star4,.star5,
+.icon-map,.icon-contact
+{
+    background: url("../images/ui-sprite.png") no-repeat scroll 0 0 rgba(0,0,0,0);
+}
+
+span.star2{
+    width: 28px;
+}
+span.star3{
+    width: 42px;
+}
+span.star4{
+    width: 56px;
+}
+span.star5{
+    width: 72px;
+}
+
+.hotel_location{
+    line-height: 20px;
+    margin-right: 15px;
+
+}
+.icon-map{
+    height:20px;
+    width: 15px;
+    background-position: -0px -18px;
+    vertical-align: middle;
+}
+
+.icon-contact{
+    height:20px;
+    width: 15px;
+    background-position: 0 -38px;
+    vertical-align: middle;
+}
+
+p.hotel_details{
+    line-height: 20px;
+    margin: 10px 0px;
+    font-size: 12px;
+}
+
+span.hotel_url a,
+span.hotel_images a {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* facets */
+input[type="radio"]{
+    margin-top: 0px;
+    vertical-align: middle;
+}
+
+.facet > p {
+    padding: 4px 0px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.facet > p:last-child {
+    border-bottom: none;
+}
+
+.facet > p span.facet-label{
+     font-size: 12px;
+     margin-left: 5px;
+ }

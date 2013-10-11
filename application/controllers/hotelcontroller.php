@@ -37,7 +37,7 @@ class HotelController extends Controller{
                                 'city'=>'',
                                 'country'=>'',
                                 'area'=>'',
-                                'pax'=>'a1c0',
+                                'pax'=>array('adult'=>1,'children'=>0),
                                 'checkin'=>'',
                                 'checkout'=>'',
                                 'nights'=>'',
@@ -49,6 +49,14 @@ class HotelController extends Controller{
         //this is the advance search form
     }
 
+    /**
+     * Check if the request is ajax
+     * if so then return only the data
+     * else render the complete page
+     *
+     * New filters requested
+     * New Page requested
+     */
     public function search(){
 
         if (!isset($this->_request['search_sid'])){
@@ -56,24 +64,60 @@ class HotelController extends Controller{
             exit;
         }
 
+        #searchSession
         $search_sid = $this->_request['search_sid'];
 
-        //get the search session details
-        $city = $this->_request['city'];
-        $country = $this->_request['country'];
-        $checkin = $this->_request['checkin'];
-        $checkout = $this->_request['checkout'];
+        //if filterd query is activated
+        //then update the session and then redo the search
+        //update the searchSession;
+        $sObj = new Hotel_Session();
+        $sObj->search_session = $search_sid;
+
+        $data = $sObj->fetchBySession();
+
+        $query = array();
+        if(!empty($data['city'])){
+            $query['hotel_city'] = $data['city'];
+        }
+
+        if(!empty($data['country'])){
+            $query['hotel_country'] = $data['country'];
+        }
+
+        if(!empty($data['star'])){
+            $query['hotel_stars'] = $data['star'];
+        }
+
+        if (!empty($data['hotelname'])){
+            $query['hotel_name'] = $data['hotelname'];
+        }
+
+        if (!empty($data['area'])){
+            $query['hotel_area'] = $data['area'];
+        }
+
+        $criteria = $data;
 
 
+        //get list of hotels matching primary citeria
+        $hotelList = $this->Hotel->doPrimarySearch($query);
 
+        //use this hotel list to get the details of seasons and room availability;
 
+        //get details of all these hotels for display
+        $hotelDetails = $this->Hotel->fetchDetails($hotelList);
+        $criteria['total'] = count($hotelDetails);
 
+        //fetch facets for these hotels;
+        $facet['area'] = $this->Hotel->fetchFacet($hotelList,'area');
+        $facet['stars'] = $this->Hotel->fetchFacet($hotelList,'star');
 
-
-
+        $this->set('hotelDetails',json_encode($hotelDetails));
+        $this->set('criteria',$criteria);
+        $this->set('facet',$facet);
+        $this->set('paginator',$paginator);
 
     }
-
 
     public function booking(){
 
@@ -105,16 +149,38 @@ class HotelController extends Controller{
         $data['search_session'] = time().mt_rand();
         $data['type'] = $params['search_type'];
 
+        #split location into city and country;
+        $location = explode(",",$params['location']);
+
+        if ($location[1]){
+            if (trim($location[1]) == 'United Arab Emirates'){
+                $params['country'] = 'UAE';
+            } else {
+                $params['country'] = $location[1];
+            }
+        }
+        if(in_array($location[0],$this->cityList)){
+            $params['city'] = $location[0];
+        } else {
+            $params['country'] = $location[0];
+        }
+
+
         //prepare all the query params
         foreach($params as $field=>$value){
             if (!in_array($field,array('search_type','request_type'))){
                 if (in_array($field,array('checkin','checkout'))){
-                    $this->queryParams[$field] = date('dmY',strtotime($value));
+                    $this->queryParams[$field] = strtotime($value);
                 } else {
                     $this->queryParams[$field] = $value;
                 }
             }
         }
+
+        //get the nights of stay
+        $timeDiff = $this->queryParams['checkout'] - $this->queryParams['checkin'];
+        $dateDiff = $timeDiff / 24 / 3600;
+        $this->queryParams['nights']  = $dateDiff;
 
         $data['params'] = json_encode($this->queryParams);
 
@@ -135,6 +201,13 @@ class HotelController extends Controller{
             echo json_encode(array('response'=>'ok','status'=>'success','url'=>$redirect));
             exit;
         }
+    }
+
+    protected function parseLocation($location){
+
+
+
+
     }
 
 

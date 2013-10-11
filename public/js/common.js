@@ -129,5 +129,29 @@ var UTILS = {
             return letter.toUpperCase();
         });
         return str;
+    },
+
+    'limitText':function(text,limit){
+        try{
+            var textLimit = (limit) ? limit : 300,
+                variation = (limit < 50) ? limit : 50,	// limit the text between the chars eg. 300+/-50
+                plusVar = parseInt(textLimit,10) + parseInt(variation,10),
+                minusVar = textLimit-variation;
+            if(text.length > textLimit){
+                indexToSplit = text.indexOf('. ',textLimit);
+                if(indexToSplit > plusVar || indexToSplit < minusVar){ // If the indexToSplit greater/less than the variation, find for a space index
+                    indexToSplit = text.indexOf(' ',textLimit);
+                    if(indexToSplit > plusVar || indexToSplit < minusVar){
+                        indexToSplit = textLimit; // If still we cannot find a stopper, stop at the textLimt given
+                    }
+                }
+                return text.substring(0,indexToSplit)+' [..]';
+            } else {
+                return text;
+            }
+        } catch(e){
+            return text;
+        }
     }
+
 }

@@ -18,8 +18,6 @@
         <input type="hidden" name="search_type" id="searchType" value="basic">
         <input type="hidden" name="request_type" id="requestType" value="gethotel">
         <div class="frm-destination">
-            <input type="hidden" name="city" value="Dubai">
-            <input type="hidden" name="country" value="UAE">
             <input type="hidden" name="area" value="">
             <label>Place to stay..</label>
             <input type="text" class="span6" id="txtLocation" name="location" data-provide="typeahead" data-source='["Bahrain, Bahrain","Manama, Bahrain","Muscat, Oman","Salalah, Oman","Doha, Qatar","Abu Dhabi, United Arab Emirates","Ajman, United Arab Emirates","Alain, United Arab Emirates","Dubai, United Arab Emirates","Fujairah, United Arab Emirates","Hatta, United Arab Emirates","Khorfakkan, United Arab Emirates","Ras Al Khaimah, United Arab Emirates","Sharjah, United Arab Emirates","Umm Al Quwain, United Arab Emirates", "Bahrain", "Qatar", "Oman", "United Arab Emirates"]' data-items="10" placeholder="Country, City, Hotel Name to stay..." required>

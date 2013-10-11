@@ -106,3 +106,57 @@ function gallery() {
     //Display the content
     $('#gallery .content').html(caption);
 }
+
+
+var SEARCH = {
+
+    'buildHotelList':function(hotelList){
+
+        for (var i = 0; i < hotelList.length; i++) {
+            var hotel = hotelList[i]['Hotel'];
+
+            var item=$("#hotel").clone().attr("id","hotel_"+hotel['id']).attr("data-type",hotel['hotel_name']);
+
+            for(var title in hotel){
+                //console.log(typeof(hotel[title])+"---"+title);
+                if(title == "hotel_image"){
+                    item.find(".media-object").attt('src',hotel[title]);
+                }
+                if (title == "hotel_name"){
+                    item.find(".media-heading").html(UTILS.ucWords(hotel[title]));
+                }
+                if (title == "hotel_stars"){
+                    item.find(".star").attr("title",hotel[title]+"-star").addClass("star star"+hotel[title]).html("");
+                }
+                if (title == 'hotel_area'){
+                    if( hotel['hotel_area'] != '' ){
+                        item.find(".hotel_location").html("<i class='icon-map'></i> "+UTILS.ucWords(hotel[title]));
+                    } else {
+                        item.find(".hotel_location").html("");
+                    }
+                }
+                if (title == 'hotel_phone' && hotel['hotel_phone'] != ''){
+                    var html="";
+                    html += "Phone: "+hotel['hotel_phone'];
+                    if (hotel['hotel_fax'] != ''){
+                        html += ", Fax: "+hotel['hotel_fax'];
+                    }
+                    item.find(".hotel_contact").html("<i class='icon-contact'></i> "+html);
+                }
+                if (title == 'hotel_details' && hotel['hotel_details'] != ''){
+                    item.find(".hotel_details").html(UTILS.limitText(hotel['hotel_details'],250));
+                }
+
+
+            }
+            $(".media-list").append(item);
+            $(item).show();
+        }
+
+
+    }
+
+
+
+
+};
