@@ -56,6 +56,18 @@ class HotelController extends Controller{
      *
      * New filters requested
      * New Page requested
+     *
+     * Search Logic
+     * 1. Get list of all hotels matching the City / Country / Area
+     * 2. Filter it with the hotels matching the filter criteria of Stars
+     * 3. Get the IDs of all the above hotels
+     * 4. Query Hotel_tariff to fetch hotels within the matched hotels which
+     * have seasons with the said Checkin and Checkout dates
+     * 5. Query the resultant hotels to find if there are no. of asked room available
+     * for the hotels founds.
+     * 6. Also match to see if the room_type is allowed.
+     * 7. Get the final data and query hotels to get the details
+     * 8. display the hotels on the UI
      */
     public function search(){
 
@@ -103,6 +115,11 @@ class HotelController extends Controller{
         $hotelList = $this->Hotel->doPrimarySearch($query);
 
         //use this hotel list to get the details of seasons and room availability;
+        $checkIn = $data['checkin'];
+        $checkout = $data['checkout'];
+
+
+
 
         //get details of all these hotels for display
         $hotelDetails = $this->Hotel->fetchDetails($hotelList);

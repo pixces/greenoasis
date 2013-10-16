@@ -71,47 +71,49 @@
             <?php } ?>
         </div>
         <div class="green-span9 result-panel">
-            <div class="bg-blue searchCriteria">
-                <div class="">
-                    <span><?=$criteria['total']; ?></span><span> Hotels for:</span>
-                    <span><?=$criteria['location']; ?></span>
+            <div class="searchCriteria">
+                <div class="criteria-group-location pull-left">
+                    <span class="criteria-count"><?=$criteria['total']; ?></span><span class="criteria-label"> Hotels available for:</span><br>
+                    <span class="criteria-label"><?=$criteria['location']; ?></span>
                 </div>
-                <ul>
+                <ul class="criteria-group-meta pull-left clearfix">
                     <li>
-                        <span>
-                            <span>Check-in:</span>
-                            <span><?=date('d M, Y', $criteria['checkin']); ?></span>
+                        <span class="pull-left criteria-meta-date">
+                            <span class="criteria-label">Check-in:</span>
+                            <span class="criteria-date"><?=date('D d M, Y', $criteria['checkin']); ?></span>
                         </span>
-                        <span>
-                            <span>Check-out:</span>
-                            <span><?=date('d M, Y', $criteria['checkout']); ?></span>
+                        <span class="pull-left criteria-meta-date">
+                            <span class="criteria-label">Check-out:</span>
+                            <span class="criteria-date"><?=date('D d M, Y', $criteria['checkout']); ?></span>
                         </span>
                     </li>
                     <li>
-                        <span>
-                            <span>Nights:</span>
-                            <span><?=str_pad($criteria['nights'], 2, "0", STR_PAD_LEFT); ?></span>
+                        <span class="pull-left criteria-meta-room">
+                            <span class="criteria-label">Nights:</span>
+                            <span class="criteria-meta-night"><?=str_pad($criteria['nights'], 2, "0", STR_PAD_LEFT); ?></span>
                         </span>
-                        <span>
-                            <span>Room(s):</span>
-                            <span><?=str_pad($criteria['rooms'], 2, "0", STR_PAD_LEFT); ?></span>
+                        <span class="pull-left criteria-meta-room">
+                            <span class="criteria-label">Room(s):</span>
+                            <span class="criteria-meta-rooms"><?=str_pad($criteria['rooms'], 2, "0", STR_PAD_LEFT); ?></span>
                         </span>
-                        <span>
-                            <span>Pax size:</span>
-                            <span>01 Adult(s)</span>
+                        <span class="pull-left criteria-meta-room">
+                            <span class="criteria-label">Pax size:</span>
+                            <span class="criteria-meta-pax">01 Adult(s)</span>
                         </span>
                     </li>
                 </ul>
+                <div class="clearfix"></div>
             </div>
             <div class="list-controls">
-                <div class="paginate">
+                <div class="paginate pull-left">
                     <span>1-25 of 200 Hotels</span>
                     <span>Previous | Next</span>
                 </div>
-                <div class="sortSection">
+                <div class="sortSection pull-right">
                     <span>Sort By:</span>
                     <span></span>
                 </div>
+                <div class="clearfix"></div>
             </div>
             <div class="media-list">
             </div>
@@ -129,40 +131,52 @@
         <span class="hotel_location">BUR DUBAI</span><span class="hotel_contact"> Phone: 971043245999, Fax : 971043245656</span>
         <p class="hotel_details">Ideally located, Arabian Park Hotel is a short drive to Dubai International Airport, offers quick access to the Dubai World Trade Centre....</p>
         <span class="hotel_url"><a href=""><i class="icon-bookmark"></i> Hotel Information</a></span>
-        <!-- table class="">
+        <table class="table availability-list">
             <thead>
-            <tr>
-                <th class="">Room Type</th>
-                <th class="">Rate Basis</th>
-                <th class="">Rate Breakup</th>
-                <th></th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>Room Type</th>
+                    <th>Rate Basis</th>
+                    <th>Total Price</th>
+                    <th>Rate Breakup</th>
+                    <th class="noBg"></th>
+                    <th class="noBg"></th>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-                <td class="">Standard Room</td>
-                <td class="">RO</td>
-                <td class="">Rate breakup / details</td>
-                <td class="available">Available</td>
-                <td class="book"><a href="">Book</a></td>
-            </tr>
-            <tr>
-                <td>Standard Room</td>
-                <td>BB</td>
-                <td>Rate breakup / details</td>
-                <td class="request">On Request</td>
-                <td class="on-request"><a href="">Request</a></td>
-            </tr>
-            <tr>
-                <td>Standard Room</td>
-                <td>HB</td>
-                <td>Rate breakup / details</td>
-                <td class="available">Available</td>
-                <td class="book"><a href="">Book</a></td>
-            </tr>
+                <tr>
+                    <td>Standard Room</td>
+                    <td>RO</td>
+                    <td>Total</td>
+                    <td>Rate breakup / details</td>
+                    <td class="request">On Request</td>
+                    <td class="book">Book</td>
+                </tr>
+                <tr>
+                    <td>Standard Room</td>
+                    <td>RO</td>
+                    <td>Total</td>
+                    <td>Rate breakup / details</td>
+                    <td class="available">Available</td>
+                    <td class="book">Book</td>
+                </tr>
+                <tr>
+                    <td>Standard Room</td>
+                    <td>RO</td>
+                    <td>Total</td>
+                    <td>Rate breakup / details</td>
+                    <td class="available">Available</td>
+                    <td class="book">Book</td>
+                </tr>
+                <tr>
+                    <td>Standard Room</td>
+                    <td>RO</td>
+                    <td>Total</td>
+                    <td>Rate breakup / details</td>
+                    <td class="available">Available</td>
+                    <td class="book">Book</td>
+                </tr>
             </tbody>
-        </table -->
+        </table>
     </div>
 </div>
 <!-- template ends -->

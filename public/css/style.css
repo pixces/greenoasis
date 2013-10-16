@@ -655,7 +655,7 @@ h1 {
 .media-heading{
     padding-right: 15px;
     font-size: 24px;
-    color: #009CDD;
+    color: #60AAFF;
     font-weight: normal;
     float: left;
 }
@@ -721,6 +721,111 @@ span.hotel_images a {
     font-weight: bold;
     margin-right: 15px;
 }
+
+/* criteria group */
+.searchCriteria{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 5px solid #D2E3F7;
+    box-shadow: inset 0px 1px 4px #EAEAEA;
+    margin: 0 10px 10px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 13px;
+}
+
+.criteria-group-location{
+    width: 230px
+}
+
+.searchCriteria .criteria-count{
+    font-size: 180%;
+    color: #3E9A3C;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.searchCriteria .criteria-label{
+    font-size:16px;
+    font-family: "Ropa Sans";
+    color: #3E9A3C;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.searchCriteria ul.criteria-group-meta{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.searchCriteria ul.criteria-group-meta li{
+    padding-left: 15px;
+    border-left: 1px solid #CCCCCC;
+    float: left;
+    margin-left: 18px;
+}
+
+.searchCriteria ul.criteria-group-meta li span{
+    display: block;
+}
+
+.searchCriteria ul.criteria-group-meta li span.criteria-meta-date{
+    width: 130px;
+}
+
+.searchCriteria ul.criteria-group-meta li span.criteria-meta-room{
+    width: 90px;
+}
+
+/* hotel list controls */
+.list-controls{
+    margin: 15px 0px;
+    width: 100%;
+}
+
+/* availability list */
+table.availability-list{
+    margin-top: 15px;
+    width: 85%;
+}
+
+table.availability-list thead th{
+    background: none repeat scroll 0 0 #a0b7d1;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 5px;
+    border: 2px solid #FFFFFF;
+}
+table.availability-list thead th.noBg{
+    background-color: #FFFFFF;
+}
+
+table.availability-list td{
+    border: 2px solid #FFFFFF;
+    margin-right: 5px;
+    background: none repeat scroll 0 0 rgba(209, 228, 255, 0.43);
+}
+
+table.availability-list td.available,
+table.availability-list td.request{
+    background: none repeat scroll 0 0 #A8DF70;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: 12px;
+    width:15%;
+}
+
+table.availability-list td.request{
+    background: none repeat scroll 0 0 #df873c;
+}
+
+table.availability-list td.book {
+    background: none repeat scroll 0 0 #5C5C5C;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: 12px;
+    width:12.5%;
+}
+
 
 /* facets */
 input[type="radio"]{
