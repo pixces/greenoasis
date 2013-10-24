@@ -133,7 +133,6 @@ class HotelController extends Controller{
         $this->set('criteria',$criteria);
         $this->set('facet',$facet);
         $this->set('paginator',$paginator);
-
     }
 
     public function booking(){
