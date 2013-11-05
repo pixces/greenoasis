@@ -14,6 +14,7 @@ class Admin extends Model {
             return $result;
         }
 
+        return false;
 
     }
 
@@ -23,6 +24,7 @@ class Admin extends Model {
             $this->showHasOne();
             return $this->search();
         }
+        return false;
     }
 
     public function getBySlug()

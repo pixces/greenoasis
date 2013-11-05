@@ -112,7 +112,7 @@ class Controller
         foreach($this->_addModels as $model){
             $this->_loadModel($model);
         }
-
+        return;
     }
 
     public function set_pageType($type)

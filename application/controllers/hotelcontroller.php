@@ -33,6 +33,14 @@ class HotelController extends Controller{
                         'United Arab Emirates'=>'UAE'
                     );
 
+    protected $roomList = array(
+                        'Sgl' => array('single',1),
+                        'Dbl' => array('double',2),
+                        'Tpl' => array('triple',3),
+                        'Qad' => array('quad',4),
+                        'Unt' => array('unit',6)
+                    );
+
     protected $queryParams = array(
                                 'city'=>'',
                                 'country'=>'',
@@ -87,62 +95,84 @@ class HotelController extends Controller{
 
         $data = $sObj->fetchBySession();
 
-        $query = array();
-        if(!empty($data['city'])){
-            $query['hotel_city'] = $data['city'];
-        }
+        $availability = $this->Hotel->doHotelSearch($data);
 
-        if(!empty($data['country'])){
-            $query['hotel_country'] = $data['country'];
-        }
-
-        if(!empty($data['star'])){
-            $query['hotel_stars'] = $data['star'];
-        }
-
-        if (!empty($data['hotelname'])){
-            $query['hotel_name'] = $data['hotelname'];
-        }
-
-        if (!empty($data['area'])){
-            $query['hotel_area'] = $data['area'];
-        }
-
-        $criteria = $data;
-
-
-        //get list of hotels matching primary citeria
-        $hotelList = $this->Hotel->doPrimarySearch($query);
-
-        //use this hotel list to get the details of seasons and room availability;
-        $checkIn = $data['checkin'];
-        $checkout = $data['checkout'];
-
-
-
+        //extract the hotel ids from the list of availability
+        $hotelList = array_keys($availability);
 
         //get details of all these hotels for display
-        $hotelDetails = $this->Hotel->fetchDetails($hotelList);
-        $criteria['total'] = count($hotelDetails);
+        $hotelDetails = $this->Hotel->fetchHotelDetails($hotelList);
+
+        //get the hotel details and make update the availability status to it;
+        $hotels = $hotelDetails['details'];
+
+        //this is a strict implementation
+        //override when non strict is requested
+        $displayList = array();
+        foreach($hotels as $hotel){
+            $hotelDet = $hotel['Hotel'];
+
+            //get the hotel image for display
+
+
+            $availabilityDet = $availability[$hotelDet['id']];
+
+            $availIds = array_keys($availabilityDet);
+
+            //check for the tariff to be displayed
+            $tariffList = array();
+            if ($hotel['Tariff']){
+                foreach($hotel['Tariff'] as $tariff){
+                    if(in_array($tariff['id'],$availIds)){
+                        $tariff['occupancy'] = $availabilityDet[$tariff['id']]['occupancy'];
+                        $tariff['availability'] = $availabilityDet[$tariff['id']]['availability'];
+                        $tariffList[] = $tariff;
+                    }
+                }
+            }
+
+            $displayList[] = array('Hotel'=>$hotelDet,'Tariff'=>$tariffList);
+        }
 
         //fetch facets for these hotels;
         $facet['area'] = $this->Hotel->fetchFacet($hotelList,'area');
         $facet['stars'] = $this->Hotel->fetchFacet($hotelList,'star');
 
-        $this->set('hotelDetails',json_encode($hotelDetails));
-        $this->set('criteria',$criteria);
+        $this->set('hotelDetails',json_encode($displayList));
+
+        $data['total'] = $hotelDetails['Count'];
+        $data['search_session'] = $search_sid;
+
+        $this->set('criteria',$data);
         $this->set('facet',$facet);
         $this->set('paginator',$paginator);
     }
 
     public function booking(){
 
-        //on selecting a booking for a hotel
-        //the user will be redirected here to
-        //fill in information for the booking
+        if (!isset($this->_request['search_sid'])){
+            header("location: ".SITE_URL."/hotel/");
+            exit;
+        }
 
-        //validate if the Agent is Logged in before doing the
-        //the actual booking
+        //get the selected tariff info
+        $tariff_id = $this->_request['tariff'];
+        $tObj = new Hotel_Tariff();
+        $tObj->setId($tariff_id);
+        $details = $tObj->getById();
+
+        #get the package information
+        $searchSession = $this->_request['search_sid'];
+        $sObj = new Hotel_Session();
+        $sObj->search_session = $searchSession;
+        $packageDet = $sObj->fetchBySession();
+
+        //accumulate all details in one variable
+        $details['package'] = $packageDet;
+
+        $this->set('details',$details);
+
+        //print_r($details);
 
     }
 
@@ -165,12 +195,14 @@ class HotelController extends Controller{
         $data['search_session'] = time().mt_rand();
         $data['type'] = $params['search_type'];
 
+        //TODO:update search session in user_session
+
         #split location into city and country;
         $location = explode(",",$params['location']);
 
         if ($location[1]){
             if (trim($location[1]) == 'United Arab Emirates'){
-                $params['country'] = 'UAE';
+                $params['country'] = 'uae';
             } else {
                 $params['country'] = $location[1];
             }
@@ -181,6 +213,11 @@ class HotelController extends Controller{
             $params['country'] = $location[0];
         }
 
+        //get pax size and room type
+        $paxDet = $this->roomList[$params['roomtype']];
+
+        $params['roomtype'] = $paxDet[0];
+        $params['pax']['adult'] = $paxDet[1];
 
         //prepare all the query params
         foreach($params as $field=>$value){

@@ -51,8 +51,10 @@ $(function () {
         return false;
     });
 
-});
+    $(document).on('click','.btn-book-hotel',SEARCH.preBooking);
 
+
+});
 
 function slideShow() {
 
@@ -107,20 +109,26 @@ function gallery() {
     $('#gallery .content').html(caption);
 }
 
-
 var SEARCH = {
 
     'buildHotelList':function(hotelList){
 
         for (var i = 0; i < hotelList.length; i++) {
+
             var hotel = hotelList[i]['Hotel'];
+            var tariffList = hotelList[i]['Tariff'];
 
             var item=$("#hotel").clone().attr("id","hotel_"+hotel['id']).attr("data-type",hotel['hotel_name']);
 
             for(var title in hotel){
                 //console.log(typeof(hotel[title])+"---"+title);
-                if(title == "hotel_image"){
-                    item.find(".media-object").attt('src',hotel[title]);
+                if(title == "hotel_logo"){
+                    if ( hotel['hotel_logo'] != ''){
+                        var imgSrc = SITE_URL+"/public/upload/logo_"+ hotel['hotel_logo'];
+                        item.find(".media-object").attr('src',imgSrc);
+                    } else {
+                        item.find(".media-object").removeClass("img-polaroid");
+                    }
                 }
                 if (title == "hotel_name"){
                     item.find(".media-heading").html(UTILS.ucWords(hotel[title]));
@@ -146,15 +154,64 @@ var SEARCH = {
                 if (title == 'hotel_details' && hotel['hotel_details'] != ''){
                     item.find(".hotel_details").html(UTILS.limitText(hotel['hotel_details'],250));
                 }
-
-
             }
+
+            //append the media to media list and make it visible
             $(".media-list").append(item);
             $(item).show();
+
+            //console.log(tariffList.length);
+            //console.log(tariffList);
+
+            for(var j = 0; j < tariffList.length ; j++ ){
+                var tariff = tariffList[j];
+
+                var itm=$("#tariff").clone().attr("id","tariff_"+tariff['id']);
+
+                //add tariff id to the button
+                itm.find(".btn-book-hotel").attr("id",tariff['id']);
+
+                //add hotel id
+                itm.find(".btn-book-hotel").attr("data-hotel",hotel['id']);
+
+                for(var label in tariff){
+                    if(label == 'room_type'){
+                        itm.find(".room_type").html(UTILS.ucWords(tariff[label]));
+                    }
+                    if (label == 'meal_plan'){
+                        itm.find(".meal_plan").html(tariff[label]);
+                    }
+
+                }
+                $(".tariff-list").append(itm);
+                $(itm).show();
+            }
+
         }
 
 
+    },
+
+    //this will check for the valid agent signature
+    //if present will redirect to the booking page
+    //else it should throw a modal for Agent Login
+    'preBooking':function(){
+        alert("pre booking clicked");
+
+        //validate agent login
+        var obj = $(this);
+        var id = $(obj).attr('id');
+        var hotelId = $(obj).attr('data-hotel');
+        var searchSession = $(obj).attr('data-search-session');
+
+        var hrefUrl = SITE_URL+"/hotel/booking/?tariff="+id+"&hotel="+hotelId+"&search_sid="+searchSession;
+
+        //check for valid agent credentials
+
+        //redirect to the booking form
+        window.location.href = hrefUrl;
     }
+
 
 
 

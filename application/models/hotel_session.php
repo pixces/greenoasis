@@ -32,6 +32,7 @@ class Hotel_Session extends Model{
         if($details[0]['Hotel_Session']['params']){
             return json_decode( $details[0]['Hotel_Session']['params'], true);
         }
+        return false;
     }
 
     public function insertSession($data){

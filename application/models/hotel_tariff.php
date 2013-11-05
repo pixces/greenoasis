@@ -13,7 +13,13 @@ class Hotel_Tariff extends Model{
 
     public function getById()
     {
-        // TODO: Implement getById() method.
+        if(!isset($this->id)){
+            return false;
+        }
+
+        $this->showHasOne();
+        return $this->search();
+
     }
 
     public function getSeasons($hotel_id){

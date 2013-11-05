@@ -50,7 +50,7 @@
                 <option value="Sgl">Single Room</option>
                 <option value="Dbl">Double Room</option>
                 <option value="Tpl">Triple Room</option>
-                <option value="Tpl">Unit Room</option>
+                <option value="Unit">Unit Room</option>
             </select>
         </div>
         <button class="btn btn-green frm-btn-bottom" type="submit"><i class="icon-search icon-white"></i> Search</button>

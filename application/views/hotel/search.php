@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="facet-blue box-shadow">
-                <h5>Filter by Hotel Name:</h5>
+                <h5>Filter by Hotel Name:<span class="pull-right clear-wrap"><a class="clear-filter" href="">Clear All</a></span></h5>
                 <div class="facet facet-hotel">
                     <div class="input-append">
                         <input style="width:170px; font-size: 12px" id="appendedInputButton" type="text" placeholder="Enter Hotel Name....">
@@ -20,50 +20,39 @@
                 </div>
             </div>
             <div class="facet-blue box-shadow">
-                <h5>Filter by Star Rating:</h5>
+                <h5>Filter by Star Rating:<span class="pull-right clear-wrap"><a class="clear-filter" href="">Clear All</a></span></h5>
                 <div class="facet facet-stars">
-                    <p>
-                        <input class="pull-left" type="checkbox" name="star" data-name="filter" data-value="hotel_star" value="1">
-                        <span class="facet-label star star1"></span>
-                        <span class="facet-count badge pull-right"></span>
-                        <span class="clearfix"></span>
-                    </p>
-                    <p>
-                        <input class="pull-left" type="checkbox" name="star" data-name="filter" data-value="hotel_star" value="2">
-                        <span class="facet-label star star2"></span>
-                        <span class="facet-count badge pull-right"></span>
-                        <span class="clearfix"></span>
-                    </p>
-                    <p>
-                        <input class="pull-left" type="checkbox" name="star" data-name="filter" data-value="hotel_star" value="3">
-                        <span class="facet-label star star3"></span>
-                        <span class="facet-count badge pull-right"></span>
-                        <span class="clearfix"></span>
-                    </p>
-                    <p>
-                        <input class="pull-left" type="checkbox" name="star" data-name="filter" data-value="hotel_star" value="4">
-                        <span class="facet-label star star4"></span>
-                        <span class="facet-count badge pull-right"></span>
-                        <span class="clearfix"></span>
-                    </p>
-                    <p>
-                        <input class="pull-left" type="checkbox" name="star" data-name="filter" data-value="hotel_star" value="5">
-                        <span class="facet-label star star5"></span>
-                        <span class="facet-count badge pull-right"></span>
-                        <span class="clearfix"></span>
-                    </p>
+                    <?php for($i=1; $i<=5; $i++){ ?>
+                        <?php
+                            $disabled = "";
+                            $badgeClass = "badge-success";
+
+                            $starCount = isset($facet['stars'][$i]) ? $facet['stars'][$i] : 0;
+                            if($starCount == 0){
+                                $disabled = "disabled";
+                                $badgeClass = "";
+                            }
+                        ?>
+                        <p>
+                            <input class="pull-left" type="checkbox" name="star" data-name="filter" data-value="hotel_star" value="<?=$i; ?>" <?=$disabled; ?>>
+                            <span class="facet-label star star<?=$i; ?>"></span>
+                            <span class="facet-count badge pull-right <?=$badgeClass; ?>"><?=$starCount; ?></span>
+                            <span class="clearfix"></span>
+                        </p>
+                    <?php }  ?>
                 </div>
             </div>
             <?php if ($facet['area']){ ?>
             <div class="facet-blue box-shadow">
-                <h5>Filter by Location:</h5>
+                <h5>Filter by Location:<span class="pull-right clear-wrap"><a class="clear-filter" href="">Clear All</a></span></h5>
                 <div class="facet facet-area">
+
                     <?php foreach($facet['area'] as $area => $count){ ?>
                     <?php if ($area == '') { $area = 'Unknown'; } ?>
                         <p>
                             <input type="radio" name="area" data-name="filter" data-value="hotel_area" value="<?=$area; ?>">
                             <span class="facet-label"><?=$area; ?></span>
-                            <span class="facet-count badge pull-right"><?=$count; ?></span>
+                            <span class="facet-count badge pull-right badge-success"><?=$count; ?></span>
                         </p>
                     <?php } ?>
                 </div>
@@ -124,7 +113,7 @@
 <!-- actual hotel display template -->
 <div id="hotel" class="media hotel-item box-shadow" data-type="hotel" data-value="hotelname" style="display:none">
     <a class="pull-left" href="#">
-        <img class="media-object" src="">
+        <img class="media-object img-polaroid" src="">
     </a>
     <div class="media-body">
         <h4><span class="media-heading">Arabian Park Hotel</span><span class="star">3 Star</span></h4>
@@ -142,38 +131,14 @@
                     <th class="noBg"></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Standard Room</td>
-                    <td>RO</td>
-                    <td>Total</td>
-                    <td>Rate breakup / details</td>
-                    <td class="request">On Request</td>
-                    <td class="book">Book</td>
-                </tr>
-                <tr>
-                    <td>Standard Room</td>
-                    <td>RO</td>
-                    <td>Total</td>
-                    <td>Rate breakup / details</td>
+            <tbody class="tariff-list">
+                <tr id="tariff" style="display: none">
+                    <td class="room_type">Standard Room</td>
+                    <td class="meal_plan">RO</td>
+                    <td class=""><a href="">Total</a></td>
+                    <td class=""><a href="">Rate Breakup/Details</a></td>
                     <td class="available">Available</td>
-                    <td class="book">Book</td>
-                </tr>
-                <tr>
-                    <td>Standard Room</td>
-                    <td>RO</td>
-                    <td>Total</td>
-                    <td>Rate breakup / details</td>
-                    <td class="available">Available</td>
-                    <td class="book">Book</td>
-                </tr>
-                <tr>
-                    <td>Standard Room</td>
-                    <td>RO</td>
-                    <td>Total</td>
-                    <td>Rate breakup / details</td>
-                    <td class="available">Available</td>
-                    <td class="book">Book</td>
+                    <td class="book booking"><a href="javascript:void(0);" class="btn-book-hotel" id="tariffId" data-search-session="<?=$criteria['search_session']; ?>" data-hotel="hotel_id" data-action="booking" data-title="Book Hotel Room" title="Book Hotel Room"><i class="icon-shopping-cart icon-white"></i> Book Now!</a></td>
                 </tr>
             </tbody>
         </table>

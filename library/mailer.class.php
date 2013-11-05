@@ -81,6 +81,7 @@ class Mailer
         if ($this->layout) {
             return ROOT . DS . 'application' . DS . 'views' . DS . 'emails' . DS . $this->layout . ".php";
         }
+        return false;
     }
 
 

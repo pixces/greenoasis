@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>bootstrap.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>admin.css">
 
 </head>
 <body id="login-bg">

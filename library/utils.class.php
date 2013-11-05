@@ -350,7 +350,6 @@ class Utils
                 echo $handle->log;
                 echo '  Error creating main file: ' . $handle->error . '';
                 throw new Exception( '  Error creating main file: ' . $handle->error );
-                return false;
             }
 
             // yes, the file is on the server
@@ -387,7 +386,6 @@ class Utils
                         echo "Error creating ".$type." for image file ".$baseImgName .'<br />';
                         echo $handle->error;
                         throw new Exception( "Error creating ".$type." for image file ".$baseImgName . var_export($handle->error, true));
-                        return false;
                     }
                 }
             }
@@ -397,7 +395,6 @@ class Utils
             return $baseImgName . strtolower($imageExt);
         } else {
             throw new Exception( "Cannot upload image" . var_export($_FILES, true));
-            return false;
         }
     }
 
@@ -405,6 +402,18 @@ class Utils
         return (bool)count(array_filter(array_keys($array), 'is_string'));
     }
 
+    public static function getMealPlan($plan){
+
+        $type = strtolower($plan);
+
+        $plan = array(
+            'ro' => 'Room Only',
+            'bb' => 'Bed & Breakfast',
+            'HB' => 'Half Board',
+            'FB' => 'Full Board' );
+
+        return $plan[$type];
+    }
 
     /* end class */
 }

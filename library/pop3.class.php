@@ -264,6 +264,7 @@ class POP3
             return true;
         }
 
+        return false;
     }
 
     /**
