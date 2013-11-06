@@ -34,7 +34,7 @@
                             }
                         ?>
                         <p>
-                            <input class="pull-left" type="checkbox" name="star" data-name="filter" data-value="hotel_star" value="<?=$i; ?>" <?=$disabled; ?>>
+                            <input class="pull-left" type="checkbox" name="star" data-name="filter" data-value="hotel_star" onclick="showForThisStar(this,<?=$i; ?>)" value="<?=$i; ?>" <?=$disabled; ?>>
                             <span class="facet-label star star<?=$i; ?>"></span>
                             <span class="facet-count badge pull-right <?=$badgeClass; ?>"><?=$starCount; ?></span>
                             <span class="clearfix"></span>
@@ -148,5 +148,30 @@
 
 <script>
     var hotelList = <?php echo $hotelDetails; ?>;
-    SEARCH.buildHotelList(hotelList);
+    var workableList=hotelList;// this is to persist original data coming from server in hotelList
+    var facetsData=[];
+    SEARCH.buildHotelList(workableList);
+
+
+    function showForThisStar(dis,index)
+    {
+		var chks=$(dis).parent().parent().find("input:checked");
+		for(var i=0;i<chks.length;i++)
+		{
+			var slice=workableList.where([["Hotel.hotel_stars","==",$(chks[i]).val()]]);
+			 for(var j=0;j<slice.length;j++)
+				facetsData.push(slice[j]);		
+		}
+		console.log("facetsData-"+facetsData[0].length)
+		if(facetsData.length>0)
+			$(".media-list").children().remove();
+    	
+    	SEARCH.buildHotelList(facetsData);
+    	facetsData=[];
+    	
+    	    
+    }
+
+    
+    
 </script>

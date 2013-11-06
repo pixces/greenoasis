@@ -19,6 +19,7 @@
         <script src="<?=SITE_JS; ?>html5shiv.js" type="text/javascript"></script>
         <script src="<?=SITE_JS; ?>pngfix.js" type="text/javascript"></script>
         <script src="<?=SITE_JS; ?>bootstrap-datepicker.js" type="text/javascript"></script>
+        <script src="<?=SITE_JS; ?>ravs.JSQL.js" type="text/javascript"></script>
     </head>
     <body class="" data-type="">
         <!-- outer container -->
