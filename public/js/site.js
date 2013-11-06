@@ -181,15 +181,11 @@ var SEARCH = {
                     if (label == 'meal_plan'){
                         itm.find(".meal_plan").html(tariff[label]);
                     }
-
                 }
-                $(".tariff-list").append(itm);
+                item.find(".tariff-list").append(itm);
                 $(itm).show();
             }
-
         }
-
-
     },
 
     //this will check for the valid agent signature
@@ -197,7 +193,6 @@ var SEARCH = {
     //else it should throw a modal for Agent Login
     'preBooking':function(){
         alert("pre booking clicked");
-
         //validate agent login
         var obj = $(this);
         var id = $(obj).attr('id');
@@ -211,9 +206,4 @@ var SEARCH = {
         //redirect to the booking form
         window.location.href = hrefUrl;
     }
-
-
-
-
-
 };
