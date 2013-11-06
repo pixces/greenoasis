@@ -50,7 +50,7 @@
                     <?php foreach($facet['area'] as $area => $count){ ?>
                     <?php if ($area == '') { $area = 'Unknown'; } ?>
                         <p>
-                            <input type="radio" name="area" data-name="filter" data-value="hotel_area" value="<?=$area; ?>">
+                            <input type="radio" onclick="showForThisLocation(this)" name="area" data-name="filter" data-value="hotel_area" value="<?=$area; ?>">
                             <span class="facet-label"><?=$area; ?></span>
                             <span class="facet-count badge pull-right badge-success"><?=$count; ?></span>
                         </p>
@@ -147,31 +147,66 @@
 <!-- template ends -->
 
 <script>
-    var hotelList = <?php echo $hotelDetails; ?>;
-    var workableList=hotelList;// this is to persist original data coming from server in hotelList
-    var facetsData=[];
-    SEARCH.buildHotelList(workableList);
+var hotelList = <?php echo $hotelDetails; ?>;
+var workableList=hotelList;// this is to persist original data coming from server in hotelList
+var facetsData=[];
+SEARCH.buildHotelList(workableList);
 
 
-    function showForThisStar(dis,index)
-    {
-		var chks=$(dis).parent().parent().find("input:checked");
-		for(var i=0;i<chks.length;i++)
-		{
-			var slice=workableList.where([["Hotel.hotel_stars","==",$(chks[i]).val()]]);
-			 for(var j=0;j<slice.length;j++)
-				facetsData.push(slice[j]);		
-		}
-		console.log("facetsData-"+facetsData[0].length)
-		if(facetsData.length>0)
-			$(".media-list").children().remove();
-    	
-    	SEARCH.buildHotelList(facetsData);
-    	facetsData=[];
-    	
-    	    
-    }
+function showForThisStar(dis,index)
+{
+	var chks=$(dis).parent().parent().find("input:checked");
+	console.log(chks.length)
+	for(var i=0;i<chks.length;i++)
+	{
+		var slice=workableList.where([["Hotel.hotel_stars","==",$(chks[i]).val()]]);
+		 for(var j=0;j<slice.length;j++)
+			facetsData.push(slice[j]);		
+	}
+	console.log(facetsData.length)
+	if(facetsData.length>0)
+		$(".media-list").children().remove();
+	
+	SEARCH.buildHotelList(facetsData);
+	
 
-    
-    
+// RESET Location Filter
+	//console.log()
+	resetLocationFilter(facetsData.groupBy("Hotel.hotel_area"))
+	facetsData=[];
+	
+	    
+}
+
+
+function resetLocationFilter(data)
+{
+console.log(JSON.stringify(data));
+    var radios=$("input:radio");
+
+     for(var i=0;i<radios.length;i++)
+     {
+console.log("--"+$(radios[i]).next().text()+"--")
+			var index =data.hasKey($(radios[i]).next().text());
+			if(index>-1){
+				$(radios[i]).next().next().text(data[index].value.length);
+				$(radios[i]).removeAttr("disabled")
+			}
+			else{
+				$(radios[i]).next().next().text("0");
+				$(radios[i]).attr("disabled","disbaled")
+			}
+	 }   
+}
+
+
+function showForThisLocation(dis)
+{
+	$(".media-list").children().remove();
+	console.log($(dis).next().text());
+	SEARCH.buildHotelList(workableList.where([["Hotel.hotel_area","==","'"+$(dis).next().text()+"'"]])); 
+}
+
+
+
 </script>
