@@ -415,5 +415,33 @@ class Utils
         return $plan[$type];
     }
 
+    public static function getVisaPackage($type){
+
+        $package = array(
+            'tourist30' => array('Tourist Visa', 30),
+            'service14' => array('Service Visa', 14),
+            'visit30'=> array('Visit Visa', 30),
+        );
+
+        return $package[$type];
+
+    }
+
+    public static function convertUploadArray(&$file_post){
+
+        $file_ary = array();
+        $file_count = count($file_post['name']);
+        $file_keys = array_keys($file_post);
+
+        for ($i=0; $i<$file_count; $i++) {
+            foreach ($file_keys as $key) {
+                foreach($file_post[$key][$i] as $idx => $val){
+                    $file_ary[$i][$idx][$key] = $file_post[$key][$i][$idx];
+                }
+            }
+        }
+        return $file_ary;
+    }
+
     /* end class */
 }

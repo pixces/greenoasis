@@ -47,7 +47,7 @@
         </div>
         <div class="green-span9 result-panel">
             <section class="booking-items">
-                <h5>Booking Details & Prices</h5>
+                <h5>Room Pricing & Booking details</h5>
                 <div class="pull-left booking-data">
                     <span class="pull-left booking-meta-date">
                         <span class="criteria-label">Room Type:</span>
@@ -67,127 +67,58 @@
                         <th width="10%">Qty</th>
                         <th class="txt-rt" width="15%">Total Price</th>
                     </tr>
-                    <tr class="tbl-row-seperator">
-                        <td>Single</td>
-                        <td>100 AED</td>
-                        <td>2</td>
-                        <td>
-                            <select class="span1">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                    <?php foreach($details['pricing'] as $plan => $unit_price) { ?>
+                    <tr id="trPlan_<?=$plan; ?>" class="tbl-row-seperator tariff-plan" data-plan="<?=$plan; ?>" data-price="<?=$unit_price; ?>" data-nights="<?=$details['package']['nights']; ?>">
+                        <td class="clmn-room-plan"><?=ucwords(str_replace("_", " ", $plan)); ?></td>
+                        <td class="clmn-unit-price"><?=$unit_price; ?></td>
+                        <td class="clmn-nights"><?=$details['package']['nights']; ?></td>
+                        <td class="clmn-qty">
+                            <select id="select_<?=$plan; ?>" class="span1 qty-select" name="qty[]">
+                                <?php for($x=0;$x<=4; $x++) {
+                                    $selected = "";
+                                    if ($details['package']['roomtype'] == $plan ){
+                                        if ($details['package']['rooms'] == $x){
+                                            $selected = "selected";
+                                        }
+                                    }
+                                ?>
+                                    <option <?=$selected; ?>><?=$x; ?></option>
+                                <?php } ?>
                             </select>
                         </td>
-                        <td class="txt-rt clmn-price"><span class="row-price">200</span></td>
+                        <td class="txt-rt price"><span class="price-<?=$plan; ?>">0</span></td>
                     </tr>
-                    <tr class="tbl-row-seperator">
-                        <td>Double</td>
-                        <td>100 AED</td>
-                        <td>2</td>
-                        <td>
-                            <select class="span1">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </td>
-                        <td class="txt-rt clmn-price"><span class="row-price">200</span></td>
-                    </tr>
-                    <tr class="tbl-row-seperator">
-                        <td>Triple</td>
-                        <td>100 AED</td>
-                        <td>2</td>
-                        <td>
-                            <select class="span1">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </td>
-                        <td class="txt-rt clmn-price"><span class="row-price">200</span></td>
-                    </tr>
-                    <tr id="row-aEbed" class="tbl-row-seperator">
-                        <td>Adult Extra Bed</td>
-                        <td>100 AED</td>
-                        <td>2</td>
-                        <td>
-                            <select class="span1">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </td>
-                        <td class="txt-rt clmn-price"><span class="row-price">200</span></td>
-                    </tr>
-                    <tr class="tbl-row-seperator">
-                        <td>Child Extra Bed</td>
-                        <td>100 AED</td>
-                        <td>2</td>
-                        <td>
-                            <select class="span1">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </td>
-                        <td class="txt-rt clmn-price"><span class="row-price">200</span></td>
-                    </tr>
-                    <tr class="tbl-row-seperator">
-                        <td>Child Breakfast</td>
-                        <td>100 AED</td>
-                        <td>2</td>
-                        <td>
-                            <select class="span1">
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </td>
-                        <td class="txt-rt clmn-price"><span class="row-price">200</span></td>
-                    </tr>
+                    <?php } ?>
                     <tr class="tbl-row-subtotal">
                         <td colspan="3"></td>
                         <td class="txt-rt">Sub Total</td>
-                        <td class="txt-rt clmn-price"><span class="row-price">200</span></td>
+                        <td class="txt-rt price"><span class="subtotal-price">0</span></td>
                     </tr>
                     <tr class="tbl-row-grandtotal">
                         <td></td>
                         <td colspan="3" class="txt-rt">Grand Total</td>
-                        <td class="txt-rt">200</td>
+                        <td class="txt-rt"><span class="grand-total">0</span></td>
                     </tr>
                 </table>
             </section>
             <section class="passenger-information pull-left">
-                <h5>Travelers Details</h5>
-                <table class="pax-info">
-                    <tr>
-                        <td></td>
-                        <td>Full Name</td>
-                    </tr>
-                    <tr>
-                        <td><label>Adult</label></td>
-                        <td><input type="text" class="span4"></td>
-                    </tr>
-                    <tr>
-                        <td><label>Child</label></td>
-                        <td><input type="text" class="span4"></td>
-                    </tr>
-                </table>
+                <header>Travelers Details</header>
+                <div class="pax-group">
+                    <label class="group-title">Adult - 1</label>
+                    <select name="salutaion[]" class="span1">
+                        <option>Mr.</option>
+                        <option>Ms.</option>
+                        <option>Mrs.</option>
+                        <option>Ma.</option>
+                        <option>Dr.</option>
+                        <option>Er.</option>
+                    </select>
+                    <input type="text" id="inputFName_adult" name="fname[]" placeholder="First Name" class="span2">
+                    <input type="text" id="inputLName_adult" name="lname[]" placeholder="Last Name" class="span2">
+                </div>
             </section>
             <section class="instructions pull-left">
-                <h5>Instructions</h5>
+                <header>Booking Instructions</header>
                 <ul>
                     <li><label class="checkbox"><input type="checkbox"> Please note early arrival</label></li>
                     <li><label class="checkbox"><input type="checkbox"> Please note clients will arrive without voucher</label></li>
@@ -205,10 +136,72 @@
                     <li><label class="checkbox"><input type="checkbox"> If possible please provide adjoining rooms</label></li>
                     <li><label class="checkbox"><input type="checkbox"> If possible please provide room with bathtub</label></li>
                 </ul>
-                <h5>Addl. Special Instructions</h5>
+                <header>Special Instructions</header>
                 <textarea cols="5" rows="3" class="span6"></textarea>
             </section>
             <div class="clearfix"></div>
+            <section class="form-misc">
+                <p class="greyBg">
+                    <label class="checkbox" for="tnc_input"><input id="tnc_input" class="flL" type="checkbox" name="tnc_cb" checked="checked"> I agree to all the <a href="" target="_blank">terms and conditions</a> and have reviewed the <a href="">policies</a>.</label>
+                </p>
+                <p>
+                    <button class="btn btn-success" type="button">Continue Booking!</button>
+                </p>
+            </section>
+            <section class="hotel-policy">
+                <h5>Policies</h5>
+                <?php if($details['Hotel']['policy_cancellation'] != ''){ ?>
+                    <div class="policy-box box-shadow">
+                        <header>Cancellation Policy</header>
+                        <p><?=$details['Hotel']['policy_cancellation']; ?></p>
+                    </div>
+                <?php } ?>
+                <?php if($details['Hotel']['policy_occupancy'] != ''){ ?>
+                    <div class="policy-box box-shadow">
+                        <header>Occupancy Policy</header>
+                        <p><?=$details['Hotel']['policy_occupancy']; ?></p>
+                    </div>
+                <?php } ?>
+                <?php if($details['Hotel']['policy_child'] != ''){ ?>
+                    <div class="policy-box box-shadow">
+                        <header>Child Policy</header>
+                        <p><?=$details['Hotel']['policy_child']; ?></p>
+                    </div>
+                <?php } ?>
+            </section>
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+
+        var subtotal = 0;
+
+        $(".tariff-plan").each(function(){
+          //calculate the row total
+          var Obj = $(this);
+          var plan = Obj.attr("data-plan");
+          var unit_price = Obj.children(".clmn-unit-price").text();
+          var nights = Obj.children(".clmn-nights").text();
+          var qty = $("#select_"+plan).val();
+          var total = 0;
+
+          if (qty > 0){
+                total = parseInt(unit_price) * parseInt(nights) * parseInt(qty);
+          }
+
+          subtotal += total;
+          //update total to the price value
+          $(".price-"+plan).html(total);
+        });
+
+        //update subtotal
+        $(".subtotal-price").html(subtotal);
+
+        //get grand total
+        $(".grand-total").html(subtotal);
+    });
+
+
+</script>

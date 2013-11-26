@@ -551,23 +551,45 @@ h1 {
 
 }
 
-.static-content{
+.static-wrapper{
     background: #FFFFFF;
-    margin-right: 15px;
+    margin: 10px 15px 25px 0px;
     padding: 15px;
     min-height: 500px;
     line-height: 20px;
     border-radius: 10px;
+    border-top: 5px solid #E5F1FF;
 }
 
-.static-content h1{
+.static-wrapper h1{
     padding: 0 0 5px;
     font-size: 20px;
     color: #8dc63f;
     margin: 0px;
 }
 
-.static-content p{
+.static-wrapper p{
+    font-size: 13px;
+    line-height: 20px;
+    padding-bottom: 12px;
+}
+
+.content-left{
+    margin: 10px 15px 25px 0px;
+    padding: 15px 0 ;
+    line-height: 20px;
+}
+
+.content-left h1{
+    padding: 0 0 5px;
+    font-size: 20px;
+    /*color: #8dc63f; */
+    color: #5C5C5C;
+    margin: 0px;
+    line-height: 20px;
+}
+
+.content-left p{
     font-size: 13px;
     line-height: 20px;
     padding-bottom: 12px;
@@ -588,16 +610,14 @@ h1 {
 }
 
 .bg-blue,
-.facet-blue,
-.left-panel{
+.facet-blue{
     background: none repeat scroll 0 0 #E5F1FF;
     border: 1px solid #D2E3F7;
     padding: 10px;
     margin: 0 10px 10px 0px;
     width: 100%;
 }
-.facet-blue,
-.left-panel{
+.facet-blue{
     width: auto;
     background-color: #FFFFFF;
     border: 1px solid #EEEEEE;
@@ -615,8 +635,7 @@ h1 {
     width: 250px;
 }
 
-.facet-blue h5,
-.left-panel h5{
+.facet-blue h5 {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
     font-family: "Ropa Sans";
     font-weight: normal;
@@ -822,8 +841,6 @@ table.availability-list td.request{
 }
 
 /* facets */
-
-
 table.availability-list td.booking {
     background: none repeat scroll 0 0 #5C5C5C;
     border: 2px solid #FFFFFF;
@@ -831,11 +848,11 @@ table.availability-list td.booking {
     font-size: 12px;
 }
 
-a.btn-book-hotel{
+a.btn-hotel-booking{
     color: #FFFFFF;
 }
 
-a.btn-book-hotel:hover{
+a.btn-hotel-booking:hover{
     color: #FFFFFF;
 }
 
@@ -869,116 +886,108 @@ span a.clear-filter:hover{
     text-decoration: underline;
 }
 
-.result-panel h5{
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-    font-family: "Ropa Sans";
-    font-weight: normal;
-    margin: 0px 0px 15px 0px;
-    color: #3E9A3C;
-    font-size: 150%;
-}
-
-/* booking form */
-.hotel-info,
-.package-info{
-    padding-bottom: 10px;
+.visa-form .control-group{
     margin-bottom: 10px;
 }
 
-.sidebar-vertical{
-    margin-bottom: 5px;
+.visa-form .visa-basic{
+    margin-bottom: 25px;
 }
 
-.sidebar-vertical span{
-    width: 100%;
-    display: block;
+.visa-form legend{
+    font-family: "Ropa Sans";
+    font-size: 20px;
 }
 
-.hotel-info h5.meta-title{
-    font-size: 150%;
-    color: #333;
+.visa-form .appl-item{
+    border-bottom: 1px solid #E5E5E5;
+    padding: 15px 0px;
+}
+
+.visa-form .appl-item:last-child{
+    border: none;
+}
+
+.help-block {
+    font-style: italic;
+    font-family: arial;
+    font-size: 85%;
+    margin: 0px !important;
+    color: #999;
+}
+
+section.header{
+    background: none;
+}
+
+section.footer{
     padding-top: 10px;
 }
 
-.sidebar-vertical span.meta-details{
-
-}
-
-.sidebar-vertical span.meta-label{
-    color: #999;
-    font-weight: bold;
-}
-
-.booking-data{
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-.criteria-label{
-    font-size:16px;
-    font-family: "Ropa Sans";
-    color: #999;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-    display: block;
-}
-
-.criteria-data{
-    color: #333;
-    font-size: 110%;
-}
-
-.lft-border{
-    padding-left: 15px;
-    border-left: 1px solid #CCCCCC;
-    float: left;
-    margin-left: 18px;
-}
-
-.booking-meta-date{
-    float: left;
-    width: 200px;
-    display: block;
-}
-
-table.room-info,
-table.pax-info{
-    font-size: 12px;
-    margin-bottom: 15px;
-}
-
-table.room-info th{
+.confirm-details{
     border-top: 5px solid #D2E3F7;
-    border-bottom: 1px solid #C4C4C4;
-    color: #666666;
-    padding: 8px 5px;
-    text-align: left;
-}
-
-table.room-info .txt-rt{
-    text-align: right;
-}
-
-table.room-info tr.tbl-row-seperator td {
     border-bottom: 1px solid #E5E5E5;
-}
-table.room-info td {
-    padding: 8px 5px;
-    vertical-align: top;
-}
-table.room-info tr.tbl-row-subtotal td {
-    background-color: #F3F3F3;
+    font-size: 13px;
+    margin: 0 10px 10px 0;
+    padding: 10px;
 }
 
-table.room-info tr.tbl-row-grandtotal td{
-    font-size: 175%;
+ul.visa-info{
+    list-style: none outside none;
+    margin: 0;
+    padding: 0 0px 15px 0px;
+    width: 100%;
+
+}
+
+ul.visa-info li{
+    width: 25%;
+    border-left: 1px solid #E5E5E5;
+    padding-left: 15px;
+}
+ul.visa-info li:first-child{
+    border: none;
+    padding-left: 0px;
+}
+
+ul.visa-info li.bigbox{
+    width: 70%;
+}
+
+.visa-info li span{
+    display: block;
+}
+
+.visa-info li span.meta-label,
+.visa-pax-list li.pax-label
+{
+    color: #99999d;
     font-family: "Ropa Sans";
-   color: #73B819;
+    font-size: 16px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-.instructions ul{
-    list-style: none;
+.visa-info li span.info-section{
+    width: 32%;
 }
 
-.instructions ul li {
-    font-size: 12px;
+ul.visa-pax-list{
+    list-style: none outside none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+ul.visa-pax-list li{
+    padding: 5px;
+}
+
+ul.visa-pax-list li span{
+    display: inline-block;
+    padding-right: 15px;
+    width: 100px;
+}
+
+ul.visa-pax-list li span:first-child{
+    width: 150px;
 }

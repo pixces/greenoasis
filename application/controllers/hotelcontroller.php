@@ -161,6 +161,18 @@ class HotelController extends Controller{
         $tObj->setId($tariff_id);
         $details = $tObj->getById();
 
+        //get all items and prices from the tariff
+        $extraFields = array('id','hotel_id','season_name','room_count','date_start','date_end','market','room_type','meal_plan','date_modified','date_added');
+        $pricing = array();
+        foreach($details['Hotel_Tariff'] as $key => $value){
+            if (!in_array($key,$extraFields)){
+                if($value != 0){
+                    $pricing[$key] = $value;
+                }
+            }
+
+        }
+
         #get the package information
         $searchSession = $this->_request['search_sid'];
         $sObj = new Hotel_Session();
@@ -169,11 +181,11 @@ class HotelController extends Controller{
 
         //accumulate all details in one variable
         $details['package'] = $packageDet;
-
-        $this->set('details',$details);
+        $details['pricing'] = $pricing;
 
         //print_r($details);
 
+        $this->set('details',$details);
     }
 
     public function buildQuery(){

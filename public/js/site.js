@@ -13,6 +13,9 @@ $(function () {
     $("#dpCheckin").datepicker();
     $("#dpCheckout").datepicker();
 
+    //display datepicker for arrivaldate */
+    $("#dpArrival").datepicker();
+
     $("#hotelSearch").submit(function(e){
 
         e.preventDefault();
@@ -52,6 +55,10 @@ $(function () {
     });
 
     $(document).on('click','.btn-book-hotel',SEARCH.preBooking);
+
+    //add more applicants based on selected numbers
+    $("form.visa-form").on('change','#visa_count',VISA.addApplicants);
+
 
 
 });
@@ -206,4 +213,50 @@ var SEARCH = {
         //redirect to the booking form
         window.location.href = hrefUrl;
     }
+};
+
+var VISA = {
+
+    'addApplicants':function(){
+        var maxCount = 5;
+        var applicantCount = $("#visa_count").val();
+
+        //start with resetting everything
+        $(".appl-item").remove();
+
+        if (applicantCount > 0 ){
+
+            if( applicantCount > maxCount){
+                alert("More than "+maxCount+" applicants not allowed. Please check Admin");
+                return false;
+            }
+
+            for(var i=0; i < applicantCount; i++){
+
+                var item=$("#visaAppl_0").clone().attr("id","visaAppl_"+ i).attr("class","appl-item");
+
+                //change the field names accordingly
+                item.find(":input").each(function(){
+
+                    if ( $(this).attr('id') ) {
+
+                        var nodeId = $(this).attr('id');
+                        var splitId = nodeId.split("_");
+                        var nodeName = splitId[0] + "["+i+"]"+ "["+splitId[1]+"]";
+                        nodeId = splitId[0] + "_" + splitId[1] + "_" + i;
+
+                        $(this).attr('name',nodeName);
+                        $(this).attr('id',nodeId);
+                    }
+                });
+                $(".visa-pax-list").append(item);
+            }
+            $(".appl-item").show();
+            $(".visa-pax-list").fadeIn();
+        } else {
+            $(".visa-pax-list").fadeOut();
+        }
+
+    }
+
 };
