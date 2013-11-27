@@ -70,8 +70,9 @@ class VisaController  extends Controller {
                         }
 
                         //redirect the user to the confirmation page
-                        $_SESSION['visa_id'] = $application_id;
-                        header("location:".SITE_URL."/visa/confirmation/");
+                        $_SESSION['v_appId'] = $application_id;
+                        $hrefQuery = "vid=".$application_id."&dt[]=".strtotime($_POST['visa']['arrival'])."&pax=".$pax_count;
+                        header("location:".SITE_URL."/visa/confirmation/?".$hrefQuery);
                         exit;
                     } else {
                         //throw error that visa details cannot be saved
@@ -91,22 +92,24 @@ class VisaController  extends Controller {
         //also make sure to check if session_vid = $this->_request['vid'];
         $visa_id = isset($this->_request['vid']) ? $this->_request['vid'] : '';
 
-        if ($visa_id != ''){
+        //unset the visa id session
+        unset($_SESSION['v_appId']);
 
+        if ($visa_id != ''){
             //get the details based on the selecte visa_id
             $this->Visa->setId($visa_id);
             $det = $this->Visa->getById();
 
             if ($det){
                 //return the details
-                print_r($det);
+                //print_r($det);
+                $this->set('visa',$det);
             }
         } else {
             //redirect user to the visa page
+            header("location:".SITE_URL."/visa/");
+            exit;
         }
-
-
-
     }
 
 }

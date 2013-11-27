@@ -100,27 +100,27 @@
                 <h1>Tour Packages</h1>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img05.png" width="168" height="168"/>
-                    <h1>Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img06.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img07.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img08.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img09.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="clear"></div>
@@ -129,27 +129,27 @@
                 <h1>Combo Offers</h1>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img10.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=2">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img11.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=2">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img12.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=2">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img13.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=2">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img14.png" width="168" height="168"/>
-                    <h1>2 Days 3 Nights</h1>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=2">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
                 <div class="clear"></div>

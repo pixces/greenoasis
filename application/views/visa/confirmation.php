@@ -12,20 +12,20 @@
                     <ul class="visa-info pull-left clearfix">
                         <li class="pull-left">
                             <span class="meta-label">Application No.:</span>
-                            <span class="meta-details">VISA-91555</span>
+                            <span class="meta-details">VISA-<?=$visa['Visa']['id']; ?></span>
                         </li>
                         <li class="pull-left bigbox">
                             <span class="pull-left info-section">
                                 <span class="meta-label">Package:</span>
-                                <span class="meta-details">Tourist Visa (15 days)</span>
+                                <span class="meta-details"><?=ucwords($visa['Visa']['type'])." (".$visa['Visa']['validity']." days)"; ?></span>
                             </span>
                             <span class="pull-left info-section">
                                 <span class="meta-label">Pax Size:</span>
-                                <span class="meta-details">2 nos</span>
+                                <span class="meta-details"><?=$visa['Visa']['pax_count']." nos"; ?></span>
                             </span>
                             <span class="pull-left info-section">
                                 <span class="meta-label">Expected Arrival:</span>
-                                <span class="meta-details">Mon 21 Nov, 2013</span>
+                                <span class="meta-details"><?=date('D d M, Y', strtotime($visa['Visa']['arrival'])); ?></span>
                             </span>
                         </li>
                     </ul>
@@ -37,20 +37,15 @@
                             <span>Nationality</span>
                             <span>Passport No.</span>
                         </li>
+                        <?php foreach($visa['Visa_Pax'] as $pax){ ?>
                         <li>
-                            <span>Zainul Abdeen</span>
-                            <span>Male</span>
+                            <span><?=$pax['Visa_Pax']['fname']." ".$pax['Visa_Pax']['mname']." ".$pax['Visa_Pax']['lname']; ?></span>
+                            <span><?=ucwords(strtolower($pax['Visa_Pax']['gender'])); ?></span>
                             <span>32 Yrs</span>
-                            <span>Indian</span>
-                            <span>K-256256</span>
+                            <span><?=ucwords(strtolower($pax['Visa_Pax']['nationality'])); ?></span>
+                            <span><?=strtoupper($pax['Visa_Pax']['passport']); ?></span>
                         </li>
-                        <li>
-                            <span>Zarina Anju Abdeen</span>
-                            <span>Female</span>
-                            <span>30 Yrs</span>
-                            <span>Indian</span>
-                            <span>K-526528</span>
-                        </li>
+                        <?php } ?>
                     </ul>
                     <div class="clearfix"></div>
                 </section>
