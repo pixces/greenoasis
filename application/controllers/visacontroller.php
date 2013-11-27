@@ -107,8 +107,8 @@ class VisaController  extends Controller {
             }
         } else {
             //redirect user to the visa page
-            header("location:".SITE_URL."/visa/");
-            exit;
+            //header("location:".SITE_URL."/visa/");
+            //exit;
         }
     }
 

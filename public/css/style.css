@@ -574,9 +574,42 @@ h1 {
     padding-bottom: 12px;
 }
 
+.container-main {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 5px solid #E5F1FF;
+    line-height: 20px;
+    min-height: 300px;
+    padding: 15px;
+    width: 71%;
+}
+
+.container-main p{
+    font-size: 13px;
+    line-height: 20px;
+    padding-bottom: 12px;
+}
+
+.container-main h1{
+    padding: 0 0 5px;
+    font-size: 20px;
+    color: #8dc63f;
+    margin: 0px;
+}
+
+.sidebar{
+    width: 25.4%;
+}
+
+.sidebar-left{
+    float:left;
+    padding: 10px;
+    width: 21%;
+    margin-top: 5px;
+    border: 1px solid #EEEEEE;
+}
+
 .content-left{
     margin: 10px 15px 25px 0px;
-    padding: 15px 0 ;
     line-height: 20px;
 }
 
@@ -925,8 +958,7 @@ section.footer{
 }
 
 .confirm-details{
-    border-top: 5px solid #D2E3F7;
-    border-bottom: 1px solid #E5E5E5;
+    border: 1px solid #E5E5E5;
     font-size: 13px;
     margin: 0 10px 10px 0;
     padding: 10px;
@@ -937,7 +969,7 @@ ul.visa-info{
     margin: 0;
     padding: 0 0px 15px 0px;
     width: 100%;
-
+    border-bottom: 1px solid #E5E5E5;
 }
 
 ul.visa-info li{
@@ -990,4 +1022,18 @@ ul.visa-pax-list li span{
 
 ul.visa-pax-list li span:first-child{
     width: 150px;
+}
+
+/* tour page */
+.tour-main-panel{
+    float: left;
+    width: 595px;
+    min-height: 50px;
+}
+
+.tour-rtside-panel{
+    float: right;
+    width: 225px;
+    border:1px solid #EFEFEF;
+    min-height: 50px;
 }

@@ -1,8 +1,8 @@
 <!-- Start: Main Content --->
 <div class="content bg-white">
     <div class="container">
-        <div class="content-main pull-left">
-            <div class="heading"><h1>Visa: Application</h1></div>
+        <div class="heading"><h1>Visa: Application</h1></div>
+        <div class="container-main pull-left box-shadow">
             <div class="content-left">
                 <h1>Instructions</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -68,7 +68,7 @@
                 </form>
             </div>
         </div>
-        <div class="content-sidebar pull-left">
+        <div class="sidebar pull-right">
             <div class="widget adv300-170">
                 <img src="<?=SITE_URL; ?>/images/img03.png" width="300" height="170"/>
                 <div class="caption inverse">
