@@ -23,18 +23,67 @@
                     <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
                     <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                 </div>
+                <div class="package-basic">
+                    <span class="pull-left">
+                        <span class="title">Dubai Desert Safari</span>
+                        <span class="duration">- 5 Days | 4 Nighs</span>
+                    </span>
+                    <span class="pill pull-right"><i class="icon-family"></i>Family Vacation</span>
+                    <span class="clearfix"></span>
+                </div>
                 <!-- inclusions-->
-
+                <div class="inclusion">
+                    <h3>Inclusions</h3>
+                    <ul class="clearfix">
+                        <li class="clearfix">
+                            <div class="icLabel pull-left">
+                                <span class="icon-icHotel"></span>
+                                <span>Hotel</span>
+                            </div>
+                            <div class="icDetail pull-left">
+                                <ul>
+                                    <li>Stay in Dubai for 4 nights</li>
+                                    <li>Stay in 3 star hotels</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="icLabel pull-left">
+                                <span class="icon-icTravel"></span>
+                                <span>Transport</span>
+                            </div>
+                            <div class="icDetail pull-left">
+                                <ul>
+                                    <li>Includes return trip flight from New Delhi to Dubai</li>
+                                    <li>Include airport transfers</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="icLabel pull-left">
+                                <span class="icon-icOther"></span>
+                                <span>Others</span>
+                            </div>
+                            <div class="icDetail pull-left">
+                                <ul>
+                                    <li>Round trip Economy-class airfare on Applicable Airline</li>
+                                    <li>Currently applicable airport taxes</li>
+                                    <li>Daily breakfast</li>
+                                    <li>Accommodation for 04 nights in the mentioned hotel</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <!-- package details -->
-                <section>
-                    <h1>Package Details</h1>
+                <div class="clearfix package-details">
+                    <h3>Package Details</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </section>
-                <!-- Policies -->
-                <div class="tabbable">
+                </div>
+                <div class="clearfix package-policy tabbable">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab1" data-toggle="tab">Visa Policy</a></li>
                         <li><a href="#tab2" data-toggle="tab">Terms & Conditions</a></li>
@@ -54,8 +103,30 @@
                     </div>
                 </div>
             </div>
-            <div class="tour-rtside-panel">
+            <div class="tour-rtside-panel box-shadow square package-price">
+                <ul class="">
+                    <li>
+                        <span class="pkLabel">Destination:</span>
+                        <span class="pkDetail">Dubai, United Arab Emirates</span>
+                    </li>
+                    <li>
+                        <span class="pkLabel">Validity</span>
+                        <span>from:<span class="pkDetail">Thu, 21 Nov., 2013</span></span>
+                        <span>to:<span class="pkDetail">Thu, 21 Nov., 2013</span></span>
+                    </li>
+                </ul>
+                <p class="tour-aside">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="pkgPrice">
+                    <div>
+                        <p class="price">
+                            <span class="dollor">$</span>
+                            <span>750</span>
+                        </p>
+                        <p class="splinst">price per adult on twin sharing basis</p>
+                    </div>
 
+                    <button class="btn btn-danger" type="button">Book Package Now!</button>
+                </div>
             </div>
         </div>
         <div class="sidebar pull-right">

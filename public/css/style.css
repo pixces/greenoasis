@@ -728,8 +728,9 @@ span.star5{
 }
 
 .star1,.star2,.star3,.star4,.star5,
-.icon-map,.icon-contact
-{
+.icon-map,.icon-contact,
+.icon-icHotel,.icon-icTravel,.icon-icOther,
+.icon-family,.icon-honeymoon,.icon-spouse,.icon-alone{
     background: url("../images/ui-sprite.png") no-repeat scroll 0 0 rgba(0,0,0,0);
 }
 
@@ -1033,7 +1034,180 @@ ul.visa-pax-list li span:first-child{
 
 .tour-rtside-panel{
     float: right;
-    width: 225px;
+    width: 200px;
     border:1px solid #EFEFEF;
     min-height: 50px;
+}
+
+.carousel{
+    margin-bottom: 2px;
+}
+
+.package-basic{
+    background: none repeat scroll 0 0 #334E6B;
+    line-height: 30px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.package-basic span.title{
+    font-size: 20px;
+    color: #fff;
+    font-family: 'Ropa Sans', sans-serif;
+    font-weight: normal;
+    text-shadow: 0 1px 0px rgba(0, 0, 0, 0.25);
+}
+
+.package-basic .duration{
+    padding-left:10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.pill{
+    border: 1px solid #EFEFEF;
+    background: #EFEFEF;
+    padding: 0 10px;
+    border-radius: 10px;
+    color: #000;
+
+}
+
+.container-main h3{
+    color: #7B93AD;
+    font-size: 24px;
+    font-family: 'Ropa Sans', sans-serif;
+    margin-bottom: 0px;
+
+}
+
+.inclusion{
+
+}
+
+.inclusion ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.inclusion > ul > li {
+    border: 1px solid #E3E3E3;
+    margin-bottom: 10px;
+}
+
+.inclusion > ul > li > div.icLabel{
+    padding: 25px;
+    width: 100px;
+}
+
+.icLabel span{
+    font-size: 14px;
+    color: #333;
+}
+
+.icDetail{
+    border-left: 1px solid #E3E3E3;
+    min-height: 60px;
+    padding: 25px 15px;
+}
+
+.package-details,
+.package-policy{
+    margin-bottom: 15px;
+}
+
+.nav-tabs > li > a{
+    font-weight: bold;
+    font-size: 14px;
+    color: #7B93AD;
+}
+
+.package-policy{
+    border-bottom: 1px solid #EFEFEF;
+}
+.icon-family,.icon-honeymoon,.icon-spouse,.icon-alone{
+    width: 28px;
+    vertical-align: middle;
+    height: 28px;
+}
+
+.icon-icHotel, .icon-icTravel, .icon-icOther{
+    display: block;
+    width: 40px;
+    vertical-align: middle;
+    height: 28px;
+}
+
+.icon-family{
+    background-position: -138px -16px;
+}
+
+.icon-icHotel{
+    background-position: -86px -60px;
+}
+.icon-icTravel{
+    background-position: -0 -60px;
+}
+.icon-icOther{
+    background-position: -40px -55px;
+    height: 32px;
+}
+
+.square{
+    border-radius: 0px;
+}
+.package-price{
+    padding: 10px;
+}
+
+.package-price > ul{
+    list-style: none;
+    padding: 0px;
+    margin:0px;
+}
+
+.package-price > ul > li{
+    border-bottom: 1px solid #EFEFEF;
+    padding: 10px 0;
+}
+
+.package-price > ul > li span{
+    display: block;
+}
+
+.pkLabel{
+    font-size: 16px;
+    font-family: "Ropa Sans";
+    color: #3E9A3C;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.pkDetail{
+    font-size: 15px;
+}
+
+p.tour-aside{
+    font-style: italic;
+    padding: 15px 0;
+    text-align: center;
+}
+
+div.pkgPrice{
+    text-align: center;
+}
+
+.pkgPrice p.splinst{
+    font-size: 11px;
+    color: #333;
+    text-align: center;
+}
+
+.pkgPrice p.price{
+    font-size: 250%;
+    font-weight: bold;
+}
+
+.price{
+    color: #3E9A3C;
 }

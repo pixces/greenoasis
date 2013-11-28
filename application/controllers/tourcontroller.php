@@ -19,7 +19,7 @@ class TourController extends Controller {
          * city => City name
          * pType => package Type {1:tour;2:Combo}
          */
-        print_r($this->_request);
+        //print_r($this->_request);
 
     }
 
