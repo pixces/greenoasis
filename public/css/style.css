@@ -589,11 +589,17 @@ h1 {
     padding-bottom: 12px;
 }
 
-.container-main h1{
-    padding: 0 0 5px;
-    font-size: 20px;
+.container-main h1.thanks{
+    font-size: 60px;
     color: #8dc63f;
-    margin: 0px;
+    padding-left: 0px;
+    line-height: normal;
+}
+
+.green-title{
+    font-size: 18px;
+    color: #8dc63f;
+    font-family: "Ropa Sans";
 }
 
 .sidebar{
@@ -965,7 +971,9 @@ section.footer{
     padding: 10px;
 }
 
-ul.visa-info{
+ul.visa-info,
+ul.piped-info
+{
     list-style: none outside none;
     margin: 0;
     padding: 0 0px 15px 0px;
@@ -973,26 +981,38 @@ ul.visa-info{
     border-bottom: 1px solid #E5E5E5;
 }
 
-ul.visa-info li{
+ul.piped-info{
+    margin-bottom: 15px;
+}
+
+ul.visa-info li,
+ul.piped-info li
+{
     width: 25%;
     border-left: 1px solid #E5E5E5;
     padding-left: 15px;
 }
-ul.visa-info li:first-child{
+
+ul.visa-info li:first-child,
+ul.piped-info li:first-child
+{
     border: none;
     padding-left: 0px;
 }
 
-ul.visa-info li.bigbox{
+ul.visa-info li.bigbox,
+ul.piped-info li.bigbox{
     width: 70%;
 }
 
-.visa-info li span{
+.visa-info li span,
+.piped-info li span{
     display: block;
 }
 
 .visa-info li span.meta-label,
-.visa-pax-list li.pax-label
+.visa-pax-list li.pax-label,
+.piped-info li span.meta-label
 {
     color: #99999d;
     font-family: "Ropa Sans";
@@ -1000,7 +1020,9 @@ ul.visa-info li.bigbox{
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-.visa-info li span.info-section{
+.visa-info li span.info-section,
+.piped-info li span.info-section
+{
     width: 32%;
 }
 
@@ -1023,6 +1045,11 @@ ul.visa-pax-list li span{
 
 ul.visa-pax-list li span:first-child{
     width: 150px;
+}
+
+.footer h1{
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
 /* tour page */

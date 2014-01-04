@@ -443,5 +443,11 @@ class Utils
         return $file_ary;
     }
 
+    public static function sanitizeParams(&$array){
+        foreach($array as $key => $val){
+            self::sanitize($val);
+        }
+    }
+
     /* end class */
 }

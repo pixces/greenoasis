@@ -7,6 +7,7 @@ $routing = array(
     '/hotel\/(.*?)\/(.*)/'		        => 'hotel/\1/\2',
     '/visa\/(.*?)\/(.*)/'		        => 'visa/\1/\2',
     '/packages\/(.*?)\/(.*)/'		    => 'tour/\1/\2',
+    '/agent\/(.*)/' 					=> 'agent/\1',
     '/(.*?)\/(.*)/'						=> 'pages/display/\1/\2'
 );
 

@@ -55,13 +55,13 @@ class Mailer
 
     public function setSubject($subject)
     {
-        $this->mailer->Subject = '[ZebiZubair] ' . $subject;
+        $this->mailer->Subject = '[GreenOasis] ' . $subject;
     }
 
     public function setFrom($email = '', $name = '')
     {
         if (empty($email)) {
-            $this->mailer->SetFrom(ADMIN_EMAIL, 'Zebi Zubair');
+            $this->mailer->SetFrom(ADMIN_EMAIL, 'GreenOasis');
         } else {
             $this->mailer->SetFrom($email, $name);
         }
@@ -70,7 +70,7 @@ class Mailer
     public function addReplyTo($email = '', $name = '')
     {
         if (empty($email)) {
-            $this->mailer->SetFrom(ADMIN_EMAIL, 'Zebi Zubair');
+            $this->mailer->SetFrom(ADMIN_EMAIL, 'GreenOasis');
         } else {
             $this->mailer->SetFrom($email, $name);
         }

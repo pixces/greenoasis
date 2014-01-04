@@ -9,6 +9,7 @@ session_start();
 
 /** Configuration Variables **/
 define ('ENVIRONMENT','development');
+//define ('SITE_URL','http://demo.dubaigot.com');
 define ('SITE_URL','http://localhost:8888/greenoasis');
 define ('ENCRYPTION_SEED','3782adf93db49e7239836bb23072f31');
 define ('PREFIX_LOGO', 'logo_');
@@ -25,6 +26,14 @@ define ('IMG_HEIGHT_MEDIUM', 325);
 define ('IMG_WIDTH_LARGE', 335);
 define ('IMG_HEIGHT_LARGE', 390);
 define ('MAX_IMAGE_COUNT', 10);     //maximum images that can be uploaded
+
+//email setup
+define ('SMTP_HOST', 'mail.dubaigot.com');
+define ('SMTP_PORT', '26');
+define ('SMTP_USER', 'noreply@dubaigot.com');
+define ('SMTP_PASS', 'w7(cb$hFv(ye');
+define ('ADMIN_EMAIL','admin@dubaigot.com');
+
 
 
 
@@ -50,11 +59,11 @@ switch (ENVIRONMENT) {
         ini_set('error_log', ROOT . DS . 'tmp' . DS . 'error.log');
 
         //create connection params
-        define("DB_USER", "");
-        define("DB_PASSWORD", "");
-        define("DB_NAME", "");
-        define("DB_HOST", "");
-        define('DB_CHARSET', '');
+        define('DB_NAME', 'dubaigot_greenoasis');
+        define('DB_USER', 'dubaigot_green');
+        define('DB_PASSWORD', 'green@1234');
+        define('DB_HOST', 'localhost');
+        define('DB_CHARSET', 'utf8');
         define('DB_COLLATE', '');
 		break;
 }
