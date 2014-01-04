@@ -443,6 +443,47 @@ class AdminController extends Controller
 
     }
 
+
+    /*************************************
+     * Agents: Manage Agents
+     *************************************/
+    public function agents()
+    {
+        if($_SESSION['message'] || $_SESSION['error']){
+            foreach($_SESSION as $key=>$value){
+                if (in_array($key, array('message','error'))){
+                    $this->set('message',$value);
+                    $this->set('status',$key);
+                    //unset($_SESSION[$key]);
+                }
+            }
+        }
+
+        $agentObj = new Agent();
+        $counts = $agentObj->getCounts();
+
+
+        //get list of all agents
+        //order by the latest first
+        $agentObj->orderBy('date_added','DESC');
+        $agents = $agentObj->getAll();
+
+        if ($agents){
+            $agentList = array();
+            foreach ($agents as $agent) {
+                array_push($agentList, $agent['Agent']);
+            }
+        }
+
+        $this->set_pageTitle('Manage Agents');
+        $this->set_pageType('agents');
+        $this->set('agents', $agentList);
+        $this->set('counts', $counts);
+    }
+
+
+
+
     /*************************************
      * Pages: Static Site Content
      *************************************/
@@ -776,9 +817,9 @@ class AdminController extends Controller
             'dashboard' => array('url' => SITE_URL . '/admin/', 'name' => 'Dashboard'),
             'hotel' => array('url' => SITE_URL . '/admin/hotel/', 'name' => 'Hotels'),
             //'package' => array('url' => SITE_URL . '/admin/package/', 'name' => 'packages'),
-            //'agent' => array('url' => SITE_URL . '/admin/agent/', 'name' => 'Agents'),
+            'agents' => array('url' => SITE_URL . '/admin/agents/', 'name' => 'Agents'),
             //'visa' => array('url' => SITE_URL . '/admin/visa/', 'name' => 'Visa Request'),
-            //'booking' => array('url' => SITE_URL . '/admin/booking/', 'name' => 'Hotel Bookings'),
+            //'bookings' => array('url' => SITE_URL . '/admin/bookings/', 'name' => 'MyBookings'),
             'pages' => array('url' => SITE_URL . '/admin/pages/', 'name' => 'Pages'),
         );
         return $navigation;

@@ -8,6 +8,19 @@
  */ 
 class Agent extends Model {
 
+
+    //get the list of all agents
+    //order by latest added
+    public function getAll(){
+
+        $details = $this->search();
+        if ($details){
+            return $details;
+        }
+        return false;
+    }
+
+
     public function getById()
     {
         // TODO: Implement getById() method.

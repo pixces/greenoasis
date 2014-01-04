@@ -216,18 +216,37 @@ h4.media-heading {
     padding-right: 10px;
 }
 
+
 .media-body section.title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
+    margin-bottom: 10px;
     /*font-family: tahoma;*/
 }
+
+.media-body section.small,
+small
+{
+    color: #666666;
+    font-size: 11px;
+}
+
+small{
+    font-style: normal;
+    font-weight: normal;
+}
+
+.media-body section.contact{
+    color: #666666;
+    font-size: 13px;
+}
+
 
 .media-body p {
     padding-top: 5px;
     line-height: 18px;
     font-size: 13px;
     color: #666;
-
 }
 
 .media-meta,
@@ -241,6 +260,19 @@ h4.media-heading {
 
 .media-meta {
     width: 18%;
+}
+
+.agent-item > .media-body{
+    width:62%;
+}
+.agent-item > .media-action{
+    border-left: none;
+    padding-left: 0px;
+}
+.agent-item > .media-meta{
+    width: 16%;
+    border-right: 1px solid #EEEEEE;
+    padding-right: 10px;
 }
 
 .media-action span,
@@ -269,6 +301,38 @@ h4.media-heading {
 
 .span0 {
     width: 38px;
+}
+
+
+.credit .balance {
+    color: #070707;
+    float: left;
+    font-family: 'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    width: 100%;
+    margin: 0 0 6px;
+}
+
+.credit div {
+    background: none repeat scroll 0 0 #8EC63F;
+    border-radius: 2px;
+    color: #FFFFFF;
+    float: left;
+    font-size: 11px;
+    line-height: 20px;
+    padding: 0 3px;
+    text-align: right;
+    width: 180px;
+}
+
+.credit div.used {
+    margin: 5px 0;
+}
+
+.credit div.na {
+    background: none repeat scroll 0 0 #CCCCCC;
+    color: #666666;
 }
 
 /*-------- Table design update PAGE ------------------------------------------- */
