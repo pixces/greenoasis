@@ -443,7 +443,6 @@ class AdminController extends Controller
 
     }
 
-
     /*************************************
      * Agents: Manage Agents
      *************************************/
@@ -480,9 +479,6 @@ class AdminController extends Controller
         $this->set('agents', $agentList);
         $this->set('counts', $counts);
     }
-
-
-
 
     /*************************************
      * Pages: Static Site Content
@@ -620,7 +616,7 @@ class AdminController extends Controller
         die;
     }
 
-    public function page_swap_status(){
+    public function page_change_status(){
         $this->doNotRenderHeader = 1;
         if ($_POST) {
 
@@ -656,7 +652,7 @@ class AdminController extends Controller
                 return false;
             }
             //now process this image
-            $uploadFilename = Utils::uploadImage($_FILES['image']);
+            $uploadFilename = Utils::uploadImage($_FILES['image'],'content');
             if ($uploadFilename == true) {
                 $data['image'] = $uploadFilename;
             } else {
@@ -697,8 +693,16 @@ class AdminController extends Controller
         }
     }
 
+    /*************************************
+     * TODO: Settings
+     *************************************/
 
-    
+    public function settings(){
+        $this->set_pageTitle('Settings');
+        $this->set_pageType('settings');
+    }
+
+
     /*************************************
      * admin specific / general methods
      *************************************/
@@ -816,11 +820,12 @@ class AdminController extends Controller
         $navigation = array(
             'dashboard' => array('url' => SITE_URL . '/admin/', 'name' => 'Dashboard'),
             'hotel' => array('url' => SITE_URL . '/admin/hotel/', 'name' => 'Hotels'),
-            //'package' => array('url' => SITE_URL . '/admin/package/', 'name' => 'packages'),
+            'bookings' => array('url' => SITE_URL . '/admin/bookings/', 'name' => 'Bookings'),
+            'visa' => array('url' => SITE_URL . '/admin/visa/', 'name' => 'Visa'),
+            'package' => array('url' => SITE_URL . '/admin/package/', 'name' => 'Packages'),
             'agents' => array('url' => SITE_URL . '/admin/agents/', 'name' => 'Agents'),
-            //'visa' => array('url' => SITE_URL . '/admin/visa/', 'name' => 'Visa Request'),
-            //'bookings' => array('url' => SITE_URL . '/admin/bookings/', 'name' => 'MyBookings'),
             'pages' => array('url' => SITE_URL . '/admin/pages/', 'name' => 'Pages'),
+            //'settings' => array('url' => SITE_URL . '/admin/settings/', 'name' => 'Settings'),
         );
         return $navigation;
     }

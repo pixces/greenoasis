@@ -58,8 +58,6 @@
 
 <!-- include all js files -->
 <script src="<?=SITE_JS; ?>jquery.1.10.2.min.js" type="text/javascript" ></script>
-<script src="<?=SITE_JS; ?>functions.js" type="text/javascript"></script>
-<script src="<?=SITE_JS; ?>site-actions.js" type="text/javascript"></script>
 <script src="<?=SITE_JS; ?>bootstrap.js" type="text/javascript"></script>
 <script src="<?=SITE_JS; ?>html5shiv.js" type="text/javascript"></script>
 <script src="<?=SITE_JS; ?>pngfix.js" type="text/javascript"></script>

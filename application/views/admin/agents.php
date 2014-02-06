@@ -6,25 +6,31 @@
             <li id="agent-1" class="item media agent-item">
                 <div class="media-body pull-left">
                     <section class="title"><?=$agent['company']; ?></section>
-                    <section class="contact"><i class="icon icon-user"></i> <strong><?=ucwords(strtolower($agent['contact'])); ?></strong></section>
-                    <section class="contact"><i class="icon icon-envelope"></i> <?=$agent['phone']; ?> | <a href="mailto:<?=strtolower($agent['email']); ?>"><?=strtolower($agent['email']); ?></a></section>
+                    <section class="contact">
+                        <i class="icon icon-user"></i> <strong><?=ucwords(strtolower($agent['contact'])); ?></strong> |
+                        <i class="icon icon-envelope"></i> <?=$agent['phone']; ?> |
+                        <a href="mailto:<?=strtolower($agent['email']); ?>"><?=strtolower($agent['email']); ?></a>
+                    </section>
                     <section class="small"><i class="icon icon-map-marker"></i> <?=strtolower($agent['city']); ?>, <?=strtolower($agent['country']); ?></section>
+                    <section class="contact credit">
+                        <div class="total na">
+                            <span class="pull-left">Total</span>
+                            <span class="count">0</span>
+                        </div>
+                        <div class="used na">
+                            <span class="pull-left">Used</span>
+                            <span class="count">0</span>
+                        </div>
+                        <div class="grace na">
+                            <span class="pull-left">Grace</span>
+                            <span class="count">0</span>
+                        </div>
+                    </section>
                 </div>
+
                 <div class="media-meta pull-left credit">
                     Credits Balance
                     <span class="balance">0</span>
-                    <div class="total na">
-                        <span class="pull-left">Total</span>
-                        <span class="count">0</span>
-                    </div>
-                    <div class="used na">
-                        <span class="pull-left">Used</span>
-                        <span class="count">0</span>
-                    </div>
-                    <div class="grace na">
-                        <span class="pull-left">Grace</span>
-                        <span class="count">0</span>
-                    </div>
                 </div>
                 <div class="media-action pull-right">
                     <span><i class="icon-calendar"></i> <?=date('F d, Y', strtotime($agent['date_added'])); ?></span>

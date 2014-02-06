@@ -179,7 +179,7 @@
             <h1>Why Us</h1>
             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
             <p>Nam gravida tellus vestibulum ornare imperdiet. Pellentesque nunc mauris, venenatis quis porta id, lobortis at erat. Aliquam ac nisl facilisis, vestibulum felis eget, facilisis massa. Vestibulum molestie purus malesuada dolor gravida viverra. Aliquam at magna vitae orci consectetur condimentum et sed nunc. Sed enim dui, laoreet eu rhoncus non, ultricies sit amet metus. Vestibulum rutrum tristique nulla et fermentum. In congue ornare erat eu condimentum. Donec nibh leo, posuere vel ultricies non, posuere a felis. </p>
-            <a href="#"><h2>more</h2></a>
+            <a href="<?=SITE_URL; ?>/why-us/"><h2>more</h2></a>
         </div>
         <div class="getintouch">
             <h1>Get in Touch</h1>
@@ -197,11 +197,11 @@
             <p>Office : +971 426 83 811</p>
             <p>Mobile :+971 504 617410</p>
             <p>e-mail: info@dubaigot.com</p>
-            <a href="#"><img src="<?=SITE_URL; ?>/images/icon1.png" width="28" height="28" style=" margin-left:0px"/></a>
-            <a href="#"><img src="<?=SITE_URL; ?>/images/icon2.png" width="28" height="28"/></a>
-            <a href="#"><img src="<?=SITE_URL; ?>/images/icon3.png" width="28" height="28"/></a>
-            <a href="#"><img src="<?=SITE_URL; ?>/images/icon4.png" width="28" height="28"/></a>
-            <a href="#"><img src="<?=SITE_URL; ?>/images/icon5.png" width="28" height="28"/></a>
+            <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon1.png" width="28" height="28" style=" margin-left:0px"/></a>
+            <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon2.png" width="28" height="28"/></a>
+            <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon3.png" width="28" height="28"/></a>
+            <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon4.png" width="28" height="28"/></a>
+            <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon5.png" width="28" height="28"/></a>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>

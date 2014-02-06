@@ -10,11 +10,11 @@
         <fieldset>
             <div>
                 <label for="page_title">Page Title</label>
-                <input class="input-block-level" type="text" required id="page_title" type="text" value="<?=stripSlashesDeep($page['title']); ?>" name="title">
+                <input class="input-block-level" type="text" required id="page_title" type="text" value="<?=Utils::stripSlashesDeep($page['title']); ?>" name="title">
             </div>
             <div>
                 <label for="title_slug">Page Slug</label>
-                <input class="span6" type="text" required id="title_slug" type="text" value="<?=$page['slug']; ?>" name="slug">
+                <input class="span6" type="text" required="required" id="title_slug" type="text" value="<?=$page['slug']; ?>" name="slug">
             </div>
             <div>
                 <label for="parent">Select Parent Page</label>
@@ -43,23 +43,22 @@
             </div>
             <div>
                 <label for="content">Page Content</label>
-                <textarea name="content" id="content" rows="15" class="input-block-level ckeditor"><?=stripSlashesDeep($page['content']); ?></textarea>
+                <textarea name="content" id="content" rows="15" class="input-block-level ckeditor"><?=Utils::stripSlashesDeep($page['content']); ?></textarea>
             </div>
         </fieldset>
         <fieldset>
             <legend>Page Meta Details</legend>
-
             <div>
                 <label for="meta_title">Page Meta Title</label>
-                <textarea name="meta_title" id="meta_title" rows="2" class="input-block-level"><?=stripSlashesDeep($page['meta_title']); ?></textarea>
+                <textarea name="meta_title" id="meta_title" rows="2" class="input-block-level"><?=Utils::stripSlashesDeep($page['meta_title']); ?></textarea>
             </div>
             <div>
                 <label for="meta_keyword">Page Meta Keywords</label>
-                <textarea name="meta_keyword" id="meta_keyword" rows="2" class="input-block-level"><?=stripSlashesDeep($page['meta_keyword']); ?></textarea>
+                <textarea name="meta_keyword" id="meta_keyword" rows="2" class="input-block-level"><?=Utils::stripSlashesDeep($page['meta_keyword']); ?></textarea>
             </div>
             <div>
                 <label for="meta_description">Page Meta Description</label>
-                <textarea name="meta_description" id="meta_description" rows="2" class="input-block-level"><?=stripSlashesDeep($page['meta_description']); ?></textarea>
+                <textarea name="meta_description" id="meta_description" rows="2" class="input-block-level"><?=Utils::stripSlashesDeep($page['meta_description']); ?></textarea>
             </div>
         </fieldset>
         <p class="submit"><button type="submit" class="btn btn-primary">Save Page</button></p>

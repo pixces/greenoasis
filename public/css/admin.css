@@ -202,6 +202,10 @@ ul.list-panel li {
 
 }
 
+ul.list-panel li:last-child{
+    border: none;
+}
+
 ul.list-panel li img {
     width: 50px;
 }
@@ -303,7 +307,6 @@ small{
     width: 38px;
 }
 
-
 .credit .balance {
     color: #070707;
     float: left;
@@ -324,10 +327,11 @@ small{
     padding: 0 3px;
     text-align: right;
     width: 180px;
+    margin: 10px 10px 0 0;
 }
 
 .credit div.used {
-    margin: 5px 0;
+/*    margin: 5px 0; */
 }
 
 .credit div.na {

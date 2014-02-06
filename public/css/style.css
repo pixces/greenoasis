@@ -268,6 +268,18 @@ form{
     width: 25.4%;
 }
 
+.content > h1{
+    padding: 0 0 5px;
+    font-size: 20px;
+    color: #8dc63f;
+    margin: 0px;
+}
+
+.address-title{
+   font-size: 16px;
+    font-weight: bold;
+}
+
 .featured-items{
     width: 19.4%;
     margin-right: 5px;
@@ -1210,6 +1222,12 @@ ul.visa-pax-list li span:first-child{
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
+label{
+    font-size: 12px;
+    color: #777;
+    font-weight: bold;
+ }
+
 .pkDetail{
     font-size: 15px;
 }
@@ -1237,4 +1255,8 @@ div.pkgPrice{
 
 .price{
     color: #3E9A3C;
+}
+
+.media-container{
+    padding-right: 10px;
 }

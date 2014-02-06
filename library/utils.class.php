@@ -4,6 +4,25 @@
  */
 class Utils
 {
+    /**
+     * Function to convert a title into SEF title.
+     * Remove all the special character inputs into en dashes (-)
+     */
+    public static function createSEF($data)
+    {
+        $title = strtolower(addslashes(trim($data)));
+
+        $search = array('`', '!', '@', '#', '%', '^', '&', '*', '(', ')', '+', '|', ':', ';', '[', ']', '{', '}', '.', '/', ' ', '_', '-');
+        $repl = '-';
+        $sef_title = str_replace($search, $repl, $title);
+
+        #replace al multiple occurance of spl chars to single
+        $sef = preg_replace('/--+/', '-', $sef_title);
+
+        #remove any trailing space or '-'
+        return trim(trim($sef), "-");
+
+    }
 
     public static function hotelAmenities(){
         return array(
@@ -86,7 +105,7 @@ class Utils
             return false;
         }
 
-        $string = stripSlashesDeep(strip_tags(nl2br($text)));
+        $string = stripslashes(strip_tags(nl2br($text)));
         if (strlen($string) <= $length){
             return $string;
         }
@@ -299,6 +318,7 @@ class Utils
                         'ratio_y' => true,
                     );
                     break;
+                case 'content':
                 case 'gallery':
                     $resize['thumb'] = array(
                         'prefix' => PREFIX_THUMB,
@@ -448,6 +468,14 @@ class Utils
             self::sanitize($val);
         }
     }
+
+    /** Check for Magic Quotes and remove them **/
+    public static function stripSlashesDeep($value)
+    {
+        $value = is_array($value) ? array_map(array('self',__METHOD__), $value) : stripslashes($value);
+        return $value;
+    }
+
 
     /* end class */
 }

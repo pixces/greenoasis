@@ -63,7 +63,7 @@ class Controller
         $this->_controller = ucfirst($controller);
         $this->_action = $action;
 
-        $model = ucfirst($inflect->singularize($controller));
+        $model = ucfirst(Inflection::singularize($controller));
         $this->doNotRenderHeader = 0;
         $this->render = 1;
 

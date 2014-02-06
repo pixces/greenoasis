@@ -18,6 +18,20 @@ $(function(){
     //on click of delete link
     $(document).on('click','a.delete-link',ADMIN.deleteAction);
 
+    //actions to get sef title
+    $("#page_title").on('blur',ADMIN.createSEF);
+
+
+    //remove image from form
+    $('a.form-change-image').on('click',function(){
+        //change the padding
+        $(this).css( "padding-bottom", "0px" );
+
+        //hide this box
+        $(this).hide('slow',function(){
+            $('div.form-image-upload').show('slow');
+        })
+     });
 });
 
 
@@ -120,5 +134,18 @@ var ADMIN = {
             return false;
         }
         return false;
+    },
+
+    /** create SEF function */
+    'createSEF':function(){
+            var str = $(this).val();
+            var fetchUrl = SITE_URL + '/admin/createSEF/';
+
+            $.post(fetchUrl, {'str': str},
+                function (data) {
+                    //$('input[class="formTitleSlug"]').val(data);
+                    $('#title_slug').val(data);
+                });
+            return false;
     }
 }

@@ -7,7 +7,7 @@ class Page extends Model {
     }
 
     public function getAll(){
-        $this->orderBy('date_modified','DESC');
+        $this->orderBy('id','ASC');
         $list = $this->search();
 
         if ($list){

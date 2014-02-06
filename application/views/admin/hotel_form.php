@@ -53,7 +53,7 @@
             <div class="control-group">
                 <label class="control-label" for="inputAddress">Hotel Address</label>
                 <div class="controls">
-                    <textarea name="hotel_address" id="inputAddress" rows="2" class="span6" required><?=stripSlashesDeep($hotel['hotel_address']); ?></textarea>
+                    <textarea name="hotel_address" id="inputAddress" rows="2" class="span6" required><?=Utils::stripSlashesDeep($hotel['hotel_address']); ?></textarea>
                     <span class="help-block">Hotel address, with landmark.</span>
                 </div>
             </div>
@@ -120,7 +120,7 @@
             <div class="control-group">
                 <label class="control-label" for="inputDetails">Hotel Details</label>
                 <div class="controls">
-                    <textarea name="hotel_details" id="inputDetails" rows="3" class="span6" required><?=stripSlashesDeep($hotel['hotel_details']); ?></textarea>
+                    <textarea name="hotel_details" id="inputDetails" rows="3" class="span6" required><?=Utils::stripSlashesDeep($hotel['hotel_details']); ?></textarea>
                     <span class="help-block">Add hotel details</span>
                 </div>
             </div>
@@ -154,31 +154,31 @@
             <div class="control-group">
                 <label class="control-label" for="checkInOut_policy">Checkin/Checkout Policy</label>
                 <div class="controls">
-                    <textarea name="policy_checkinout" id="checkInOut_policy" rows="2" class="span8"><?=stripSlashesDeep($hotel['policy_checkinout']); ?></textarea>
+                    <textarea name="policy_checkinout" id="checkInOut_policy" rows="2" class="span8"><?=Utils::stripSlashesDeep($hotel['policy_checkinout']); ?></textarea>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="room_terms">Room Terms</label>
                 <div class="controls">
-                    <textarea name="policy_room_terms" id="room_terms" rows="2" class="span8"><?=stripSlashesDeep($hotel['policy_room_terms']); ?></textarea>
+                    <textarea name="policy_room_terms" id="room_terms" rows="2" class="span8"><?=Utils::stripSlashesDeep($hotel['policy_room_terms']); ?></textarea>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="room_occupancy">Room Occupancy</label>
                 <div class="controls">
-                    <textarea name="policy_occupancy" id="room_occupancy" rows="2" class="span8"><?=stripSlashesDeep($hotel['policy_occupancy']); ?></textarea>
+                    <textarea name="policy_occupancy" id="room_occupancy" rows="2" class="span8"><?=Utils::stripSlashesDeep($hotel['policy_occupancy']); ?></textarea>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="child_policy">Child Policy</label>
                 <div class="controls">
-                    <textarea name="policy_child" id="child_policy" rows="2" class="span8"><?=stripSlashesDeep($hotel['policy_child']); ?></textarea>
+                    <textarea name="policy_child" id="child_policy" rows="2" class="span8"><?=Utils::stripSlashesDeep($hotel['policy_child']); ?></textarea>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="cancellation_policy">Cancellation Policy</label>
                 <div class="controls">
-                    <textarea name="policy_cancellation" id="cancellation_policy" rows="2" class="span8"><?=stripSlashesDeep($hotel['policy_cancellation']); ?></textarea>
+                    <textarea name="policy_cancellation" id="cancellation_policy" rows="2" class="span8"><?=Utils::stripSlashesDeep($hotel['policy_cancellation']); ?></textarea>
                 </div>
             </div>
         </fieldset>

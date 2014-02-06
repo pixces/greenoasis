@@ -16,20 +16,30 @@ class PagesController extends Controller {
 
     public function index()
     {
-
-
+        //get the details form the social and contact group
+        $quickContact = Configurator::get('contact',1);
+        $social = Configurator::get('social',1);
     }
 
     function display(){
-
         $page_identifier = func_get_arg(func_num_args()-1);
-        $pageDet = $this->Page->getByIdentifier($page_identifier);
 
+        $pageDet = $this->Page->getByIdentifier($page_identifier);
         if ($pageDet){
             $this->set_pagetitle( $pageDet['Page']['title'] );
             $this->set('page',$pageDet['Page']);
         }
         $this->set_pageType('page');
+
+        //over ride the template file
+        //to make sure that the page rendered is that of contact not display
+        if ($page_identifier == 'contact'){
+            $this->setTemplate('contact');
+        }
+    }
+
+    function contact(){
+        return;
     }
 
 }

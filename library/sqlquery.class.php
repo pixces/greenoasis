@@ -162,7 +162,7 @@ class SQLQuery
         if ($this->_hO == 1 && isset($this->hasOne)) {
 
             foreach ($this->hasOne as $alias => $model) {
-                $table = strtolower($inflect->pluralize($model));
+                $table = strtolower(Inflection::pluralize($model));
                 $singularAlias = strtolower($alias);
                 $from .= 'LEFT JOIN `' . $table . '` as `' . $alias . '` ';
                 $from .= 'ON `' . $this->_model . '`.`' . $singularAlias . '_id` = `' . $alias . '`.`id`  ';
@@ -226,8 +226,8 @@ class SQLQuery
                         $conditionsChild = '';
                         $fromChild = '';
 
-                        $tableChild = strtolower($inflect->pluralize($modelChild));
-                        $pluralAliasChild = strtolower($inflect->pluralize($aliasChild));
+                        $tableChild = strtolower(Inflection::pluralize($modelChild));
+                        $pluralAliasChild = strtolower(Inflection::pluralize($aliasChild));
                         $singularAliasChild = strtolower($aliasChild);
 
                         $fromChild .= '`' . $tableChild . '` as `' . $aliasChild . '`';
@@ -271,8 +271,8 @@ class SQLQuery
                         $conditionsChild = '';
                         $fromChild = '';
 
-                        $tableChild = strtolower($inflect->pluralize($tableChild));
-                        $pluralAliasChild = strtolower($inflect->pluralize($aliasChild));
+                        $tableChild = strtolower(Inflection::pluralize($tableChild));
+                        $pluralAliasChild = strtolower(Inflection::pluralize($aliasChild));
                         $singularAliasChild = strtolower($aliasChild);
 
                         $sortTables = array($this->_table, $pluralAliasChild);
@@ -414,7 +414,7 @@ class SQLQuery
 
                 while ($row = mysql_fetch_row($this->_result)) {
                     for ($i = 0; $i < $numOfFields; ++$i) {
-                        $table[$i] = ucfirst($inflect->singularize($table[$i]));
+                        $table[$i] = ucfirst(Inflection::singularize($table[$i]));
                         $tempResults[$table[$i]][$field[$i]] = $row[$i];
                     }
                     array_push($result, $tempResults);

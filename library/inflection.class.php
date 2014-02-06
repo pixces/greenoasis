@@ -7,6 +7,8 @@
 
 class Inflection
 {
+    public static $irregularWords = array();
+
     static $plural = array(
         '/(quiz)$/i' => "$1zes",
         '/^(ox)$/i' => "$1en",
@@ -86,7 +88,7 @@ class Inflection
 
     public static function pluralize($string)
     {
-        global $irregularWords;
+        $irregularWords = self::$irregularWords;
 
         // save some time in the case that singular and plural are the same
         if (in_array(strtolower($string), self::$uncountable))
@@ -119,7 +121,7 @@ class Inflection
 
     public static function singularize($string)
     {
-        global $irregularWords;
+        $irregularWords = self::$irregularWords;
         // save some time in the case that singular and plural are the same
         if (in_array(strtolower($string), self::$uncountable))
             return $string;

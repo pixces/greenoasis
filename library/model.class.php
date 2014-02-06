@@ -9,10 +9,10 @@ Abstract class Model extends SQLQuery
 
         global $inflect;
 
-        $this->connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        $this->connect(HOST, USER, PASSWORD, NAME);
         $this->_limit = $this->limit;
         $this->_model = get_class($this);
-        $this->_table = strtolower($inflect->pluralize($this->_model));
+        $this->_table = strtolower(Inflection::pluralize($this->_model));
         if (!isset($this->abstract)) {
             $this->_describe();
         }

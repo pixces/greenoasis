@@ -11,5 +11,6 @@
     <div class="clearfix"></div>
 </div>
 <!-- End footer //-->
+<script src="<?=SITE_JS; ?>ckeditor_standard/ckeditor.js"></script>
 </body>
 </html>
