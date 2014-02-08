@@ -194,10 +194,10 @@
         </div>
         <div class="socialicons">
             <h1>Quick Contact</h1>
-            <p>Office : +971 426 83 811</p>
-            <p>Mobile :+971 504 617410</p>
-            <p>e-mail: info@dubaigot.com</p>
-            <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon1.png" width="28" height="28" style=" margin-left:0px"/></a>
+            <p>Office : <?=$contact['phone']; ?></p>
+            <p>Mobile :<?=$contact['fax']; ?></p>
+            <p>e-mail: <a href="mailto:<?=$contact['email']; ?>"><?=$contact['email']; ?></a></p>
+            <a href="<?=$social['twitter']; ?>" target="_blank"><img src="<?=SITE_URL; ?>/images/icon1.png" width="28" height="28" style=" margin-left:0px"/></a>
             <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon2.png" width="28" height="28"/></a>
             <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon3.png" width="28" height="28"/></a>
             <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon4.png" width="28" height="28"/></a>

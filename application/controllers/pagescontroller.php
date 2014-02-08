@@ -18,7 +18,11 @@ class PagesController extends Controller {
     {
         //get the details form the social and contact group
         $quickContact = Configurator::get('contact',1);
+
         $social = Configurator::get('social',1);
+
+        $this->set('social',$social);
+        $this->set('contact',$quickContact);
     }
 
     function display(){

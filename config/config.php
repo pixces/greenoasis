@@ -4,7 +4,6 @@ return array(
     'params'=>array(
         'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
         'site_url'=>'http://localhost:8888/greenoasis', //site url
-
     ),
     /* default controller and actions */
     'default'=>array(
