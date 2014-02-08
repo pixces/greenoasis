@@ -118,6 +118,15 @@ class AgentController extends Controller {
 
     public function login(){
 
+        //capture username and password
+        //check from db
+        //  check email == 'username' && password == md5(password) && status == 'approved'
+        //  if true
+        //        - set session and redirect to home page with sessions set
+        //        - else - throw error on the model window
+        //        - error -> Invalid Login Credentials. Please try again.
+
+
     }
 
     private function sendEmail($params,$template='registration',$isAdmin=true){
