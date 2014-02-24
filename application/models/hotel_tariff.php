@@ -10,6 +10,19 @@ class Hotel_Tariff extends Model{
 
     var $hasOne = array('Hotel' => 'Hotel');
 
+    private $hotelId = null;
+
+
+    public function setHotelId($hotelId){
+        if (isset($hotelId)){
+            $this->hotelId = $hotelId;
+        }
+    }
+
+    public function getHotelId(){
+        return $this->hotelId;
+    }
+
 
     public function getById()
     {
@@ -24,7 +37,11 @@ class Hotel_Tariff extends Model{
 
     public function getSeasons($hotel_id){
 
-        $sQl = "SELECT * FROM `".$this->_table."` WHERE `hotel_id` = '".$hotel_id."' GROUP BY `season_name`";
+        if (isset($hotel_id)){
+            $this->setHotelId($hotel_id);
+        }
+
+        $sQl = "SELECT * FROM `".$this->_table."` WHERE `hotel_id` = '".$this->getHotelId()."' GROUP BY `season_name`";
         $result = $this->custom($sQl);
         if ($result){
             $list = array();
@@ -40,7 +57,7 @@ class Hotel_Tariff extends Model{
 
     public function getTariffBySeason($season){
 
-        $sQl = "SELECT * FROM `".$this->_table."` WHERE `season_name` = '".$season."'";
+        $sQl = "SELECT * FROM `".$this->_table."` WHERE `season_name` = '".$season."' && `hotel_id` = '".$this->getHotelId()."'";
         $result = $this->custom($sQl);
         if ($result){
             return $result;

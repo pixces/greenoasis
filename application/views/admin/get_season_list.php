@@ -11,7 +11,7 @@ if ($list) { ?>
         <div id="season-<?=$season['Season']['id']; ?>" class="accordion-body collapse">
             <div class="accordion-inner">
                 <?php if($season['Tariff']) { ?>
-                    <table class="table table-striped">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>Room Type</th>
@@ -34,7 +34,9 @@ if ($list) { ?>
                                 <td><?=$tariff['Hotel_tariff']['double']; ?></td>
                                 <td><?=$tariff['Hotel_tariff']['triple']; ?></td>
                                 <td><?=$tariff['Hotel_tariff']['unit']; ?></td>
-                                <td></td>
+                                <td>
+                                    <a href="javascript:void(0);" class="delete-link btn btn-mini" id="<?=$tariff['Hotel_tariff']['id']; ?>" data-type="tariff" data-action="delete" data-title="<?=$season['Season']['season_name']; ?>" title="Delete Tariff for Season <?=ucwords(strtolower($season['Season']['season_name'])); ?>"><i class="icon-trash"></i></a>
+                                </td>
                             </tr>
                             <?php } ?>
                         </tbody>

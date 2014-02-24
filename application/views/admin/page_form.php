@@ -14,7 +14,7 @@
             </div>
             <div>
                 <label for="title_slug">Page Slug</label>
-                <input class="span6" type="text" required="required" id="title_slug" type="text" value="<?=$page['slug']; ?>" name="slug">
+                <input class="span6 formTitleSlug" type="text" required="required" id="title_slug" type="text" value="<?=$page['slug']; ?>" name="slug">
             </div>
             <div>
                 <label for="parent">Select Parent Page</label>
@@ -38,7 +38,7 @@
             </div>
             <div>
                 <label for="video">Video Url (if any)</label>
-                <input class="span6" type="text" id="video" name="video_url" value="<?=stripSlashesDeep($page['video_url']); ?>">
+                <input class="span6" type="text" id="video" name="video_url" value="<?=Utils::stripSlashesDeep($page['video_url']); ?>">
                 <span class="help-block">Add Youtube / Vimeo video link url. Video will be displayed at the end of the page.</span>
             </div>
             <div>

@@ -455,12 +455,10 @@ class SQLQuery
     }
 
     /** Delete an Object **/
-
     public function delete()
     {
         if ($this->id) {
             $query = 'DELETE FROM ' . $this->_table . ' WHERE `id`=\'' . mysql_real_escape_string($this->id) . '\'';
-
             $this->_result = mysql_query($query, $this->_dbHandle);
             $this->clear();
             if ($this->_result == 0) {
@@ -518,8 +516,6 @@ class SQLQuery
 
             $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
         }
-
-        //echo $query;
 
         $this->_result = mysql_query($query, $this->_dbHandle);
         $this->clear();

@@ -42,7 +42,6 @@ class Controller
         $this->_request = $_REQUEST;
 
         /*
-
         switch($this->method) {
             case 'DELETE':
             case 'POST':
@@ -83,6 +82,10 @@ class Controller
 
     function setTemplate($template){
         $this->_template->setTemplate($template);
+    }
+
+    public function setFlash($message,$type='s'){
+        $this->_template->setMessage($message,$type);
     }
 
     function __destruct()

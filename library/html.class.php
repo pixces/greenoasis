@@ -79,7 +79,7 @@ class HTML
             }
 
             if (!is_null($selected)){
-                $checked = (in_array($value,array_values( $selected) )) ? 'checked' : '';
+                $checked = (in_array($value,array_values($selected) )) ? 'checked' : '';
             }
 
             $break = ($t+1)%3 ? '' : '<br>';
@@ -88,6 +88,163 @@ class HTML
         }
 
         return implode(" ",$option);
+    }
+
+    /*
+        * select box of country
+        */
+    public static function selectCountry($name = NULL, $selected = 'India')
+    {
+        $countryList = array('Afghanistan', 'Arabia', 'Saudi', 'Argentina', 'Australia', 'Bahrain', 'Bangladesh', 'Bhutan', 'Brazil', 'Cambodia', 'Canada', 'China', 'Colombia', 'Costa Rica', 'Cuba', 'Czech Republic', 'Denmark', 'Egypt', 'Europe', 'European Union', 'Fiji', 'Finland', 'France', 'Germany', 'Ghana', 'Haiti', 'Holland', 'Hong Kong, (China)', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran, Islamic Republic of', 'Iraq', 'Israel', 'Italy', 'Japan', 'Korea, Dem. Peoples Rep.', 'Korea, (South) Republic of', 'Kuwait',
+            'Malaysia', 'Maldives', 'Mexico', 'Middle East', 'Morocco', 'Myanmar (ex-Burma)', 'Nepal', 'New Zealand', 'Oman', 'Pakistan', 'Philippines', 'Qatar', 'Russia (Russian Fed.)', 'Saudi Arabia', 'Seychelles', 'Singapore', 'South Africa', 'South America', 'Sri Lanka (ex-Ceilan)', 'Sudan', 'Switzerland', 'Syrian Arab Republic', 'Taiwan', 'Thailand', 'Turkey', 'United Arab Emirates', 'United Kingdom', 'United States');
+
+        if (is_null($name)) {
+            $name = "country";
+        }
+
+        $sBox = '<select name="' . $name . '" id="countryCombo" style="width:200px;">';
+        $sBox .= '<option value="">--- Select Country ---</option>';
+        foreach ($countryList as $country) {
+            if ($selected != NULL) {
+                if ($country == $selected) {
+                    $sel = 'selected="selected"';
+                } else {
+                    $sel = '';
+                }
+            }
+            $sBox .= '<option value="' . $country . '" ' . $sel . '>' . $country . '</option>';
+        }
+        $sBox .= "</select>";
+
+        return $sBox;
+    }
+
+    public static function selectCity($name)
+    {
+
+        global $db;
+        $citySql = "select `city_name` from rnp_cities order by `city_name` ASC";
+        $result = $db->get_results($citySql);
+
+        if ($result) {
+
+            $cityBox = "";
+            $cityBox .= '<select name="' . $name . '" id="bill_city" size="1" style="width:200px;"><option value="">Select a City</option>';
+
+            foreach ($result as $city) {
+                $cityBox .= '<option value="' . $city->city_name . '">' . $city->city_name . '</option>';
+            }
+        }
+        return $cityBox;
+    }
+
+    public static function selectDate()
+    {
+        $dateBox = "";
+        $dateBox .= '<select name="date" id="date" size="1"><option value="">Date</option>';
+
+        for ($x = 1; $x <= 31; $x++) {
+            $dateBox .= '<option value="' . str_pad($x, 2) . '">' . str_pad($x, 2) . '</option>';
+        }
+        $dateBox .= '</select>';
+
+        return $dateBox;
+    }
+
+    public static function selectMonth()
+    {
+
+        $monthArray = array('Jan', 'feb', 'march', 'april', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec');
+
+        $dateBox = "";
+        $dateBox .= '<select name="month" id="month" size="1"><option value="">Month</option>';
+
+        for ($x = 0; $x < count($monthArray); $x++) {
+            $dateBox .= '<option value="' . str_pad(($x + 1), 2) . '">' . ucwords($monthArray[$x]) . '</option>';
+        }
+        $dateBox .= '</select>';
+
+        return $dateBox;
+    }
+
+    public static function selectYear($future = NULL)
+    {
+
+        $dateBox = "";
+        $dateBox .= '<select name="year" id="year" size="1"><option value="">Year</option>';
+
+        if ($future != NULL) {
+            $start = date('Y');
+
+        } else {
+            $start = 1940;
+        }
+        $end = $start + 60;
+
+        for ($x = $start; $x <= $end; $x++) {
+            $dateBox .= '<option value="' . str_pad($x, 4) . '">' . str_pad($x, 4) . '</option>';
+        }
+        $dateBox .= '</select>';
+
+        return $dateBox;
+    }
+
+    /**
+     * @param $name
+     * @param array $data
+     * @param null $selected
+     * @return string
+     *
+     * TODO: Improve for Multi-select and OptGroups
+     */
+    public static function select($name, array $data, $selected=null)
+    {
+        /*
+        $data = Array (
+            1 => 'Desert Safari',
+            2 => 'Dhow Cruise',
+            3 => 'City Tours',
+            4 => 'Luxury Tours',
+            5 => 'Theme Parks',
+            6 => 'Water Activities',
+            7 => 'Sea Adventure' );
+         */
+
+        $options = array('<option value="0">--- Select ---</options>');
+        foreach($data as $value => $label){
+
+            if (!is_null($selected) && ($value == $selected)){
+                $options[] = '<option value="' . $value . '" selected="selected">' . trim($label) . '</options>';
+            } else {
+                $options[] = '<option value="' . $value . '">' . trim($label) . '</options>';
+            }
+
+        }
+
+
+        /*
+        foreach ($data as $unit => $label) {
+
+            if (is_array($label)) {
+                $options[] = '<optgroup label="' . $unit . '">' . $unit . '</optgroup>';
+
+                foreach ($label as $key => $value) {
+                    if (in_array($key, $selected)) {
+                        $options[] = '<option value="' . $key . '" selected="selected">' . trim($value) . '</options>';
+                    } else {
+                        $options[] = '<option value="' . $key . '">' . trim($value) . '</options>';
+                    }
+                }
+            } else {
+                if (in_array($unit, $selected)) {
+                    $options[] = '<option value="' . $unit . '" selected="selected">' . trim($label) . '</options>';
+                } else {
+                    $options[] = '<option value="' . $unit . '">' . trim($label) . '</options>';
+                }
+            }
+        } */
+
+        return sprintf('<select name="%s" id="%s">%s</select>',$name,'select_'.$name,implode("",$options));
     }
 
 }

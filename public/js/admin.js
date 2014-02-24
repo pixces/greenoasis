@@ -20,7 +20,7 @@ $(function(){
 
     //actions to get sef title
     $("#page_title").on('blur',ADMIN.createSEF);
-
+    $("#package_title").on('blur',ADMIN.createSEF);
 
     //remove image from form
     $('a.form-change-image').on('click',function(){
@@ -108,9 +108,7 @@ var ADMIN = {
         var title = $(obj).attr('data-title');
 
         var fetchUrl = SITE_URL + '/admin/'+ type + "_" + action;
-
         var rowId = type + "-" + id;
-
         var t = confirm("Sure!, you want to Delete " + type + ": " + title + "?");
         if (t == true) {
             $("#" + rowId).css({"background": '#FFEAEA'});
@@ -143,8 +141,8 @@ var ADMIN = {
 
             $.post(fetchUrl, {'str': str},
                 function (data) {
-                    //$('input[class="formTitleSlug"]').val(data);
-                    $('#title_slug').val(data);
+                    $('.formTitleSlug').val(data);
+                    //$('#title_slug').val(data);
                 });
             return false;
     }

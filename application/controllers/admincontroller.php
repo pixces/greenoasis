@@ -16,7 +16,6 @@ class AdminController extends Controller
     private $imageFilename;
     private $error;
 
-
     public function beforeAction()
     {
         if (!isset($_SESSION['isAdminLoggedIn'])) {
@@ -45,6 +44,7 @@ class AdminController extends Controller
 
     public function afterAction()
     {
+        /*
         //check and update common messages
         if (isset($_SESSION['error'])) {
             $this->_message_status = 'error';
@@ -66,13 +66,223 @@ class AdminController extends Controller
         if ($this->_flashmessage){
             $this->set('flashmessage',$this->_flashmessage);
         }
-
+        */
 
     }
 
     public function index()
     {
 
+    }
+
+    /*************************************
+     * Packages
+     *************************************/
+    public function package(){
+
+        $images = 0;
+        $packageObj = new Package();
+        $packageList = $packageObj->getAll();
+
+        foreach($packageList as &$package){
+            if (count($package['Package_Rate'])){
+                $package['Package']['price'] = $package['Package_Rate'][0]['Package_Rate']['price'];
+            }
+            $package['Package']['description'] = UTILS::smartSubStr($package['Package']['description'],250);
+        }
+        $this->set('packages',$packageList);
+        $this->set_pageTitle('Packages');
+        $this->set_pageType('package');
+        $this->set('addUrl',SITE_URL.'/admin/package_add/');
+    }
+
+    public function package_add(){
+
+        $package = new Package();
+
+        if ( $_POST && $_POST['form_action'] == 'add' && $_POST['package'] ) {
+
+                $error = 0;
+
+                $data_times = $_POST['package']['time'];
+                $data_rates = $_POST['package']['rate'];
+
+                $package->setAttributes( $_POST['package'] );
+
+
+                if ( $package->save() ){
+                    $package_id = $package->insert_id;
+
+                    //save package times
+                    $packageTime = new Package_Time();
+                    $packageRate = new Package_Rate();
+                    try{
+                        //save data for rates
+                        $packageRate->saveAll($data_rates,$package_id);
+                        //save data for times
+                        try{
+                            $packageTime->saveAll($data_times,$package_id);
+                        } catch (Exception $e){
+                            $this->setFlash($e->getMessage(),'e');
+                        }
+                    } catch (Exception $e){
+                        $this->setFlash($e->getMessage(),'e');
+                    }
+                    $this->setFlash('Package '.$_POST['package']['title'].' successfully added.','s');
+                } else {
+                    $this->setFlash('Cannot save package '.$_POST['package']['title'],'e');
+                }
+                header("location:".SITE_URL."/admin/package/");
+                exit;
+        }
+
+        $this->set_pageTitle('Packages: Add Package');
+        $this->set('categoryOptions', $package->getCategoryOptions());
+        $this->set('action', 'add');
+        $this->set_pageType('package');
+        $this->setTemplate('package_form');
+    }
+
+    public function package_edit(){
+
+    }
+
+    public function package_image(){
+
+        if ($_POST && $_POST['form_action'] == 'uploadImage'){
+            if ($_POST['package_id'] && $_FILES['image']['error'] == 0){
+                $data = $_POST;
+
+                try{
+                    //check and upload image
+                    if ($_FILES['image']['tmp_name']) {
+                        $errorIdx = $_FILES['image']['error'];
+
+                        if ($errorIdx > 0) {
+                            $this->error = "Unable to save post. Cannot Upload Image";
+                            return false;
+                        }
+                        //now process this image
+                        $uploadFilename = Utils::uploadImage($_FILES['image'],'gallery');
+                        if ($uploadFilename == true) {
+                            $data['image_name'] = $uploadFilename;
+                        } else {
+                            $this->error = "Some unknown error. Cannot retrieve uploaded file name";
+                            return false;
+                        }
+                    }
+
+                    $imgModel = new Package_Image();
+                    $imgModel->setAttributes($data);
+
+                    if ($imgModel->save()){
+                        $this->_flashmessage = array('status'=>'success', 'message'=> 'Image uploaded successfully');
+                        header("location: ".$_SERVER['HTTP_REFERER']) ;
+                        exit;
+                    } else {
+                        $message = "Cannot update the database with details";
+                        $this->_flashmessage =  array('status'=>'error', 'message'=> $message);
+                        return false;
+                    }
+                } catch (Exception $e){
+                    $this->_flashmessage =  array('status'=>'error', 'message'=> 'Image cannot be upload: '.$e->getMessage());
+                }
+            }
+        }
+
+        $imgCount = 0;
+        $id = func_get_arg(func_num_args()-1);
+
+        //get the images added in for this package
+        $model = new Package_Image();
+        $imgDetails = $model->findByPackage($id);
+
+        if (!$imgDetails){
+            $pkgModel = new Package();
+            $result = $pkgModel->getById($id);
+
+            if ($result){
+                $pkgDetails = $result['Package'];
+            }
+        } else {
+            $pkgDetails = $imgDetails['Package'][$id];
+            $imgList = $imgDetails['Package_image'];
+            $imgCount = count($imgList);
+        }
+
+        if (!$pkgDetails){
+            header("location: ".SITE_URL."admin/package/");
+            exit;
+        }
+
+        $this->set('model',$pkgDetails);
+        $this->set('imageList',$imgList);
+        $this->set('imageCount',$imgCount);
+        $this->set_pageTitle('Package: Manage Images');
+        $this->set_pageType('package');
+
+    }
+
+    //this is an ajax call
+    public function package_change_status(){
+
+        if ($_POST){
+
+            $id = $_POST['id'];
+            $currentStatus = $_POST['data'];
+
+            $model = new Package();
+            $model->setId($id);
+            $result = $model->toggleStatus($currentStatus);
+            if ($result) {
+                echo json_encode(array('result' => 'Success', 'message' => 'Status updated; set to ' . $result, 'response' => $result));
+            } else {
+                echo json_encode(array('result' => 'Error', 'message' => "Cannot update status"));
+            }
+        }
+        exit;
+    }
+
+    public function package_delete(){
+
+        if ($_POST){
+
+            $id = $_POST['id'];
+            $title = $_POST['title'];
+
+            $model = new Package();
+            $model->setId($id);
+
+            try {
+                if ($model->delete()) {
+                    echo json_encode(array('status' => 'success', 'message' => "Package " . $_POST['title'] . " has been removed"));
+                } else {
+                    echo json_encode(array('status' => 'error', 'message' => "Failed removing package " . $_POST['title']));
+                }
+            } catch (Exception $e) {
+                echo json_encode(array('status' => 'error', 'message' => $e->getMessage()));
+            }
+        }
+        exit;
+    }
+
+    public function package_image_delete(){
+
+        $id = $_POST['id'];
+
+        $model = new Package_Image();
+        $model->setId($id);
+
+        try {
+            if ($model->delete()) {
+                echo json_encode(array('status' => 'success', 'message' => "Image successfully removed."));
+            } else {
+                echo json_encode(array('status' => 'error', 'message' => "Failed removing image."));
+            }
+        } catch (Exception $e) {
+            echo json_encode(array('status' => 'error', 'message' => $e->getMessage()));
+        }
+        exit;
     }
 
     /*************************************
@@ -359,7 +569,32 @@ class AdminController extends Controller
         exit;
     }
 
-    private function save_hotel_details($data){
+    public function tariff_delete(){
+        if ($_POST){
+            if (isset($_POST['id'])){
+                $tariff_id = $_POST['id'];
+
+                $tariffObj = new Hotel_Tariff();
+                $tariffObj->setId($tariff_id);
+
+                try {
+                    if ($tariffObj->delete()) {
+                        echo json_encode(array('status' => 'success', 'message' => "Hotel tariff for hotel id " . $hotel_id . " has been removed"));
+                    } else {
+                        echo json_encode(array('status' => 'error', 'message' => "Failed removing hotel tariff"));
+                    }
+                } catch (Exception $e) {
+                    echo json_encode(array('status' => 'error', 'message' => $e->getMessage()));
+                }
+
+
+
+
+            }
+        }
+    }
+
+     private function save_hotel_details($data){
 
         # check and save the hotel logo
         if ($_FILES['image']['tmp_name']) {
@@ -424,7 +659,7 @@ class AdminController extends Controller
             if ($uploadFilename == true) {
                 $data['image_name'] = $uploadFilename;
             } else {
-                $this->error = "Some unknown error. Cannot retrive uploaded file name";
+                $this->error = "Some unknown error. Cannot retrieve uploaded file name";
                 return false;
             }
         }

@@ -71,10 +71,7 @@
             </div>
         </div>
         <!-- display notification on all pages -->
-        <div class="alert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <span class="message">Default message goes here....</span>
-        </div>
+        <?php $flash->get(); ?>
         <!-- Notification ends -->
         <!-- main content area start -->
         <div>

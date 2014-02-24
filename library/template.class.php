@@ -6,6 +6,7 @@ class Template
     protected $_controller;
     protected $_action;
     protected $_templateFile;
+    protected $_flashObject = null;
 
     public function __construct($controller, $action)
     {
@@ -23,11 +24,26 @@ class Template
         $this->_templateFile = $template;
     }
 
+    /** function to set flash message from the controller */
+    public function setMessage($message,$type='s'){
+        $this->getFlashObj()->set($type,$message);
+    }
+
+    /** function to get instance of message class */
+    public function getFlashObj(){
+        if (!isset($this->_flashObject)){
+            $this->_flashObject = new Message();
+        }
+        return $this->_flashObject;
+    }
+
     /** Display Template **/
 
     public function render($doNotRenderHeader = 0)
     {
         $html = new HTML;
+        $flash = $this->getFlashObj();
+
         extract($this->variables);
 
         $template_filename = !empty($this->_templateFile) ? $this->_templateFile : $this->_action;

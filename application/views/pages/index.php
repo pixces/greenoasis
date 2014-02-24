@@ -59,7 +59,7 @@
 <!-- End: Basic Search -->
 <!-- Start: Featured Hotels -->
 <div class="container">
-    <section class="featured hotel-list">
+    <!-- section class="featured hotel-list">
         <h1>Featured Hotels</h1>
         <div class="hotel-item-box01 pull-left" data-name="Costa Baja Resort">
             <img src="<?=SITE_URL; ?>/images/img01.png" width="258" height="132" />
@@ -96,6 +96,35 @@
     <!-- Start: Main Content -->
     <div class="content">
         <div class="content-main pull-left">
+            <section class="featured featured-item-list" data-name="tours">
+                <h1>Tour Packages</h1>
+                <div class="featured-items pull-left">
+                    <img src="<?=SITE_URL; ?>/images/img05.png" width="168" height="168"/>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
+                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
+                </div>
+                <div class="featured-items pull-left">
+                    <img src="<?=SITE_URL; ?>/images/img06.png" width="168" height="168"/>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
+                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
+                </div>
+                <div class="featured-items pull-left">
+                    <img src="<?=SITE_URL; ?>/images/img07.png" width="168" height="168"/>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
+                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
+                </div>
+                <div class="featured-items pull-left">
+                    <img src="<?=SITE_URL; ?>/images/img08.png" width="168" height="168"/>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
+                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
+                </div>
+                <div class="featured-items pull-left">
+                    <img src="<?=SITE_URL; ?>/images/img09.png" width="168" height="168"/>
+                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
+                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
+                </div>
+                <div class="clear"></div>
+            </section>
             <section class="featured featured-item-list" data-name="tours">
                 <h1>Tour Packages</h1>
                 <div class="featured-items pull-left">
@@ -165,6 +194,13 @@
             </div>
             <div class="widget adv300-170">
                 <img src="<?=SITE_URL; ?>/images/advt.png" width="300" height="250"/>
+            </div>
+            <div class="widget adv300-170">
+                <img src="<?=SITE_URL; ?>/images/img03.png" width="300" height="170"/>
+                <div class="caption inverse">
+                    <span><small>Online visa for Dubai,</small></span>
+                    <span class="text-large">@ $100</span>
+                </div>
             </div>
             <div class="clear"></div>
         </div>

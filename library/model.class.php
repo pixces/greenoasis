@@ -26,6 +26,23 @@ Abstract class Model extends SQLQuery
         $this->id = $id;
     }
 
+    public function setAttributes($data){
+
+        foreach ($this->_describe as $field) {
+            if ($data[$field]) {
+                $this->{$field} = $data[$field];
+            }
+
+            //also add date_added by default
+            //if it is a new record
+            if ($field == 'date_added'){
+                if (!$this->id){
+                    $this->{$field} = date('Y-m-d h:i:s');
+                }
+            }
+        }
+    }
+
     public abstract function getById();
 
     public function getByField($field, $value){

@@ -92,7 +92,7 @@
 
     function init() {
         var row = $("#tariff_form tr:last");
-        // alert($("#tariff_form tr").length);
+        //alert($("#tariff_form tr").length);
         var market = row.children().slice(2, 3);
         market
             .children(":first")
@@ -101,6 +101,8 @@
                 if ($(this).val().length > 1) pass += 1;
                 if ($(this).parent().prev().children(":first").val().length > 1) pass += 1;
                 if ($(this).parent().prev().prev().children(":first").val().length > 1) pass += 1;
+
+
                 if (pass == 3) {
                     AddNewRow($("#tariff_form"), row);
 
@@ -114,6 +116,8 @@
 
                         })
                     currentRowCounter++;
+
+                    alert(currentRowCounter);
                     init();
 
                     $(this).unbind("blur");
