@@ -28,13 +28,13 @@ class AgentController extends Controller {
         $error = 0;
 
         if ($_POST && $_POST['mm_form'] == 'registerAgent'){
-
             $newAgent = $_POST['agent'];
 
-            //check if all mandatory fields are submitted
-            if ( !empty($newAgent['email']) && !empty($newAgent['phone'])){
-                $agent = $this->fetchAgentDetails('email',$newAgent['email']);
+            //check for valid details added
+            if ( !empty($newAgent['email']) && !empty($newAgent['phone']) ) {
 
+                //get the details of agent registered with same email
+                $agent = $this->fetchAgentDetails('email',$newAgent['email']);
                 if (!$agent){
                     //save this agent details to the database
                     if ( $this->saveAgent($newAgent)){
@@ -44,32 +44,24 @@ class AgentController extends Controller {
                         $_SESSION['agent']['status'] = 'confirmation';
 
                         //send emails to the user
-                        $this->sendEmail($newAgent,'registration');
+                        if ( $this->sendEmail($newAgent,'registration') ){
+                            //redirect to the confirmation page
+                            $url = SITE_URL."/agent/confirmation";
+                            header("location:".$url);
+                            exit;
+                        } else {
+                            $this->set('error', "Cannot send Agent Email.");
+                        }
 
-                        //redirect to the confirmation page
-                        $url = SITE_URL."/agent/confirmation";
-                        header("location:".$url);
-                        exit;
+
                     } else {
-                        $error = 1;
-                        $msg = "Cannot save agent details";
+                        $this->set('error', "Cannot save agent details.");
                     }
                 } else {
-                    $error = 1;
-                    $msg = "Agent with the same Email already exists. Please Login.";
+                    $this->set('error', "Agent with the same Email already exists. Please Login.");
                 }
-
             } else {
-                $error = 1;
-                $msg = "All fields are mandatory.";
-            }
-
-            if ($error == 1){
-                //redirect to the register page with the error and message
-                $_SESSION['message'] = $msg;
-                $redirectUrl = SITE_URL."/agent/register/?error=".$error;
-                header("location:".$redirectUrl);
-                exit;
+                $this->set('error',"All fields are mandatory.");
             }
         }
     }
@@ -134,7 +126,9 @@ class AgentController extends Controller {
         if (!$params){
             return false;
         }
+
         $mail = new Mailer();
+
         switch($template){
             //send mail for registration
             case 'registration':
@@ -148,7 +142,10 @@ class AgentController extends Controller {
         $mail->setSubject($subject);
 
         try {
-            $mail->sendEmail();
+            if ( !$mail->sendEmail() ) {
+                echo $mail->ErrorInfo;
+                return false;
+            }
             return true;
         } catch (Exception $e) {
             echo $e->getMessage();

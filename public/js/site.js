@@ -54,6 +54,26 @@ $(function () {
         return false;
     });
 
+    $("#quickContact").submit(function(e){
+        e.preventDefault();
+
+        //all validation is already taken care of
+        //so now just do a form submit
+        var fetchUrl = SITE_URL + '/pages/saveContact/';
+
+        $.post(fetchUrl, $("#quickContact").serialize() , function (data) {
+            console.log(data);
+            if (data.status == 'success'){
+                alert(data.message);
+                $("#quickContact")[0].reset();
+            } else {
+                alert("Please Correct:\n" + data.message);
+            }
+            return false;
+        }, 'json');
+        return false;
+    });
+
     $(document).on('click','.btn-book-hotel',SEARCH.preBooking);
 
     //add more applicants based on selected numbers
@@ -257,6 +277,61 @@ var VISA = {
             $(".visa-pax-list").fadeOut();
         }
 
+    }
+
+};
+
+var PACKAGE = {
+
+    'init':function(){
+        PACKAGE.optionsSelect();
+    },
+
+    'optionsSelect':function(){
+
+        //check the values based on the selected radio button
+        var RateRadio = $('input[name="pk[rate]"]:checked');
+        var TimeRadio = $('input[name="pk[time]"]:checked');
+
+        //update these to the appropriate items
+        var rateSelected = RateRadio.val();
+        var timeSelected = TimeRadio.val();
+
+        var rates = rateSelected.split("|");
+
+        console.log(rates);
+
+        $("#pkSelectedTimeId").text(timeSelected);
+        $("#pkPriceAdult").text(rates[0]);
+        if (typeof rates[1] !== "undefined" && rates[1] != ''){
+            $("#pkPriceChild").text(rates[1]);
+        } else {
+            $("#pkPriceChild").text(0);
+        }
+        $("#pkUnit").text(rates[2]);
+
+
+        //run calculate here
+        PACKAGE.calculate();
+    },
+
+    'calculate':function(){
+
+        var adultPax = $("#pkPxAdult").val();
+        var childPax = $("#pkPxChild").val();
+        var adultPrice = $("#pkPriceAdult").text();
+        var childPrice = $("#pkPriceChild").text();
+        var paxUnit = $("pkUnit").text();
+
+
+
+
+        var totalPrice = (adultPax * adultPrice) + (childPax * childPrice);
+
+        //console.log('Adult: '+adultPax + ' child: '+childPax + ' Adult Price:' + adultPrice + ' child price: ' + childPrice + ' Total: '+totalPrice);
+
+        //update the total price
+        $("#pkTotalPrice").text(totalPrice);
     }
 
 };

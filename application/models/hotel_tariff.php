@@ -23,6 +23,10 @@ class Hotel_Tariff extends Model{
         return $this->hotelId;
     }
 
+    public function getAll(){
+        $this->showHasOne();
+        return $this->search();
+    }
 
     public function getById()
     {

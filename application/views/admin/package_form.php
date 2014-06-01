@@ -2,68 +2,75 @@
     <form id="form_package" class="validate form-horizontal" action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="form_action" value="<?=$action; ?>" />
         <?php if ($action == 'edit') { ?>
-            <input type="hidden" id="page_id" name="id" value="<?=$package['id']; ?>" />
-            <input type="hidden" id="status" name="status" value="<?=$package['status']; ?>" />
+            <input type="hidden" id="page_id" name="package[id]" value="<?=$model['Package']['id']; ?>" />
+            <input type="hidden" id="status" name="package[status]" value="<?=$model['Package']['status']; ?>" />
         <?php } ?>
             <div class="control-group">
                 <label class="control-label" for="package_title">Package Title</label>
                 <div class="controls">
-                    <input class="span6" type="text" id="package_title" name="package[title]" value="" required >
+                    <input class="span6" type="text" id="package_title" name="package[title]" value="<?=$model['Package']['title']; ?>" required >
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="package_slug">Package SEF</label>
                 <div class="controls">
-                    <input class="span6 formTitleSlug" type="text" id="package_slug" name="package[slug]" value="<?=$hotel['hotel_name']; ?>" required >
+                    <input class="span6 formTitleSlug" type="text" id="package_slug" name="package[slug]" value="<?=$model['Package']['slug']; ?>" required >
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="package_type">Package Type</label>
                 <div class="controls">
                     <label class="radio inline">
-                        <input type="radio" name="package[type]" id="package_type" value="tour" checked="checked">Tour Package
+                        <?php $checked = ($model['Package']['type'] == 'tour') ? 'Checked = "checked"' : ''; ?>
+                        <input type="radio" name="package[type]" id="package_type" value="tour" <?=$checked; ?>>Tour Package
                     </label>
                     <label class="radio inline">
-                        <input type="radio" name="package[type]" id="package_type" value="combo">Combo Deal
+                        <?php $checked = ($model['Package']['type'] == 'combo') ? 'Checked = "checked"' : ''; ?>
+                        <input type="radio" name="package[type]" id="package_type" value="combo" <?=$checked; ?>>Combo Deal
                     </label>
-
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Package Category</label>
                 <div class="controls">
-                    <?php echo $html->select('package[category]',$categoryOptions); ?>
+                    <?php echo $html->select('package[category]',$categoryOptions, $model['Package']['category']); ?>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="package_duration">Package Duration</label>
                 <div class="controls">
-                    <input type="text" id="package_duration" name="package[duration]" class="span6" value="" required>
+                    <input type="text" id="package_duration" name="package[duration]" class="span6" value="<?=$model['Package']['duration']; ?>" required>
                 </div>
             </div>
             <legend>Tour Overview:</legend>
             <div class="control-group">
                 <label class="control-label">Description</label>
                 <div class="controls">
-                    <textarea name="package[description]" id="package_description" rows="4" class="span8 ckeditor"></textarea>
+                    <textarea name="package[description]" id="package_description" rows="4" class="span8 ckeditor"><?=$model['Package']['description']; ?></textarea>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="package_inclusions">Inclusions</label>
                 <div class="controls">
-                    <textarea name="package[inclusions]" id="package_inclusions" rows="4" class="span8 ckeditor"></textarea>
+                    <textarea name="package[inclusions]" id="package_inclusions" rows="4" class="span8 ckeditor"><?=$model['Package']['inclusions']; ?></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="package_exclusion">Exclusion</label>
+                <div class="controls">
+                    <textarea name="package[exclusions]" id="package_exclusion" rows="4" class="span8 ckeditor"><?=$model['Package']['exclusions']; ?></textarea>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="package_terms">Terms & Conditions</label>
                 <div class="controls">
-                    <textarea name="package[terms]" id="package_terms" rows="4" class="span8 ckeditor"></textarea>
+                    <textarea name="package[terms]" id="package_terms" rows="4" class="span8 ckeditor"><?=$model['Package']['terms']; ?></textarea>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="package_info">Useful Information</label>
                 <div class="controls">
-                    <textarea name="package[info]" id="package_info" rows="4" class="span8 ckeditor"></textarea>
+                    <textarea name="package[info]" id="package_info" rows="4" class="span8 ckeditor"><?=$model['Package']['info']; ?></textarea>
                 </div>
             </div>
             <legend>Package Timings:</legend>
@@ -83,60 +90,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr id="package_time-row-0">
-                                <td><input class="span1" type="text" name="package[time][0][duration]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][0][start]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][0][end]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][0][reporting]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][0][pickup]" value=""></td>
-                                <td><input class="span3" type="text" name="package[time][0][operation]" value=""></td>
+                        <?php
+                            $i=0;
+                            if ($model['Package_Time']) {
+                                foreach($model['Package_Time'] as $time){
+                        ?>
+                            <tr id="package_time-row-<?=$i; ?>">
+                                <input type="hidden" name="package[time][<?=$i; ?>][id]" value="<?=$time['Package_Time']['id']; ?>">
+                                <td><input class="span1" type="text" name="package[time][<?=$i; ?>][duration]" value="<?=$time['Package_Time']['duration']; ?>"></td>
+                                <td><input class="span2" type="text" name="package[time][<?=$i; ?>][start]" value="<?=$time['Package_Time']['start']; ?>"></td>
+                                <td><input class="span2" type="text" name="package[time][<?=$i; ?>][end]" value="<?=$time['Package_Time']['end']; ?>"></td>
+                                <td><input class="span2" type="text" name="package[time][<?=$i; ?>][reporting]" value="<?=$time['Package_Time']['reporting']; ?>"></td>
+                                <td><input class="span2" type="text" name="package[time][<?=$i; ?>][pickup]" value="<?=$time['Package_Time']['pickup']; ?>"></td>
+                                <td><input class="span3" type="text" name="package[time][<?=$i; ?>][operation]" value="<?=$time['Package_Time']['operation']; ?>"></td>
                                 <td></td>
                             </tr>
-                            <tr id="package_time-row-1">
-                                <td><input class="span1" type="text" name="package[time][1][duration]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][1][start]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][1][end]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][1][reporting]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][1][pickup]" value=""></td>
-                                <td><input class="span3" type="text" name="package[time][1][operation]" value=""></td>
-                                <td><a href=""><i class="icon-minus-sign"></i></a></td>
-                            </tr>
-                            <tr id="package_time-row-2">
-                                <td><input class="span1" type="text" name="package[time][2][duration]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][2][start]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][2][end]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][2][reporting]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][2][pickup]" value=""></td>
-                                <td><input class="span3" type="text" name="package[time][2][operation]" value=""></td>
-                                <td><a href=""><i class="icon-minus-sign"></i></a></td>
-                            </tr>
-                            <tr id="package_time-row-3">
-                                <td><input class="span1" type="text" name="package[time][3][duration]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][3][start]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][3][end]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][3][reporting]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][3][pickup]" value=""></td>
-                                <td><input class="span3" type="text" name="package[time][3][operation]" value=""></td>
-                                <td><a href=""><i class="icon-minus-sign"></i></a></td>
-                            </tr>
-                            <tr id="package_time-row-4">
-                                <td><input class="span1" type="text" name="package[time][4][duration]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][4][start]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][4][end]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][4][reporting]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][4][pickup]" value=""></td>
-                                <td><input class="span3" type="text" name="package[time][4][operation]" value=""></td>
-                                <td><a href=""><i class="icon-minus-sign"></i></a></td>
-                            </tr>
-                            <tr id="package_time-row-5">
-                                <td><input class="span1" type="text" name="package[time][5][duration]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][5][start]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][5][end]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][5][reporting]" value=""></td>
-                                <td><input class="span2" type="text" name="package[time][5][pickup]" value=""></td>
-                                <td><input class="span3" type="text" name="package[time][5][operation]" value=""></td>
-                                <td><a href=""><i class="icon-plus-sign"></i></a></td>
-                            </tr>
+                            <?php
+                                $i++;} }
+                                for($t = $i; $t < (5+$i); $t++){
+                            ?>
+                                <tr id="package_time-row-<?=$t; ?>">
+                                    <td><input class="span1" type="text" name="package[time][<?=$t; ?>][duration]" value=""></td>
+                                    <td><input class="span2" type="text" name="package[time][<?=$t; ?>][start]" value=""></td>
+                                    <td><input class="span2" type="text" name="package[time][<?=$t; ?>][end]" value=""></td>
+                                    <td><input class="span2" type="text" name="package[time][<?=$t; ?>][reporting]" value=""></td>
+                                    <td><input class="span2" type="text" name="package[time][<?=$t; ?>][pickup]" value=""></td>
+                                    <td><input class="span3" type="text" name="package[time][<?=$t; ?>][operation]" value=""></td>
+                                    <td></td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -151,6 +133,7 @@
                         <tr>
                             <th>Rate Type</th>
                             <th>Transfer Type</th>
+                            <th>Pax Unit</th>
                             <th>Price</th>
                             <th>Price Child</th>
                             <th>Language</th>
@@ -159,67 +142,44 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr id="package_rate-row-0">
-                            <td><input class="span2" type="text" name="package[rate][0][type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][0][transfer_type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][0][price]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][0][price_child]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][0][language]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][0][vehicle]" value=""></td>
+                        <?php
+                            $z=0;
+                            if ($model['Package_Rate']) {
+                            foreach($model['Package_Rate'] as $rate){
+                        ?>
+                        <tr id="package_rate-row-<?=$z; ?>">
+                            <input type="hidden" name="package[rate][<?=$z; ?>][id]" value="<?=$rate['Package_Rate']['id']; ?>">
+                            <td><input class="span2" type="text" name="package[rate][<?=$z; ?>][type]" value="<?=$rate['Package_Rate']['type']; ?>"></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$z; ?>][transfer_type]" value="<?=$rate['Package_Rate']['transfer_type']; ?>"></td>
+                            <td><input class="span1" type="text" name="package[rate][<?=$z; ?>][pax_unit]" value="<?=$rate['Package_Rate']['pax_unit']; ?>"></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$z; ?>][price]" value="<?=$rate['Package_Rate']['price']; ?>"></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$z; ?>][price_child]" value="<?=$rate['Package_Rate']['price_child']; ?>"></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$z; ?>][language]" value="<?=$rate['Package_Rate']['language']; ?>"></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$z; ?>][vehicle]" value="<?=$rate['Package_Rate']['vehicle']; ?>"></td>
                             <td></td>
                         </tr>
-                        <tr id="package_rate-row-1">
-                            <td><input class="span2" type="text" name="package[rate][1][type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][1][transfer_type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][1][price]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][1][price_child]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][1][language]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][1][vehicle]" value=""></td>
+                        <?php
+                            $z++;} }
+                            for($t = $z; $t < (5+$z); $t++){
+                        ?>
+                        <tr id="package_rate-row-<?=$t; ?>">
+                            <td><input class="span2" type="text" name="package[rate][<?=$t; ?>][type]" value=""></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$t; ?>][transfer_type]" value=""></td>
+                            <td><input class="span1" type="text" name="package[rate][<?=$t; ?>][pax_unit]" value=""></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$t; ?>][price]" value=""></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$t; ?>][price_child]" value=""></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$t; ?>][language]" value=""></td>
+                            <td><input class="span2" type="text" name="package[rate][<?=$t; ?>][vehicle]" value=""></td>
                             <td><a href=""><i class="icon-minus-sign"></i></a></td>
                         </tr>
-                        <tr id="package_rate-row-2">
-                            <td><input class="span2" type="text" name="package[rate][2][type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][2][transfer_type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][2][price]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][2][price_child]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][2][language]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][2][vehicle]" value=""></td>
-                            <td><a href=""><i class="icon-minus-sign"></i></a></td>
-                        </tr>
-                        <tr id="package_rate-row-3">
-                            <td><input class="span2" type="text" name="package[rate][3][type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][3][transfer_type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][3][price]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][3][price_child]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][3][language]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][3][vehicle]" value=""></td>
-                            <td><a href=""><i class="icon-minus-sign"></i></a></td>
-                        </tr>
-                        <tr id="package_rate-row-4">
-                            <td><input class="span2" type="text" name="package[rate][4][type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][4][transfer_type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][4][price]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][4][price_child]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][4][language]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][4][vehicle]" value=""></td>
-                            <td><a href=""><i class="icon-minus-sign"></i></a></td>
-                        </tr>
-                        <tr id="package_rate-row-5">
-                            <td><input class="span2" type="text" name="package[rate][5][type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][5][transfer_type]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][5][price]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][5][price_child]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][5][language]" value=""></td>
-                            <td><input class="span2" type="text" name="package[rate][5][vehicle]" value=""></td>
-                            <td><a href=""><i class="icon-plus-sign"></i></a></td>
-                        </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         <div class="control-group">
             <div class="controls">
-                <p class="submit"><button type="submit" class="btn btn-primary">Save Hotel Details</button></p>
+                <p class="submit"><button type="submit" class="btn btn-primary"><?=ucwords(strtolower($action)); ?> Details</button></p>
             </div>
         </div>
 

@@ -9,7 +9,6 @@
         <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Roboto|Source+Sans+Pro:900italic,400,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>bootstrap.css">
         <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>style.css">
-        <!-- link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>green_oasis_style.css" -->
         <link rel="stylesheet" type="text/css" media="all" href="<?=SITE_CSS; ?>datepicker.css">
         <!-- all js scripts -->
         <script src="<?=SITE_JS; ?>jquery.1.10.2.min.js" type="text/javascript" ></script>
@@ -31,7 +30,8 @@
                 <div class="header_col02">
                     <div class="header_col02_raw">
                         <div class="header_col02_raw1"><img src="<?=SITE_URL; ?>/images/icon01.png" width="31" height="32"/>
-                            <h1>Agent Login</h1></div>
+                            <a href="<?=SITE_URL; ?>/agent/login"><h1>Agent Login</h1></a>
+                        </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="header_col02_raw2">

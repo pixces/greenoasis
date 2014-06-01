@@ -245,6 +245,11 @@ small{
     font-size: 13px;
 }
 
+.media-body section.media-category{
+    color: #777;
+    font-size: 13px;
+    font-weight: bold;
+}
 
 .media-body p {
     padding-top: 5px;
@@ -285,13 +290,14 @@ small{
     padding-bottom: 3px;
 }
 
-.media-meta-horizontal span {
+div.media-meta-horizontal span {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    color: #777777;
     display: inline-block;
-    padding-right: 10px;
-    margin-right: 10px;
-    font-weight: bold;
-    font-size: 13px;
-    color: #689920;
+    padding: 5px 10px;
+    position: relative;
 }
 
 .media-meta-horizontal a {
@@ -335,8 +341,13 @@ small{
 }
 
 .credit div.na {
-    background: none repeat scroll 0 0 #CCCCCC;
-    color: #666666;
+     background: none repeat scroll 0 0 #CCCCCC;
+     color: #666666;
+ }
+
+.credit div.red {
+    background: none repeat scroll 0 0 #FF0000;
+    color: #ffffff;
 }
 
 /*-------- Table design update PAGE ------------------------------------------- */
@@ -598,4 +609,8 @@ a:hover.back-login {
     font-size: 85%;
     margin: 0px !important;
     color: #999;
+}
+
+.red{
+    color: #ff0000;
 }

@@ -15,8 +15,13 @@ $(function(){
     //on click of toggle_status button/link
     $(document).on('click','.toggle-status',ADMIN.toggleStatus);
 
+    //on click of toggle_status button/link
+    $(document).on('click','.toggle-featured',ADMIN.toggleFeatured);
+
     //on click of delete link
     $(document).on('click','a.delete-link',ADMIN.deleteAction);
+
+
 
     //actions to get sef title
     $("#page_title").on('blur',ADMIN.createSEF);
@@ -74,7 +79,7 @@ var ADMIN = {
             if (data.result == 'Success') {
                 var newStatus = data.response;
 
-                if(newStatus == 'active'){
+                if(newStatus == 'active' || newStatus == 'approved'){
                     $(obj).removeClass().addClass('toggle-status btn btn-small btn-success');
                 } else {
                     $(obj).removeClass().addClass('toggle-status btn btn-small btn-warning');
@@ -90,8 +95,43 @@ var ADMIN = {
         }, 'json');
 
         return false;
+    },
 
+    /* general method to change featured
+     * Can be used on all places like
+     * @page, @products, @category, @users
+     */
+    'toggleFeatured': function () {
 
+        var obj = $(this);
+        var id = $(obj).attr('id');
+        var action = $(obj).attr('data-action');
+        var type = $(obj).attr('data-type');
+        var oldState = $(obj).attr('data-value');
+
+        var fetchUrl = SITE_URL + '/admin/' + type + "_" + action;
+
+        $.post(fetchUrl, {'id': id, 'action': action, 'data': oldState}, function (data) {
+            if (data.result == 'Success') {
+                var newState = data.response;
+
+                $(obj).toggleClass('btn-inverse');
+
+                if (newState === 1){
+                    $(obj).html( '<i class="icon-thumbs-up icon-white"></i>' );
+                } else {
+                    $(obj).html( '<i class="icon-thumbs-down"></i>' );
+                }
+                //remove all existing data and plot the new values
+                $(obj).attr('data-value', newState);
+
+            } else {
+                alert("Sorry, cannot change user status");
+                return false;
+            }
+        }, 'json');
+
+        return false;
     },
 
     /**

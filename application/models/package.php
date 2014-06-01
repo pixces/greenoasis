@@ -16,17 +16,19 @@ class Package extends Model{
     const CATEGORY_WATER_PARKS = 6;
     const CATEGORY_SEA_ADVENTURE = 7;
 
-    const TYPE_TOURS = "tours";
+    const TYPE_TOURS = "tour";
     const TYPE_COMBO = "combo";
 
     #has many tariffs
-    var $hasMany = array('Package_Rate' => 'Package_Rate');
+    var $hasMany = array('Package_Rate' => 'Package_Rate', 'Package_Image' => 'Package_image', 'Package_Time' => 'Package_Time');
+    //var $hasMany = array('Package_Rate' => 'Package_Rate');
 
 
     public function getAll(){
         $this->showHasMany();
         $this->orderBy('id','DESC');
         $result = $this->search();
+
         if ($result){
             return $result;
         }
@@ -46,6 +48,7 @@ class Package extends Model{
         }
 
         $this->showHasMany();
+        $this->showHasOne();
         $result = $this->search();
         if ($result){
             return $result;
@@ -73,6 +76,31 @@ class Package extends Model{
         );
     }
 
+    public function updateField($field,$value){
+        $details = $this->getById();
+        if (!$details){
+            return false;
+        }
+
+        switch($field){
+            case 'featured':
+                $newValue = ($value == 1) ? 0 : 1;
+                break;
+        }
+
+        $data = $details['Package'];
+        $data[$field] = $newValue;
+
+        $this->setAttributes($data);
+
+        if (parent::save()){
+            return $newValue;
+        } else {
+            return false;
+        }
+
+    }
+
     public function toggleStatus($status = 'active')
     {
         #get the details of this profile
@@ -94,6 +122,41 @@ class Package extends Model{
 
         if (parent::save()) {
             return $newStatus;
+        } else {
+            return false;
+        }
+    }
+
+    public function getFeatured($type,$limit){
+
+        $this->where('type',$type);
+        $this->where('featured',1);
+        $this->limit = $limit;
+        $this->orderBy('date_modified', 'DESC');
+
+        $this->showHasMany();
+        $result = $this->search();
+
+        if ($result){
+            $categories = $this->getCategoryOptions();
+            $packList = array();
+            foreach($result as $package){
+                if ($package['Package_Image']){
+                    $image = $package['Package_Image'][0]['Package_Image']['image_name'];
+                } else {
+                    $image = "no-image.png";
+                }
+                $packList[] = array(
+                    'id'=>$package['Package']['id'],
+                    'title'=>$package['Package']['title'],
+                    'slug'=>$package['Package']['slug'],
+                    'type'=>$package['Package']['type'],
+                    'category'=>$categories[$package['Package']['category']],
+                    'details' => Utils::smartSubStr($package['Package']['description'],75),
+                    'image' => $image,
+                );
+            }
+            return $packList;
         } else {
             return false;
         }

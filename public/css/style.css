@@ -111,7 +111,8 @@ input.span2{
 .header_col02_raw2 {
     width: 100%;
     margin-top: 5px;
-    float: right
+    float: right;
+    padding-right: 10px;
 }
 
 .header_col02_raw2 ul {
@@ -187,9 +188,10 @@ form{
 
 /* Featured Hotel List */
 .featured {
-    width: 100%;
+    float: left;
     height: auto;
-    margin: 10px 0px 20px 0px;
+    margin: 10px 0 20px;
+    width: 100%;
 }
 
 .featured h1{
@@ -283,16 +285,21 @@ form{
 .featured-items{
     width: 19.4%;
     margin-right: 5px;
+    height: 315px;
 }
 
 .featured-items h1{
     font-size: 18px;
     color: #666;
+    line-height: 22px;
+    margin: 5px 0;
+    height: 45px;
 }
 
 .featured-items img{
     border: 1px solid #ACB5C4;
-    width: 99%;
+    width: 168px;
+    height: 168px;
 }
 
 .featured-items p{
@@ -435,15 +442,17 @@ div .inverse{
     padding-bottom: 30px;
 }
 
-.footer-sub .links {
+.footer-sub ul.links {
     width: 70%;
-    padding-right: 47px;
+    list-style-type: none;
+    margin: 0px;
 }
 
-.footer-sub span {
-    border-right: 1px solid #8dc63f;
-    padding: 2px 5px;
+.footer-sub ul.links li {
+    /*border-right: 1px solid #8dc63f;*/
+    padding: 2px 10px;
     line-height: 18px;
+    float: left;
 }
 
 .footer-sub span:first-child{
@@ -683,7 +692,7 @@ h1 {
     background: #5C5C5C;
     color: #FFFFFF;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
-    width: 250px;
+    max-width: 35%;
 }
 
 .facet-blue h5 {
@@ -1065,9 +1074,14 @@ ul.visa-pax-list li span:first-child{
 }
 
 /* tour page */
-.tour-main-panel{
+.tour-gallery{
     float: left;
     width: 595px;
+    min-height: 50px;
+}
+.tour-main-panel{
+    float: left;
+    width: 100%;
     min-height: 50px;
 }
 
@@ -1208,11 +1222,15 @@ ul.visa-pax-list li span:first-child{
 
 .package-price > ul > li{
     border-bottom: 1px solid #EFEFEF;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .package-price > ul > li span{
-    display: block;
+    display: inline-block;
+}
+
+.package-price > ul > li.noBorder{
+    border: none;
 }
 
 .pkLabel{
@@ -1220,6 +1238,18 @@ ul.visa-pax-list li span:first-child{
     font-family: "Ropa Sans";
     color: #3E9A3C;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    margin-bottom: 5px;
+}
+
+.pkFrmLabel{
+    font-family: "Ropa Sans";
+    font-size: 16px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+span.pkFrmLabel span{
+    font-size: 10px;
+    font-family: arial;
 }
 
 label{
@@ -1232,6 +1262,16 @@ label{
     font-size: 15px;
 }
 
+select.pkSelect{
+    width: 40px;
+    height: auto;
+    padding: 0px;
+    font-size: 12px;
+    vertical-align: middle ;
+    margin: 0;
+}
+
+
 p.tour-aside{
     font-style: italic;
     padding: 15px 0;
@@ -1240,6 +1280,7 @@ p.tour-aside{
 
 div.pkgPrice{
     text-align: center;
+    margin: 15px 0;
 }
 
 .pkgPrice p.splinst{
@@ -1257,6 +1298,60 @@ div.pkgPrice{
     color: #3E9A3C;
 }
 
+p.price span.curSymbl{
+    font-family: "Ropa Sans";
+    font-size: 18px;
+    font-weight: normal;
+}
+
 .media-container{
     padding-right: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+/** agent login page **/
+
+.login .form {
+    overflow: hidden;
+}
+
+.login .login-left {
+    float: left;
+    width: 300px;
+}
+
+.login .login-with {
+    background: none repeat scroll 0 0 rgba(103, 103, 103, 0.14);
+    float: left;
+    font-weight: bold;
+    height: 175px;
+    padding-top: 160px;
+    text-align: center;
+    width: 0.3%;
+}
+
+.login .login-with span {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px;
+    display: block;
+    margin-left: -14px;
+    padding: 5px 2px;
+    width: 30px;
+}
+
+.login .login-right {
+    float: left;
+    width: 54%;
+}
+
+.new-user {
+    clear: both;
+    margin-right: 30px;
+    margin-top: 20px;
+    overflow: hidden;
+    padding-top: 100px;
+    text-align: center;
 }

@@ -6,7 +6,13 @@
             <div class="content-left">
                 <h1>Agent registration process instructions</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Already registered? <a href="">Click here to Login</a></p>
+                <p>Already registered? <a href="<?=SITE_URL; ?>/agent/login">Click here to Login</a></p>
+                <?php if ($error){ ?>
+                <div class="alert alert-error">
+                    <button class="close" data-dismiss="alert" type="button">×</button>
+                    <?php echo $error; ?>
+                </div>
+                <?php } ?>
                 <form id="AgentRegistration" class="form-horizontal agent-form" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="mm_form" value="registerAgent">
                     <legend>Agent Details</legend>

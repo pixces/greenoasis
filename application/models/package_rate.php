@@ -18,6 +18,7 @@ class Package_Rate extends Model {
         foreach($data as $aRates){
             if (!empty($aRates['price'])){
                 $aRates['package_id'] = $id;
+                $aRates['status'] = (!isset($aRates['status'])) ?  'active' : $aRates['status'];
                 $this->setAttributes($aRates);
                 $this->save();
             }

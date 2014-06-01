@@ -114,7 +114,7 @@ class Utils
         $pos = strrpos($string, ' ');
         $string = substr($string, 0, $pos);
 
-        return $string.'[..]';
+        return $string.' [..]';
     }
 
     public static function generateCaptcha($count, $type = NULL)
@@ -138,7 +138,7 @@ class Utils
             return false;
         }
 
-        if (eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email)) {
+        if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $email)) {
             return true;
         } else {
             return false;
@@ -334,6 +334,21 @@ class Utils
                         'resize' => true,
                         'cropping' => true,
                     );
+                case 'package':
+                    $resize['thumb'] = array(
+                        'prefix' => PREFIX_THUMB,
+                        'width' => 168,
+                        'height'=> 168,
+                        'resize' => true,
+                        'cropping' => true,
+                    );
+                    $resize['small'] = array(
+                        'prefix' => PREFIX_SMALL,
+                        'width' => 595,
+                        'height'=> 275,
+                        'resize' => true,
+                        'cropping' => true,
+                    );
             }
         }
 
@@ -463,10 +478,11 @@ class Utils
         return $file_ary;
     }
 
-    public static function sanitizeParams(&$array){
-        foreach($array as $key => $val){
+    public static function sanitizeParams($array){
+        foreach($array as $key => &$val){
             self::sanitize($val);
         }
+        return $array;
     }
 
     /** Check for Magic Quotes and remove them **/
@@ -474,6 +490,51 @@ class Utils
     {
         $value = is_array($value) ? array_map(array('self',__METHOD__), $value) : stripslashes($value);
         return $value;
+    }
+
+    /**
+     * Static method to send emails
+     * @param array $recipient
+     * @param string $subject
+     * @param array $params
+     * @param string $template
+     * @param bool $isAdmin
+     * @return bool
+     */
+    public static function sendEmail($recipient,$subject,$params,$template,$isAdmin=true){
+
+        if (!$recipient && !$subject && !$params){
+            echo "Recipent, Subject & Params are mandatory";
+            return false;
+        }
+
+        $mail = new Mailer();
+        $mail->setSubject($subject);
+        $mail->addAddress($recipient['email'],$recipient['name']);
+        $mail->setData('data',$params);
+        $mail->setTemplate($template);
+
+
+        try {
+            if ( !$mail->sendEmail() ) {
+                echo $mail->ErrorInfo;
+                return false;
+            }
+            return true;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    public static function captcha(){
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
+        //$captcha = new Captcha();
+        $captcha->CreateImage();
+
     }
 
 

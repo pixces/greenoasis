@@ -199,8 +199,6 @@ class SQLQuery
 
         $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
 
-        //echo $this->_query;
-
         $this->_result = mysql_query($this->_query, $this->_dbHandle);
 
         $result = array();
@@ -259,7 +257,6 @@ class SQLQuery
                         }
 
                         $tempResults[$aliasChild] = $resultsChild;
-
                         mysql_free_result($resultChild);
                     }
                 }

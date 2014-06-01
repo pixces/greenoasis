@@ -98,64 +98,33 @@
         <div class="content-main pull-left">
             <section class="featured featured-item-list" data-name="tours">
                 <h1>Tour Packages</h1>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img05.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img06.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img07.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img08.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img09.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="clear"></div>
-            </section>
-            <section class="featured featured-item-list" data-name="tours">
-                <h1>Tour Packages</h1>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img05.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img06.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img07.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img08.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
-                <div class="featured-items pull-left">
-                    <img src="<?=SITE_URL; ?>/images/img09.png" width="168" height="168"/>
-                    <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=1">2 Days 3 Nights</a></h1>
-                    <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
-                </div>
+                <?php if($package['tours']){
+                    foreach($package['tours'] as $data){
+                ?>
+                        <div class="featured-items pull-left">
+                            <img src="<?php echo SITE_UPLOAD.PREFIX_THUMB.$data['image']; ?>" width="168" height="168"/>
+                            <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=<?=$data['id']; ?>&city=5&pType=<?=$data['type']; ?>"><?=$data['title']; ?></a></h1>
+                            <p><?=$data['details']; ?></p>
+                        </div>
+                <?php
+                    }
+                } ?>
                 <div class="clear"></div>
             </section>
             <section class="featured featured-item-list" data-name="combo">
                 <h1>Combo Offers</h1>
+                <?php if($package['combo']){
+                    foreach($package['combo'] as $data){
+                        ?>
+                        <div class="featured-items pull-left">
+                            <img src="<?php echo SITE_UPLOAD.PREFIX_THUMB.$data['image']; ?>" width="168" height="168"/>
+                            <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=<?=$data['id']; ?>&city=5&pType=<?=$data['type']; ?>"><?=$data['title']; ?></a></h1>
+                            <p><?=$data['details']; ?></p>
+                        </div>
+                    <?php
+                    }
+                } ?>
+                <!--
                 <div class="featured-items pull-left">
                     <img src="<?=SITE_URL; ?>/images/img10.png" width="168" height="168"/>
                     <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=2">2 Days 3 Nights</a></h1>
@@ -181,6 +150,7 @@
                     <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=123&city=5&pType=2">2 Days 3 Nights</a></h1>
                     <p>orem Ipsum available, but the majority have suffered alteration in some form,</p>
                 </div>
+                -->
                 <div class="clear"></div>
             </section>
         </div>
@@ -219,29 +189,36 @@
         </div>
         <div class="getintouch">
             <h1>Get in Touch</h1>
-            <input name="" type="text" value="Name"/>
-            <input name="" type="text" value="Email"/>
-            <input name="" type="text" value="Phone"/>
-            <input name="" type="text" value="Enter Capcha" style="float:left; width:46%"/>
-            <input type="text" value="Capcha comes here" style="float:right; width:50%"/>
-            <textarea name=" rtrtrt" cols="" rows="" id=" rtrtrt">trtrrtrt</textarea>
-            <input name="" type="button" value="Go" class="aboutus_butt"/>
+            <form id="quickContact" method="post" name="quickContact" action="<?=SITE_URL; ?>/pages/save_contact">
+                <input type="hidden" name="contact[form]" value="quickContact">
+                <input name="contact[name]" value="" type="text" pattern="^([_A-z 0-9]){3,20}$" placeholder="Your Full Name" required=""/>
+                <input name="contact[email]" value="" type="email" placeholder="Your Email Address" required=""/>
+                <input name="contact[phone]" value="" type="text" pattern="^([0-9]){8,20}$" placeholder="Phone Number (only numbers allowed)" required=""/>
+                <!--
+                <input name="contact[captcha]" value="" type="text" placeholder="Enter Captcha" required="" style="float:left; width:46%"/>
+                <span style="float:right; width:50%"><img id="captcha" src=""></span>
+                -->
+                <textarea name="contact[details]" id="contact_details"></textarea>
+                <input name="submit" type="submit" value="Go" class="aboutus_butt"/>
+            </form>
             <div class="clear"></div>
         </div>
         <div class="socialicons">
             <h1>Quick Contact</h1>
-            <p>Office : <?=$contact['phone']; ?></p>
-            <p>Mobile :<?=$contact['fax']; ?></p>
-            <p>e-mail: <a href="mailto:<?=$contact['email']; ?>"><?=$contact['email']; ?></a></p>
+            <p>Office: <?=$contact['phone']; ?></p>
+            <p>Mobile: <?=$contact['fax']; ?></p>
+            <p>Email: <a href="mailto:<?=$contact['email']; ?>"><?=$contact['email']; ?></a></p>
+            <p>Skype: <?=$contact['skype']; ?></p>
             <a href="<?=$social['twitter']; ?>" target="_blank"><img src="<?=SITE_URL; ?>/images/icon1.png" width="28" height="28" style=" margin-left:0px"/></a>
+            <!--
             <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon2.png" width="28" height="28"/></a>
             <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon3.png" width="28" height="28"/></a>
-            <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon4.png" width="28" height="28"/></a>
-            <a href="#" target="_blank"><img src="<?=SITE_URL; ?>/images/icon5.png" width="28" height="28"/></a>
+            -->
+            <a href="<?=$social['facebook']; ?>" target="_blank"><img src="<?=SITE_URL; ?>/images/icon4.png" width="28" height="28"/></a>
+            <a href="<?=$social['vkontakte']; ?>" target="_blank"><img src="<?=SITE_URL; ?>/images/icon6.png" width="28" height="28"/></a>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
 </div>
-<!-- put login modal code here -->

@@ -13,14 +13,19 @@ class TourController extends Controller {
     }
 
     public function view(){
+        $request = $this->_request;
+        if (!$request['pid'] || empty($request['pid'])){
 
-        /*
-         * pid  => package Id
-         * city => City name
-         * pType => package Type {1:tour;2:Combo}
-         */
-        //print_r($this->_request);
+            //debug_print_backtrace();
+            header('This is not the page you are looking for', true, 404);
+            $this->setTemplate('404_page.php');
+            exit();
+        }
 
+        $model = new Package();
+        $id = $this->_request['pid'];
+        $packageDet = $model->getById($id);
+        $this->set('package',$packageDet);
     }
 
 

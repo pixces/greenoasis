@@ -103,7 +103,7 @@ class Hotel extends Model {
         //for star rating
 
         $searchSql .= " '".$checkIn."' between ht.date_start  and ht.date_end and '".$checkOut."' between ht.date_start  and ht.date_end ";
-        $searchSql .= " INNER JOIN hotel_occupancy ho ON ho.hotel_tariff_id=ht.id ";
+        $searchSql .= " INNER JOIN hotel_occupancies ho ON ho.hotel_tariff_id=ht.id ";
 
         //checking for roomtype
         if (isset($data['roomtype']) && $data['roomtype'] != ''){
@@ -192,6 +192,5 @@ class Hotel extends Model {
         return false;
 
     }
-
 
 }

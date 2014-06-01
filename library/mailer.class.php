@@ -24,11 +24,16 @@ class Mailer
 
         if ($smtp) {
             $this->mailer->IsSMTP();
+            $this->mailer->IsHTML();
+            $this->mailer->CharSet="UTF-8";
             $this->mailer->SMTPAuth = true;
-            $this->mailer->Host = SMTP_HOST;
-            $this->mailer->Port = SMTP_PORT;
-            $this->mailer->Username = SMTP_USER;
-            $this->mailer->Password = SMTP_PASS;
+            $this->mailer->SMTPSecure = "tls";
+            $this->mailer->Host = "smtp.gmail.com";
+            $this->mailer->Port = 587;
+            $this->mailer->Username = "pixces@gmail.com";
+            $this->mailer->Password = "zoya$123";
+            //$this->mailer->SMTPDebug = 2;
+
         }
 
         if ($this->toAdmin) {
@@ -37,7 +42,7 @@ class Mailer
         }
     }
 
-    public function addAddress($address, $alias)
+    public function addAddress($address, $alias = "")
     {
         $this->mailer->AddAddress($address, $alias);
     }
@@ -122,8 +127,13 @@ class Mailer
         $this->addReplyTo();
 
         try {
-            $this->mailer->Send();
-            return true;
+            if ( $this->mailer->Send() ){
+                return true;
+            } else {
+                print_r( $this->mailer->ErrorInfo );
+                return false;
+            }
+
         } catch (Exception $e) {
             throw new Exception( $e->getMessage() );
         }

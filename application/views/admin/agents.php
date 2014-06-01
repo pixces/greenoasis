@@ -5,45 +5,55 @@
         foreach($agents as $agent) { ?>
             <li id="agent-1" class="item media agent-item">
                 <div class="media-body pull-left">
-                    <section class="title"><?=$agent['company']; ?></section>
+                    <section class="title"><?=$agent['Agent']['company']; ?></section>
                     <section class="contact">
-                        <i class="icon icon-user"></i> <strong><?=ucwords(strtolower($agent['contact'])); ?></strong> |
-                        <i class="icon icon-envelope"></i> <?=$agent['phone']; ?> |
-                        <a href="mailto:<?=strtolower($agent['email']); ?>"><?=strtolower($agent['email']); ?></a>
+                        <i class="icon icon-user"></i> <strong><?=ucwords(strtolower($agent['Agent']['contact'])); ?></strong> |
+                        <i class="icon icon-envelope"></i> <?=$agent['Agent']['phone']; ?> |
+                        <a href="mailto:<?=strtolower($agent['Agent']['email']); ?>"><?=strtolower($agent['Agent']['email']); ?></a>
                     </section>
-                    <section class="small"><i class="icon icon-map-marker"></i> <?=strtolower($agent['city']); ?>, <?=strtolower($agent['country']); ?></section>
+                    <section class="small"><i class="icon icon-map-marker"></i> <?=strtolower($agent['Agent']['city']); ?>, <?=strtolower($agent['Agent']['country']); ?></section>
                     <section class="contact credit">
                         <div class="total na">
                             <span class="pull-left">Total</span>
-                            <span class="count">0</span>
+                            <span class="count"><?=sprintf("$%s",number_format($agent['Summary']['total'])); ?></span>
                         </div>
-                        <div class="used na">
+
+                        <div class="used <?=$agent['Summary']['balance'] < 0 ? 'red' : 'na'; ?>">
                             <span class="pull-left">Used</span>
-                            <span class="count">0</span>
+                            <?php echo sprintf('<span class="count">$%s</span>',number_format($agent['Summary']['used'])); ?>
                         </div>
+
                         <div class="grace na">
                             <span class="pull-left">Grace</span>
-                            <span class="count">0</span>
+                            <span class="count"><?=sprintf("$%s",number_format($agent['Agent']['grace_fund'])); ?></span>
                         </div>
                     </section>
                 </div>
 
                 <div class="media-meta pull-left credit">
                     Credits Balance
-                    <span class="balance">0</span>
+                    <span class="balance">
+                        <?php if ($agent['Summary']['balance'] < 0) {
+                            echo sprintf("<span class='red'>($%s)</span>",number_format(str_replace("-",'',$agent['Summary']['balance'])));
+                        } else {
+                            echo sprintf("$%d",$agent['Summary']['balance']);
+                        }
+                        ?>
+                    </span>
                 </div>
                 <div class="media-action pull-right">
-                    <span><i class="icon-calendar"></i> <?=date('F d, Y', strtotime($agent['date_added'])); ?></span>
+                    <span><i class="icon-calendar"></i> <?=date('F d, Y', strtotime($agent['Agent']['date_added'])); ?></span>
                     <span class="button-bar">
-                        <?php if ($agent['status'] == 'pending') { ?>
+                        <?php if ($agent['Agent']['status'] == 'pending') { ?>
                             <!-- display only approve & Reject Buttons //-->
-                            <button class="approve btn btn-success" data-target="#myModal" data-toggle="modal" type="button" data-type="agent" data-action="approve" id="<?=$agent['id']; ?>" title="Approve this agent">Approve</button>
-                            <button class="approve btn btn-danger" type="button" data-type="agent" data-action="approve" id="<?=$agent['id']; ?>" title="Reject Agent">Reject</button>
+                            <a href="<?=SITE_URL; ?>/admin/agent_approve/<?=$agent['Agent']['id']; ?>" id="<?=$agent['Agent']['id']; ?>" title="Approve Agent" class="btn btn-success">Approve</a>
+                            <a href="javascript:void(0);" id="<?=$agent['Agent']['id']; ?>" data-name="<?=$agent['Agent']['title']; ?>" class="agent-delete btn btn-danger" title="Reject Agent">Reject</a>
                         <?php } else { ?>
-                            <?php $btnType = ($page['status'] == 'active') ? 'btn-success' : 'btn-warning'; ?>
-                            <button class="change-status btn btn-small <?=$btnType; ?>" type="button" data-type="page" data-action="swap_status" id="<?=$page['id']; ?>" data-value="<?=$page['status']; ?>" title="Click to Change Status"><?=ucwords($page['status']); ?></button>
-                            <a href="<?=SITE_URL; ?>/admin/pages_edit/<?=$page['id']; ?>" id="<?=$page['id']; ?>" title="Edit Page <?=$page['title']; ?>" class="btn btn-mini"><i class="icon-pencil"></i></a>
-                            <a href="javascript:void(0);" id="<?=$page['id']; ?>" data-name="<?=$page['title']; ?>" class="page-delete btn btn-mini" title="Delete Page <?=$page['title']; ?>"><i class="icon-trash"></i></a>
+                            <?php $btnType = ($agent['Agent']['status'] == 'approved') ? 'btn-success' : 'btn-warning'; ?>
+                            <button class="toggle-status btn btn-mini <?=$btnType; ?>" type="button" data-type="agent" data-action="change_status" id="<?=$agent['Agent']['id']; ?>" data-value="<?=$agent['Agent']['status']; ?>" title="Click to Change Status"><?=ucwords($agent['Agent']['status']); ?></button>
+                            <button class="btn btn-mini" type="button" data-type="agent" data-action="add-funds" id="<?=$agent['Agent']['id']; ?>" title="Add Funds"><i class="icon-plus-sign"></i> Funds</button>
+                            <a href="<?=SITE_URL; ?>/admin/agent_edit/<?=$agent['Agent']['id']; ?>" id="<?=$agent['Agent']['id']; ?>" title="Edit Agent Details <?=$agent['Agent']['company']; ?>" class="btn btn-mini"><i class="icon-pencil"></i></a>
+                            <a href="javascript:void(0);" id="<?=$agent['Agent']['id']; ?>" data-name="<?=$agent['Agent']['company']; ?>" class="agent-delete btn btn-mini" title="Delete Agent <?=$agent['Agent']['company']; ?>"><i class="icon-trash"></i></a>
                         <?php } ?>
                     </span>
                 </div>

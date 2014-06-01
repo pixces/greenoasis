@@ -16,11 +16,17 @@ class PagesController extends Controller {
 
     public function index()
     {
+        //get all the featured package for both tours as well as combo deals
+        $packageModel = new Package();
+        $tours = $packageModel->getFeatured(Package::TYPE_TOURS, 5);
+        $combo = $packageModel->getFeatured(Package::TYPE_COMBO, 5);
+
         //get the details form the social and contact group
         $quickContact = Configurator::get('contact',1);
 
         $social = Configurator::get('social',1);
 
+        $this->set('package',array('tours'=>$tours,'combo'=>$combo));
         $this->set('social',$social);
         $this->set('contact',$quickContact);
     }
@@ -46,4 +52,39 @@ class PagesController extends Controller {
         return;
     }
 
+    function saveContact(){
+        $this->doNotRenderHeader = true;
+
+        if (isset($_POST) && $_POST['contact'] && ( $_POST['contact']['form'] == 'quickContact' || $_POST['contact']['form'] == 'contact')){
+
+            $details = Utils::sanitizeParams($_POST['contact']);
+            foreach($details as $key => $value){
+                if ($key == 'email'){
+                    if (!Utils::is_valid($value)){
+                        //return false saying email is invalid
+                        echo json_encode(array('response'=>'ok','status'=>'failed','message'=>"Invalid email address provided"));
+                        exit;
+                    }
+                }
+            }
+
+            //send email to the admin regarding this form
+            Utils::sendEmail(
+                array('email'=>'rizwan@innoveins.com','name'=>'Admin'),
+                "Contact form submitted",
+                $details,
+                'site_contact'
+            );
+                echo json_encode(array('response'=>'ok','status'=>'success','message'=>"Quick Contact Submitted successfully."));
+                exit;
+            //return success
+        } else {
+                echo json_encode(array('response'=>'ok','status'=>'failed','message'=>"Invalid details provided."));
+                exit;
+            }
+    }
+
+    function validateCaptcha(){
+
+    }
 }

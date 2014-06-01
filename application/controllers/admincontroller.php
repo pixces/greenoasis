@@ -72,7 +72,9 @@ class AdminController extends Controller
 
     public function index()
     {
-
+        //$this->set('hotels',$hotelList);
+        $this->set_pageTitle('Dashboard');
+        $this->set_pageType('dashboard');
     }
 
     /*************************************
@@ -83,12 +85,23 @@ class AdminController extends Controller
         $images = 0;
         $packageObj = new Package();
         $packageList = $packageObj->getAll();
+        $categoryOptions = $packageObj->getCategoryOptions();
 
         foreach($packageList as &$package){
+            $package['Package']['category'] = $categoryOptions[$package['Package']['category']];
+            $package['Package']['description'] = UTILS::smartSubStr($package['Package']['description'],250);
+
+            //set the package rates
             if (count($package['Package_Rate'])){
                 $package['Package']['price'] = $package['Package_Rate'][0]['Package_Rate']['price'];
             }
-            $package['Package']['description'] = UTILS::smartSubStr($package['Package']['description'],250);
+
+            //set the default image
+            if (count($package['Package_Image'])){
+                $package['Package']['image'] = $package['Package_Image'][0]['Package_Image']['image_name'];
+            } else {
+                $package['Package']['image'] = 'no-image.png';
+            }
         }
         $this->set('packages',$packageList);
         $this->set_pageTitle('Packages');
@@ -101,39 +114,37 @@ class AdminController extends Controller
         $package = new Package();
 
         if ( $_POST && $_POST['form_action'] == 'add' && $_POST['package'] ) {
+            $error = 0;
+            $data_times = $_POST['package']['time'];
+            $data_rates = $_POST['package']['rate'];
 
-                $error = 0;
-
-                $data_times = $_POST['package']['time'];
-                $data_rates = $_POST['package']['rate'];
-
-                $package->setAttributes( $_POST['package'] );
+            $package->setAttributes( $_POST['package'] );
 
 
-                if ( $package->save() ){
-                    $package_id = $package->insert_id;
+            if ( $package->save() ){
+                $package_id = $package->insert_id;
 
-                    //save package times
-                    $packageTime = new Package_Time();
-                    $packageRate = new Package_Rate();
+                //save package times
+                $packageTime = new Package_Time();
+                $packageRate = new Package_Rate();
+                try{
+                    //save data for rates
+                    $packageRate->saveAll($data_rates,$package_id);
+                    //save data for times
                     try{
-                        //save data for rates
-                        $packageRate->saveAll($data_rates,$package_id);
-                        //save data for times
-                        try{
-                            $packageTime->saveAll($data_times,$package_id);
-                        } catch (Exception $e){
-                            $this->setFlash($e->getMessage(),'e');
-                        }
+                        $packageTime->saveAll($data_times,$package_id);
                     } catch (Exception $e){
                         $this->setFlash($e->getMessage(),'e');
                     }
-                    $this->setFlash('Package '.$_POST['package']['title'].' successfully added.','s');
-                } else {
-                    $this->setFlash('Cannot save package '.$_POST['package']['title'],'e');
+                } catch (Exception $e){
+                    $this->setFlash($e->getMessage(),'e');
                 }
-                header("location:".SITE_URL."/admin/package/");
-                exit;
+                $this->setFlash('Package '.$_POST['package']['title'].' successfully added.','s');
+            } else {
+                $this->setFlash('Cannot save package '.$_POST['package']['title'],'e');
+            }
+            header("location:".SITE_URL."/admin/package/");
+            exit;
         }
 
         $this->set_pageTitle('Packages: Add Package');
@@ -144,6 +155,56 @@ class AdminController extends Controller
     }
 
     public function package_edit(){
+
+        $package = new Package();
+
+        if ( $_POST && $_POST['form_action'] == 'edit' && $_POST['package'] ) {
+            $error = 0;
+            $data_times = $_POST['package']['time'];
+            $data_rates = $_POST['package']['rate'];
+            $package_id = $_POST['package']['id'];
+
+            $package->setAttributes( $_POST['package'] );
+
+
+            if ( $package->save() ){
+
+                //save package times
+                $packageTime = new Package_Time();
+                $packageRate = new Package_Rate();
+                try{
+                    //save data for rates
+                    $packageRate->saveAll($data_rates,$package_id);
+
+
+                    try{
+                        //save data for times
+                        $packageTime->saveAll($data_times,$package_id);
+                    } catch (Exception $e){
+                        $this->setFlash($e->getMessage(),'e');
+                    }
+                } catch (Exception $e){
+                    $this->setFlash($e->getMessage(),'e');
+                }
+                $this->setFlash('Package '.$_POST['package']['title'].' successfully added.','s');
+            } else {
+                $this->setFlash('Cannot save package '.$_POST['package']['title'],'e');
+            }
+            header("location:".SITE_URL."/admin/package/");
+            exit;
+        }
+
+
+        $id = func_get_arg(func_num_args()-1);
+
+        $model = $package->getById($id);
+
+        $this->set('model',$model);
+        $this->set('categoryOptions', $package->getCategoryOptions());
+        $this->set_pageTitle('Package: Edit');
+        $this->set('action', 'edit');
+        $this->set_pageType('package');
+        $this->setTemplate('package_form');
 
     }
 
@@ -163,7 +224,7 @@ class AdminController extends Controller
                             return false;
                         }
                         //now process this image
-                        $uploadFilename = Utils::uploadImage($_FILES['image'],'gallery');
+                        $uploadFilename = Utils::uploadImage($_FILES['image'],'package');
                         if ($uploadFilename == true) {
                             $data['image_name'] = $uploadFilename;
                         } else {
@@ -238,6 +299,26 @@ class AdminController extends Controller
                 echo json_encode(array('result' => 'Success', 'message' => 'Status updated; set to ' . $result, 'response' => $result));
             } else {
                 echo json_encode(array('result' => 'Error', 'message' => "Cannot update status"));
+            }
+        }
+        exit;
+    }
+
+    //this is an ajax call
+    public function package_featured(){
+
+        if ($_POST){
+
+            $id = $_POST['id'];
+            $currentState = $_POST['data'];
+
+            $model = new Package();
+            $model->setId($id);
+            $result = $model->updateField('featured',$currentState);
+            if ($result !== false) {
+                echo json_encode(array('result' => 'Success', 'message' => 'Package updated; featured set to ' . $result, 'response' => $result));
+            } else {
+                echo json_encode(array('result' => 'Error', 'message' => "Cannot update package"));
             }
         }
         exit;
@@ -450,6 +531,10 @@ class AdminController extends Controller
 
     public function hotel_tariff(){
         if ($_POST) {
+            $error = false;
+
+            //default room count
+            $roomCount = 20;
 
             $data = $_POST;
             $basic['hotel_id'] = $data['hotel_id'];
@@ -460,20 +545,59 @@ class AdminController extends Controller
 
             if ($data['tariff']){
                 $tariffList = array();
+                $t=0;
                 foreach($data['tariff'] as $tariff){
                     if (!empty($tariff['room_type'])){
-                        $tariffList[] = array_merge($basic,$tariff);
+                        //set the occupancy
+                        $occupancy = array();
+                        foreach($tariff as $key => $val){
+                            if (in_array($key, array('single','double','triple','unit'))){
+                                if (!is_null($val) && $val != '' && $val){
+                                    $occupancy['occupancy'][] = array(
+                                        'occupancy_type' => $key,
+                                        'room_rate' => $val,
+                                        'room_count' => (isset($tariff['room_count'])) ? $tariff['room_count'] : $roomCount,
+                                    );
+                                }
+                            }
+                        }
+
+                        $tariffList[] = array_merge($basic,$tariff,$occupancy);
                     }
                 }
             }
 
             $tariffObj = new Hotel_Tariff();
-            if ( $tariffObj->saveAll($tariffList) ){
-                //redirect the page
+            $modelOccupancy = new Hotel_Occupancy();
+
+            foreach($tariffList as $entity){
+                $hotelOccupancies = $entity['occupancy'];
+                $tariffObj->setAttributes($entity);
+
+                if ($tariffObj->save()){
+                    //get the inserted tariffId
+                    $tariffId = $tariffObj->insert_id;
+
+                    //populate this id in the occupancy list
+                    foreach($hotelOccupancies as &$occupancy){
+                        $occupancy['hotel_tariff_id'] = $tariffId;
+                    }
+
+
+                    //save all the occupancies
+                    if ( !$modelOccupancy->saveAll($hotelOccupancies)){
+                        $error = true;
+                        echo "Cannot save occupancy details for Tariff Id ".$tariffId;
+                    }
+                } else {
+                    $error = true;
+                    echo "Cannot save the Tariff details for Season ".$entity['season_name'];
+                }
+            }
+
+            if ( !$error ){
                 header("location: ".SITE_URL."/admin/hotel_tariff/".$_POST['hotel_id']);
                 exit;
-            } else {
-                echo "Cannot save hotel tariff";
             }
         }
 
@@ -679,6 +803,24 @@ class AdminController extends Controller
     }
 
     /*************************************
+     * Bookings
+     *************************************/
+    public function bookings()
+    {
+        $this->set_pageTitle('Hotel: Bookings');
+        $this->set_pageType('bookings');
+    }
+
+    /*************************************
+     * Visa
+     *************************************/
+    public function visa()
+    {
+        $this->set_pageTitle('Booking: Visa');
+        $this->set_pageType('visa');
+    }
+
+    /*************************************
      * Agents: Manage Agents
      *************************************/
     public function agents()
@@ -696,24 +838,114 @@ class AdminController extends Controller
         $agentObj = new Agent();
         $counts = $agentObj->getCounts();
 
-
         //get list of all agents
         //order by the latest first
         $agentObj->orderBy('date_added','DESC');
         $agents = $agentObj->getAll();
 
+        /*
         if ($agents){
             $agentList = array();
             foreach ($agents as $agent) {
-                array_push($agentList, $agent['Agent']);
+                array_push($agentList, array($agent['Agent'],$agent['summary']));
             }
         }
 
+        print_r($agentList);
+        */
+
         $this->set_pageTitle('Manage Agents');
         $this->set_pageType('agents');
-        $this->set('agents', $agentList);
+        $this->set('agents', $agents);
         $this->set('counts', $counts);
     }
+
+    /**
+     * Method to approve an agent
+     * Update the status to active/approved
+     * Send approval email to the agent
+     * Generate and update password into the database
+     */
+    public function agent_approve(){
+        $this->doNotRenderHeader = 1;
+        $agent_id = func_get_arg(func_num_args()-1);
+
+        if ($agent_id){
+
+            //new password
+            $pass = Utils::generateCaptcha(8);
+
+            $agentObj = new Agent();
+            $agentObj->setId($agent_id);
+            $agent = $agentObj->getById();
+
+            $agent['Agent']['status'] = 'approved';
+            $agent['Agent']['date_approved'] = date('Y-m-d h:i:s');
+            $agent['Agent']['password'] = md5($pass);
+
+
+            foreach($agent['Agent'] as $key => $val){
+                $agentObj->{$key} = $val;
+            }
+
+            //update the details into the database
+            if ( $agentObj->save() ){
+
+                Utils::sendEmail(
+                    array('email'=>$agent['Agent']['email'],'name'=>$agent['Agent']['contact']),
+                    "Congratulation! Approved as GreenOasis Travel Agent",
+                    array('password'=>$pass,'name'=>$agent['Agent']['contact']),
+                    'agent_approval'
+                );
+
+            }
+        }
+
+        //redirect to the agents page
+        #return that all data has been saved
+        $_SESSION['message'] = "Agent " . $agent['company'] . " approved successfully";
+        header("location:" . SITE_URL . "/admin/agents/");
+        exit;
+    }
+
+    //this is an ajax call
+    public function agent_change_status(){
+
+        if ($_POST){
+
+            $agent_id = $_POST['id'];
+            $currentStatus = $_POST['data'];
+
+            $agentObj = new Agent();
+            $agentObj->setId($agent_id);
+
+            $result = $agentObj->toggleStatus($currentStatus);
+            if ($result) {
+                echo json_encode(array('result' => 'Success', 'message' => 'Status updated; set to ' . $result, 'response' => $result));
+            } else {
+                echo json_encode(array('result' => 'Error', 'message' => "Cannot update status"));
+            }
+        }
+        exit;
+    }
+
+
+    /**
+     * Method to remove agent
+     * Called for both Reject/Delete action
+     * removes agents record from the database
+     */
+    public function agent_delete(){
+
+    }
+
+    /**
+     * Method to add funds to the agents wallet
+     */
+    public function agent_addFunds(){
+
+    }
+
 
     /*************************************
      * Pages: Static Site Content
@@ -1111,5 +1343,54 @@ class AdminController extends Controller
             die;
         }
     }
+
+    /**
+     * Utility method to update all
+     * room occupancies from the tariff table
+     * so that the search starts functioning
+     */
+    public function setOccupancy(){
+        //default room count
+        $roomCount = 20;
+
+        $modelTariff = new Hotel_Tariff();
+
+        $list = $modelTariff->getAll();
+        if (!$list){
+            echo "No Tariff found in the database. Hence Exiting";
+            exit();
+        }
+
+        $occupancy = array();
+        foreach($list as $hotel){
+            $tariff = $hotel['Hotel_Tariff'];
+
+            foreach($tariff as $key => $val){
+                if (in_array($key, array('single','double','triple','unit'))){
+                    if (!is_null($val) && $val != '' && $val){
+                        $occupancy[] = array(
+                            'hotel_tariff_id' => $tariff['id'],
+                            'occupancy_type' => $key,
+                            'room_rate' => $val,
+                            'room_count' => (isset($tariff['room_count']) && $tariff['room_count'] != 0) ? $tariff['room_count'] : $roomCount,
+                        );
+                    }
+                }
+            }
+        }
+
+        $modelOccupancy = new Hotel_Occupancy();
+        echo "Total data to save for Occupancy ".count($occupancy);
+        //save all the occupancies
+        if ( !$modelOccupancy->saveAll($occupancy)){
+            $error = true;
+            echo "Cannot save occupancy details";
+        }
+        exit;
+    }
+
+
+
+
 
 }

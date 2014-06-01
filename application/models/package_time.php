@@ -18,6 +18,7 @@ class Package_Time extends Model {
         foreach($data as $aTime){
             if (!empty($aTime['duration'])){
                 $aTime['package_id'] = $id;
+                $aTime['status'] = (!isset($aTime['status'])) ?  'active' : $aTime['status'];
                 $this->setAttributes($aTime);
                 $this->save();
             }
