@@ -80,6 +80,9 @@ $(function () {
     $("form.visa-form").on('change','#visa_count',VISA.addApplicants);
 
 
+    //call the function to recalculate booking values on select of qty
+    //from the qty box on the room pricing page
+
 
 });
 
@@ -299,7 +302,7 @@ var PACKAGE = {
 
         var rates = rateSelected.split("|");
 
-        console.log(rates);
+        //console.log(rates);
 
         $("#pkSelectedTimeId").text(timeSelected);
         $("#pkPriceAdult").text(rates[0]);
@@ -334,4 +337,37 @@ var PACKAGE = {
         $("#pkTotalPrice").text(totalPrice);
     }
 
+};
+
+var BOOKING = {
+    'init':function(){
+        BOOKING.calculateTariff();
+    },
+
+    'calculateTariff':function(){
+        var subtotal = 0;
+        $(".tariff-plan").each(function(){
+            //calculate the row total
+            var Obj = $(this);
+            var plan = Obj.attr("data-plan");
+            var unit_price = Obj.children(".clmn-unit-price").text();
+            var nights = Obj.children(".clmn-nights").text();
+            var qty = $("#select_"+plan).val();
+            var total = 0;
+
+            if (qty > 0){
+                total = parseInt(unit_price) * parseInt(nights) * parseInt(qty);
+            }
+
+            subtotal += total;
+            //update total to the price value
+            $(".price-"+plan).html(total);
+        });
+
+        //update subtotal
+        $(".subtotal-price").html(subtotal);
+
+        //get grand total
+        $(".grandTotal-price").html(subtotal);
+    }
 };

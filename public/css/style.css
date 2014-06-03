@@ -130,7 +130,7 @@ input.span2{
 }
 
 .header_col02_raw2 ul li a {
-    color: #444444;
+    color: #333333;
     padding: 38px 16px 38px 16px;
     text-decoration:none;
     font-family: 'Ropa Sans', sans-serif;
@@ -499,7 +499,7 @@ div .inverse{
 }
 
 .footer a {
-    color: #444444
+    color: #333333
 }
 
 #gallery {
@@ -670,6 +670,7 @@ h1 {
 }
 
 .bg-blue,
+.left-panel,
 .facet-blue{
     background: none repeat scroll 0 0 #E5F1FF;
     border: 1px solid #D2E3F7;
@@ -677,7 +678,8 @@ h1 {
     margin: 0 10px 10px 0px;
     width: 100%;
 }
-.facet-blue{
+.facet-blue,
+.left-panel{
     width: auto;
     background-color: #FFFFFF;
     border: 1px solid #EEEEEE;
@@ -695,7 +697,8 @@ h1 {
     max-width: 35%;
 }
 
-.facet-blue h5 {
+.facet-blue h5,
+.left-panel h5{
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
     font-family: "Ropa Sans";
     font-weight: normal;
@@ -715,7 +718,7 @@ h1 {
 
 }
 
-/* hotel displat list */
+/* hotel display list */
 .media-list{
     padding-bottom: 20px;
     margin-bottom: 10px;
@@ -757,7 +760,8 @@ span.star5{
 .star1,.star2,.star3,.star4,.star5,
 .icon-map,.icon-contact,
 .icon-icHotel,.icon-icTravel,.icon-icOther,
-.icon-family,.icon-honeymoon,.icon-spouse,.icon-alone{
+.icon-family,.icon-honeymoon,.icon-spouse,.icon-alone,
+.icon-cCalendar{
     background: url("../images/ui-sprite.png") no-repeat scroll 0 0 rgba(0,0,0,0);
 }
 
@@ -1354,4 +1358,157 @@ p.price span.curSymbl{
     overflow: hidden;
     padding-top: 100px;
     text-align: center;
+}
+
+/* Hotel booking page */
+.hotelInformation{
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.hotelInformation .title{
+    margin: 8px 0 0 0;
+    font-family: "Ropa Sans";
+    font-size: 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.packageInformation .title{
+    text-transform: uppercase;
+    font-size: 90%;
+}
+
+.packageInformation .timeAndDate .date .day{
+    font-size: 19px;
+}
+
+
+.icon-cCalendar{
+    background-position: -171px -3px;;
+    height: 28px;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.green-span9 > h1,
+.hotel-policy > h1{
+    padding: 0 0 5px;
+    font-size: 24px;
+    color: #3E9A3C;
+    margin: 0px;
+}
+
+.bookingPlan{
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding-bottom: 15px;
+}
+
+.bookingPlan span > span {
+    display:block;
+}
+
+.bookingPlan .roomType{
+    width: 225px;
+    border-right: 1px solid #EFEFEF;
+    padding-right: 5px;
+    margin-right: 15px;
+
+}
+
+.bookingPlan .roomType .title,
+.bookingPlan .roomPlan .title{
+    margin: 8px 0 0 0;
+    font-family: "Ropa Sans";
+    font-size: 18px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    color: #333333;
+}
+
+table.roomInfoTable th {
+    border-color: #C4C4C4;
+    border-style: solid;
+    border-width: 1px 0;
+    border-top: 5px solid #D2E3F7;
+    color: #666666;
+    padding: 8px 5px;
+    text-align: left;
+}
+
+table.roomInfoTable .alR {
+    text-align: right;
+}
+
+table.roomInfoTable tr.hasSeprator td {
+    border-bottom: 1px solid #E5E5E5;
+}
+
+table.roomInfoTable td {
+    padding: 8px 5px;
+    vertical-align: top;
+}
+
+table.roomInfoTable .total_section {
+    background-color: #F3F3F3;
+    padding: 0;
+}
+
+table.roomInfoTable .grand_total {
+    color: #CB3904;
+    font-size: 140%;
+    padding: 15px 10px 0;
+}
+
+.formTerms .greyBg{
+    background-color: #F3F3F3;
+    padding: 8px 5px 6px 5px;
+    margin-bottom: 10px;
+}
+
+.green-span9 .section-title{
+    padding: 8px 5px 8px 0px;
+    font-family: "Ropa Sans";
+    font-size: 18px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    color: #333333;
+}
+
+.hotel-policy{
+    margin-top: 20px;
+}
+
+.policy-box{
+    padding:10px;
+    margin-bottom: 25px;
+    border: 1px solid #EEEEEE;
+}
+
+.policy-box p{
+    font-size: 12px;
+    color: #666666;
+}
+
+.policy-box header{
+    padding: 8px 5px 8px 0px;
+    font-family: "Ropa Sans";
+    font-size: 18px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    color: #333333;
+}
+
+.bookingInstruction{
+    border-left: 1px solid #EFEFEF;
+    padding-left: 20px ;
+}
+
+.bookingInstruction ul{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.bookingInstruction ul li > label {
+    font-weight: normal;
 }
