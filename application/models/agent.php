@@ -76,4 +76,21 @@ class Agent extends Model {
         }
     }
 
+    
+    public function doLogin($data){
+       
+        
+        $this->where('email',$data['username']);
+        $this->where('password',  md5($data['password']) );
+        $this->where('status',  "approved");
+        
+        $result = $this->search();
+
+        if ($result){
+            return $result;
+        }
+
+        return false;
+
+    }
 }
