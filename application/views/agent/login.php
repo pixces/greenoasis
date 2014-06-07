@@ -5,7 +5,10 @@
         <div class="container-main pull-left box-shadow">
             <div class="content-left">
                 <div class="form">
-                    <form id="AgentRegistration" class="form-horizontal agent-form" method="post" enctype="multipart/form-data">
+                    
+                    <form id="AgentRegistration" action="<?=SITE_URL.'/agent/login/'; ?>" class="form-horizontal agent-form" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="mm_action" id="mm_action" value="doLogin" />
+                    <input type="hidden" name="form_action" value="doLogin" />
                         <div class="login-left">
                             <h1>Login</h1>
                             <p>Enter login credentials. All fields are mandatory.</p>
