@@ -29,9 +29,17 @@
                 <div class="header_col01"><img src="<?=SITE_URL; ?>/images/logo.png" width="496" height="135"/></div>
                 <div class="header_col02">
                     <div class="header_col02_raw">
+                        <?php  if (!isset($_SESSION['isAgentLoggedIn'])) { ?>
                         <div class="header_col02_raw1"><img src="<?=SITE_URL; ?>/images/icon01.png" width="31" height="32"/>
                             <a href="<?=SITE_URL; ?>/agent/login"><h1>Agent Login</h1></a>
                         </div>
+                        <?php } else{ ?>
+                        
+                            <div class="header_col02_raw1">
+                            <a href="#"><h1>Welcome,<?php echo $_SESSION['agent']['contact'];?>|Logout</h1></a>
+                            </div>
+                            
+                        <?php }?>
                         <div class="clearfix"></div>
                     </div>
                     <div class="header_col02_raw2">

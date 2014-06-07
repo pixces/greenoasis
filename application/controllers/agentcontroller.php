@@ -1,24 +1,23 @@
 <?php
+
 /**
  * Created by IntelliJ IDEA.
  * User: zainulabdeen
  * Date: 09/12/13
  * Time: 11:52 PM
  * To change this template use File | Settings | File Templates.
- */ 
+ */
 class AgentController extends Controller {
 
     protected $agent = array();
 
-
-    public function index(){
+    public function index() {
         //redirect to the site index
         //if the agent session is already set
         //else redirect to the agent register form
     }
 
-
-    public function register(){
+    public function register() {
 
         #check for the following fields
         #Company Name
@@ -27,33 +26,31 @@ class AgentController extends Controller {
         #Phone Number
         $error = 0;
 
-        if ($_POST && $_POST['mm_form'] == 'registerAgent'){
+        if ($_POST && $_POST['mm_form'] == 'registerAgent') {
             $newAgent = $_POST['agent'];
 
             //check for valid details added
-            if ( !empty($newAgent['email']) && !empty($newAgent['phone']) ) {
+            if (!empty($newAgent['email']) && !empty($newAgent['phone'])) {
 
                 //get the details of agent registered with same email
-                $agent = $this->fetchAgentDetails('email',$newAgent['email']);
-                if (!$agent){
+                $agent = $this->fetchAgentDetails('email', $newAgent['email']);
+                if (!$agent) {
                     //save this agent details to the database
-                    if ( $this->saveAgent($newAgent)){
+                    if ($this->saveAgent($newAgent)) {
                         //get the id of the new agent
                         $agentId = $this->Agent->insert_id;
                         $_SESSION['agent']['id'] = $agentId;
                         $_SESSION['agent']['status'] = 'confirmation';
 
                         //send emails to the user
-                        if ( $this->sendEmail($newAgent,'registration') ){
+                        if ($this->sendEmail($newAgent, 'registration')) {
                             //redirect to the confirmation page
-                            $url = SITE_URL."/agent/confirmation";
-                            header("location:".$url);
+                            $url = SITE_URL . "/agent/confirmation";
+                            header("location:" . $url);
                             exit;
                         } else {
                             $this->set('error', "Cannot send Agent Email.");
                         }
-
-
                     } else {
                         $this->set('error', "Cannot save agent details.");
                     }
@@ -61,25 +58,25 @@ class AgentController extends Controller {
                     $this->set('error', "Agent with the same Email already exists. Please Login.");
                 }
             } else {
-                $this->set('error',"All fields are mandatory.");
+                $this->set('error', "All fields are mandatory.");
             }
         }
     }
 
-    private function fetchAgentDetails($field,$value){
+    private function fetchAgentDetails($field, $value) {
 
-        if (!$field && !$value){
+        if (!$field && !$value) {
             return false;
         }
 
-        if (!$this->agent){
-            $this->agent = $this->Agent->getByField($field,$value);
+        if (!$this->agent) {
+            $this->agent = $this->Agent->getByField($field, $value);
         }
         return $this->agent;
     }
 
-    private function saveAgent($params){
-        foreach($params as $field => $value){
+    private function saveAgent($params) {
+        foreach ($params as $field => $value) {
             $this->Agent->{$field} = $value;
         }
 
@@ -88,27 +85,26 @@ class AgentController extends Controller {
         return $this->Agent->save();
     }
 
-    public function confirmation(){
+    public function confirmation() {
 
-        if (isset($_SESSION['agent']['id']) && $_SESSION['agent']['status'] == 'confirmation'){
+        if (isset($_SESSION['agent']['id']) && $_SESSION['agent']['status'] == 'confirmation') {
 
             $agentId = $_SESSION['agent']['id'];
-            $agentDet = $this->fetchAgentDetails('id',$agentId);
+            $agentDet = $this->fetchAgentDetails('id', $agentId);
             $agent = $agentDet['Agent'];
 
             //unset the agent session
             unset($_SESSION['agent']);
 
-            $agent['id'] = 'GO'.str_pad($agent['id'],5,'0',STR_PAD_LEFT);
-            $this->set('agent',$agent);
+            $agent['id'] = 'GO' . str_pad($agent['id'], 5, '0', STR_PAD_LEFT);
+            $this->set('agent', $agent);
         } else {
-            header("location:".SITE_URL.'/agent/register');
+            header("location:" . SITE_URL . '/agent/register');
             exit;
         }
-
     }
 
-    public function login(){
+    public function login() {
 
         //capture username and password
         //check from db
@@ -119,17 +115,49 @@ class AgentController extends Controller {
         //        - error -> Invalid Login Credentials. Please try again.
 
 
+        if ($_POST && $_POST['mm_action'] === 'doLogin') {
+
+            try {
+                #first validate posted data
+                if ($this->validate($_POST['agent'])) {
+                    #execute login process
+
+                    $agent = $this->Agent->doLogin($_POST['agent']);
+
+                    if (!empty($agent)) {
+
+                        $_SESSION['isAgentLoggedIn'] = true;
+                        $_SESSION['agent']['id'] = $agent[0]['Agent']['id'];
+                        $_SESSION['agent']['email'] = $agent[0]['Agent']['email'];
+                        $_SESSION['agent']['contact'] = $agent[0]['Agent']['contact'];
+
+                        #check if refferer is set
+                        if (isset($_SESSION['redirect_url'])):
+                            $redirect_url = $_SESSION['redirect_url'];
+                            unset($_SESSION['redirect_url']);
+                            header("location:" . $redirect_url);
+                            exit;
+                        endif;
+                        #redirect to index page
+                        header("location:" . SITE_URL . "/pages/index");
+                        exit;
+                    }
+                }
+            } catch (Exception $e) {
+                echo $message = $e->getMessage();
+            }
+        }
     }
 
-    private function sendEmail($params,$template='registration',$isAdmin=true){
+    private function sendEmail($params, $template = 'registration', $isAdmin = true) {
 
-        if (!$params){
+        if (!$params) {
             return false;
         }
 
         $mail = new Mailer();
 
-        switch($template){
+        switch ($template) {
             //send mail for registration
             case 'registration':
                 $subject = 'Welcome to GreenOasis';
@@ -142,7 +170,7 @@ class AgentController extends Controller {
         $mail->setSubject($subject);
 
         try {
-            if ( !$mail->sendEmail() ) {
+            if (!$mail->sendEmail()) {
                 echo $mail->ErrorInfo;
                 return false;
             }
@@ -150,6 +178,22 @@ class AgentController extends Controller {
         } catch (Exception $e) {
             echo $e->getMessage();
             return false;
+        }
+    }
+
+    private function validate($var) {
+
+        if (is_array($var)) {
+
+            if (empty($var['username'])) {
+                throw new Exception('Username field is empty');
+            } else if (empty($var['password'])) {
+                throw new Exception('Password field is empty');
+            } else {
+                return true;
+            }
+        } else {
+            throw new Exception('Please enter login details');
         }
     }
 
