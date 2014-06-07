@@ -43,7 +43,8 @@ class VisaController extends Controller {
                     #save the basic details to create a visa application
 
                     list($visa['type'], $visa['validity']) = UTILS::getVisaPackage($_POST['visa']['package']);
-                    $visa['application_id'] = $application_id;
+                    
+                    $visa['id'] = $application_id;
                     $visa['agent_id'] = $_SESSION['agent']['id'];
                     $visa['arrival'] = date('Y-m-d', strtotime($_POST['visa']['arrival']));
                     $visa['phone'] = $_POST['visa']['phone'];
@@ -70,7 +71,6 @@ class VisaController extends Controller {
                                 }
                             }
                             $paxObj->visa_id= $application_id;
-
                             //save this info
                             $paxObj->save();
 
