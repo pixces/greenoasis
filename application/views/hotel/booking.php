@@ -166,7 +166,7 @@
                     <label class="checkbox" for="tnc_input"><input id="tnc_input" class="flL" type="checkbox" name="tnc_cb" checked="checked"> I agree to all the <a href="" target="_blank">terms and conditions</a> and have reviewed the <a href="">policies</a>.</label>
                 </p>
                 <p style="text-align: right">
-                    <button class="btn btn-success" type="button">Continue Booking!</button>
+                    <button class="btn btn-success btn-booking" type="button">Continue Booking!</button>
                 </p>
             </div>
             <div class="hotel-policy">
@@ -201,6 +201,12 @@
 
         //on change of qty drop down selection
         $(".qty-select").on('change',BOOKING.calculateTariff);
+
+        //submit the form on click of the continue button
+        $(document).on('click','.btn-booking',SEARCH.booking);
+
+
+
     });
 
 

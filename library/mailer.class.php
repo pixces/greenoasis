@@ -32,7 +32,7 @@ class Mailer
             $this->mailer->Port = 587;
             $this->mailer->Username = "pixces@gmail.com";
             $this->mailer->Password = "zoya$123";
-            //$this->mailer->SMTPDebug = 2;
+            $this->mailer->SMTPDebug = 2;
 
         }
 

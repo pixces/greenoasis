@@ -504,7 +504,7 @@ class Utils
     public static function sendEmail($recipient,$subject,$params,$template,$isAdmin=true){
 
         if (!$recipient && !$subject && !$params){
-            echo "Recipent, Subject & Params are mandatory";
+            echo "Recipient, Subject & Params are mandatory";
             return false;
         }
 

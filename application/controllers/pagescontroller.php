@@ -70,7 +70,7 @@ class PagesController extends Controller {
 
             //send email to the admin regarding this form
             Utils::sendEmail(
-                array('email'=>'rizwan@innoveins.com','name'=>'Admin'),
+                array('email'=>'rizwanmy@gmail.com','name'=>'Admin'),
                 "Contact form submitted",
                 $details,
                 'site_contact'

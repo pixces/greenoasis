@@ -224,6 +224,9 @@ var SEARCH = {
     'preBooking':function(){
         alert("pre booking clicked");
         //validate agent login
+        
+
+
         var obj = $(this);
         var id = $(obj).attr('id');
         var hotelId = $(obj).attr('data-hotel');
@@ -235,7 +238,12 @@ var SEARCH = {
 
         //redirect to the booking form
         window.location.href = hrefUrl;
+    },
+    'booking':function(){
+
     }
+
+
 };
 
 var VISA = {
