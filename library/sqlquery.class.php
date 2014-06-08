@@ -1,7 +1,7 @@
 <?php
 
-class SQLQuery
-{
+class SQLQuery {
+
     protected $_dbHandle;
     protected $_result;
     protected $_query;
@@ -18,9 +18,8 @@ class SQLQuery
     protected $_totalpages;
     protected $_pagination_link;
 
-    /** Connects to database **/
-    public function connect($address, $account, $pwd, $name)
-    {
+    /** Connects to database * */
+    public function connect($address, $account, $pwd, $name) {
         $this->_dbHandle = mysql_connect($address, $account, $pwd);
         if ($this->_dbHandle != 0) {
             if (mysql_select_db($name, $this->_dbHandle)) {
@@ -38,9 +37,8 @@ class SQLQuery
         }
     }
 
-    /** Disconnects from database **/
-    public function disconnect()
-    {
+    /** Disconnects from database * */
+    public function disconnect() {
         if (@mysql_close($this->_dbHandle) != 0) {
             return 1;
         } else {
@@ -48,7 +46,7 @@ class SQLQuery
         }
     }
 
-    /** Select Query **/
+    /** Select Query * */
 
     /**
      *
@@ -56,101 +54,84 @@ class SQLQuery
      * @param string $value
      * @param string $action //is '=', not !=
      */
-    public function where($field, $value,$action='is')
-    {
-        if ($action == 'is'){
+    public function where($field, $value, $action = 'is') {
+        if ($action == 'is') {
             $operator = '=';
-        } else if ($action = 'not'){
+        } else if ($action = 'not') {
             $operator = '!=';
         }
-        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` '.$operator.' \'' . mysql_real_escape_string($value) . '\' AND ';
+        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` ' . $operator . ' \'' . mysql_real_escape_string($value) . '\' AND ';
     }
 
-    public function find_in_set($value,$field){
-        $this->_extraConditions .= 'FIND_IN_SET('.$value.',`' . $this->_model . '`.`' . $field . '`) AND ';
+    public function find_in_set($value, $field) {
+        $this->_extraConditions .= 'FIND_IN_SET(' . $value . ',`' . $this->_model . '`.`' . $field . '`) AND ';
     }
 
-    public function setOr(array $data)
-    {
+    public function setOr(array $data) {
         $whrCls = array();
-        foreach($data as $field => $value){
-            $whrCls[] = '`'.$this->_model.'`.`'.$field.'` = \'' . mysql_real_escape_string($value) . '\'';
+        foreach ($data as $field => $value) {
+            $whrCls[] = '`' . $this->_model . '`.`' . $field . '` = \'' . mysql_real_escape_string($value) . '\'';
         }
 
-        if($whrCls){
-            $this->_extraConditions .= '('.implode(" OR ",$whrCls).') AND ';
+        if ($whrCls) {
+            $this->_extraConditions .= '(' . implode(" OR ", $whrCls) . ') AND ';
         }
     }
 
-
-    public function like($field, $value)
-    {
+    public function like($field, $value) {
         $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` LIKE \'%' . mysql_real_escape_string($value) . '%\' AND ';
     }
 
-    public function in($check, array $array)
-    {
-        $value = "'".implode("','",$array)."'";
+    public function in($check, array $array) {
+        $value = "'" . implode("','", $array) . "'";
         $this->_extraConditions .= ' ' . $check . ' in (' . $value . ') AND ';
     }
 
-    public function showHasOne()
-    {
+    public function showHasOne() {
         $this->_hO = 1;
     }
 
-    public function showHasMany()
-    {
+    public function showHasMany() {
         $this->_hM = 1;
     }
 
-    public function showHMABTM()
-    {
+    public function showHMABTM() {
         $this->_hMABTM = 1;
     }
 
-    public function setLimit($limit)
-    {
+    public function setLimit($limit) {
         $this->_limit = $limit;
     }
 
-    public function setPage($page)
-    {
+    public function setPage($page) {
         $this->_page = $page;
     }
 
-    public function setTotalPage($count)
-    {
+    public function setTotalPage($count) {
         $this->_totalpages = $count;
     }
 
-    public function getTotalPage()
-    {
+    public function getTotalPage() {
         return $this->_totalpages;
     }
 
-    public function setPaginationLink($link)
-    {
+    public function setPaginationLink($link) {
         $this->_pagination_link = $link;
     }
 
-    public function getPaginationLink()
-    {
+    public function getPaginationLink() {
         if (is_null($this->_pagination_link)) {
             $this->createPaginationLink();
         }
         return $this->_pagination_link;
     }
 
-    public function orderBy($orderBy, $order = 'ASC')
-    {
+    public function orderBy($orderBy, $order = 'ASC') {
         $this->_orderBy = $orderBy;
         $this->_order = $order;
-
     }
 
-    public function search()
-    {
+    public function search() {
 
         global $inflect;
 
@@ -180,7 +161,7 @@ class SQLQuery
         $conditions = substr($conditions, 0, -4);
 
         if (isset($this->_orderBy)) {
-            if($this->_orderBy == 'random'){
+            if ($this->_orderBy == 'random') {
                 $conditions .= ' ORDER BY  RAND() ';
             } else {
                 $conditions .= ' ORDER BY `' . $this->_model . '`.`' . $this->_orderBy . '` ' . $this->_order;
@@ -329,11 +310,9 @@ class SQLQuery
             $this->clear();
             return $result;
         }
-
     }
 
-    public function fetchOne()
-    {
+    public function fetchOne() {
 
         global $inflect;
 
@@ -367,12 +346,10 @@ class SQLQuery
                 $this->{$v} = $rows[$v];
             }
         }
-
     }
 
-    /** Custom SQL Query **/
-    public function custom($query)
-    {
+    /** Custom SQL Query * */
+    public function custom($query) {
 
         global $inflect;
         $conditions = '';
@@ -430,10 +407,8 @@ class SQLQuery
         return $result;
     }
 
-    /** Describes a Table **/
-
-    protected function _describe()
-    {
+    /** Describes a Table * */
+    protected function _describe() {
 
         if (!$this->_describe) {
             $this->_describe = array();
@@ -451,53 +426,68 @@ class SQLQuery
         }
     }
 
-    /** Delete an Object **/
-    public function delete()
-    {
+    /** Delete an Object * */
+    public function delete() {
         if ($this->id) {
             $query = 'DELETE FROM ' . $this->_table . ' WHERE `id`=\'' . mysql_real_escape_string($this->id) . '\'';
             $this->_result = mysql_query($query, $this->_dbHandle);
             $this->clear();
             if ($this->_result == 0) {
-                /** Error Generation **/
+                /** Error Generation * */
                 return -1;
             } else {
                 return true;
             }
         } else {
-            /** Error Generation **/
+            /** Error Generation * */
             return -1;
         }
-
     }
 
-    /** Saves an Object i.e. Updates/Inserts Query **/
-    public function save($doNoUpdateBlanks=false)
-    {
+    /** Saves an Object i.e. Updates/Inserts Query * */
+    public function save($doNoUpdateBlanks = false) {
         $query = '';
+
+
         if (isset($this->id)) {
             $updates = '';
-
-            if ($doNoUpdateBlanks){
+            $fields = '';
+            $values = '';
+            $updatefields = '';
+            if ($doNoUpdateBlanks) {
                 //remove all fields which are blank as to preserver their values
                 //update only fields who have values set
                 foreach ($this->_describe as $field) {
                     if ($this->$field) {
-                        $updates .= '`'.$field.'` = \''.mysql_real_escape_string($this->$field).'\',';
+                        $fields .= '`' . $field . '`,';
+                        $values .= '\'' . mysql_real_escape_string($this->$field) . '\',';
+                        $updates .= '`' . $field . '` = \'' . mysql_real_escape_string($this->$field) . '\',';
+                        if ($field != 'id')
+                            $updatefields .= '`' . $field . '` = VALUES(`' . $field . '`),';
                     }
                 }
             } else {
                 //force update all fields
                 //esp. during edits
                 foreach ($this->_describe as $field) {
-                    if (!in_array($field,array('date_added','date_modified'))) {
+                    if (!in_array($field, array('date_added', 'date_modified'))) {
                         $updates .= '`' . $field . '` = \'' . mysql_real_escape_string($this->$field) . '\',';
+                        if ($field != 'id')
+                            $updatefields .= '`' . $field . '` = VALUES(`' . $field . '`),';
                     }
+                    $fields .= '`' . $field . '`,';
+                    $values .= '\'' . mysql_real_escape_string($this->$field) . '\',';
                 }
             }
 
             $updates = substr($updates, 0, -1);
-            $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id`=\'' . mysql_real_escape_string($this->id) . '\'';
+            $values = substr($values, 0, -1);
+            $fields = substr($fields, 0, -1);
+            $updatefields = substr($updatefields, 0, -1);
+            $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ') 
+                ON DUPLICATE KEY UPDATE ' . $updatefields;
+
+            // $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id`=\'' . mysql_real_escape_string($this->id) . '\'';
         } else {
             $fields = '';
             $values = '';
@@ -514,10 +504,11 @@ class SQLQuery
             $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
         }
 
+       
         $this->_result = mysql_query($query, $this->_dbHandle);
         $this->clear();
         if ($this->_result == 0) {
-            /** Error Generation **/
+            /** Error Generation * */
             return false;
         } else {
             $this->insert_id = mysql_insert_id($this->_dbHandle);
@@ -525,10 +516,8 @@ class SQLQuery
         }
     }
 
-    /** Clear All Variables **/
-
-    public function clear()
-    {
+    /** Clear All Variables * */
+    public function clear() {
         foreach ($this->_describe as $field) {
             $this->$field = null;
         }
@@ -542,9 +531,8 @@ class SQLQuery
         $this->_order = null;
     }
 
-    /** Pagination Count **/
-    protected function totalPages()
-    {
+    /** Pagination Count * */
+    protected function totalPages() {
 
         if ($this->_query && $this->_limit) {
             $pattern = '/SELECT (.*?) FROM (.*)LIMIT(.*)/i';
@@ -565,9 +553,7 @@ class SQLQuery
      * TODO: Update this method to give pager info without HTML
      * @return bool
      */
-
-    protected function createPaginationLink()
-    {
+    protected function createPaginationLink() {
 
         if (!$this->_totalpages) {
             $this->totalPages();
@@ -581,14 +567,14 @@ class SQLQuery
 
         #addl page Link
         /*
-        //$prev_page = ($this->_page -1 > 1) ? $this->_page - 1 : 1;
-        //$next_page = ($this->_page + 1 >= $this->_totalpages) ? $this->_totalpages : $this->_page + 1;
+          //$prev_page = ($this->_page -1 > 1) ? $this->_page - 1 : 1;
+          //$next_page = ($this->_page + 1 >= $this->_totalpages) ? $this->_totalpages : $this->_page + 1;
 
-        if ($this->_page > 1){
-            $link .= '<li class="previous" id="page-'.$prev_page.'">«Previous</li>';
-        } else {
-            $link .= '<li class="previous off" id="page-'.$prev_page.'">«Previous</li>';
-        }*/
+          if ($this->_page > 1){
+          $link .= '<li class="previous" id="page-'.$prev_page.'">«Previous</li>';
+          } else {
+          $link .= '<li class="previous off" id="page-'.$prev_page.'">«Previous</li>';
+          } */
 
         #loop over all the pages
         for ($i = 1; $i <= $this->_totalpages; $i++) {
@@ -600,21 +586,20 @@ class SQLQuery
         }
 
         #create next link
-        /*if ($this->_page >= $this->_totalpages){
-                $link .= '<li class="next off" id="page-'.$next_page.'">Next »</li>';
-        } else {
+        /* if ($this->_page >= $this->_totalpages){
+          $link .= '<li class="next off" id="page-'.$next_page.'">Next »</li>';
+          } else {
 
-            $link .= '<li class="next" id="page-'.$next_page.'">Next »</li>';
-        }*/
+          $link .= '<li class="next" id="page-'.$next_page.'">Next »</li>';
+          } */
         $link .= "</ul>";
 
         $this->setPaginationLink($link);
     }
 
-
-    /** Get error string **/
-    function getError()
-    {
+    /** Get error string * */
+    function getError() {
         return mysql_error($this->_dbHandle);
     }
+
 }

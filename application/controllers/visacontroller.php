@@ -44,7 +44,7 @@ class VisaController extends Controller {
 
                     list($visa['type'], $visa['validity']) = UTILS::getVisaPackage($_POST['visa']['package']);
                     
-                    $visa['visa_id'] = $application_id;
+                    $visa['id'] = $application_id;
                     $visa['agent_id'] = $_SESSION['agent']['id'];
                     $visa['arrival'] = date('Y-m-d', strtotime($_POST['visa']['arrival']));
                     $visa['phone'] = $_POST['visa']['phone'];
@@ -55,8 +55,9 @@ class VisaController extends Controller {
                     foreach ($visa as $field => $value) {
                         $this->Visa->{$field} = $value;
                     }
+                  
 
-                    if ($this->Visa->save()) {
+                    if ($this->Visa->save(true)) {
                         //save all the passenger details
                         
                         $paxObj = new Visa_Pax();

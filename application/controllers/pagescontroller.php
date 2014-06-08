@@ -94,7 +94,7 @@ class PagesController extends Controller {
         unset($_SESSION['agent']);
 
         #return to the index page
-        header("location:" . SITE_URL . "/pages/index");
+        header("location:" . SITE_URL);
         exit;
     }
 
