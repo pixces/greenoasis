@@ -87,4 +87,15 @@ class PagesController extends Controller {
     function validateCaptcha(){
 
     }
+    
+    public function logout()
+    {
+        unset($_SESSION['isAgentLoggedIn']);
+        unset($_SESSION['agent']);
+
+        #return to the index page
+        header("location:" . SITE_URL . "/pages/index");
+        exit;
+    }
+
 }
