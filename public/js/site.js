@@ -222,17 +222,23 @@ var SEARCH = {
     //if present will redirect to the booking page
     //else it should throw a modal for Agent Login
     'preBooking':function(){
-        alert("pre booking clicked");
-        //validate agent login
         
-
-
-        var obj = $(this);
-        var id = $(obj).attr('id');
-        var hotelId = $(obj).attr('data-hotel');
-        var searchSession = $(obj).attr('data-search-session');
-
-        var hrefUrl = SITE_URL+"/hotel/booking/?tariff="+id+"&hotel="+hotelId+"&search_sid="+searchSession;
+        //validate agent login
+        var agentSession;
+        var hrefUrl;
+        agentLoginSession=SEARCH.checkForsession();
+       
+        if(agentLoginSession=="FAILED"){
+            hrefUrl = SITE_URL+"/agent/login/";
+                                        
+        }else{
+            var obj = $(this);
+            var id = $(obj).attr('id');
+            var hotelId = $(obj).attr('data-hotel');
+            var searchSession = $(obj).attr('data-search-session');
+            hrefUrl = SITE_URL+"/hotel/booking/?tariff="+id+"&hotel="+hotelId+"&search_sid="+searchSession; 
+        }
+        
 
         //check for valid agent credentials
 
@@ -241,6 +247,27 @@ var SEARCH = {
     },
     'booking':function(){
 
+    },
+    
+    'checkForsession':function(){
+        var ajaxSessionResponse;
+        $.ajax({
+				type: "POST",
+                                async: false, 
+				url: SITE_URL + '/agent/checkAgentSession/',
+				cache: false,
+                                dataType: 'json',
+                                success: function(data){
+                                  if(data.status== "failed") {
+                                    alert(data.message);
+                                    ajaxSessionResponse="FAILED";
+                                   }
+                                  else{
+                                      ajaxSessionResponse="SUCCESS";
+                                  }
+				}
+		});
+             return ajaxSessionResponse;   
     }
 
 

@@ -197,4 +197,13 @@ class AgentController extends Controller {
         }
     }
 
+    public function checkAgentSession(){
+        $this->doNotRenderHeader = true;
+        if (!isset($_SESSION['isAgentLoggedIn'])) {
+           echo json_encode(array('response'=>'ok','status'=>'failed','message'=>"Your session has been expired!Please login."));
+                exit;
+        }
+       echo json_encode(array('response'=>'ok','status'=>'success','message'=>""));
+       exit;
+    }
 }

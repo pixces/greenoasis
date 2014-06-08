@@ -1,11 +1,12 @@
 <?php
+
 /**
  * Created by IntelliJ IDEA.
  * User: zainulabdeen
  * Date: 28/12/13
  * Time: 4:54 PM
  * To change this template use File | Settings | File Templates.
- */ 
+ */
 class Agent extends Model {
 
     var $hasMany = array('Agent_Wallet' => 'Agent_Wallet');
@@ -13,11 +14,10 @@ class Agent extends Model {
 
     private $_wallet = null;
 
-    public function getById()
-    {
+    public function getById() {
         $this->showHasMany();
         $result = $this->search();
-        if ($result){
+        if ($result) {
             return $result;
         } else {
             return false;
@@ -26,12 +26,12 @@ class Agent extends Model {
 
     //get the list of all agents
     //order by latest added
-    public function getAll(){
+    public function getAll() {
 
         $this->showHasMany();
         $details = $this->search();
-        if ($details){
-            foreach($details as &$agent){
+        if ($details) {
+            foreach ($details as &$agent) {
                 $agent['Summary'] = $this->getWalletSummary($agent['Agent']['id']);
             }
             return $details;
@@ -39,25 +39,24 @@ class Agent extends Model {
         return false;
     }
 
-    public function fetchByField($field,$value){
-
+    public function fetchByField($field, $value) {
+        
     }
 
-    public function getWalletSummary($agent_id){
-       $summary = $this->getWallet()->getSummary($agent_id);
-       return $summary;
+    public function getWalletSummary($agent_id) {
+        $summary = $this->getWallet()->getSummary($agent_id);
+        return $summary;
     }
 
-    public function getWallet(){
-        if (is_null($this->_wallet)){
+    public function getWallet() {
+        if (is_null($this->_wallet)) {
             $this->_wallet = new Agent_Wallet();
         }
 
         return $this->_wallet;
     }
 
-    public function toggleStatus($status = 'approved')
-    {
+    public function toggleStatus($status = 'approved') {
         #get the details of this profile
         $details = $this->getById();
         $newStatus = ($status == 'approved') ? 'inactive' : 'approved';
@@ -76,21 +75,16 @@ class Agent extends Model {
         }
     }
 
-    
-    public function doLogin($data){
-       
-        
-        $this->where('email',$data['username']);
-        $this->where('password',  md5($data['password']) );
-        $this->where('status',  "approved");
-        
+    public function doLogin($data) {
+        $this->where('email', $data['username']);
+        $this->where('password', md5($data['password']));
+        $this->where('status', "approved");
         $result = $this->search();
-
-        if ($result){
+        if ($result) {
             return $result;
         }
 
         return false;
-
     }
+
 }

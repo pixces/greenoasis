@@ -44,7 +44,7 @@ class VisaController extends Controller {
 
                     list($visa['type'], $visa['validity']) = UTILS::getVisaPackage($_POST['visa']['package']);
                     
-                    $visa['id'] = $application_id;
+                    $visa['visa_id'] = $application_id;
                     $visa['agent_id'] = $_SESSION['agent']['id'];
                     $visa['arrival'] = date('Y-m-d', strtotime($_POST['visa']['arrival']));
                     $visa['phone'] = $_POST['visa']['phone'];
