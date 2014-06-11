@@ -8,9 +8,16 @@
  */ 
 class Hotel_Reservation extends Model {
 
+    var $hasOne = array('Hotel' => 'Hotel', 'Hotel_Tariff' => 'Hotel_Tariff');
+
     public function getById()
     {
-        // TODO: Implement getById() method.
+        if (!$this->id){
+            return false;
+        }
+
+        $this->showHasOne();
+        return $this->search();
     }
 
 

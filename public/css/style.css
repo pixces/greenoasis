@@ -1514,12 +1514,88 @@ table.roomInfoTable .grand_total {
 }
 
 /* booking confirmation */
-table.room-info,
-table.pax-info{
-    font-size: 12px;
+
+.confirmation > .confirmHeader{
+    padding-bottom: 5px;
     margin-bottom: 15px;
+    border-bottom: 5px solid #D2E3F7;
+    background: none;
 }
 
+.confirmHeader p{
+    margin: 0;
+    padding: 0;
+}
+
+.bookingInformation span{
+    display: block;
+}
+
+.criteria-label{
+    font-size:16px;
+    font-family: "Ropa Sans";
+    color: #999;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    display: block;
+}
+
+.criteria-data{
+    color: #333;
+    font-size: 110%;
+}
+
+.lft-border{
+    padding-left: 10px;
+    border-left: 1px solid #CCCCCC;
+    float: left;
+    margin-left: 4px;
+}
+.top-border{
+    border-top: 1px solid #CCCCCC;
+}
+
+.packageInfo, .tariffInfo{
+    padding: 10px 0 10px 0;
+    margin: 10px 0px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.tariffInfo{
+    border-bottom: 1px solid #E5E5E5;
+
+}
+table.room-info{
+    padding: 10px 0 10px 0;
+    margin: 10px 0px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+table.room-info td{
+    padding: 10px 0px 0px 10px;
+}
+
+.booking-meta-date01,
+.booking-metaTblHead,
+.booking-metaTblTotal{
+    float: left;
+    width: 125px;
+    display: block;
+}
+
+.booking-metaTblHead:first-child, .booking-metaTblData:first-child{
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.booking-metaTblData{
+    float: left;
+    width: 125px;
+    display: block;
+}
+
+
+
+/*
 table.room-info th{
     border-top: 5px solid #D2E3F7;
     border-bottom: 1px solid #C4C4C4;
@@ -1535,10 +1611,7 @@ table.room-info .txt-rt{
 table.room-info tr.tbl-row-seperator td {
     border-bottom: 1px solid #E5E5E5;
 }
-table.room-info td {
-    padding: 8px 5px;
-    vertical-align: top;
-}
+
 table.room-info tr.tbl-row-subtotal td {
     background-color: #F3F3F3;
 }
@@ -1577,26 +1650,6 @@ table.room-info tr.tbl-row-grandtotal td{
     margin-bottom: 10px;
 }
 
-.criteria-label{
-    font-size:16px;
-    font-family: "Ropa Sans";
-    color: #999;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-    display: block;
-}
-
-.criteria-data{
-    color: #333;
-    font-size: 110%;
-}
-
-.lft-border{
-    padding-left: 15px;
-    border-left: 1px solid #CCCCCC;
-    float: left;
-    margin-left: 18px;
-}
-
 .tp-border{
     border-top: 1px solid #CCCCCC;
     float: left;
@@ -1611,11 +1664,7 @@ table.room-info tr.tbl-row-grandtotal td{
     display: block;
 }
 
-.booking-meta-date01{
-    float: left;
-    width: 126px;
-    display: block;
-}
+
 
 .booking-meta-date02{
     float: left;
@@ -1646,3 +1695,4 @@ table.room-info tr.tbl-row-grandtotal td{
     width: 240px;
     display: block;
 }
+*/
