@@ -82,7 +82,7 @@ class Hotel extends Model {
         $checkOut = date('Y-m-d', $data['checkout']);
 
         $searchSql = "SELECT h.id AS hotel_id, ht.id AS tariffID, ht.room_count, ht.season_name, ht.room_type, ht.meal_plan, ho.occupancy_type,
-                      Ifnull(ho.room_count-(Select sum(room_count) from hotel_reservation b WHERE hotel_tariff_id=ht.id and hotel_occupancy_id=ho.id and (
+                      Ifnull(ho.room_count-(Select sum(room_count) from hotel_reservations b WHERE hotel_tariff_id=ht.id and hotel_occupancy_id=ho.id and (
                         ( b.fromDate between '".$checkIn."' and '".$checkOut."' ) or ( b.toDate between '".$checkIn."' and '".$checkOut."' )) ),ho.room_count) as RemainingRoom,
                         ho.room_rate FROM hotels as h ";
 

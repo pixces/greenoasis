@@ -53,6 +53,16 @@ class Utils
         return array();
     }
 
+    public static function roomTypes(){
+        return array(
+            'single',
+            'double',
+            'triple',
+            'quad',
+            'unit',
+        );
+    }
+
     public static function filter($string, $size = null)
     {
         #remove all formating from the string

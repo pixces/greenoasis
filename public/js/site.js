@@ -239,14 +239,40 @@ var SEARCH = {
             hrefUrl = SITE_URL+"/hotel/booking/?tariff="+id+"&hotel="+hotelId+"&search_sid="+searchSession; 
         }
         
-
         //check for valid agent credentials
 
         //redirect to the booking form
         window.location.href = hrefUrl;
     },
-    'booking':function(){
+    'booking':function(e){
+        e.preventDefault;
 
+        //validate if the tnc checkbox is selected
+        if ( !$('#tnc_input').is(':checked') ){
+            alert("You must agree to booking terms and conditions");
+            return false;
+        }
+
+        var fetchUrl = SITE_URL + '/hotel/saveBooking/';
+
+        $.post(fetchUrl, $("#frmBooking").serialize() , function (data) {
+            console.log(data);
+            if (data.status == 'success'){
+                //redirect to the confirmation page
+                var queryStr = data.message;
+                var redirect = SITE_URL+"/hotel/confirmation/?"+queryStr;
+
+                //redirect
+                window.location.href = redirect;
+
+                return false;
+            } else {
+                alert("Some error occurred.");
+                console.log(data.message);
+            }
+            return false;
+        }, 'json');
+        return false;
     },
     
     'checkForsession':function(){

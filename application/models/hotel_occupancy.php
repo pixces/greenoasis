@@ -28,4 +28,16 @@ class Hotel_Occupancy extends Model {
         return true;
     }
 
+    public function fetchOne(){
+
+        if ($this->hotel_tariff_id){
+            $this->where('hotel_tariff_id',$this->hotel_tariff_id);
+        }
+        if ($this->occupancy_type){
+            $this->where('occupancy_type',$this->occupancy_type);
+        }
+        parent::fetchOne();
+        //return $this;
+    }
+
 }

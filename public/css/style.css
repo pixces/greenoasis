@@ -611,7 +611,7 @@ h1 {
 }
 
 .container-main h1.thanks{
-    font-size: 60px;
+    font-size: 36px;
     color: #8dc63f;
     padding-left: 0px;
     line-height: normal;
@@ -1511,4 +1511,138 @@ table.roomInfoTable .grand_total {
 
 .bookingInstruction ul li > label {
     font-weight: normal;
+}
+
+/* booking confirmation */
+table.room-info,
+table.pax-info{
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+table.room-info th{
+    border-top: 5px solid #D2E3F7;
+    border-bottom: 1px solid #C4C4C4;
+    color: #666666;
+    padding: 8px 5px;
+    text-align: left;
+}
+
+table.room-info .txt-rt{
+    text-align: right;
+}
+
+table.room-info tr.tbl-row-seperator td {
+    border-bottom: 1px solid #E5E5E5;
+}
+table.room-info td {
+    padding: 8px 5px;
+    vertical-align: top;
+}
+table.room-info tr.tbl-row-subtotal td {
+    background-color: #F3F3F3;
+}
+
+table.room-info tr.tbl-row-grandtotal td{
+    font-size: 175%;
+    font-family: "Ropa Sans";
+    color: #73B819;
+}
+
+.passenger-information{
+    padding-right: 15px;
+    margin-right: 10px;
+}
+
+.instructions{
+    border-left: 1px solid #E5E5E5;
+    padding-left: 15px;
+}
+
+.instructions ul{
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.instructions ul li {
+    font-size: 12px;
+}
+
+.instructions ul li .checkbox{
+    padding-left: 0px;
+}
+
+.booking-data{
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.criteria-label{
+    font-size:16px;
+    font-family: "Ropa Sans";
+    color: #999;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    display: block;
+}
+
+.criteria-data{
+    color: #333;
+    font-size: 110%;
+}
+
+.lft-border{
+    padding-left: 15px;
+    border-left: 1px solid #CCCCCC;
+    float: left;
+    margin-left: 18px;
+}
+
+.tp-border{
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    width:100%;
+    margin-bottom:10px;
+}
+
+
+.booking-meta-date{
+    float: left;
+    width: 200px;
+    display: block;
+}
+
+.booking-meta-date01{
+    float: left;
+    width: 126px;
+    display: block;
+}
+
+.booking-meta-date02{
+    float: left;
+    width: 500px;
+    display: block;
+}
+
+.booking-meta-date03{
+    float: left;
+    width: 100%;
+    display: block;
+}
+
+.booking-meta-date04{
+    float: left;
+    width: 30px;
+    display: block;
+}
+
+.booking-meta-date05{
+    float: left;
+    width: 70px;
+    display: block;
+}
+
+.booking-meta-date06{
+    float: left;
+    width: 240px;
+    display: block;
 }

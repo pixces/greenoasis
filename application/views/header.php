@@ -36,7 +36,7 @@
                         <?php } else{ ?>
                         
                             <div class="header_col02_raw1">
-                            <a href="#"><h1>Welcome,<?php echo $_SESSION['agent']['contact'];?></h1></a><a href="<?php echo SITE_URL;?>/pages/logout"><h1>| &nbsp;Logout</h1></a>
+                                <a href="#"><h1><?php echo $_SESSION['agent']['contact'];?></h1></a><a href="<?php echo SITE_URL;?>/pages/logout"><h1>| <i class="icon-off icon-white"></i> Logout</h1></a>
                             </div>
                         
                             

@@ -183,9 +183,111 @@ class HotelController extends Controller{
         $details['package'] = $packageDet;
         $details['pricing'] = $pricing;
 
-        //print_r($details);
-
         $this->set('details',$details);
+        $this->set('tariff',$tariff_id);
+        $this->set('search_session',$searchSession);
+    }
+
+    public function saveBooking(){
+        $this->doNotRenderHeader = true;
+
+        if ($_POST){
+
+            $booking = array();
+
+            $booking['agent_id'] = $_SESSION['agent']['id'];
+            $booking['hotel_tariff_id'] =$_POST['tariff_id'];
+            $booking['hotel_id'] =$_POST['hotel_id'];
+            $searchSession = $_POST['sid'];
+
+            //get the searched package details;
+            $sObj = new Hotel_Session();
+            $sObj->search_session = $searchSession;
+            $packageDet = $sObj->fetchBySession();
+
+            $booking['fromDate'] = date('Y-m-d', $packageDet['checkin']);
+            $booking['toDate'] = date('Y-m-d', $packageDet['checkout']);
+            $booking['pax_adult'] = $packageDet['pax']['adult'];
+            $booking['pax_children'] = $packageDet['pax']['children'];;
+
+            //get the room prices
+            $tariff = $_POST['tariff'];
+            $inclusion = array();
+            $grandTotal = 0;
+            foreach($tariff['qty'] as $plan => $qty){
+                if ($qty > 0){
+                    $total = $tariff['unit_price'][$plan] * $tariff['nights'][$plan] * $qty;
+                    $inclusion[$plan] = array(
+                        'plan' => $plan,
+                        'unit_price' => $tariff['unit_price'][$plan],
+                        'nights' => $tariff['nights'][$plan],
+                        'qty' => $qty,
+                        'total' => $total,
+                    );
+                    $grandTotal += $total;
+
+                    if (in_array($plan,Utils::roomTypes())){
+                        $selectedRoom = $inclusion[$plan];
+                    }
+                }
+            }
+
+            $booking['room_count'] = $selectedRoom['qty'];
+            $booking['room_type'] = $selectedRoom['plan'];
+            $booking['nights'] =  $selectedRoom['nights'];
+            $booking['price'] = $grandTotal;
+            $booking['inclusions'] = json_encode($inclusion);
+            $booking['instructions'] = json_encode(Utils::sanitizeParams($_POST['booking']['instructions']));
+            $booking['addl_instructions'] = Utils::sanitize($_POST['booking']['special_instructions']);
+
+            //get room occupancy id to
+            $objHO = new Hotel_Occupancy();
+            $objHO->hotel_tariff_id = $booking['hotel_tariff_id'];
+            $objHO->occupancy_type =  $booking['room_type'];
+            $objHO->fetchOne();
+
+            if ($objHO->id){
+                $booking['hotel_occupancy_id'] = $objHO->id;
+            }
+
+            //save this package
+            $objHR = new Hotel_Reservation();
+            $objHR->setAttributes( $booking );
+            if ( $objHR->save() ){
+                $reservation_id = $objHR->insert_id;
+                $pax = Utils::sanitizeParams($_POST['pax']);
+                $pax['reservation_id'] = $reservation_id;
+
+                $oHPax = new Hotel_Pax();
+                $oHPax->setAttributes($pax);
+
+                if ( !$oHPax->save() ){
+                    //log error that unable to save pax details
+                    //print_r($pax);
+
+                }
+
+                //set session for booking reference
+                $_SESSION['booking_'.$searchSession] = $reservation_id;
+                $hrefUrl = http_build_query($packageDet)."&booking=".$searchSession;
+                echo json_encode(array('response'=>'ok','status'=>'success','message'=>$hrefUrl));
+                exit;
+            } else {
+                //throw error that the reservation cannot be saved
+                //submit response to JS
+                echo json_encode(array('response'=>'ok','status'=>'error','message'=>"Cannot add booking information"));
+                exit;
+            }
+        }
+    }
+
+    public function confirmation(){
+        //get the booking details from the database
+        //display details to the user
+        //send email to the agent
+        //option to print the page
+
+
     }
 
     public function buildQuery(){

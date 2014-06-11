@@ -332,6 +332,7 @@ class SQLQuery {
         $conditions = substr($conditions, 0, -4);
 
         $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
+
         //echo '<!--'.$this->_query.'-->';
         $this->_result = mysql_query($this->_query, $this->_dbHandle);
 
