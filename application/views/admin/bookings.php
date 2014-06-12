@@ -1,5 +1,11 @@
 <div class="page-body-inner">
+ <?php
+    if (empty($hotelReservations)) {
 
+        echo '<p>No Record Exist.</p>';
+        exit;
+    }
+    ?>
 
     <div>
         <div>

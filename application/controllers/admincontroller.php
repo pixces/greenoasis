@@ -802,7 +802,6 @@ class AdminController extends Controller {
         $hotelreservations = $hotelresObj->getAll();
         $this->set('hotelReservations', $hotelreservations);
         $this->set('counts', $counts);
-        
     }
 
     /*     * ***********************************
@@ -812,6 +811,14 @@ class AdminController extends Controller {
     public function visa() {
         $this->set_pageTitle('Booking: Visa');
         $this->set_pageType('visa');
+
+        $visaObj = new Visa();
+        $counts = $visaObj->getCounts();
+        $visaObj->orderBy('date_added', 'DESC');
+        $visaInfo = $visaObj->getAll();
+        
+        $this->set('visaInfo', $visaInfo);
+        $this->set('counts', $counts);
     }
 
     /*     * ***********************************
