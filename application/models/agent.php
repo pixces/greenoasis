@@ -87,4 +87,15 @@ class Agent extends Model {
         return false;
     }
 
+    public function getAgentSummary($id) {
+        $sQl = 'SELECT *  FROM `' . $this->_table . '` where `id` = ' . $id;
+        $res = $this->custom($sQl);
+
+        if ($res) {
+            return isset($res[0]['Agent']['contact']) ? $res[0]['Agent']['contact'] : $res[0]['Agent']['company'];
+        }
+
+        return;
+    }
+
 }
