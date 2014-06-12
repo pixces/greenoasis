@@ -65,8 +65,11 @@ Abstract class Model extends SQLQuery
     function getCounts()
     {
         $counts = array('total'=>0);
-        $total = $this->custom('select count(*) as total from `' . $this->_table . '`');
-        $status = $this->custom('select count(*) as total, status from `' . $this->_table . '` group by status ');
+        $totalSql = 'select count(*) as total from `' . $this->_table . '`';
+        $total = $this->custom($totalSql);
+
+        $statusSql = 'select count(*) as total, status from `' . $this->_table . '` group by status ';
+        $status = $this->custom($statusSql);
 
         if ($total) {
             $counts['total'] = $total[0][0]['total'];
