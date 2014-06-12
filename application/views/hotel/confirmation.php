@@ -1,131 +1,107 @@
 <!-- Start: Main Content --->
-<div class="content bg-white" xmlns="http://www.w3.org/1999/html">
+<div class="content bg-white">
 <div class="container">
 <div class="heading"><h1>Hotel Booking: Confirmation</h1></div>
-<div class="container-main box-shadow pull-left">
-    <h1 class="thanks">Thank You!</h1>
+<div class="container-main box-shadow pull-left confirmation">
+    <div class="confirmHeader">
+        <h1 class="thanks">Thank You!</h1>
+        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+            in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+            are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden
+            in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+            as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
+            Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks
+            reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or
+            non-characteristic words etc.</p>
+    </div>
+    <div class="bookingHotel media">
+        <a class="pull-left" href="#">
+            <img class="media-object img-polaroid" src="<?=SITE_URL."/public/upload/logo_".$booking['hotel']['logo']; ?>">
+        </a>
+        <div class="bookingInformation media-body">
+            <h4>
+                <span class="media-heading"><?=$booking['hotel']['name']; ?></span>
+                <span class="star star<?=$booking['hotel']['stars']; ?>" title="<?=$booking['hotel']['stars']; ?>-star"></span>
+            </h4>
+            <span class="hotelLocation"><i class="icon-map"></i> <?=$booking['hotel']['address']; ?></span>
+            <span class="hotelContact"><i class="icon-contact"></i> Phone: <?=$booking['hotel']['phone']; ?>, Fax: <?=$booking['hotel']['fax']; ?></span>
+            <div class="packageInfo clearfix">
+                <span class="pull-left booking-meta-date01">
+                    <span class="criteria-label">Check In:</span>
+                    <span class="criteria-data"><?=date('D d M, Y', strtotime($booking['reservation']['fromDate'])); ?></span>
+                </span>
+                <span class="pull-left booking-meta-date01 lft-border">
+                    <span class="criteria-label">Check Out:</span>
+                    <span class="criteria-data"><?=date('D d M, Y', strtotime($booking['reservation']['toDate'])); ?></span>
+                </span>
+                <span class="pull-left booking-meta-date01 lft-border">
+                    <span class="criteria-label">Nights:</span>
+                    <span class="criteria-data"><?=str_pad($booking['reservation']['nights'],2,'0',STR_PAD_LEFT); ?></span>
+                </span>
+                <span class="pull-left booking-meta-date01 lft-border">
+                    <span class="criteria-label">Room[s]:</span>
+                    <span class="criteria-data"><?=str_pad($booking['reservation']['room_count'],2,'0',STR_PAD_LEFT); ?></span>
+                </span>
+                <span class="pull-left booking-meta-date01 lft-border">
+                    <span class="criteria-label">Passengers:</span>
+                    <span class="criteria-data"><?=sprintf('Adults %d | Children %d',$booking['reservation']['pax_adult'],$booking['reservation']['pax_children']); ?></span>
+                </span>
+            </div>
+            <div class="tariffInfo clearfix">
+                <span class="pull-left booking-meta-date01">
+                    <span class="criteria-label">Room Type:</span>
+                    <span class="criteria-data"><?=$booking['tariff']['room_type']; ?></span>
+                </span>
 
-    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-        in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-        are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden
-        in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
-        as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
-        Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks
-        reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or
-        non-characteristic words etc.</p>
-    <table width="100%">
-        <tbody>
-        <tr>
-            <td><img class="img-polaroid" src="assets/img/logo_logo.jpg"></td>
-            <td>
-                <h4>
-                    <span class="media-heading">Sheraton Deira Hotel</span>
-                    <span title="2-star" class="star star2"></span>
-                </h4>
-                            <span class="hotel_location">
-                                <i class="icon-map"></i> Deira
-                            </span>
-                            <span class="hotel_contact">
-                                <i class="icon-contact"></i> Phone: 00971 4 2688888, Fax: 00971 4 262 502
-                            </span>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <table width="100%">
-                    <tbody>
-                    <tr>
-                        <td>
-                            <span class="criteria-label">Check In:</span>
-                            <span class="criteria-data">Sun. 10 Nov. 2013 </span>
-                        </td>
-                        <td>
-                            <span class="criteria-label">Check In:</span>
-                            <span class="criteria-data">Sun. 10 Nov. 2013 </span>
-                        </td>
-                        <td>
-                            <span class="criteria-label">Check In:</span>
-                            <span class="criteria-data">Sun. 10 Nov. 2013 </span>
-                        </td>
-                        <td>
-                            <span class="criteria-label">Check In:</span>
-                            <span class="criteria-data">Sun. 10 Nov. 2013 </span>
-                        </td>
-                        <td>
-                            <span class="criteria-label">Check In:</span>
-                            <span class="criteria-data">Sun. 10 Nov. 2013 </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="criteria-label">Check In:</span>
-                            <span class="criteria-data">Sun. 10 Nov. 2013 </span>
-                        </td>
-                        <td colspan="3">
-                            <span class="criteria-label">Check In:</span>
-                            <span class="criteria-data">Sun. 10 Nov. 2013 </span>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <table width="100%">
-                    <thead>
-                        <tr>
-                            <th>Room Plan:</th>
-                            <th>Price/Night:</th>
-                            <th>Nights:</th>
-                            <th>Qty:</th>
-                            <th>Price:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Single Room</td>
-                            <td>100</td>
-                            <td>01</td>
-                            <td>01</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>Child Extra Bed</td>
-                            <td>30</td>
-                            <td>01</td>
-                            <td>01</td>
-                            <td>30</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <table class="room-info" id="tariff-1" width="100%">
-        <tbody><span class="pull-left booking-meta-date02">
-                        <span class="criteria-label">Instructions:</span>
-                        <span
-                            class="criteria-data">There are many variations of passages of Lorem Ipsum available</span><br/>
-                        <span class="criteria-data">All the Lorem Ipsum generators on the Internet tend</span><br/>
-                        <span class="criteria-data">he standard chunk of Lorem Ipsum used since the 1500s is reproduced below</span>
-                    </span>
-        </tbody>
-    </table>
-    <p>Our representative will get in touch with you shortly to discuss this engagement with us.</p>
+                <span class="pull-left booking-meta-date01 lft-border">
+                    <span class="criteria-label">Rate Basis:</span>
+                    <span class="criteria-data">BB [Bed & Breakfast]</span>
+                </span>
+            </div>
+            <?php if ($booking['occupancy']) { ?>
+            <table class="room-info">
+                <tr>
+                    <td class="booking-metaTblHead"><span class="criteria-label">Room Plan:</span></td>
+                    <td class="booking-metaTblHead lft-border"><span class="criteria-label">Price/Night:</td>
+                    <td class="booking-metaTblHead lft-border"><span class="criteria-label">No.of Nights:</td>
+                    <td class="booking-metaTblHead lft-border"><span class="criteria-label">Qty:</td>
+                    <td class="booking-metaTblHead lft-border"><span class="criteria-label">Price:</td>
+                </tr>
+                <?php foreach ($booking['occupancy'] as $plan=>$detail) { ?>
+                <tr>
+                    <td class="booking-metaTblData"><span class="criteria-data"><?=ucwords($detail['plan'])." Room"; ?></span></td>
+                    <td class="booking-metaTblData lft-border"><span class="criteria-data"><?=$detail['unit_price']; ?></span></td>
+                    <td class="booking-metaTblData lft-border"><span class="criteria-data"><?=$detail['nights']; ?></span></td>
+                    <td class="booking-metaTblData lft-border"><span class="criteria-data"><?=$detail['qty']; ?></span></td>
+                    <td class="booking-metaTblData lft-border"><span class="criteria-data"><?=$detail['total']; ?></span></td>
+                </tr>
+                <?php } ?>
+                <tr>
+                    <td class="booking-metaTblTotal"></span></td>
+                    <td class="booking-metaTblTotal"></span></td>
+                    <td class="booking-metaTblTotal"></span></td>
+                    <td class="booking-metaTblTotal lft-border top-border"><span class="criteria-label">Grand Total</span></td>
+                    <td class="booking-metaTblTotal lft-border top-border"><span class="criteria-label"><?=$booking['reservation']['price']; ?></span></td>
+                </tr>
+            </table>
+            <?php } ?>
+            <div class="bookingInstructions">
+                <?php if ($booking['reservation']['instructions']){ ?>
+                    <span class="criteria-label">Booking Instructions:</span>
+                    <ul>
+                        <?php foreach(json_decode($booking['reservation']['instructions'], true) as $instr){ ?>
+                            <li><?=$instr; ?></li>
+                        <?php } ?>
+                    </ul>
+                <?php } ?>
+                <?php if ($booking['reservation']['addl_instructions']){ ?>
+                    <span class="criteria-label">Special Instructions:</span>
+                    <p><?=$booking['reservation']['addl_instructions']; ?></p>
 
-    <div class="footer">
-        <h1>Terms Conditions:</h1>
-
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-            classical Latin literature from 45 BC, making it over 2000 years old.</p>
-
-        <p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the
-            more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of
-            the word in classical literature, discovered the undoubtable source.</p>
+                <?php } ?>
+            </div>
+        </div>
+        <div class="clearfix"></div>
     </div>
 </div>
 <div class="sidebar pull-right">

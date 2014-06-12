@@ -63,6 +63,13 @@ class Utils
         );
     }
 
+    public static function mealPlans(){
+        return array(
+            'bb' => 'BB [Bed & Breakfast]',
+        );
+    }
+
+
     public static function filter($string, $size = null)
     {
         #remove all formating from the string

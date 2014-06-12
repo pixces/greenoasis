@@ -282,12 +282,57 @@ class HotelController extends Controller{
     }
 
     public function confirmation(){
-        //get the booking details from the database
-        //display details to the user
-        //send email to the agent
-        //option to print the page
+        //if there is a booking id available
+        if ( !isset($this->_request['booking'])){
+            //booking already displayed
+            //return to site home
+            header("location:".SITE_URL);
+            exit;
+        }
 
+        $booking_session = 'booking_'.$this->_request['booking'];
+        if (!isset($_SESSION[$booking_session])){
+            //session is removed hence confirmation already displayed
+            //return to home page
+            header("location:".SITE_URL);
+            exit;
+        }
 
+        $booking_id = $_SESSION[$booking_session];
+
+        //unset this session from the application
+        unset($_SESSION[$booking_session]);
+
+        //get the reservation details
+        //get the hotel details
+        //get the tariff details
+        $objHotelBooking = new Hotel_Reservation();
+        $objHotelBooking->setId($booking_id);
+
+        $details = $objHotelBooking->getById();
+        $bookingDet = $details['Hotel_Reservation'];
+        $hotelDet = $details['Hotel'];
+        $tariffDet = $details['Hotel_Tariff'];
+
+        $this->set('booking',array(
+            'hotel'=>array(
+                'id'=>$hotelDet['id'],
+                'name'=>$hotelDet['hotel_name'],
+                'logo'=>$hotelDet['hotel_logo'],
+                'stars'=>$hotelDet['hotel_stars'],
+                'address'=>$hotelDet['hotel_address'],
+                'phone'=>$hotelDet['hotel_phone'],
+                'fax'=>$hotelDet['fax'],
+                'email'=>$hotelDet['hotel_email']
+            ),
+            'tariff'=>array(
+                'id'=>$tariffDet['id'],
+                'room_type'=>$tariffDet['room_type'],
+                'meal_plan'=>$tariffDet['meal_plan'],
+            ),
+            'reservation'=>$bookingDet,
+            'occupancy'=>json_decode($bookingDet['inclusions'], true)
+        ));
     }
 
     public function buildQuery(){
