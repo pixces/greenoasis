@@ -49,7 +49,7 @@
                         <td><?php echo $i++; ?></td>
                         <td><?php echo $reservation['Hotel_Reservation']['id']; ?></td>
                         <td><?php echo date("F j, Y, g:i a", strtotime($reservation['Hotel_Reservation']['date_added'])); ?></td>
-                        <td><?php echo $reservation['agent_name']; ?></td>
+                        <td><?php echo ucwords($reservation['agent_name']); ?></td>
                         <td><?php echo $reservation['customer_name']; ?></td>
                         <td><?php echo $reservation['hotel_name']; ?></td>
                         <td><?php echo $reservation['Hotel_Reservation']['fromDate']; ?></td>
