@@ -42,7 +42,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $i = 0; ?>
+                <?php $i = 1; ?>
                 <?php foreach ($hotelReservations as $reservation): ?>
                     <tr>
 
