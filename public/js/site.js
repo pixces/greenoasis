@@ -5,7 +5,7 @@
  * Time: 1:12 AM
  * To change this template use File | Settings | File Templates.
  */
-$(function () {
+$(function() {
     //Execute the slideShow
     slideShow();
 
@@ -16,26 +16,26 @@ $(function () {
     //display datepicker for arrivaldate */
     $("#dpArrival").datepicker();
 
-    $("#hotelSearch").submit(function(e){
+    $("#hotelSearch").submit(function(e) {
 
         e.preventDefault();
 
-        if ($("#txtLocation").val() != ""){
+        if ($("#txtLocation").val() != "") {
             //identify the city, country or hotel name
 
         }
-        if ($("#txtCheckin").val() != ""){
+        if ($("#txtCheckin").val() != "") {
             //check if is a date
             //check if the dat is not less than today
 
         }
-        if ($("#txtCheckout").val() != ""){
+        if ($("#txtCheckout").val() != "") {
             //check if is a date
             //check if the date is not less than today
             //check if the date is not less than date checkin
 
         }
-        if ($("#txtRoomCount").val() != ""){
+        if ($("#txtRoomCount").val() != "") {
             //check if not less than 1
 
         }
@@ -43,10 +43,10 @@ $(function () {
         var fetchUrl = SITE_URL + '/hotel/buildQuery/';
 
 
-        $.post(fetchUrl, $("#hotelSearch").serialize() , function (data) {
+        $.post(fetchUrl, $("#hotelSearch").serialize(), function(data) {
 
             console.log(data);
-            if (data.status == 'success'){
+            if (data.status == 'success') {
                 window.location.href = data.url;
             }
             return false;
@@ -54,16 +54,16 @@ $(function () {
         return false;
     });
 
-    $("#quickContact").submit(function(e){
+    $("#quickContact").submit(function(e) {
         e.preventDefault();
 
         //all validation is already taken care of
         //so now just do a form submit
         var fetchUrl = SITE_URL + '/pages/saveContact/';
 
-        $.post(fetchUrl, $("#quickContact").serialize() , function (data) {
+        $.post(fetchUrl, $("#quickContact").serialize(), function(data) {
             console.log(data);
-            if (data.status == 'success'){
+            if (data.status == 'success') {
                 alert(data.message);
                 $("#quickContact")[0].reset();
             } else {
@@ -74,10 +74,10 @@ $(function () {
         return false;
     });
 
-    $(document).on('click','.btn-book-hotel',SEARCH.preBooking);
+    $(document).on('click', '.btn-book-hotel', SEARCH.preBooking);
 
     //add more applicants based on selected numbers
-    $("form.visa-form").on('change','#visa_count',VISA.addApplicants);
+    $("form.visa-form").on('change', '#visa_count', VISA.addApplicants);
 
 
     //call the function to recalculate booking values on select of qty
@@ -102,7 +102,7 @@ function slideShow() {
 
     //Get the caption of the first image from REL attribute and display it
     $('#gallery .content').html($('#gallery a:first').find('img').attr('rel'))
-        .animate({opacity: 0.7}, 400);
+            .animate({opacity: 0.7}, 400);
 
     //Call the gallery function to run the slideshow, 6000 = change to next image after 6 seconds
     setInterval('gallery()', 6000);
@@ -122,15 +122,15 @@ function gallery() {
 
     //Set the fade in effect for the next image, show class has higher z-index
     next.css({opacity: 0.0})
-        .addClass('show')
-        .animate({opacity: 1.0}, 1000);
+            .addClass('show')
+            .animate({opacity: 1.0}, 1000);
 
     //Hide the current image
     current.animate({opacity: 0.0}, 1000)
-        .removeClass('show');
+            .removeClass('show');
 
     //Set the opacity to 0 and height to 1px
-    $('#gallery .caption').animate({opacity: 0.0}, { queue: false, duration: 0 }).animate({height: '1px'}, { queue: true, duration: 300 });
+    $('#gallery .caption').animate({opacity: 0.0}, {queue: false, duration: 0}).animate({height: '1px'}, {queue: true, duration: 300});
 
     //Animate the caption, opacity to 0.7 and heigth to 100px, a slide up effect
     $('#gallery .caption').animate({opacity: 0.7}, 100).animate({height: '100px'}, 500);
@@ -140,49 +140,48 @@ function gallery() {
 }
 
 var SEARCH = {
-
-    'buildHotelList':function(hotelList){
+    'buildHotelList': function(hotelList) {
 
         for (var i = 0; i < hotelList.length; i++) {
 
             var hotel = hotelList[i]['Hotel'];
             var tariffList = hotelList[i]['Tariff'];
 
-            var item=$("#hotel").clone().attr("id","hotel_"+hotel['id']).attr("data-type",hotel['hotel_name']);
+            var item = $("#hotel").clone().attr("id", "hotel_" + hotel['id']).attr("data-type", hotel['hotel_name']);
 
-            for(var title in hotel){
+            for (var title in hotel) {
                 //console.log(typeof(hotel[title])+"---"+title);
-                if(title == "hotel_logo"){
-                    if ( hotel['hotel_logo'] != ''){
-                        var imgSrc = SITE_URL+"/public/upload/logo_"+ hotel['hotel_logo'];
-                        item.find(".media-object").attr('src',imgSrc);
+                if (title == "hotel_logo") {
+                    if (hotel['hotel_logo'] != '') {
+                        var imgSrc = SITE_URL + "/public/upload/logo_" + hotel['hotel_logo'];
+                        item.find(".media-object").attr('src', imgSrc);
                     } else {
                         item.find(".media-object").removeClass("img-polaroid");
                     }
                 }
-                if (title == "hotel_name"){
+                if (title == "hotel_name") {
                     item.find(".media-heading").html(UTILS.ucWords(hotel[title]));
                 }
-                if (title == "hotel_stars"){
-                    item.find(".star").attr("title",hotel[title]+"-star").addClass("star star"+hotel[title]).html("");
+                if (title == "hotel_stars") {
+                    item.find(".star").attr("title", hotel[title] + "-star").addClass("star star" + hotel[title]).html("");
                 }
-                if (title == 'hotel_area'){
-                    if( hotel['hotel_area'] != '' ){
-                        item.find(".hotel_location").html("<i class='icon-map'></i> "+UTILS.ucWords(hotel[title]));
+                if (title == 'hotel_area') {
+                    if (hotel['hotel_area'] != '') {
+                        item.find(".hotel_location").html("<i class='icon-map'></i> " + UTILS.ucWords(hotel[title]));
                     } else {
                         item.find(".hotel_location").html("");
                     }
                 }
-                if (title == 'hotel_phone' && hotel['hotel_phone'] != ''){
-                    var html="";
-                    html += "Phone: "+hotel['hotel_phone'];
-                    if (hotel['hotel_fax'] != ''){
-                        html += ", Fax: "+hotel['hotel_fax'];
+                if (title == 'hotel_phone' && hotel['hotel_phone'] != '') {
+                    var html = "";
+                    html += "Phone: " + hotel['hotel_phone'];
+                    if (hotel['hotel_fax'] != '') {
+                        html += ", Fax: " + hotel['hotel_fax'];
                     }
-                    item.find(".hotel_contact").html("<i class='icon-contact'></i> "+html);
+                    item.find(".hotel_contact").html("<i class='icon-contact'></i> " + html);
                 }
-                if (title == 'hotel_details' && hotel['hotel_details'] != ''){
-                    item.find(".hotel_details").html(UTILS.limitText(hotel['hotel_details'],250));
+                if (title == 'hotel_details' && hotel['hotel_details'] != '') {
+                    item.find(".hotel_details").html(UTILS.limitText(hotel['hotel_details'], 250));
                 }
             }
 
@@ -193,22 +192,22 @@ var SEARCH = {
             //console.log(tariffList.length);
             //console.log(tariffList);
 
-            for(var j = 0; j < tariffList.length ; j++ ){
+            for (var j = 0; j < tariffList.length; j++) {
                 var tariff = tariffList[j];
 
-                var itm=$("#tariff").clone().attr("id","tariff_"+tariff['id']);
+                var itm = $("#tariff").clone().attr("id", "tariff_" + tariff['id']);
 
                 //add tariff id to the button
-                itm.find(".btn-book-hotel").attr("id",tariff['id']);
+                itm.find(".btn-book-hotel").attr("id", tariff['id']);
 
                 //add hotel id
-                itm.find(".btn-book-hotel").attr("data-hotel",hotel['id']);
+                itm.find(".btn-book-hotel").attr("data-hotel", hotel['id']);
 
-                for(var label in tariff){
-                    if(label == 'room_type'){
+                for (var label in tariff) {
+                    if (label == 'room_type') {
                         itm.find(".room_type").html(UTILS.ucWords(tariff[label]));
                     }
-                    if (label == 'meal_plan'){
+                    if (label == 'meal_plan') {
                         itm.find(".meal_plan").html(tariff[label]);
                     }
                 }
@@ -217,50 +216,50 @@ var SEARCH = {
             }
         }
     },
-
     //this will check for the valid agent signature
     //if present will redirect to the booking page
     //else it should throw a modal for Agent Login
-    'preBooking':function(){
-        
+    'preBooking': function() {
+
+        //alert(window.location);
         //validate agent login
         var agentSession;
         var hrefUrl;
-        agentLoginSession=SEARCH.checkForsession();
-       
-        if(agentLoginSession=="FAILED"){
-            hrefUrl = SITE_URL+"/agent/login/";
-                                        
-        }else{
+        agentLoginSession = SEARCH.checkForsession();
+
+        if (agentLoginSession == "FAILED") {
+            hrefUrl = SITE_URL + "/agent/login/";
+
+        } else {
             var obj = $(this);
             var id = $(obj).attr('id');
             var hotelId = $(obj).attr('data-hotel');
             var searchSession = $(obj).attr('data-search-session');
-            hrefUrl = SITE_URL+"/hotel/booking/?tariff="+id+"&hotel="+hotelId+"&search_sid="+searchSession; 
+            hrefUrl = SITE_URL + "/hotel/booking/?tariff=" + id + "&hotel=" + hotelId + "&search_sid=" + searchSession;
         }
-        
+
         //check for valid agent credentials
 
         //redirect to the booking form
         window.location.href = hrefUrl;
     },
-    'booking':function(e){
+    'booking': function(e) {
         e.preventDefault;
 
         //validate if the tnc checkbox is selected
-        if ( !$('#tnc_input').is(':checked') ){
+        if (!$('#tnc_input').is(':checked')) {
             alert("You must agree to booking terms and conditions");
             return false;
         }
 
         var fetchUrl = SITE_URL + '/hotel/saveBooking/';
 
-        $.post(fetchUrl, $("#frmBooking").serialize() , function (data) {
+        $.post(fetchUrl, $("#frmBooking").serialize(), function(data) {
             console.log(data);
-            if (data.status == 'success'){
+            if (data.status == 'success') {
                 //redirect to the confirmation page
                 var queryStr = data.message;
-                var redirect = SITE_URL+"/hotel/confirmation/?"+queryStr;
+                var redirect = SITE_URL + "/hotel/confirmation/?" + queryStr;
 
                 //redirect
                 window.location.href = redirect;
@@ -274,63 +273,64 @@ var SEARCH = {
         }, 'json');
         return false;
     },
-    
-    'checkForsession':function(){
+    'checkForsession': function() {
+
         var ajaxSessionResponse;
+        var reloadUrl=window.location;
         $.ajax({
-				type: "POST",
-                                async: false, 
-				url: SITE_URL + '/agent/checkAgentSession/',
-				cache: false,
-                                dataType: 'json',
-                                success: function(data){
-                                  if(data.status== "failed") {
-                                    alert(data.message);
-                                    ajaxSessionResponse="FAILED";
-                                   }
-                                  else{
-                                      ajaxSessionResponse="SUCCESS";
-                                  }
-				}
-		});
-             return ajaxSessionResponse;   
+            type: "POST",
+            async: false,
+            data:"reloadUrl="+reloadUrl,
+            url: SITE_URL + '/agent/checkAgentSession/',
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+                if (data.status == "failed") {
+                    alert(data.message);
+                    ajaxSessionResponse = "FAILED";
+                }
+                else {
+                    ajaxSessionResponse = "SUCCESS";
+                }
+            }
+        });
+        return ajaxSessionResponse;
     }
 
 
 };
 
 var VISA = {
-
-    'addApplicants':function(){
+    'addApplicants': function() {
         var maxCount = 5;
         var applicantCount = $("#visa_count").val();
 
         //start with resetting everything
         $(".appl-item").remove();
 
-        if (applicantCount > 0 ){
+        if (applicantCount > 0) {
 
-            if( applicantCount > maxCount){
-                alert("More than "+maxCount+" applicants not allowed. Please check Admin");
+            if (applicantCount > maxCount) {
+                alert("More than " + maxCount + " applicants not allowed. Please check Admin");
                 return false;
             }
 
-            for(var i=0; i < applicantCount; i++){
+            for (var i = 0; i < applicantCount; i++) {
 
-                var item=$("#visaAppl_0").clone().attr("id","visaAppl_"+ i).attr("class","appl-item");
+                var item = $("#visaAppl_0").clone().attr("id", "visaAppl_" + i).attr("class", "appl-item");
 
                 //change the field names accordingly
-                item.find(":input").each(function(){
+                item.find(":input").each(function() {
 
-                    if ( $(this).attr('id') ) {
+                    if ($(this).attr('id')) {
 
                         var nodeId = $(this).attr('id');
                         var splitId = nodeId.split("_");
-                        var nodeName = splitId[0] + "["+i+"]"+ "["+splitId[1]+"]";
+                        var nodeName = splitId[0] + "[" + i + "]" + "[" + splitId[1] + "]";
                         nodeId = splitId[0] + "_" + splitId[1] + "_" + i;
 
-                        $(this).attr('name',nodeName);
-                        $(this).attr('id',nodeId);
+                        $(this).attr('name', nodeName);
+                        $(this).attr('id', nodeId);
                     }
                 });
                 $(".visa-pax-list").append(item);
@@ -346,12 +346,10 @@ var VISA = {
 };
 
 var PACKAGE = {
-
-    'init':function(){
+    'init': function() {
         PACKAGE.optionsSelect();
     },
-
-    'optionsSelect':function(){
+    'optionsSelect': function() {
 
         //check the values based on the selected radio button
         var RateRadio = $('input[name="pk[rate]"]:checked');
@@ -367,7 +365,7 @@ var PACKAGE = {
 
         $("#pkSelectedTimeId").text(timeSelected);
         $("#pkPriceAdult").text(rates[0]);
-        if (typeof rates[1] !== "undefined" && rates[1] != ''){
+        if (typeof rates[1] !== "undefined" && rates[1] != '') {
             $("#pkPriceChild").text(rates[1]);
         } else {
             $("#pkPriceChild").text(0);
@@ -378,8 +376,7 @@ var PACKAGE = {
         //run calculate here
         PACKAGE.calculate();
     },
-
-    'calculate':function(){
+    'calculate': function() {
 
         var adultPax = $("#pkPxAdult").val();
         var childPax = $("#pkPxChild").val();
@@ -401,28 +398,27 @@ var PACKAGE = {
 };
 
 var BOOKING = {
-    'init':function(){
+    'init': function() {
         BOOKING.calculateTariff();
     },
-
-    'calculateTariff':function(){
+    'calculateTariff': function() {
         var subtotal = 0;
-        $(".tariff-plan").each(function(){
+        $(".tariff-plan").each(function() {
             //calculate the row total
             var Obj = $(this);
             var plan = Obj.attr("data-plan");
             var unit_price = Obj.children(".clmn-unit-price").text();
             var nights = Obj.children(".clmn-nights").text();
-            var qty = $("#select_"+plan).val();
+            var qty = $("#select_" + plan).val();
             var total = 0;
 
-            if (qty > 0){
+            if (qty > 0) {
                 total = parseInt(unit_price) * parseInt(nights) * parseInt(qty);
             }
 
             subtotal += total;
             //update total to the price value
-            $(".price-"+plan).html(total);
+            $(".price-" + plan).html(total);
         });
 
         //update subtotal
