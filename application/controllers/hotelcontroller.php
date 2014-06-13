@@ -305,7 +305,7 @@ class HotelController extends Controller{
         $booking_id = $_SESSION[$booking_session];
 
         //unset this session from the application
-        //unset($_SESSION[$booking_session]);
+        unset($_SESSION[$booking_session]);
 
         //get the reservation details
         //get the hotel details

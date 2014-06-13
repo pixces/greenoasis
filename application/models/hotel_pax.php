@@ -19,7 +19,7 @@ class Hotel_Pax extends Model {
         $sQl = 'SELECT *  FROM `' . $this->_table . '` where `reservation_id` = ' . $id;
         $res = $this->custom($sQl);
         if ($res) {
-            return $res[0]['Hotel_paxis']['first_name'] . '' . $res[0]['Hotel_paxis']['last_name'];
+            return $res[0]['Hotel_paxis']['first_name'] . ' ' . $res[0]['Hotel_paxis']['last_name'];
         }
 
         return;

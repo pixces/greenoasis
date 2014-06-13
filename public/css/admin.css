@@ -614,3 +614,7 @@ a:hover.back-login {
 .red{
     color: #ff0000;
 }
+
+ul.dropdown-menu {
+    min-width: 112px;
+}
