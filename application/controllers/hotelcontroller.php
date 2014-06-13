@@ -237,8 +237,12 @@ class HotelController extends Controller{
             $booking['nights'] =  $selectedRoom['nights'];
             $booking['price'] = $grandTotal;
             $booking['inclusions'] = json_encode($inclusion);
-            $booking['instructions'] = json_encode(Utils::sanitizeParams($_POST['booking']['instructions']));
-            $booking['addl_instructions'] = Utils::sanitize($_POST['booking']['special_instructions']);
+            if ($booking['instructions']){
+                $booking['instructions'] = json_encode(Utils::sanitizeParams($_POST['booking']['instructions']));
+            }
+            if ($booking['addl_instructions']){
+                $booking['addl_instructions'] = Utils::sanitize($_POST['booking']['special_instructions']);
+            }
 
             //get room occupancy id to
             $objHO = new Hotel_Occupancy();
@@ -301,7 +305,7 @@ class HotelController extends Controller{
         $booking_id = $_SESSION[$booking_session];
 
         //unset this session from the application
-        unset($_SESSION[$booking_session]);
+        //unset($_SESSION[$booking_session]);
 
         //get the reservation details
         //get the hotel details
