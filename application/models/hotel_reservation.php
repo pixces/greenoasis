@@ -68,4 +68,23 @@ class Hotel_Reservation extends Model {
         return $this->_customername;
     }
 
+    public function getDetailsByDate($condition) {
+//        $sQl = 'SELECT *  FROM `' . $this->_table . '` where  ' . $condition;
+//        $details = $this->custom($sQl);
+        
+         $this->setDate( $condition);
+          $details = $this->search();
+
+        if ($details) {
+            foreach ($details as &$reservation) {
+                $reservation['hotel_name'] = $this->getHotelSummary($reservation['Hotel_Reservation']['hotel_id']);
+                $reservation['agent_name'] = $this->getAgentSummary($reservation['Hotel_Reservation']['agent_id']);
+                $reservation['customer_name'] = $this->getCustomerSummary($reservation['Hotel_Reservation']['id']);
+            }
+
+            return $details;
+        }
+        return false;
+    }
+
 }

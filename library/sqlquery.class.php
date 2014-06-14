@@ -87,6 +87,10 @@ class SQLQuery {
         $this->_extraConditions .= ' ' . $check . ' in (' . $value . ') AND ';
     }
 
+    public function setDate($condition) {
+        $this->_extraConditions .=  $condition . ' AND ';
+    }
+
     public function showHasOne() {
         $this->_hO = 1;
     }
@@ -177,7 +181,7 @@ class SQLQuery {
             $offset = ($this->_page - 1) * $this->_limit;
             $conditions .= ' LIMIT ' . $this->_limit . ' OFFSET ' . $offset;
         }
-
+        
         $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
 
         $this->_result = mysql_query($this->_query, $this->_dbHandle);
@@ -320,6 +324,7 @@ class SQLQuery {
         $conditions = '\'1\'=\'1\' AND ';
         $conditionsChild = '';
         $fromChild = '';
+        $alias = $this->_model;
 
         if ($this->id) {
             $conditions .= '`' . $this->_model . '`.`id` = \'' . mysql_real_escape_string($this->id) . '\' AND ';
@@ -331,7 +336,7 @@ class SQLQuery {
 
         $conditions = substr($conditions, 0, -4);
 
-        $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
+        $this->_query = 'SELECT ' . $alias . '.* FROM ' . $from . ' WHERE ' . $conditions;
 
         //echo '<!--'.$this->_query.'-->';
         $this->_result = mysql_query($this->_query, $this->_dbHandle);
@@ -505,7 +510,7 @@ class SQLQuery {
             $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
         }
 
-       
+
         $this->_result = mysql_query($query, $this->_dbHandle);
         $this->clear();
         if ($this->_result == 0) {

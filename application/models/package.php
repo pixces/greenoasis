@@ -161,4 +161,14 @@ class Package extends Model{
             return false;
         }
     }
+    
+     public function getDetailsByDate($condition) {
+        $sQl = 'SELECT *  FROM `' . $this->_table . '` where  ' . $condition;
+        $details = $this->custom($sQl);
+        if ($details) {
+           return $details;
+        }
+        return false;
+    }
+
 }

@@ -97,5 +97,16 @@ class Agent extends Model {
 
         return;
     }
+    
+    public function getNewAgent() {
+        $sQl = 'SELECT *  FROM `' . $this->_table . '` where `status` ="pending" ';
+        $res = $this->custom($sQl);
+
+        if ($res) {
+           return $res;
+        }
+
+        return;
+    }
 
 }

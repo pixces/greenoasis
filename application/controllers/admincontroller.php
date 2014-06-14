@@ -70,8 +70,13 @@ class AdminController extends Controller {
 
     public function index() {
         //$this->set('hotels',$hotelList);
-        $this->set_pageTitle('Dashboard');
+        $this->set_pageTitle('Admin:Dashboard');
         $this->set_pageType('dashboard');
+        $dashBoardData = static::loadDashboard();
+//         echo '<pre>';
+//        print_r( $dashBoardData);exit;
+        $this->set('dashBoardData', $dashBoardData);
+    
     }
 
     /*     * ***********************************
@@ -816,7 +821,7 @@ class AdminController extends Controller {
         $counts = $visaObj->getCounts();
         $visaObj->orderBy('date_added', 'DESC');
         $visaInfo = $visaObj->getAll();
-        
+
         $this->set('visaInfo', $visaInfo);
         $this->set('counts', $counts);
     }
@@ -1364,6 +1369,48 @@ class AdminController extends Controller {
             echo "Cannot save occupancy details";
         }
         exit;
+    }
+
+    private static function loadDashboard() {
+
+        //Today Hotel bookings
+        $todaysBooking = static::getDashboardData('Hotel_Reservation');
+        //7 days Hotel Booking
+        $lastsevendaysBooking = static::getDashboardData('Hotel_Reservation', true);
+        //Today Visa Application
+        $todayVisaApplications = static::getDashboardData('Visa');
+        //Last 7 days Visa 
+        $lastsevendaysVisa = static::getDashboardData('Visa', true);
+        //Todays package booking
+        $todayPackage=static::getDashboardData('Package');
+        // last 7 days Package
+         $lastsevendaysPackage=static::getDashboardData('Package',true);
+        
+         //New Agent Application
+         $newagentApplication=static::getDashboardData('Agent');
+        
+
+        return array('todaysBooking' => $todaysBooking, 'lastsevendaysBooking' => $lastsevendaysBooking,
+            'todaysVisa' => $todayVisaApplications, 'lastsevendaysVisa' => $lastsevendaysVisa,'todayPackage'=>$todayPackage,
+            'lastsevendaysPackage'=>$lastsevendaysPackage,'newAgent'=>$newagentApplication);
+    }
+
+    private static function getDashboardData($class, $interval = false) {
+
+        $Obj = new $class();
+        if($class !='Agent'){
+            $condition = "DATE(date_added) ='" . date("Y-m-d") . "'";
+
+        if ($interval) {
+            $condition = 'date_added >  DATE_SUB(CURDATE(), INTERVAL 7 DAY)';
+        }
+        $dataList = $Obj->getDetailsByDate($condition);
+        }else{
+            $dataList=$Obj->getNewAgent();
+        }
+        
+
+        return $dataList;
     }
 
 }
