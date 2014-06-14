@@ -801,10 +801,13 @@ class AdminController extends Controller {
     public function bookings() {
         $this->set_pageTitle('Hotel: Bookings');
         $this->set_pageType('bookings');
-        $hotelresObj = new Hotel_Reservation();
-        $counts = $hotelresObj->getCounts();
-        $hotelresObj->orderBy('date_added', 'DESC');
-        $hotelreservations = $hotelresObj->getAll();
+
+        $hotelResObj = new Hotel_Reservation();
+        $counts = $hotelResObj->getCounts();
+        $hotelResObj->orderBy('date_added', 'DESC');
+
+        $hotelreservations = $hotelResObj->getAll();
+
         $this->set('hotelReservations', $hotelreservations);
         $this->set('counts', $counts);
     }

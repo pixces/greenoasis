@@ -14,9 +14,19 @@ class Hotel_Reservation extends Model {
     private $_agentname = null;
     private $_customername = null;
 
-    public function getById() {
+   var $hasOne = array('Hotel' => 'Hotel', 'Hotel_Tariff' => 'Hotel_Tariff');
+
+    public function getById()
+    {
         // TODO: Implement getById() method.
-    }
+        if (!$this->id){
+            return false;
+        }
+
+        $this->showHasOne();
+        return $this->search();
+     }
+
 
     public function getAll() {
         $details = $this->search();
