@@ -5,7 +5,12 @@
         <div class="container-main pull-left box-shadow">
             <div class="content-left">
                 <div class="form">
-                    
+                    <?php if ($error){ ?>
+                <div class="alert alert-error">
+                    <button class="close" data-dismiss="alert" type="button">×</button>
+                    <?php echo $error; ?>
+                </div>
+                <?php } ?>
                     <form id="AgentRegistration" action="<?=SITE_URL.'/agent/login/'; ?>" class="form-horizontal agent-form" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="mm_action" id="mm_action" value="doLogin" />
                     <input type="hidden" name="form_action" value="doLogin" />

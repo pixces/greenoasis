@@ -142,6 +142,8 @@ class AgentController extends Controller {
                         header("location:" . SITE_URL . "/pages/index");
                         exit;
                     }
+
+                    $this->set('error', "Invalid Login Credentials. Please try again");
                 }
             } catch (Exception $e) {
                 echo $message = $e->getMessage();

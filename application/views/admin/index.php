@@ -202,7 +202,7 @@
         <td><?php echo $tvisa['agent_name'];?></td>
         <td><?php echo $tvisa['customer_name'];?></td>
         <td><?php echo $tvisa['Visa']['pax_count'];?></td>
-        <td><?php echo $tvisa['price'];?></td>
+        <td><?php echo $tvisa['price'].CURRENCY;?></td>
     </tr>
         <?php } ?>
     </tbody>
