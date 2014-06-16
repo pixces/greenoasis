@@ -76,7 +76,6 @@ class AdminController extends Controller {
 //         echo '<pre>';
 //        print_r( $dashBoardData);exit;
         $this->set('dashBoardData', $dashBoardData);
-    
     }
 
     /*     * ***********************************
@@ -1385,35 +1384,71 @@ class AdminController extends Controller {
         //Last 7 days Visa 
         $lastsevendaysVisa = static::getDashboardData('Visa', true);
         //Todays package booking
-        $todayPackage=static::getDashboardData('Package');
+        $todayPackage = static::getDashboardData('Package');
         // last 7 days Package
-         $lastsevendaysPackage=static::getDashboardData('Package',true);
-        
-         //New Agent Application
-         $newagentApplication=static::getDashboardData('Agent');
-        
+        $lastsevendaysPackage = static::getDashboardData('Package', true);
+
+        //New Agent Application
+        $newagentApplication = static::getDashboardData('Agent');
+
 
         return array('todaysBooking' => $todaysBooking, 'lastsevendaysBooking' => $lastsevendaysBooking,
-            'todaysVisa' => $todayVisaApplications, 'lastsevendaysVisa' => $lastsevendaysVisa,'todayPackage'=>$todayPackage,
-            'lastsevendaysPackage'=>$lastsevendaysPackage,'newAgent'=>$newagentApplication);
+            'todaysVisa' => $todayVisaApplications, 'lastsevendaysVisa' => $lastsevendaysVisa, 'todayPackage' => $todayPackage,
+            'lastsevendaysPackage' => $lastsevendaysPackage, 'newAgent' => $newagentApplication);
     }
 
     private static function getDashboardData($class, $interval = false) {
 
         $Obj = new $class();
-        if($class !='Agent'){
+        if ($class != 'Agent') {
             $condition = "DATE(date_added) ='" . date("Y-m-d") . "'";
 
-        if ($interval) {
-            $condition = 'date_added >  DATE_SUB(CURDATE(), INTERVAL 7 DAY)';
+            if ($interval) {
+                $condition = 'date_added >  DATE_SUB(CURDATE(), INTERVAL 7 DAY)';
+            }
+            $dataList = $Obj->getDetailsByDate($condition);
+        } else {
+            $dataList = $Obj->getNewAgent();
         }
-        $dataList = $Obj->getDetailsByDate($condition);
-        }else{
-            $dataList=$Obj->getNewAgent();
-        }
-        
+
 
         return $dataList;
+    }
+
+    public function toogleBookingStatus() {
+        $this->doNotRenderHeader = true;
+        if (isset($_POST['action']))
+            $action = $_POST['action'];
+        if (isset($_POST['reservation_id']))
+            $reservation_id = $_POST['reservation_id'];
+        if (isset($_POST['price']))
+            $price = $_POST['price'];
+
+        $reservationObj = new Hotel_Reservation();
+        $reservationObj->setId($reservation_id);
+        $result = $reservationObj->toggleBookingStatus($action);
+        if (is_array($result)) {
+            if ($result['newStatus'] == "confirm") {
+                $walletObj = new Agent_Wallet();
+                $wallet['agent_id'] = $result['agent_id'];
+                $wallet['value'] = (int) $price;
+                $wallet['type'] = 'withdrawl';
+                $wallet['item_type'] = 'hotel';
+                $wallet['item_id'] = (int) $reservation_id;
+                $wallet['date'] = date('Y-m-d h:i:s');
+                foreach ($wallet as $field => $value) {
+                    $walletObj->{$field} = $value;
+                }
+                $walletObj->save();
+            }
+           //  $this->set('message',  'Status updated; set to ' . $result['newStatus']);
+           echo json_encode(array('result' => 'Success', 'message' => 'Status updated; set to ' . $result['newStatus'], 'response' => $result));
+        } else {
+           // $this->set('message',  'Cannot update status');
+            echo json_encode(array('result' => 'Error', 'message' => "Cannot update status"));
+        }
+
+        return;
     }
 
 }

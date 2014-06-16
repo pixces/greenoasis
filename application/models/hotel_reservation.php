@@ -96,5 +96,26 @@ class Hotel_Reservation extends Model {
         }
         return false;
     }
+    
+    public function toggleBookingStatus($status = 'approve') {
+        #get the details of this profile
+        $details = $this->getById();
+        $newStatus = ($status == 'approve') ? 'confirm' : 'rejected';
+        
+        $data = $details['Hotel_Reservation'];
+        $data['status'] = $newStatus;
+        $agent_id=$data['agent_id'];
+        foreach ($data as $key => $value) {
+            $this->{$key} = trim($value);
+        }
+
+        if (parent::save()) {
+            return array('newStatus'=>$newStatus,'agent_id'=>$agent_id); 
+        } else {
+            return false;
+        }
+       
+    }
+
 
 }

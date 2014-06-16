@@ -28,6 +28,7 @@
     </div>
     <br/><br/>
     <div class="">
+          
         <table class="table table-bordered">
             <thead class="well table-bordered">
                 <tr><th colspan="13">Today's Hotel Booking </th></tr>
@@ -67,10 +68,12 @@
                                 <button class="btn btn-<?=$btn; ?> dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="<?=SITE_URL.'/admin/booking_approve?id='.$reservation['Hotel_Reservation']['id']; ?>">Approve</a>
+                                            <a href="javascript:void(0);" data-booking-id="<?php echo $reservation['Hotel_Reservation']['id']; ?> " 
+                                               data-booking-price="<?php echo $reservation['Hotel_Reservation']['price'];?> " data-booking-action="approve">Approve</a>
                                         </li>
                                         <li>
-                                            <a href="<?=SITE_URL.'/admin/booking_reject?id='.$reservation['Hotel_Reservation']['id']; ?>">Reject</a>
+                                            <a  href="javascript:void(0);"
+                                               data-booking-id="<?php echo $reservation['Hotel_Reservation']['id']; ?> " data-booking-action="reject">Reject</a>
                                         </li>
                                     </ul>
                             </div>
