@@ -31,7 +31,6 @@
           
         <table class="table table-bordered">
             <thead class="well table-bordered">
-                <tr><th colspan="13">Today's Hotel Booking </th></tr>
                 <tr>
                     <th>Sl</th>
                     <th>Order#</th>
@@ -49,10 +48,9 @@
             <tbody>
                 <?php $i = 1; ?>
                 <?php foreach ($hotelReservations as $reservation): ?>
-                    <tr>
-
+                    <tr id="BK-<?=$reservation['Hotel_Reservation']['id']; ?>">
                         <td><?php echo $i++; ?></td>
-                        <td><?php echo $reservation['Hotel_Reservation']['id']; ?></td>
+                        <td><a href="#divBkingDtls" role="button" data-toggle="modal" data-remote="<?=SITE_URL."/admin/view_booking/".$reservation['Hotel_Reservation']['id']; ?>"><?php echo ''.str_pad($reservation['Hotel_Reservation']['id'],5,0,STR_PAD_LEFT); ?></a></td>
                         <td><?php echo date("F j, Y", strtotime($reservation['Hotel_Reservation']['date_added'])); ?></td>
                         <td><?php echo ucwords($reservation['agent_name']); ?></td>
                         <td><?php echo $reservation['customer_name']; ?></td>
@@ -61,7 +59,7 @@
                         <td><?php echo $reservation['Hotel_Reservation']['toDate']; ?></td>
                         <td><?php echo ucwords($reservation['Hotel_Reservation']['room_type']); ?></td>
                         <td>
-                            <?php $btn = ($reservation['Hotel_Reservation']['status'] == 'request') ? 'warning' : ($reservation['Hotel_Reservation']['status'] == 'approved' ? 'btn-success' : 'danger'); ?>
+                            <?php $btn = ($reservation['Hotel_Reservation']['status'] == 'request') ? 'warning' : ($reservation['Hotel_Reservation']['status'] == 'confirm' ? 'success' : 'important'); ?>
                             <?php if ($reservation['Hotel_Reservation']['status'] == 'request') { ?>
                             <div class="btn-group">
                                 <button class="btn btn-<?=$btn; ?>"><?=ucwords(strtolower($reservation['Hotel_Reservation']['status'])); ?></button>
@@ -90,4 +88,15 @@
             </tbody>
         </table>
     </div>
+</div>
+<!-- Modal -->
+<div id="divBkingDtls" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Hotel Booking Details</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer"></div>
 </div>

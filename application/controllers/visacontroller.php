@@ -77,7 +77,7 @@ class VisaController extends Controller {
 
                             $walletObj = new Agent_Wallet();
                             $wallet['agent_id'] = $_SESSION['agent']['id'];
-                            $wallet['value'] = 1335.00;
+                            $wallet['value'] = 135.00;
                             $wallet['type'] = 'withdrawl';
                             $wallet['item_type'] = 'visa';
                             $wallet['date']=date('Y-m-d h:i:s');
