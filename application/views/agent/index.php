@@ -1,53 +1,3 @@
-<html lang="en"><head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GREEN OASIS TOURISM L.L.C</title>
-    <base href="">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link href="http://fonts.googleapis.com/css?family=Ropa+Sans|Roboto|Source+Sans+Pro:900italic,400,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
-    <link rel="stylesheet" type="text/css" media="all" href="css/datepicker.css">
-    <!-- all js scripts -->
-    <script src="js/jquery.1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/common.js" type="text/javascript"></script>
-    <script src="js/site.js" type="text/javascript"></script>
-    <script src="js/bootstrap.js" type="text/javascript"></script>
-    <script src="js/html5shiv.js" type="text/javascript"></script>
-    <script src="js/pngfix.js" type="text/javascript"></script>
-    <script src="js/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script src="js/ravs.JSQL.js" type="text/javascript"></script>
-    <script src="js/json2.js" type="text/javascript"></script>
-</head>
-<body class="" data-type="">
-<!-- outer container -->
-<div class="container">
-    <!-- Start: header -->
-    <div class="header">
-        <div class="header_col01"><img src="images/logo.png" width="496" height="135"></div>
-        <div class="header_col02">
-            <div class="header_col02_raw">
-                <div class="header_col02_raw1"><img src="images/icon01.png" width="31" height="32">
-                    <h1>Agent Login</h1></div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="header_col02_raw2">
-                <ul>
-                    <li><a href="contact/">Contact</a></li>
-                    <li><a href="tours/">Packages</a></li>
-                    <li><a href="visa/">Visa</a></li>
-                    <li><a href="hotel/">Hotels</a></li>
-                    <li><a href="about-us/">About Us</a></li>
-                    <li><a href="http://demo.dubaigot.com" class="on">Home</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <!-- End: Header -->
-</div>
-
 <!-- Start: Main Content --->
 <div id="page_booking" class="static-view content bg-white">
 <div class="container">
@@ -147,13 +97,12 @@
 <!--ends: modal for visa application -->
 <div class="tabbable"> <!-- Only required for left/right tabs -->
 <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Hotel</a></li>
-    <li><a href="#tab2" data-toggle="tab">Visa</a></li>
-    <li><a href="#tab3" data-toggle="tab">Tour Packages</a></li>
+    <li class="active"><a href="#tabHotelBooking" data-toggle="tab">Hotel Bookings</a></li>
+    <li><a href="#tabVisaOrder" data-toggle="tab">Visa Requests</a></li>
+    <li><a href="#tabPackageBooking" data-toggle="tab">Tour Packages</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane active" id="tab1">
-
+<div class="tab-pane active" id="tabHotelBooking">
     <table class="table well">
         <thead class="well table-bordered">
         <tr>
@@ -182,110 +131,12 @@
             <td>$1,245</td>
             <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
         </tr>
-        <tr>
-            <td>02</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Coral Diera</td>
-            <td>04-04-14</td>
-            <td>05-04-14</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>03</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Coral Diera</td>
-            <td>04-04-14</td>
-            <td>05-04-14</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>04</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Coral Diera</td>
-            <td>04-04-14</td>
-            <td>05-04-14</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>05</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Coral Diera</td>
-            <td>04-04-14</td>
-            <td>05-04-14</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>06</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Coral Diera</td>
-            <td>04-04-14</td>
-            <td>05-04-14</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>07</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Coral Diera</td>
-            <td>04-04-14</td>
-            <td>05-04-14</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>08</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Coral Diera</td>
-            <td>04-04-14</td>
-            <td>05-04-14</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>09</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Coral Diera</td>
-            <td>04-04-14</td>
-            <td>05-04-14</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#hotelBookingModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-
         </tbody>
     </table>
 
 
 </div>
-<div class="tab-pane" id="tab2">
-
+<div class="tab-pane" id="tabVisaOrder">
     <table class="table well">
         <thead class="well table-bordered">
         <tr>
@@ -312,100 +163,10 @@
             <td>$1,245</td>
             <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
         </tr>
-        <tr>
-            <td>02</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>F2845785</td>
-            <td>Package Name</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>03</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>F2845785</td>
-            <td>Package Name</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>04</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>F2845785</td>
-            <td>Package Name</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>05</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>F2845785</td>
-            <td>Package Name</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>06</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>F2845785</td>
-            <td>Package Name</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>07</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>F2845785</td>
-            <td>Package Name</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>08</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>F2845785</td>
-            <td>Package Name</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-        <tr>
-            <td>09</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>F2845785</td>
-            <td>Package Name</td>
-            <td class="text-success">Approved</td>
-            <td>$1,245</td>
-            <td><a href="#visaAppModal" class="btn btn-green" data-toggle="modal">view</a></td>
-        </tr>
-
         </tbody>
     </table>
 </div>
-<div class="tab-pane" id="tab3">
-
+<div class="tab-pane" id="tabPackageBooking">
     <table class="table well">
         <thead class="well table-bordered">
         <tr>
@@ -432,95 +193,6 @@
             <td>$1,245</td>
             <td><button class="btn-small btn-green">view</button></td>
         </tr>
-        <tr>
-            <td>02</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Package Name</td>
-            <td>04</td>
-            <td>12-04-14</td>
-            <td>$1,245</td>
-            <td><button class="btn-small btn-green">view</button></td>
-        </tr>
-        <tr>
-            <td>03</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Package Name</td>
-            <td>04</td>
-            <td>12-04-14</td>
-            <td>$1,245</td>
-            <td><button class="btn-small btn-green">view</button></td>
-        </tr>
-        <tr>
-            <td>04</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Package Name</td>
-            <td>04</td>
-            <td>12-04-14</td>
-            <td>$1,245</td>
-            <td><button class="btn-small btn-green">view</button></td>
-        </tr>
-        <tr>
-            <td>05</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Package Name</td>
-            <td>04</td>
-            <td>12-04-14</td>
-            <td>$1,245</td>
-            <td><button class="btn-small btn-green">view</button></td>
-        </tr>
-        <tr>
-            <td>06</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Package Name</td>
-            <td>04</td>
-            <td>12-04-14</td>
-            <td>$1,245</td>
-            <td><button class="btn-small btn-green">view</button></td>
-        </tr>
-        <tr>
-            <td>07</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Package Name</td>
-            <td>04</td>
-            <td>12-04-14</td>
-            <td>$1,245</td>
-            <td><button class="btn-small btn-green">view</button></td>
-        </tr>
-        <tr>
-            <td>08</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Package Name</td>
-            <td>04</td>
-            <td>12-04-14</td>
-            <td>$1,245</td>
-            <td><button class="btn-small btn-green">view</button></td>
-        </tr>
-        <tr>
-            <td>09</td>
-            <td>01258</td>
-            <td>04-04-14</td>
-            <td>Thomas Varghese</td>
-            <td>Package Name</td>
-            <td>04</td>
-            <td>12-04-14</td>
-            <td>$1,245</td>
-            <td><button class="btn-small btn-green">view</button></td>
-        </tr>
-
         </tbody>
     </table>
 </div>
@@ -532,32 +204,3 @@
 </div>
 </div>
 <!-- End: Main Content ---><div class="footer-sub">
-    <div class="container">
-        <div class="links pull-left">
-            <span><a href="http://demo.dubaigot.com">Home</a></span>
-            <span><a href="about-us/">About Us</a></span>
-            <span><a href="uae/">UAE</a></span>
-            <span><a href="hotels/advance-search/">Hotel Booking</a></span>
-            <span><a href="visa/">Visa Application</a></span>
-            <span><a href="package/">Tour Packages</a></span>
-            <span><a href="career/">Careers</a></span>
-            <span><a href="testimonials/">Testimonials</a></span>
-            <span><a href="contact/">Contact Us</a></span>
-            <span><a href="hotels/add-hotels/">Register Your Hotel</a></span>
-            <span><a href="agent/register/">Become an Agent</a></span>
-            <span><a href="agent/visa-information/">Visa Information</a></span>
-            <span><a href="make-payment/">Make Payment</a></span>
-            <span><a href="advertise-with-us/">Advertise with Us</a></span>
-            <span><a href="terms-conditions/">Terms &amp; Conditions</a></span>
-        </div>
-        <div class="copywrite pull-right">
-            <span>© - 2013 Green Oasis</span>
-            <span><img src="images/innoveinsfooter.png"></span>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div class="clear"></div>
-</div>
-<!-- End: Footer --->
-
-</body></html>
