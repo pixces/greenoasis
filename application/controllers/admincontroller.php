@@ -801,8 +801,8 @@ class AdminController extends Controller {
 
         $hotelResObj = new Hotel_Reservation();
         $counts = $hotelResObj->getCounts();
-         
-      //  $hotelResObj->setCurDate();
+
+        //  $hotelResObj->setCurDate();
         $hotelResObj->orderBy('date_added', 'DESC');
 
         $hotelreservations = $hotelResObj->getAll();
@@ -811,7 +811,7 @@ class AdminController extends Controller {
         $this->set('counts', $counts);
     }
 
-    public function view_booking(){
+    public function view_booking() {
         $this->doNotRenderHeader = true;
         $bookingId = func_get_arg(func_num_args() - 1);
 
@@ -819,9 +819,8 @@ class AdminController extends Controller {
         $hoteResObj = new Hotel_Reservation();
         $hoteResObj->setId($bookingId);
         $details = $hoteResObj->getById();
-        $this->set('booking',$details);
+        $this->set('booking', $details);
     }
-
 
     /*     * ***********************************
      * Visa
@@ -834,7 +833,7 @@ class AdminController extends Controller {
         $visaObj = new Visa();
         $counts = $visaObj->getCounts();
         $visaObj->like("status", "pending");
-       // $visaObj->setCurDate();
+        // $visaObj->setCurDate();
         $visaObj->orderBy('date_added', 'DESC');
         $visaInfo = $visaObj->getAll();
 
@@ -1455,14 +1454,37 @@ class AdminController extends Controller {
                 }
                 $walletObj->save();
             }
-           //  $this->set('message',  'Status updated; set to ' . $result['newStatus']);
-           echo json_encode(array('result' => 'Success', 'message' => 'Status updated; set to ' . $result['newStatus'], 'response' => $result));
+            //  $this->set('message',  'Status updated; set to ' . $result['newStatus']);
+            echo json_encode(array('result' => 'Success', 'message' => 'Status updated; set to ' . $result['newStatus'], 'response' => $result));
         } else {
-           // $this->set('message',  'Cannot update status');
+            // $this->set('message',  'Cannot update status');
             echo json_encode(array('result' => 'Error', 'message' => "Cannot update status"));
         }
 
         return;
+    }
+
+    public function allocateFund() {
+        $this->doNotRenderHeader = true;
+       
+        if (isset($_POST['agentid']))
+            $agent_id = $_POST['agentid'];
+        if (isset($_POST['fundamt']))
+            $amount = $_POST['fundamt'];
+
+        $walletObj = new Agent_Wallet();
+        $wallet['agent_id'] = $agent_id ;
+        $wallet['value'] = (int) $amount;
+        $wallet['type'] = 'deposite';
+        $wallet['date'] = date('Y-m-d h:i:s');
+        foreach ($wallet as $field => $value) {
+            $walletObj->{$field} = $value;
+        }
+        if($walletObj->save()){
+             echo json_encode(array('result' => 'Success', 'message' => 'Funds Added.'));
+        }else{
+             echo json_encode(array('result' => 'Error', 'message' => "Sorry,Funds Not Added."));
+        }
     }
 
 }

@@ -22,6 +22,10 @@ $(function() {
     $(document).on('click', 'a.delete-link', ADMIN.deleteAction);
 
     $(document).on('click', 'ul.dropdown-menu > li > a', ADMIN.toggleBookingStatus);
+    $(document).on('click', '.btn-funds', ADMIN.allocateFunds);
+    $(document).on('click', '#fundUpdateBtn', ADMIN.updateFunds);
+
+
 
 
 
@@ -212,6 +216,42 @@ var ADMIN = {
         });
 
         return;
-    }
+    },
+    'allocateFunds': function() {
+        var agent_id = $(this).attr('id');
+        var CONTENT = "<div class='fund-div'><label>Enter Amount:</label><input type='hidden' name='agentid' id='agent_id' value='" + agent_id + "'/><input type='text'  placeholder='enter amount' name='fundAmt' id='fundAmt' value=''/><br/><input type='button' id='fundUpdateBtn' name='Add' value='&laquo; &laquo; Add Fund &raquo; &raquo;'/></div>";
+        $("#divAgentModel .modal-body").html(CONTENT);
+    },
+    'updateFunds': function() {
 
+        if ($(".error").length > 0) {
+            $('.error').empty();
+
+        }
+        if ($("#fundAmt").val() === '') {
+            $(".fund-div").prepend("<div class='error' style='color:red'><span>*</span>Please Enter Amount.</div>");
+            return false;
+        } else if ($("#fundAmt").val() <= 0) {
+            $(".fund-div").prepend("<div class='error' style='color:red'><span>*</span>Amount Must Be Greater Than Zero(0)..</div>");
+            return false;
+        } else {
+            var agent_id = $('.fund-div').find('input[name="agentid"]').val();
+            var fund_amount = $('.fund-div').find('input[name="fundAmt"]').val();
+            $.ajax({
+                type: "POST",
+                data: {agentid:agent_id,fundamt:fund_amount},
+                url: SITE_URL + '/admin/allocateFund/',
+                cache: false,
+                dataType: 'json',
+                success: function(data) {
+                    alert(data.message);
+                    location.reload();
+                }
+            });
+
+        }
+
+
+
+    },
 }

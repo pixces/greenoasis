@@ -49,9 +49,12 @@
                             <a href="<?=SITE_URL; ?>/admin/agent_approve/<?=$agent['Agent']['id']; ?>" id="<?=$agent['Agent']['id']; ?>" title="Approve Agent" class="btn btn-success">Approve</a>
                             <a href="javascript:void(0);" id="<?=$agent['Agent']['id']; ?>" data-name="<?=$agent['Agent']['title']; ?>" class="agent-delete btn btn-danger" title="Reject Agent">Reject</a>
                         <?php } else { ?>
+                           
                             <?php $btnType = ($agent['Agent']['status'] == 'approved') ? 'btn-success' : 'btn-warning'; ?>
                             <button class="toggle-status btn btn-mini <?=$btnType; ?>" type="button" data-type="agent" data-action="change_status" id="<?=$agent['Agent']['id']; ?>" data-value="<?=$agent['Agent']['status']; ?>" title="Click to Change Status"><?=ucwords($agent['Agent']['status']); ?></button>
-                            <button class="btn btn-mini" type="button" data-type="agent" data-action="add-funds" id="<?=$agent['Agent']['id']; ?>" title="Add Funds"><i class="icon-plus-sign"></i> Funds</button>
+                            <button class="btn btn-mini btn-funds" type="button" data-type="agent" data-action="add-funds" id="<?=$agent['Agent']['id']; ?>" title="Add Funds"><i class="icon-plus-sign"></i>
+                             <a href="#divAgentModel" role="button" data-toggle="modal" date-agent-id="<?=$agent['Agent']['id']; ?>">Funds</a>
+                            </button>
                             <a href="<?=SITE_URL; ?>/admin/agent_edit/<?=$agent['Agent']['id']; ?>" id="<?=$agent['Agent']['id']; ?>" title="Edit Agent Details <?=$agent['Agent']['company']; ?>" class="btn btn-mini"><i class="icon-pencil"></i></a>
                             <a href="javascript:void(0);" id="<?=$agent['Agent']['id']; ?>" data-name="<?=$agent['Agent']['company']; ?>" class="agent-delete btn btn-mini" title="Delete Agent <?=$agent['Agent']['company']; ?>"><i class="icon-trash"></i></a>
                         <?php } ?>
@@ -60,3 +63,15 @@
             </li>
         <?php } } ?>
 </ul>
+
+<!-- Modal -->
+<div id="divAgentModel" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Add Funds</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer"></div>
+</div>
