@@ -9,7 +9,7 @@
                     <h1 style="margin:0;font-size:31.5px;padding:0;">USD <?=number_format($summary['balance'], 0); ?></h1>
                     <p>Last Successful Payment 5/8/2014 ($99)</p></div>
                 <div class="pull-right span8">
-                    <form class="form-inline pull-right">
+                    <!-- form class="form-inline pull-right">
                         <label>From : </label>
                         <div id="dpFrom" class="input-append date" data-date-format="dd-mm-yyyy" data-date="12-04-2014">
                             <input id="dateFrom" name="" class="span2" type="text" readonly="" value="12-04-2014" placeholder="" required="required">
@@ -20,7 +20,7 @@
                             <input id="dateTo" name="" class="span2" type="text" readonly="" value="12-04-2014" placeholder="Check In" required="required">
                             <span class="add-on"><i class="icon-calendar"></i></span>
                         </div>
-                    </form>
+                    </form -->
                 </div>
             </div>
                 <table class="table table-condensed">
