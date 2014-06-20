@@ -52,7 +52,7 @@
                            
                             <?php $btnType = ($agent['Agent']['status'] == 'approved') ? 'btn-success' : 'btn-warning'; ?>
                             <button class="toggle-status btn btn-mini <?=$btnType; ?>" type="button" data-type="agent" data-action="change_status" id="<?=$agent['Agent']['id']; ?>" data-value="<?=$agent['Agent']['status']; ?>" title="Click to Change Status"><?=ucwords($agent['Agent']['status']); ?></button>
-                            <button class="btn btn-mini btn-funds" type="button" data-type="agent" data-action="add-funds" id="<?=$agent['Agent']['id']; ?>" title="Add Funds"><i class="icon-plus-sign"></i>
+                            <button class="btn btn-mini btn-funds" type="button" data-type="agent" data-action="add-funds" id="<?=$agent['Agent']['id']; ?>" data-name="<?=$agent['Agent']['company']; ?>" title="Add Funds"><i class="icon-plus-sign"></i>
                              <a href="#divAgentModel" role="button" data-toggle="modal" date-agent-id="<?=$agent['Agent']['id']; ?>">Funds</a>
                             </button>
                             <a href="<?=SITE_URL; ?>/admin/agent_edit/<?=$agent['Agent']['id']; ?>" id="<?=$agent['Agent']['id']; ?>" title="Edit Agent Details <?=$agent['Agent']['company']; ?>" class="btn btn-mini"><i class="icon-pencil"></i></a>
