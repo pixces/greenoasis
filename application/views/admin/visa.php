@@ -24,21 +24,17 @@
         <table class="table">
             <thead class="well table-bordered">
                 <tr>
-                    <th colspan="12">Today's Visa Booking </th>
-                </tr>
-                <tr>
                     <th>Sl</th>
-                    <th>Order</th>
+                    <th>Order#</th>
                     <th>Date</th>
                     <th>Agent's Name</th>
                     <th>Customer's Name</th>
                     <th>Passport Number</th>
-                    <th>No.of Applicants</th>
+                    <th>Applicants</th>
                     <th>Amount</th>
-                    <th>Details</th>
                     <th>Status</th>
-                    <th>Visa</th>
-                    <th></th>
+                    <th>Details</th>
+                    <th>Download Visa</th>
                 </tr>
             </thead>
              <tbody>
@@ -52,20 +48,22 @@
            
 <?php $i = 1; ?>
 <?php foreach ($visaInfo as $visa): ?>
-                    <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $visa['Visa']['id']; ?></td>
-                        <td><?php echo date("F j, Y, g:i a", strtotime($visa['Visa']['date_added'])); ?></td>
-                        <td><?php echo ucwords($visa['agent_name']); ?></td>
-                        <td><?php echo ucwords($visa['customer_name']); ?></td>
-                        <td><?php echo $visa['passport']; ?><button class="btn-small btn-success pull-right">download</button></td>
-                        <td><?php echo $visa['Visa']['pax_count']; ?></td>
-                        <td><?php echo $visa['price'] . CURRENCY; ?></td>
-                        <td><button class="btn-small btn-success">view</button></td>
-                        <td><?php echo $visa['status']; ?><span class="caret"></span></td>
-                        <td><button class="btn-small btn-success">upload</button></td>
-                        <td><button class="btn-small btn-primary">save</button></td>
-                    </tr>
+            <tr>
+                <td><?php echo $i++; ?></td>
+                <td><?php echo $visa['Visa']['id']; ?></td>
+                <td><?php echo date("F j, Y", strtotime($visa['Visa']['date_added'])); ?></td>
+                <td><?php echo ucwords($visa['agent_name']); ?></td>
+                <td><?php echo ucwords($visa['customer_name']); ?></td>
+                <td><?php echo $visa['passport']; ?></td>
+                <td><?php echo $visa['Visa']['pax_count']; ?></td>
+                <td><?php echo CURRENCY . $visa['price']; ?></td>
+                <td>
+                    <?php $btn = ($visa['status'] == 'approved') ? 'success' : (  ($visa['status'] == 'rejected') ? 'danger' : 'warning' ) ; ?>
+                    <span class="btn btn-<?=$btn; ?>"><?=ucwords(strtolower($visa['status'])); ?></span>
+                </td>
+                <td>View</td>
+                <td> - </td>
+            </tr>
 <?php endforeach; ?>
 
 

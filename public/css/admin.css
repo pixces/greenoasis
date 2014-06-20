@@ -618,3 +618,17 @@ a:hover.back-login {
 ul.dropdown-menu {
     min-width: 112px;
 }
+
+/* booking popup box */
+table span{
+    display: block;
+}
+.tdLabel{
+    color: #777777;
+    font-size: 13px;
+    font-weight: bold;
+}
+.btmBrdr{
+    border-bottom: 1px solid #EFEFEF ;
+    padding-bottom: 5px;
+}

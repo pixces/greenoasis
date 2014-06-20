@@ -24,7 +24,10 @@ class Hotel_Reservation extends Model {
         }
 
         $this->showHasOne();
-        return $this->search();
+        $details = $this->search();
+        $details['Hotel_Reservation']['agent_name'] = $this->getAgentSummary($details['Hotel_Reservation']['agent_id']);
+        $details['Hotel_Reservation']['customer_name'] = $this->getCustomerSummary($details['Hotel_Reservation']['id']);
+        return $details;
      }
 
 
@@ -82,7 +85,7 @@ class Hotel_Reservation extends Model {
 //        $sQl = 'SELECT *  FROM `' . $this->_table . '` where  ' . $condition;
 //        $details = $this->custom($sQl);
         
-         $this->setDate( $condition);
+          $this->setDate( $condition);
           $details = $this->search();
 
         if ($details) {

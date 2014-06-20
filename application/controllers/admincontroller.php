@@ -72,9 +72,7 @@ class AdminController extends Controller {
         //$this->set('hotels',$hotelList);
         $this->set_pageTitle('Admin:Dashboard');
         $this->set_pageType('dashboard');
-        $dashBoardData = static::loadDashboard();
-//         echo '<pre>';
-//        print_r( $dashBoardData);exit;
+        $dashBoardData = self::loadDashboard();
         $this->set('dashBoardData', $dashBoardData);
     }
 
@@ -813,6 +811,18 @@ class AdminController extends Controller {
         $this->set('counts', $counts);
     }
 
+    public function view_booking(){
+        $this->doNotRenderHeader = true;
+        $bookingId = func_get_arg(func_num_args() - 1);
+
+        //get the details of this booking id
+        $hoteResObj = new Hotel_Reservation();
+        $hoteResObj->setId($bookingId);
+        $details = $hoteResObj->getById();
+        $this->set('booking',$details);
+    }
+
+
     /*     * ***********************************
      * Visa
      * *********************************** */
@@ -1380,20 +1390,20 @@ class AdminController extends Controller {
     private static function loadDashboard() {
 
         //Today Hotel bookings
-        $todaysBooking = static::getDashboardData('Hotel_Reservation');
+        $todaysBooking = self::getDashboardData('Hotel_Reservation');
         //7 days Hotel Booking
-        $lastsevendaysBooking = static::getDashboardData('Hotel_Reservation', true);
+        $lastsevendaysBooking = self::getDashboardData('Hotel_Reservation', true);
         //Today Visa Application
-        $todayVisaApplications = static::getDashboardData('Visa');
+        $todayVisaApplications = self::getDashboardData('Visa');
         //Last 7 days Visa 
-        $lastsevendaysVisa = static::getDashboardData('Visa', true);
+        $lastsevendaysVisa = self::getDashboardData('Visa', true);
         //Todays package booking
-        $todayPackage = static::getDashboardData('Package');
+        $todayPackage = self::getDashboardData('Package');
         // last 7 days Package
-        $lastsevendaysPackage = static::getDashboardData('Package', true);
+        $lastsevendaysPackage = self::getDashboardData('Package', true);
 
         //New Agent Application
-        $newagentApplication = static::getDashboardData('Agent');
+        $newagentApplication = self::getDashboardData('Agent');
 
 
         return array('todaysBooking' => $todaysBooking, 'lastsevendaysBooking' => $lastsevendaysBooking,

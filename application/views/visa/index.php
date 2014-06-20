@@ -16,7 +16,7 @@
                                     <option value="0">--- Select a Visa Package ---</option>
                                     <option value="tourist30">Tourist Visa - 30 Days</option>
                                     <option value="service14">Service Visa - 14 Days</option>
-                                    <option value="visit30">Visit Visa - 30 Days</option>
+                                    <!-- option value="visit30">Visit Visa - 30 Days</option -->
                                 </select>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label">Upload Passport</label>
+        <label class="control-label">Upload Documents</label>
         <div class="controls">
             <input type="file" id="image_0" name="image[0][0]">
         </div>
@@ -134,6 +134,24 @@
         <label class="control-label"></label>
         <div class="controls">
             <input type="file" id="image_1" name="image[0][1]">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"></label>
+        <div class="controls">
+            <input type="file" id="image_2" name="image[0][2]">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"></label>
+        <div class="controls">
+            <input type="file" id="image_3" name="image[0][3]">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"></label>
+        <div class="controls">
+            <input type="file" id="image_4" name="image[0][4]">
         </div>
     </div>
 </div>
