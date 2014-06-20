@@ -1,12 +1,4 @@
 <div class="page-body-inner">
- <?php
-    if (empty($hotelReservations)) {
-
-        echo '<p>No Record Exist.</p>';
-        exit;
-    }
-    ?>
-
     <div>
         <div>
             <form class="form-inline pull-right">
@@ -46,7 +38,15 @@
                     <th align="right">Price</th>
                 </tr>
             </thead>
-            <tbody>
+             <tbody>
+            <?php
+    if (empty($hotelReservations)) {
+
+        echo "<tr><td>No Booking's Today.</td></tr>";
+        
+    }else{
+    ?>
+           
                 <?php $i = 1; ?>
                 <?php foreach ($hotelReservations as $reservation): ?>
                     <tr>
@@ -87,7 +87,9 @@
                         <td><button class="btn-small btn-primary">save</button></td>-->
                     </tr>
                 <?php endforeach; ?>
+                    <?php } ?>
             </tbody>
+    
         </table>
     </div>
 </div>

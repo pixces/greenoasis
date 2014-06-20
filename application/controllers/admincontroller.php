@@ -803,6 +803,8 @@ class AdminController extends Controller {
 
         $hotelResObj = new Hotel_Reservation();
         $counts = $hotelResObj->getCounts();
+         
+      //  $hotelResObj->setCurDate();
         $hotelResObj->orderBy('date_added', 'DESC');
 
         $hotelreservations = $hotelResObj->getAll();
@@ -821,6 +823,8 @@ class AdminController extends Controller {
 
         $visaObj = new Visa();
         $counts = $visaObj->getCounts();
+        $visaObj->like("status", "pending");
+       // $visaObj->setCurDate();
         $visaObj->orderBy('date_added', 'DESC');
         $visaInfo = $visaObj->getAll();
 

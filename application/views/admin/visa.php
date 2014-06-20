@@ -1,11 +1,5 @@
 <div class="page-body-inner">
-    <?php
-    if (empty($visaInfo)) {
-
-        echo '<p>No Record Exist.</p>';
-        exit;
-    }
-    ?>
+   
     <div>
         <div>
             <form class="form-inline pull-right">
@@ -47,7 +41,15 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+             <tbody>
+             <?php
+    if (empty($visaInfo)) {
+
+     echo    '<tr><td>No Record Exist.</td></tr>';
+        
+    }else{
+    ?>
+           
 <?php $i = 1; ?>
 <?php foreach ($visaInfo as $visa): ?>
                     <tr>
@@ -67,7 +69,9 @@
 <?php endforeach; ?>
 
 
-            </tbody>
+           
+    <?php } ?>
+                     </tbody>
         </table>
     </div>
 </div>

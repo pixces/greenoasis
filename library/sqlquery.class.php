@@ -90,6 +90,11 @@ class SQLQuery {
     public function setDate($condition) {
         $this->_extraConditions .=  $condition . ' AND ';
     }
+    
+    public function setCurDate(){
+        $currentDate=date('Y-m-d');
+        $this->_extraConditions .=  'DATE_FORMAT(`' . $this->_model . '`.`date_added`,"%Y-%m-%d")="'.$currentDate.'"  AND ';
+    }
 
     public function showHasOne() {
         $this->_hO = 1;
@@ -182,7 +187,7 @@ class SQLQuery {
             $conditions .= ' LIMIT ' . $this->_limit . ' OFFSET ' . $offset;
         }
         
-        $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
+       $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
 
         $this->_result = mysql_query($this->_query, $this->_dbHandle);
 
