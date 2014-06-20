@@ -30,15 +30,24 @@
                 <div class="header_col02">
                     <div class="header_col02_raw">
                         <?php  if (!isset($_SESSION['isAgentLoggedIn'])) { ?>
-                        <div class="header_col02_raw1"><img src="<?=SITE_URL; ?>/images/icon01.png" width="31" height="32"/>
+                        <div class="header_col02_raw1"><img src="<?=SITE_URL; ?>/images/icon01.png" width="20" height="20"/>
                             <a href="<?=SITE_URL; ?>/agent/login"><h1>Agent Login</h1></a>
                         </div>
                         <?php } else{ ?>
-                        
-                            <div class="header_col02_raw1">
-                                <a href="#"><h1><?php echo $_SESSION['agent']['contact'];?></h1></a><a href="<?php echo SITE_URL;?>/pages/logout"><h1>| <i class="icon-off icon-white"></i> Logout</h1></a>
+                            <div class="btn-group pull-right divAgentAccess">
+                                <button class="btn btn-inverse"><?php echo $_SESSION['agent']['contact'];?></button>
+                                <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+                                    <span><i class="icon-cog"></i></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="<?php echo SITE_URL;?>/agent/"><i class="icon-home"></i> My Dashboard</a></li>
+                                    <li><a href="<?php echo SITE_URL;?>/agent/transactions"><i class=" icon-retweet"></i> My Transactions</a></li>
+                                    <li><a href="<?php echo SITE_URL;?>/agent/update_profile"><i class="icon-user"></i> My Profile</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="<?php echo SITE_URL;?>/pages/logout"><i class="icon-off"></i> Logout</a></li>
+                                </ul>
                             </div>
-                        
+
                             
                         <?php }?>
                         <div class="clearfix"></div>

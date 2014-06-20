@@ -27,7 +27,6 @@ class Agent extends Model {
     //get the list of all agents
     //order by latest added
     public function getAll() {
-
         $this->showHasMany();
         $details = $this->search();
         if ($details) {

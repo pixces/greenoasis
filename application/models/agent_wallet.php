@@ -53,4 +53,13 @@ class Agent_Wallet extends Model{
         );
 
     }
+
+    public function getByAgent($agentId){
+        if (is_null($agentId)){
+            return false;
+        }
+        $this->where('agent_id',$agentId);
+        $this->orderBy('date','ASC');
+        return $this->search();
+    }
 }

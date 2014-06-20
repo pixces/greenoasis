@@ -11,11 +11,30 @@ class AgentController extends Controller {
 
     protected $agent = array();
 
-    public function index() {
-        //redirect to the site index
-        //if the agent session is already set
-        //else redirect to the agent register form
+    public function index(){
+        $this->isAgentLoggedIn();
+
+        //fetch the details by this agent to display on the agents dashboard
+        $agentId = $this->agent['id'];
+
+
     }
+
+    public function transactions(){
+        $this->isAgentLoggedIn();
+        $agentId = $this->agent['id'];
+
+        //get the summary
+        $summary = $this->Agent->getWalletSummary($agentId);
+
+        //get the wallet details for this agent
+        $oWallet = new Agent_Wallet();
+        $details = $oWallet->getByAgent($agentId);
+
+        $this->set('summary',$summary);
+        $this->set('data',$details);
+    }
+
 
     public function register() {
 
@@ -210,5 +229,17 @@ class AgentController extends Controller {
         echo json_encode(array('response' => 'ok', 'status' => 'success', 'message' => ""));
         exit;
     }
+
+    private function isAgentLoggedIn(){
+        //check if the agent is logged in
+
+        if (!isset($_SESSION['isAgentLoggedIn'])) {
+            $_SESSION['redirect_url'] = SITE_URL . "/agent/";
+            header("location: " . SITE_URL . "/agent/login");
+            exit;
+        }
+        $this->agent = $_SESSION['agent'];
+    }
+
 
 }
