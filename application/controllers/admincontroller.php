@@ -1400,14 +1400,14 @@ class AdminController extends Controller {
         $todayPackage = self::getDashboardData('Package');
         // last 7 days Package
         $lastsevendaysPackage = self::getDashboardData('Package', true);
-
         //New Agent Application
         $newagentApplication = self::getDashboardData('Agent');
-
+        //Low Credit Agents
+        $lowCreditAgents = self::getLowCreditAgent();
 
         return array('todaysBooking' => $todaysBooking, 'lastsevendaysBooking' => $lastsevendaysBooking,
             'todaysVisa' => $todayVisaApplications, 'lastsevendaysVisa' => $lastsevendaysVisa, 'todayPackage' => $todayPackage,
-            'lastsevendaysPackage' => $lastsevendaysPackage, 'newAgent' => $newagentApplication);
+            'lastsevendaysPackage' => $lastsevendaysPackage, 'newAgent' => $newagentApplication, 'lowCreditAgents' => $lowCreditAgents);
     }
 
     private static function getDashboardData($class, $interval = false) {
@@ -1466,25 +1466,101 @@ class AdminController extends Controller {
 
     public function allocateFund() {
         $this->doNotRenderHeader = true;
-       
+
         if (isset($_POST['agentid']))
             $agent_id = $_POST['agentid'];
         if (isset($_POST['fundamt']))
             $amount = $_POST['fundamt'];
-
+        $fundAmt = sprintf("$%s", number_format($amount));
         $walletObj = new Agent_Wallet();
-        $wallet['agent_id'] = $agent_id ;
+        $wallet['agent_id'] = $agent_id;
         $wallet['value'] = (int) $amount;
         $wallet['type'] = 'deposite';
         $wallet['date'] = date('Y-m-d h:i:s');
         foreach ($wallet as $field => $value) {
             $walletObj->{$field} = $value;
         }
-        if($walletObj->save()){
-             echo json_encode(array('result' => 'Success', 'message' => 'Funds Added.'));
-        }else{
-             echo json_encode(array('result' => 'Error', 'message' => "Sorry,Funds Not Added."));
+        if ($walletObj->save()) {
+            echo json_encode(array('result' => 'Success', 'message' => "<span style='color:green'>Funds($fundAmt) Added Successfully.</span>"));
+        } else {
+            echo json_encode(array('result' => 'Error', 'message' => "<span style='color:red'>Sorry,Funds($fundAmt) Can't Be Added.</span>"));
         }
+    }
+
+    public function view_visadetails() {
+        $this->doNotRenderHeader = true;
+
+        $application_id = func_get_arg(func_num_args() - 1);
+
+        $visaObj = new Visa();
+        $visaObj->id = $application_id;
+        $details = $visaObj->getById();
+        $visa = array();
+        $paxes = array();
+        if (!empty($details)) {
+
+
+            $visa['order_id'] = $details['Visa']['id'];
+            $visa['agent_name'] = $this->getAgentSummary($details['Visa']['agent_id']);
+            $visa['package'] = $details['Visa']['type'];
+            $visa['applied_date'] = $details['Visa']['date_added'];
+            $visa['parent_customername'] = $details['Visa_Pax'][0]['Visa_Pax']['fname'] . ' ' . $details['Visa_Pax'][0]['Visa_Pax']['mname'] . ' ' . $details['Visa_Pax'][0]['Visa_Pax']['lname'];
+            $visa['parent_passport'] = $details['Visa_Pax'][0]['Visa_Pax']['passport'];
+            $visa['pax_count'] = $details['Visa']['pax_count'];
+            $visa['nationality'] = $details['Visa_Pax'][0]['Visa_Pax']['nationality'];
+            $visa['parent_passport_status'] = 'Pending';
+
+            foreach ($details['Visa_Pax'] as $pax) {
+                $visa['paxes'][] = array('customer_name' => $pax['Visa_Pax']['fname'] . ' ' . $pax['Visa_Pax']['mname'] . ' ' . $pax['Visa_Pax']['lname'],
+                    'passport_no' => $pax['Visa_Pax']['passport'],
+                    'nationality' => $pax['Visa_Pax']['nationality'],
+                    'status' => 'Pending',
+                    'document' => json_decode($pax['Visa_Pax']['image']));
+            }
+
+            $this->set('visa', $visa);
+        }
+    }
+
+    public function getAgentSummary($agent_id) {
+        $summary = $this->getAgent()->getAgentSummary($agent_id);
+        return $summary;
+    }
+
+    public function getAgent() {
+        if (is_null($this->_agentname)) {
+            $this->_agentname = new Agent();
+        }
+        return $this->_agentname;
+    }
+
+    private static function getLowCreditAgent() {
+        $agentObj = new Agent();
+        $counts = $agentObj->getCounts();
+
+        //get list of all agents
+        //order by the latest first
+        $agentObj->orderBy('date_added', 'DESC');
+        $agents = $agentObj->getAll();
+        $lowCreditAgents = array();
+
+        if (!empty($agents)) {
+
+            foreach ($agents as $agent) {
+
+                if ($agent['Summary']['balance'] < 0) {
+                    $lowCreditAgents[] = array('agent_id' => $agent['Agent']['id'],
+                        'agent_name' => $agent['Agent']['contact'],
+                        'email' => $agent['Agent']['email'],
+                        'balance' => $agent['Summary']['balance'],
+                        'allowed' => $agent['Summary']['total']);
+                }
+            }
+
+
+            return $lowCreditAgents;
+        }
+        return;
     }
 
 }

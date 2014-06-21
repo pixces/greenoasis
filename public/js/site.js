@@ -79,6 +79,10 @@ $(function() {
     //add more applicants based on selected numbers
     $("form.visa-form").on('change', '#visa_count', VISA.addApplicants);
 
+    $('.modal').on('hide.bs.modal', function () {
+   $('.modal').removeData();
+});
+
 
     //call the function to recalculate booking values on select of qty
     //from the qty box on the room pricing page

@@ -24,8 +24,11 @@ $(function() {
     $(document).on('click', 'ul.dropdown-menu > li > a', ADMIN.toggleBookingStatus);
     $(document).on('click', '.btn-funds', ADMIN.allocateFunds);
     $(document).on('click', '#fundUpdateBtn', ADMIN.updateFunds);
+   // $(document).on('click', '.loadVisaView', ADMIN.viewVisaDetails);
 
-
+$('.modal').on('hide.bs.modal', function () {
+   $('.modal').removeData();
+})
 
 
 
@@ -246,14 +249,33 @@ var ADMIN = {
                 cache: false,
                 dataType: 'json',
                 success: function(data) {
-                    alert(data.message);
-                    location.reload();
+                   var agent_totAmt=$("#agent-"+agent_id+" .total .count").data('count');
+                   if(data.result==="Success"){
+                       agent_totAmt=parseFloat(fund_amount)+parseFloat(agent_totAmt);
+                       $("#agent-"+agent_id).data('count', agent_totAmt);
+                       $("#agent-"+agent_id+" .total .count").html(ADMIN.formatCurrency(agent_totAmt));
+                       $('.fund-div').empty().html(data.message);
+                   }else{
+                       $('.fund-div').empty().html(data.message);
+                   }
                 }
             });
-
-        }
-
-
-
-    },
-}
+        } },
+ 
+ 'formatCurrency':function(num){
+    return "$" + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+ },
+  'viewVisaDetails'  :function(){
+      var application_id=$(this).data('application-id');
+      $.ajax({
+                type: "POST",
+                data: {application_id:application_id},
+                url: SITE_URL + '/admin/loadVisaApplication/',
+                cache: false,
+                dataType: 'html',
+                success: function(data) {
+                  console.log(data);
+                }
+            });
+  } ,
+  }

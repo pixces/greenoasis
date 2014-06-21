@@ -3,7 +3,7 @@
 <ul class="list-panel">
     <?php if ($agents) {
         foreach($agents as $agent) { ?>
-            <li id="agent-1" class="item media agent-item">
+            <li id="agent-<?=$agent['Agent']['id']; ?>" class="item media agent-item">
                 <div class="media-body pull-left">
                     <section class="title"><?=$agent['Agent']['company']; ?></section>
                     <section class="contact">
@@ -15,7 +15,7 @@
                     <section class="contact credit">
                         <div class="total na">
                             <span class="pull-left">Total</span>
-                            <span class="count"><?=sprintf("$%s",number_format($agent['Summary']['total'])); ?></span>
+                            <span class="count" data-count="<?php echo $agent['Summary']['total']?>"><?=sprintf("$%s",number_format($agent['Summary']['total'])); ?></span>
                         </div>
 
                         <div class="used <?=$agent['Summary']['balance'] < 0 ? 'red' : 'na'; ?>">
@@ -25,7 +25,7 @@
 
                         <div class="grace na">
                             <span class="pull-left">Grace</span>
-                            <span class="count"><?=sprintf("$%s",number_format($agent['Agent']['grace_fund'])); ?></span>
+                            <span class="count" ><?=sprintf("$%s",number_format($agent['Agent']['grace_fund'])); ?></span>
                         </div>
                     </section>
                 </div>

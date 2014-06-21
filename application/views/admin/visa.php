@@ -61,7 +61,8 @@
                     <?php $btn = ($visa['status'] == 'approved') ? 'success' : (  ($visa['status'] == 'rejected') ? 'danger' : 'warning' ) ; ?>
                     <span class="btn btn-<?=$btn; ?>"><?=ucwords(strtolower($visa['status'])); ?></span>
                 </td>
-                <td>View</td>
+                <td><a href="#visaAppModal"  class="btn btn-success loadVisaView" data-toggle="modal" 
+                       data-application-id="<?php echo $visa['Visa']['id']; ?>" data-remote="<?=SITE_URL."/admin/view_visadetails/".$visa['Visa']['id']; ?>">view</a></td>
                 <td> - </td>
             </tr>
 <?php endforeach; ?>
@@ -73,3 +74,17 @@
         </table>
     </div>
 </div>
+
+
+<!--starts: modal for visa application -->
+<div id="visaAppModal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:620px; left:49%;">
+   <div class="modal-header well">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 style="color: 90c53f;" id="visaModalLabel">Visa Application Details</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer"></div>
+</div>
+<!--ends: modal for visa application 

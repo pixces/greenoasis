@@ -16,6 +16,11 @@ class AgentController extends Controller {
 
         //fetch the details by this agent to display on the agents dashboard
         $agentId = $this->agent['id'];
+        $hotelreservations=$this->bookings($agentId);
+        $visaInfo=$this->visa($agentId);
+        
+        $this->set('hotelReservations', $hotelreservations);
+        $this->set('visaInfo', $visaInfo);
 
 
     }
@@ -239,6 +244,39 @@ class AgentController extends Controller {
             exit;
         }
         $this->agent = $_SESSION['agent'];
+    }
+
+     /*     * ***********************************
+     * Booking
+     * *********************************** */
+    public function bookings($agentId) {
+       
+        $hotelResObj = new Hotel_Reservation();
+        $hotelResObj->agent_id=$agentId;
+      //  $counts = $hotelResObj->getCounts();
+
+        //  $hotelResObj->setCurDate();
+        $hotelResObj->orderBy('date_added', 'DESC');
+
+        $hotelreservations = $hotelResObj->getAll();
+
+       return  $hotelreservations;
+    }
+    
+    /*     * ***********************************
+     * Visa
+     * *********************************** */
+
+    public function visa($agentId) {
+        
+        $visaObj = new Visa();
+        $visaObj->agent_id=$agentId;
+        $visaObj->like("status", "pending");
+        // $visaObj->setCurDate();
+        $visaObj->orderBy('date_added', 'DESC');
+        $visaInfo = $visaObj->getAll();
+
+      return $visaInfo;
     }
 
 
