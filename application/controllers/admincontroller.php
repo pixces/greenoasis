@@ -1502,7 +1502,9 @@ class AdminController extends Controller {
 
             $visa['order_id'] = $details['Visa']['id'];
             $visa['agent_name'] = $this->getAgentSummary($details['Visa']['agent_id']);
+            $visa['agent_id'] =  $details['Visa']['agent_id'];
             $visa['package'] = $details['Visa']['type'];
+            $visa['validity'] = $details['Visa']['validity'];
             $visa['applied_date'] = $details['Visa']['date_added'];
             $visa['parent_customername'] = $details['Visa_Pax'][0]['Visa_Pax']['fname'] . ' ' . $details['Visa_Pax'][0]['Visa_Pax']['mname'] . ' ' . $details['Visa_Pax'][0]['Visa_Pax']['lname'];
             $visa['parent_passport'] = $details['Visa_Pax'][0]['Visa_Pax']['passport'];

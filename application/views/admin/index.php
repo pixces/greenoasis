@@ -1,9 +1,6 @@
-
-
-
 <table class="table">
     <thead class="well table-bordered">
-        <tr><th colspan="6">Today's Hotel Booking <button class="btn btn-primary pull-right">More</button></th></tr>
+        <tr><th colspan="6">Today's Hotel Booking <a href="<?=SITE_URL.'/admin/bookings/'; ?>" class="btn btn-primary pull-right" >More</a></th></tr>
         <tr>
             <th>Sl</th>
             <th>Date</th>
@@ -37,7 +34,7 @@
 </table>
 <table class="table">
     <thead class="well table-bordered">
-        <tr><th colspan="6">Today's Visa Applications <button class="btn btn-primary pull-right">More</button></th></tr>
+        <tr><th colspan="6">Today's Visa Applications <a href="<?=SITE_URL.'/admin/visa/'; ?>" class="btn btn-primary pull-right" >More</a></th></tr>
         <tr>
             <th>Sl</th>
             <th>Date</th>
@@ -125,7 +122,7 @@
 </table>-->
 <table class="table">
     <thead class="well table-bordered">
-        <tr><th colspan="6">New Agent Applications <button class="btn btn-primary pull-right">More</button></th></tr>
+        <tr><th colspan="6">New Agent Applications <a href="<?=SITE_URL.'/admin/agents/'; ?>" class="btn btn-primary pull-right" >More</a></th></tr>
         <tr>
             <th>Sl</th>
             <th>Date</th>
@@ -157,7 +154,7 @@
 </table>
 <table class="table">
     <thead class="well table-bordered">
-        <tr><th colspan="6">7 day's Hotel Booking <button class="btn btn-primary pull-right">More</button></th></tr>
+        <tr><th colspan="6">7 day's Hotel Booking <a href="<?=SITE_URL.'/admin/bookings/'; ?>" class="btn btn-primary pull-right" >More</a></th></tr>
         <tr>
             <th>Sl</th>
             <th>Date</th>
@@ -189,7 +186,7 @@
 </table>
 <table class="table">
     <thead class="well table-bordered">
-        <tr><th colspan="6">7 day's Visa Application <button class="btn btn-primary pull-right">More</button></th></tr>
+        <tr><th colspan="6">7 day's Visa Application <a href="<?=SITE_URL.'/admin/visa/'; ?>" class="btn btn-primary pull-right" >More</a></th></tr>
         <tr>
             <th>Sl</th>
             <th>Date</th>
@@ -276,7 +273,7 @@
 </table>-->
 <table class="table">
     <thead class="well table-bordered">
-        <tr><th colspan="6">Low Credit Alerts <button class="btn btn-primary pull-right">More</button></th></tr>
+        <tr><th colspan="6">Low Credit Alerts <a href="<?=SITE_URL.'/admin/agents/'; ?>" class="btn btn-primary pull-right" >More</a></th></tr>
         <tr>
             <th>Sl</th>
             <th>Agent's Name</th>

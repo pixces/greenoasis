@@ -2,10 +2,9 @@
     <div>
         <div>
             <form class="form-inline pull-right">
-                <label>Search by Order Number
-                    <input type="text" class="span2">
+                <label>
+                    <input type="text" class="span2" placeholder="Order Number">
                 </label>
-                <label>Custom</label>
                 <div id="dpFrom" class="input-append date" data-date-format="dd-mm-yyyy" data-date="12-04-2014">
                     <input id="dateFrom" name="" class="span2" type="text" readonly="" value="12-04-2014" placeholder="" required="required">
                     <span class="add-on"><i class="icon-calendar"></i></span>

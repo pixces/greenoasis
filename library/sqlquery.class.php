@@ -187,7 +187,8 @@ class SQLQuery {
             $conditions .= ' LIMIT ' . $this->_limit . ' OFFSET ' . $offset;
         }
         
-       $this->_query = 'SELECT '.$this->_model .'.* FROM ' . $from . ' WHERE ' . $conditions;
+        //$this->_query = 'SELECT '.$this->_model .'.* FROM ' . $from . ' WHERE ' . $conditions;
+        $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
 
         $this->_result = mysql_query($this->_query, $this->_dbHandle);
 

@@ -18,7 +18,7 @@
 <div class="alert alert-<?=$status['css']; ?>">
     <strong>Booking <?=$status['text']; ?></strong>
 </div>
-<table width="100%" class="bookingInfo">
+<table width="100%" class="bookingInfo" style="border-bottom: 1px solid #EFEFEF; margin-bottom: 10px">
     <tr>
         <td width="35%">
             <span class="tdLabel">Booking No.#</span>
@@ -34,8 +34,7 @@
         </td>
     </tr>
 </table>
-<hr />
-<table width="100%" class="hotelInfo">
+<table width="100%" class="hotelInfo" style="border-bottom: 1px solid #EFEFEF; margin-bottom: 10px">
     <tr>
         <td width="65%">
             <span class="tdLabel">Hotel Details</span>
@@ -48,8 +47,7 @@
         </td>
     </tr>
 </table>
-<hr />
-<table width="100%" class="packageInfo">
+<table width="100%" class="packageInfo" style="border-bottom: 1px solid #EFEFEF; margin-bottom: 10px">
     <tr>
         <td width="35%">
             <span class="tdLabel">CheckIn:</span>
@@ -79,7 +77,6 @@
         </td>
     </tr>
 </table>
-<hr />
 <?php if ($booking['Hotel_Reservation']['inclusions']) { ?>
     <table class="room-info" width="100%">
         <tr>
