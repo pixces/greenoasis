@@ -127,11 +127,20 @@ class Package extends Model{
         }
     }
 
-    public function getFeatured($type,$limit){
+    public function fetchAll($type,$limit=null,$featured=0){
 
         $this->where('type',$type);
-        $this->where('featured',1);
-        $this->limit = $limit;
+
+        //check and set featured
+        if ($featured){
+            $this->where('featured',1);
+        }
+
+        //check for limit
+        if (!is_null($limit)){
+            $this->limit = $limit;
+        }
+
         $this->orderBy('date_modified', 'DESC');
 
         $this->showHasMany();

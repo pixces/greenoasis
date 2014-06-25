@@ -10,6 +10,13 @@ class TourController extends Controller {
 
     public function index(){
 
+        //get all packages
+        $packageModel = new Package();
+        $tours = $packageModel->fetchAll(Package::TYPE_TOURS);
+        $combo = $packageModel->fetchAll(Package::TYPE_COMBO);
+
+        $this->set('package',array('tours'=>$tours,'combo'=>$combo));
+
     }
 
     public function view(){

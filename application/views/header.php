@@ -55,7 +55,7 @@
                     <div class="header_col02_raw2">
                         <ul>
                             <li><a href="<?=SITE_URL; ?>/contact/">Contact</a></li>
-                            <li><a href="<?=SITE_URL; ?>/tours/">Packages</a></li>
+                            <li><a href="<?=SITE_URL; ?>/packages/">Packages</a></li>
                             <li><a href="<?=SITE_URL; ?>/visa/">Visa</a></li>
                             <li><a href="<?=SITE_URL; ?>/hotel/">Hotels</a></li>
                             <li><a href="<?=SITE_URL; ?>/about-us/">About Us</a></li>

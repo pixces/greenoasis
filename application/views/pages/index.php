@@ -102,8 +102,10 @@
                     foreach($package['tours'] as $data){
                 ?>
                         <div class="featured-items pull-left">
-                            <img src="<?php echo SITE_UPLOAD.PREFIX_THUMB.$data['image']; ?>" width="168" height="168"/>
-                            <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=<?=$data['id']; ?>&city=5&pType=<?=$data['type']; ?>"><?=$data['title']; ?></a></h1>
+                            <a href="<?=SITE_URL; ?>/packages/view/?pid=<?=$data['id']; ?>&city=5&pType=<?=$data['type']; ?>">
+                                <img src="<?php echo SITE_UPLOAD.PREFIX_THUMB.$data['image']; ?>" width="168" height="168"/>
+                                <h1><?=$data['title']; ?></h1>
+                            </a>
                             <p><?=$data['details']; ?></p>
                         </div>
                 <?php
@@ -117,8 +119,10 @@
                     foreach($package['combo'] as $data){
                         ?>
                         <div class="featured-items pull-left">
-                            <img src="<?php echo SITE_UPLOAD.PREFIX_THUMB.$data['image']; ?>" width="168" height="168"/>
-                            <h1><a href="<?=SITE_URL; ?>/packages/view/?pid=<?=$data['id']; ?>&city=5&pType=<?=$data['type']; ?>"><?=$data['title']; ?></a></h1>
+                            <a href="<?=SITE_URL; ?>/packages/view/?pid=<?=$data['id']; ?>&city=5&pType=<?=$data['type']; ?>">
+                                <img src="<?php echo SITE_UPLOAD.PREFIX_THUMB.$data['image']; ?>" width="168" height="168"/>
+                                <h1><?=$data['title']; ?></h1>
+                            </a>
                             <p><?=$data['details']; ?></p>
                         </div>
                     <?php
@@ -172,7 +176,7 @@
                     <span class="text-large">@ $100</span>
                 </div>
             </div>
-            <div class="clear"></div>
+            <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>
     </div>

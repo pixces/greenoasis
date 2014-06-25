@@ -18,8 +18,8 @@ class PagesController extends Controller {
     {
         //get all the featured package for both tours as well as combo deals
         $packageModel = new Package();
-        $tours = $packageModel->getFeatured(Package::TYPE_TOURS, 5);
-        $combo = $packageModel->getFeatured(Package::TYPE_COMBO, 5);
+        $tours = $packageModel->fetchAll(Package::TYPE_TOURS, 5, true);
+        $combo = $packageModel->fetchAll(Package::TYPE_COMBO, 5, true);
 
         //get the details form the social and contact group
         $quickContact = Configurator::get('contact',1);
