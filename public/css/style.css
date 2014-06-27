@@ -201,14 +201,16 @@ form{
 }
 
 /* Featured Hotel List */
-.featured {
+.featured,
+.package-item-list{
     float: left;
     height: auto;
     margin: 10px 0 20px;
     width: 100%;
 }
 
-.featured h1{
+.featured h1,
+.package-item-list h1{
     font-size: 24px;
     text-shadow: 0 1px 0px rgba(255, 255, 255, 0.25);
     font-family: 'Ropa Sans';
@@ -296,30 +298,51 @@ form{
     font-weight: bold;
 }
 
-.featured-items{
+.featured-items,
+.package-item{
     width: 19.4%;
     margin-right: 5px;
     height: 315px;
 }
 
-.featured-items h1{
+.package-item{
+    margin-right: 25px;
+}
+
+.featured-items h1,
+.package-item h1{
     font-size: 18px;
     color: #666;
     line-height: 22px;
     margin: 5px 0;
     height: 45px;
+    text-align: center;
 }
 
-.featured-items img{
+.featured-items h1,
+.package-item h1{
+    color: #333333;
+}
+
+.featured-items h1:hover,
+.package-item h1:hover{
+    color: #8dc63f;
+}
+
+
+.featured-items img,
+.package-item img{
     border: 1px solid #ACB5C4;
     width: 168px;
     height: 168px;
 }
 
-.featured-items p{
+.featured-items p,
+.package-item p{
     font-size: 12px;
     padding: 0 4px 5px 2px;
     line-height: normal;
+    text-align: center;
 }
 
 .widget{
