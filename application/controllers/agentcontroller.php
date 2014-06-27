@@ -271,7 +271,7 @@ class AgentController extends Controller {
         
         $visaObj = new Visa();
         $visaObj->agent_id=$agentId;
-        $visaObj->like("status", "pending");
+        //$visaObj->like("status", "pending");
         // $visaObj->setCurDate();
         $visaObj->orderBy('date_added', 'DESC');
         $visaInfo = $visaObj->getAll();
@@ -279,5 +279,36 @@ class AgentController extends Controller {
       return $visaInfo;
     }
 
+    public function uploadVisaByAgent() {
+        if ($_FILES['visaFile']['type'] == "application/pdf") {
+            $application_id = $_POST['id'];
+            $agent_id = $_POST['agent_id'];
+            $file = $_FILES['visaFile'];
+            $uploadVisaFile = Utils::uploadImage($file);
+            $visa['id'] = $application_id;
+
+            $visa['visa_file_name'] = json_encode($uploadVisaFile);
+            $visa['status'] = "approved";
+            $visaObj = new Visa();
+            $visaObj->setId($application_id);
+            $visaObj->visa_file_name = $visa['visa_file_name'];
+            $visaObj->status = "approved";
+            $visaObj->agent_id = $agent_id;
+
+            if ($visaObj->save(true)) {
+                $download_link="<a href=". SITE_URL . "/admin/download_visa_document/". json_decode($visa["visa_file_name"]). "><i class=\"icon-file\"></i> </a>";
+                echo json_encode(array('result' => 'Success', 'message' => 'Visa Uploaded And Approved Successfully.', 'applicationid' => $application_id,'download_link'=>$download_link));
+            } else {
+                echo json_encode(array('result' => 'Error', 'message' => 'Visa Upload Failed.'));
+            }
+        } else {
+            echo json_encode(array('result' => 'Error', 'message' => 'Unsupported file.Please upload Pdf file only.'));
+        }
+        exit;
+    }
+    
+     public function download_visa_document($file) {
+             Utils::downloadPdf($file);
+    }
 
 }

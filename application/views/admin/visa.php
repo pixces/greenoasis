@@ -50,7 +50,7 @@
                             <td><?php echo $i++; ?></td>
                             <td><?php echo $visa['Visa']['id']; ?></td>
                             <td><?php echo date("F j, Y", strtotime($visa['Visa']['date_added'])); ?></td>
-                            <td><?php echo ucwords($visa['Visa']['agent_name']); ?></td>
+                            <td><?php echo ucwords($visa['agent_name']); ?></td>
                             <td><?php echo ucwords($visa['customer_name']); ?></td>
                             <td><?php echo $visa['passport']; ?></td>
                             <td><?php echo $visa['Visa']['pax_count']; ?></td>

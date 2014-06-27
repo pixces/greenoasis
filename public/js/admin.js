@@ -283,7 +283,7 @@ var ADMIN = {
 
         $.ajax({
             type: "POST",
-            url: SITE_URL + '/admin/uploadVisa/',
+            url: SITE_URL + '/admin/uploadVisaByAdmin/',
             data: new FormData(this),
             contentType: false,
             cache: false,

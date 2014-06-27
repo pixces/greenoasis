@@ -78,6 +78,7 @@ $(function() {
 
     //add more applicants based on selected numbers
     $("form.visa-form").on('change', '#visa_count', VISA.addApplicants);
+     $(document).on('submit', '#uploadform', VISA.uploadDocument);
 
     $('.modal').on('hide.bs.modal', function () {
    $('.modal').removeData();
@@ -345,6 +346,42 @@ var VISA = {
             $(".visa-pax-list").fadeOut();
         }
 
+    },
+            'uploadDocument': function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: SITE_URL + '/admin/uploadVisaByAdmin/',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: 'json',
+            beforeSend: function() {
+                $("#loader").show();
+            },
+            success: function(data) {
+                if (data.result == "Success") {
+                    $(".uploadvisa-form").slideUp("slow", function() {
+                        $("#uploadError").empty();
+                        $("#uploadStatus").html(data.message);
+                        $("."+data.applicationid+"-text-status").removeClass("text-warning").addClass("text-success").html("Approved");
+                        $(".download-visa-"+data.applicationid).html(data.download_link);
+                        
+//window.parent.location.reload(false);
+                       // opener.location.href = opener.location.href;
+                        
+                    });
+
+                } else {
+                    $("#uploadError").html(data.message);
+                }
+
+                $("#loader").hide();
+
+            }
+        });
     }
 
 };

@@ -136,8 +136,8 @@
                                             <?php if ($reservation['Hotel_Reservation']['status'] == 'request') { ?>
                                                 <div class="btn-group">
                                                     <button class="btn btn-<?= $btn; ?>"><?= ucwords(strtolower($reservation['Hotel_Reservation']['status'])); ?></button>
-                                                    
-                                                    
+
+
                                                 </div>
                                             <?php } else { ?>
                                                 <span class="label label-<?= $btn; ?>"><?= ucwords(strtolower($reservation['Hotel_Reservation']['status'])); ?></span>
@@ -145,8 +145,8 @@
                                         </td>
                                         <td align="right"><?php echo '$' . $reservation['Hotel_Reservation']['price']; ?></td>
 
-            <!--                <td><button class="btn-small btn-success">view</button></td>
-                            <td><button class="btn-small btn-primary">save</button></td>-->
+                        <!--                <td><button class="btn-small btn-success">view</button></td>
+                                        <td><button class="btn-small btn-primary">save</button></td>-->
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -183,11 +183,17 @@
                                         <td><?php echo CURRENCY . $visa['price']; ?></td>
                                         <td>
                                             <?php $btn = ($visa['status'] == 'approved') ? 'success' : ( ($visa['status'] == 'rejected') ? 'danger' : 'warning' ); ?>
-                                            <span class="btn btn-<?= $btn; ?>"><?= ucwords(strtolower($visa['status'])); ?></span>
+                                            <span  class="text-<?= $btn; ?> <?php echo $visa['Visa']['id']; ?>-text-status"><?= ucwords(strtolower($visa['status'])); ?></span>
                                         </td>
                                         <td><a href="#visaAppModal"  class="btn btn-success loadVisaView" data-toggle="modal" 
                                                data-application-id="<?php echo $visa['Visa']['id']; ?>" data-remote="<?= SITE_URL . "/admin/view_visadetails/" . $visa['Visa']['id']; ?>">view</a></td>
-                                        <td> - </td>
+                                        <td> <span class="download-visa-<?php echo $visa['Visa']['id'] ?>">
+                                                <?php if ($visa['status'] == "approved") { ?>
+                                                    <a href="<?php echo SITE_URL . '/agent/download_visa_document/' . json_decode($visa['Visa']['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-file"></i> </a>
+                                                <?php } else { ?><i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i><?php } ?>
+
+                                            </span>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -233,4 +239,3 @@
 <!-- End: Main Content ---><div class="footer-sub">
 
 
-   

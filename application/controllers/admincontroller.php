@@ -1568,7 +1568,7 @@ class AdminController extends Controller {
         return;
     }
 
-    public function uploadVisa() {
+    public function uploadVisaByAdmin() {
         if ($_FILES['visaFile']['type'] == "application/pdf") {
             $application_id = $_POST['id'];
             $agent_id = $_POST['agent_id'];
@@ -1597,8 +1597,7 @@ class AdminController extends Controller {
     }
 
     public function download_visa_document($file) {
-
-        Utils::downloadPdf($file);
+             Utils::downloadPdf($file);
     }
 
 }
