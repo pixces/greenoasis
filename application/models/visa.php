@@ -37,7 +37,7 @@ class Visa extends Model {
                 $visa['agent_name'] = $this->getAgentSummary($visa['Visa']['agent_id']);
                 $visa['customer_name'] = $visa['Visa_Pax'][0]['Visa_Pax']['fname'] . ' ' . $visa['Visa_Pax'][0]['Visa_Pax']['mname'] . ' ' . $visa['Visa_Pax'][0]['Visa_Pax']['lname'];
                 $visa['passport'] = $visa['Visa_Pax'][0]['Visa_Pax']['passport'];
-                $visa['status']='Pending';
+                $visa['status']=$visa['Visa']['status'];
                 $visa['price']=135;
             }
 

@@ -832,7 +832,7 @@ class AdminController extends Controller {
 
         $visaObj = new Visa();
         $counts = $visaObj->getCounts();
-        $visaObj->like("status", "pending");
+        //$visaObj->like("status", "approved");
         // $visaObj->setCurDate();
         $visaObj->orderBy('date_added', 'DESC');
         $visaInfo = $visaObj->getAll();
@@ -1502,7 +1502,7 @@ class AdminController extends Controller {
 
             $visa['order_id'] = $details['Visa']['id'];
             $visa['agent_name'] = $this->getAgentSummary($details['Visa']['agent_id']);
-            $visa['agent_id'] =  $details['Visa']['agent_id'];
+            $visa['agent_id'] = $details['Visa']['agent_id'];
             $visa['package'] = $details['Visa']['type'];
             $visa['validity'] = $details['Visa']['validity'];
             $visa['applied_date'] = $details['Visa']['date_added'];
@@ -1510,13 +1510,16 @@ class AdminController extends Controller {
             $visa['parent_passport'] = $details['Visa_Pax'][0]['Visa_Pax']['passport'];
             $visa['pax_count'] = $details['Visa']['pax_count'];
             $visa['nationality'] = $details['Visa_Pax'][0]['Visa_Pax']['nationality'];
-            $visa['parent_passport_status'] = 'Pending';
+            $visa['parent_passport_status'] = $details['Visa']['status'];
+             $visa['visa_file_name']= $details['Visa']['visa_file_name'];
+            $visa['status'] = $details['Visa']['status'];
+            ;
 
             foreach ($details['Visa_Pax'] as $pax) {
                 $visa['paxes'][] = array('customer_name' => $pax['Visa_Pax']['fname'] . ' ' . $pax['Visa_Pax']['mname'] . ' ' . $pax['Visa_Pax']['lname'],
                     'passport_no' => $pax['Visa_Pax']['passport'],
                     'nationality' => $pax['Visa_Pax']['nationality'],
-                    'status' => 'Pending',
+                    'status' => ucwords($visa['status']),
                     'document' => json_decode($pax['Visa_Pax']['image']));
             }
 
@@ -1563,6 +1566,39 @@ class AdminController extends Controller {
             return $lowCreditAgents;
         }
         return;
+    }
+
+    public function uploadVisa() {
+        if ($_FILES['visaFile']['type'] == "application/pdf") {
+            $application_id = $_POST['id'];
+            $agent_id = $_POST['agent_id'];
+            $file = $_FILES['visaFile'];
+            $uploadVisaFile = Utils::uploadImage($file);
+            $visa['id'] = $application_id;
+
+            $visa['visa_file_name'] = json_encode($uploadVisaFile);
+            $visa['status'] = "approved";
+            $visaObj = new Visa();
+            $visaObj->setId($application_id);
+            $visaObj->visa_file_name = $visa['visa_file_name'];
+            $visaObj->status = "approved";
+            $visaObj->agent_id = $agent_id;
+
+            if ($visaObj->save(true)) {
+                $download_link="<a href=". SITE_URL . "/admin/download_visa_document/". json_decode($visa["visa_file_name"]). "><i class=\"icon-file\"></i> </a>";
+                echo json_encode(array('result' => 'Success', 'message' => 'Visa Uploaded And Approved Successfully.', 'applicationid' => $application_id,'download_link'=>$download_link));
+            } else {
+                echo json_encode(array('result' => 'Error', 'message' => 'Visa Upload Failed.'));
+            }
+        } else {
+            echo json_encode(array('result' => 'Error', 'message' => 'Unsupported file.Please upload Pdf file only.'));
+        }
+        exit;
+    }
+
+    public function download_visa_document($file) {
+
+        Utils::downloadPdf($file);
     }
 
 }

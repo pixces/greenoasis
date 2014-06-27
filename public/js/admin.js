@@ -24,11 +24,11 @@ $(function() {
     $(document).on('click', 'ul.dropdown-menu > li > a', ADMIN.toggleBookingStatus);
     $(document).on('click', '.btn-funds', ADMIN.allocateFunds);
     $(document).on('click', '#fundUpdateBtn', ADMIN.updateFunds);
-   // $(document).on('click', '.loadVisaView', ADMIN.viewVisaDetails);
+    $(document).on('submit', '#uploadform', ADMIN.uploadDocument);
 
-$('.modal').on('hide.bs.modal', function () {
-   $('.modal').removeData();
-})
+    $('.modal').on('hide.bs.modal', function() {
+        $('.modal').removeData();
+    })
 
 
 
@@ -222,9 +222,9 @@ var ADMIN = {
     },
     'allocateFunds': function() {
         var agent_id = $(this).attr('id');
-        var agent_name=$(this).data('name');
+        var agent_name = $(this).data('name');
         var CONTENT = "<div class='fund-div'><label>Enter Amount:</label><input type='hidden' name='agentid' id='agent_id' value='" + agent_id + "'/><input type='text'  placeholder='enter amount' name='fundAmt' id='fundAmt' value=''/><br/><input type='button' id='fundUpdateBtn' name='Add' value='&laquo; &laquo; Add Fund &raquo; &raquo;'/></div>";
-       $("#divAgentModel #myModalLabel").html("Add Funds to "+agent_name);
+        $("#divAgentModel #myModalLabel").html("Add Funds to " + agent_name);
         $("#divAgentModel .modal-body").html(CONTENT);
     },
     'updateFunds': function() {
@@ -244,38 +244,74 @@ var ADMIN = {
             var fund_amount = $('.fund-div').find('input[name="fundAmt"]').val();
             $.ajax({
                 type: "POST",
-                data: {agentid:agent_id,fundamt:fund_amount},
+                data: {agentid: agent_id, fundamt: fund_amount},
                 url: SITE_URL + '/admin/allocateFund/',
                 cache: false,
                 dataType: 'json',
                 success: function(data) {
-                   var agent_totAmt=$("#agent-"+agent_id+" .total .count").data('count');
-                   if(data.result==="Success"){
-                       agent_totAmt=parseFloat(fund_amount)+parseFloat(agent_totAmt);
-                       $("#agent-"+agent_id).data('count', agent_totAmt);
-                       $("#agent-"+agent_id+" .total .count").html(ADMIN.formatCurrency(agent_totAmt));
-                       $('.fund-div').empty().html(data.message);
-                   }else{
-                       $('.fund-div').empty().html(data.message);
-                   }
+                    var agent_totAmt = $("#agent-" + agent_id + " .total .count").data('count');
+                    if (data.result === "Success") {
+                        agent_totAmt = parseFloat(fund_amount) + parseFloat(agent_totAmt);
+                        $("#agent-" + agent_id).data('count', agent_totAmt);
+                        $("#agent-" + agent_id + " .total .count").html(ADMIN.formatCurrency(agent_totAmt));
+                        $('.fund-div').empty().html(data.message);
+                    } else {
+                        $('.fund-div').empty().html(data.message);
+                    }
                 }
             });
-        } },
- 
- 'formatCurrency':function(num){
-    return "$" + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
- },
-  'viewVisaDetails'  :function(){
-      var application_id=$(this).data('application-id');
-      $.ajax({
-                type: "POST",
-                data: {application_id:application_id},
-                url: SITE_URL + '/admin/loadVisaApplication/',
-                cache: false,
-                dataType: 'html',
-                success: function(data) {
-                  console.log(data);
+        }
+    },
+    'formatCurrency': function(num) {
+        return "$" + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    },
+    'viewVisaDetails': function() {
+        var application_id = $(this).data('application-id');
+        $.ajax({
+            type: "POST",
+            data: {application_id: application_id},
+            url: SITE_URL + '/admin/loadVisaApplication/',
+            cache: false,
+            dataType: 'html',
+            success: function(data) {
+                console.log(data);
+            }
+        });
+    },
+    'uploadDocument': function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: SITE_URL + '/admin/uploadVisa/',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: 'json',
+            beforeSend: function() {
+                $("#loader").show();
+            },
+            success: function(data) {
+                if (data.result == "Success") {
+                    $(".uploadvisa-form").slideUp("slow", function() {
+                        $("#uploadError").empty();
+                        $("#uploadStatus").html(data.message);
+                        $("."+data.applicationid+"-text-status").removeClass("text-warning").addClass("text-success").html("Approved");
+                        $(".download-visa-"+data.applicationid).html(data.download_link);
+                        
+//window.parent.location.reload(false);
+                       // opener.location.href = opener.location.href;
+                        
+                    });
+
+                } else {
+                    $("#uploadError").html(data.message);
                 }
-            });
-  } ,
-  }
+
+                $("#loader").hide();
+
+            }
+        });
+    }
+}

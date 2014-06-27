@@ -16,6 +16,8 @@
     <script src="<?=SITE_JS; ?>html5shiv.js" type="text/javascript"></script>
     <script src="<?=SITE_JS; ?>pngfix.js" type="text/javascript"></script>
     <script src="<?=SITE_JS; ?>bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="<?=SITE_JS; ?>jquery.form.min.js" type="text/javascript"></script>
+    
     <!--script src="<?=SITE_JS; ?>ckeditor_standard/ckeditor.js"></script -->
 </head>
 <body data-name="<?=$pageType; ?>">

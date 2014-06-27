@@ -1,15 +1,16 @@
 <?php
+
 /*
  * Common utility methods
  */
-class Utils
-{
+
+class Utils {
+
     /**
      * Function to convert a title into SEF title.
      * Remove all the special character inputs into en dashes (-)
      */
-    public static function createSEF($data)
-    {
+    public static function createSEF($data) {
         $title = strtolower(addslashes(trim($data)));
 
         $search = array('`', '!', '@', '#', '%', '^', '&', '*', '(', ')', '+', '|', ':', ';', '[', ']', '{', '}', '.', '/', ' ', '_', '-');
@@ -21,39 +22,38 @@ class Utils
 
         #remove any trailing space or '-'
         return trim(trim($sef), "-");
-
     }
 
-    public static function hotelAmenities(){
+    public static function hotelAmenities() {
         return array(
-            'laundry'=>'Laundry',
-            'wifi'=>'Free Wi-Fi',
-            'pool'=>'Swimming Pool',
-            'restaurant'=>'Restaurant/bar/Buffet',
-            'gym'=>'Gym/Fitness',
-            'Parking'=>'Parking',
-            'spa'=>'Spa/Wellness',
-            'banquet'=>'Banqueting',
-            'ballroom'=>'Ballroom',
-            'conference'=>'Conference room',
-            'room_service'=>'24 hour room service',
-            'security'=>'24 hour security',
-            'safe_deposite'=>'Safety deposit box',
-            'business'=>'Business services',
-            'transport'=>'Airport Shuttle (surcharge)',
-            'av_equipments'=>'Audio visual equipment'
+            'laundry' => 'Laundry',
+            'wifi' => 'Free Wi-Fi',
+            'pool' => 'Swimming Pool',
+            'restaurant' => 'Restaurant/bar/Buffet',
+            'gym' => 'Gym/Fitness',
+            'Parking' => 'Parking',
+            'spa' => 'Spa/Wellness',
+            'banquet' => 'Banqueting',
+            'ballroom' => 'Ballroom',
+            'conference' => 'Conference room',
+            'room_service' => '24 hour room service',
+            'security' => '24 hour security',
+            'safe_deposite' => 'Safety deposit box',
+            'business' => 'Business services',
+            'transport' => 'Airport Shuttle (surcharge)',
+            'av_equipments' => 'Audio visual equipment'
         );
     }
 
-    public static function hotelCountries(){
+    public static function hotelCountries() {
         return array();
     }
 
-    public static function hotelCities(){
+    public static function hotelCities() {
         return array();
     }
 
-    public static function roomTypes(){
+    public static function roomTypes() {
         return array(
             'single',
             'double',
@@ -63,15 +63,13 @@ class Utils
         );
     }
 
-    public static function mealPlans(){
+    public static function mealPlans() {
         return array(
             'bb' => 'BB [Bed & Breakfast]',
         );
     }
 
-
-    public static function filter($string, $size = null)
-    {
+    public static function filter($string, $size = null) {
         #remove all formating from the string
         $string = strip_tags($string);
         $string = stripslashes($string);
@@ -95,8 +93,7 @@ class Utils
      * Function to remove all unwanted chars
      * from the given string
      */
-    public static function sanitize($string)
-    {
+    public static function sanitize($string) {
         $search = array(
             '@<script[^>]*?>.*?</script>@si', // Strip out javascript
             '@<[\/\!]*?[^<>]*?>@si', // Strip out HTML tags
@@ -110,32 +107,30 @@ class Utils
         return $str;
     }
 
-    public static function createUUID($seed = 'u')
-    {
+    public static function createUUID($seed = 'u') {
         $dateComp = date('z');
         $randomNum = mt_rand();
         return $seed . '-' . $dateComp . '-' . $randomNum;
     }
 
-    public static function smartSubStr($text,$length){
-        if (!$text){
+    public static function smartSubStr($text, $length) {
+        if (!$text) {
             return false;
         }
 
         $string = stripslashes(strip_tags(nl2br($text)));
-        if (strlen($string) <= $length){
+        if (strlen($string) <= $length) {
             return $string;
         }
 
-        $string = substr($string,0,$length);
+        $string = substr($string, 0, $length);
         $pos = strrpos($string, ' ');
         $string = substr($string, 0, $pos);
 
-        return $string.' [..]';
+        return $string . ' [..]';
     }
 
-    public static function generateCaptcha($count, $type = NULL)
-    {
+    public static function generateCaptcha($count, $type = NULL) {
         if (is_null($type)) {
             $listVal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrsduvwxyz123456789";
         } else {
@@ -149,8 +144,7 @@ class Utils
         return $num;
     }
 
-    public static function is_valid($email)
-    {
+    public static function is_valid($email) {
         if (!$email) {
             return false;
         }
@@ -162,8 +156,7 @@ class Utils
         }
     }
 
-    public static function loadConfig()
-    {
+    public static function loadConfig() {
         global $db;
         //$ini = file_get_contents("settings.ini");
         $config = parse_ini_file("settings.ini", true);
@@ -171,10 +164,10 @@ class Utils
     }
 
     /*
-    * select box of country
-    */
-    public static function getCountrySelect($name = NULL, $selected = 'India')
-    {
+     * select box of country
+     */
+
+    public static function getCountrySelect($name = NULL, $selected = 'India') {
         $countryList = array('Afghanistan', 'Arabia', 'Saudi', 'Argentina', 'Australia', 'Bahrain', 'Bangladesh', 'Bhutan', 'Brazil', 'Cambodia', 'Canada', 'China', 'Colombia', 'Costa Rica', 'Cuba', 'Czech Republic', 'Denmark', 'Egypt', 'Europe', 'European Union', 'Fiji', 'Finland', 'France', 'Germany', 'Ghana', 'Haiti', 'Holland', 'Hong Kong, (China)', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran, Islamic Republic of', 'Iraq', 'Israel', 'Italy', 'Japan', 'Korea, Dem. Peoples Rep.', 'Korea, (South) Republic of', 'Kuwait',
             'Malaysia', 'Maldives', 'Mexico', 'Middle East', 'Morocco', 'Myanmar (ex-Burma)', 'Nepal', 'New Zealand', 'Oman', 'Pakistan', 'Philippines', 'Qatar', 'Russia (Russian Fed.)', 'Saudi Arabia', 'Seychelles', 'Singapore', 'South Africa', 'South America', 'Sri Lanka (ex-Ceilan)', 'Sudan', 'Switzerland', 'Syrian Arab Republic', 'Taiwan', 'Thailand', 'Turkey', 'United Arab Emirates', 'United Kingdom', 'United States');
 
@@ -199,9 +192,7 @@ class Utils
         return $sBox;
     }
 
-
-    public static function getCitySelect($name)
-    {
+    public static function getCitySelect($name) {
 
         global $db;
         $citySql = "select `city_name` from rnp_cities order by `city_name` ASC";
@@ -219,9 +210,7 @@ class Utils
         return $cityBox;
     }
 
-
-    public static function getDateSelect()
-    {
+    public static function getDateSelect() {
         $dateBox = "";
         $dateBox .= '<select name="date" id="date" size="1"><option value="">Date</option>';
 
@@ -233,8 +222,7 @@ class Utils
         return $dateBox;
     }
 
-    public static function getMonthSelect()
-    {
+    public static function getMonthSelect() {
 
         $monthArray = array('Jan', 'feb', 'march', 'april', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec');
 
@@ -249,15 +237,13 @@ class Utils
         return $dateBox;
     }
 
-    public static function getYearSelect($future = NULL)
-    {
+    public static function getYearSelect($future = NULL) {
 
         $dateBox = "";
         $dateBox .= '<select name="year" id="year" size="1"><option value="">Year</option>';
 
         if ($future != NULL) {
             $start = date('Y');
-
         } else {
             $start = 1940;
         }
@@ -276,8 +262,7 @@ class Utils
      * @param array $selected List of Id's of all categories
      * @return bool/HTML markup
      */
-    public static function createSelectOptions($data, $selected)
-    {
+    public static function createSelectOptions($data, $selected) {
         if (!$data || !is_array($data)) {
             return false;
         }
@@ -314,8 +299,7 @@ class Utils
      * @param $file
      * @return bool|string
      */
-    public static function uploadImage($file, $type = null)
-    {
+    public static function uploadImage($file, $type = null) {
         #image types
         #thumbnail
         #small
@@ -324,8 +308,8 @@ class Utils
         #x-large
         $resize = array();
 
-        if (!is_null($type)){
-            switch($type){
+        if (!is_null($type)) {
+            switch ($type) {
                 case 'logo':
                     $resize[] = array(
                         'prefix' => PREFIX_LOGO,
@@ -340,14 +324,14 @@ class Utils
                     $resize['thumb'] = array(
                         'prefix' => PREFIX_THUMB,
                         'width' => IMG_WIDTH_THUMB,
-                        'height'=> IMG_HEIGHT_THUMB,
+                        'height' => IMG_HEIGHT_THUMB,
                         'resize' => true,
                         'cropping' => true,
                     );
                     $resize['small'] = array(
                         'prefix' => PREFIX_SMALL,
                         'width' => IMG_WIDTH_SMALL,
-                        'height'=> IMG_HEIGHT_SMALL,
+                        'height' => IMG_HEIGHT_SMALL,
                         'resize' => true,
                         'cropping' => true,
                     );
@@ -355,14 +339,14 @@ class Utils
                     $resize['thumb'] = array(
                         'prefix' => PREFIX_THUMB,
                         'width' => 168,
-                        'height'=> 168,
+                        'height' => 168,
                         'resize' => true,
                         'cropping' => true,
                     );
                     $resize['small'] = array(
                         'prefix' => PREFIX_SMALL,
                         'width' => 595,
-                        'height'=> 275,
+                        'height' => 275,
                         'resize' => true,
                         'cropping' => true,
                     );
@@ -370,23 +354,22 @@ class Utils
         }
 
         $dest = UPLOAD_DST_DIR; // The place the files will be uploaded to (currently a 'files' directory). Should have write permission
-
         #create new names of the uploaded image file
         $imageName = $file['name']; // Get the name of the file (including file extension).
         $imgFname = substr($imageName, 0, strpos($imageName, '.'));
         $imageExt = substr($imageName, strpos($imageName, '.'), strlen($imageName) - 1); // Get the extension from the filename.
 
-        $baseImgName = str_replace(" ","_",trim($imgFname,"-"));
+        $baseImgName = str_replace(" ", "_", trim($imgFname, "-"));
         if (file_exists($dest . $baseImgName . $imageExt)) {
-            $baseImgName = str_replace(" ","_",trim($imgFname,"-")) . rand(0, 999);
+            $baseImgName = str_replace(" ", "_", trim($imgFname, "-")) . rand(0, 999);
         }
 
         /*
-        if ($resize){
-            //create image names
-            $resize['thumbnail']['name'] =  IMG_THUMB.$baseImgName;
-            $resize['medium']['name'] =  IMG_MEDIUM.$baseImgName;
-        }*/
+          if ($resize){
+          //create image names
+          $resize['thumbnail']['name'] =  IMG_THUMB.$baseImgName;
+          $resize['medium']['name'] =  IMG_MEDIUM.$baseImgName;
+          } */
 
         #now upload the image and resize
         $handle = new Upload($file);
@@ -401,19 +384,19 @@ class Utils
             if (!$handle->processed) {
                 echo $handle->log;
                 echo '  Error creating main file: ' . $handle->error . '';
-                throw new Exception( '  Error creating main file: ' . $handle->error );
+                throw new Exception('  Error creating main file: ' . $handle->error);
             }
 
             // yes, the file is on the server
             // below are some example settings which can be used if the uploaded file is an image.
-            if ($resize){
-                foreach($resize as $type => $value){
+            if ($resize) {
+                foreach ($resize as $type => $value) {
 
                     //file name for the resize
-                    $handle->file_new_name_body = $value['prefix'].$baseImgName;
+                    $handle->file_new_name_body = $value['prefix'] . $baseImgName;
 
                     //make the basic settings
-                    if ($value['resize']){
+                    if ($value['resize']) {
                         $handle->image_resize = true;
                     }
 
@@ -421,10 +404,10 @@ class Utils
                         $handle->image_x = $value['width'];
                         $handle->image_y = $value['height'];
                         $handle->image_ratio_crop = true;
-                    } else if ($value['ratio_y'] == true){
+                    } else if ($value['ratio_y'] == true) {
                         $handle->image_x = $value['width'];
                         $handle->image_ratio_y = true;
-                    } else if ($value['ratio_x'] == true){
+                    } else if ($value['ratio_x'] == true) {
                         $handle->image_y = $value['height'];
                         $handle->image_ratio_x = true;
                     }
@@ -432,12 +415,12 @@ class Utils
                     //create image now
                     $handle->Process($dest);
 
-                    if ( !$handle->processed ){
+                    if (!$handle->processed) {
 
                         echo $handle->log;
-                        echo "Error creating ".$type." for image file ".$baseImgName .'<br />';
+                        echo "Error creating " . $type . " for image file " . $baseImgName . '<br />';
                         echo $handle->error;
-                        throw new Exception( "Error creating ".$type." for image file ".$baseImgName . var_export($handle->error, true));
+                        throw new Exception("Error creating " . $type . " for image file " . $baseImgName . var_export($handle->error, true));
                     }
                 }
             }
@@ -446,15 +429,15 @@ class Utils
             $handle->Clean();
             return $baseImgName . strtolower($imageExt);
         } else {
-            throw new Exception( "Cannot upload image" . var_export($_FILES, true));
+            throw new Exception("Cannot upload image" . var_export($_FILES, true));
         }
     }
 
     public static function is_assoc($array) {
-        return (bool)count(array_filter(array_keys($array), 'is_string'));
+        return (bool) count(array_filter(array_keys($array), 'is_string'));
     }
 
-    public static function getMealPlan($plan){
+    public static function getMealPlan($plan) {
 
         $type = strtolower($plan);
 
@@ -462,32 +445,31 @@ class Utils
             'ro' => 'Room Only',
             'bb' => 'Bed & Breakfast',
             'HB' => 'Half Board',
-            'FB' => 'Full Board' );
+            'FB' => 'Full Board');
 
         return $plan[$type];
     }
 
-    public static function getVisaPackage($type){
+    public static function getVisaPackage($type) {
 
         $package = array(
             'tourist30' => array('Tourist Visa', 30),
             'service14' => array('Service Visa', 14),
-            'visit30'=> array('Visit Visa', 30),
+            'visit30' => array('Visit Visa', 30),
         );
 
         return $package[$type];
-
     }
 
-    public static function convertUploadArray(&$file_post){
+    public static function convertUploadArray(&$file_post) {
 
         $file_ary = array();
         $file_count = count($file_post['name']);
         $file_keys = array_keys($file_post);
 
-        for ($i=0; $i<$file_count; $i++) {
+        for ($i = 0; $i < $file_count; $i++) {
             foreach ($file_keys as $key) {
-                foreach($file_post[$key][$i] as $idx => $val){
+                foreach ($file_post[$key][$i] as $idx => $val) {
                     $file_ary[$i][$idx][$key] = $file_post[$key][$i][$idx];
                 }
             }
@@ -495,17 +477,16 @@ class Utils
         return $file_ary;
     }
 
-    public static function sanitizeParams($array){
-        foreach($array as $key => &$val){
+    public static function sanitizeParams($array) {
+        foreach ($array as $key => &$val) {
             self::sanitize($val);
         }
         return $array;
     }
 
-    /** Check for Magic Quotes and remove them **/
-    public static function stripSlashesDeep($value)
-    {
-        $value = is_array($value) ? array_map(array('self',__METHOD__), $value) : stripslashes($value);
+    /** Check for Magic Quotes and remove them * */
+    public static function stripSlashesDeep($value) {
+        $value = is_array($value) ? array_map(array('self', __METHOD__), $value) : stripslashes($value);
         return $value;
     }
 
@@ -518,22 +499,22 @@ class Utils
      * @param bool $isAdmin
      * @return bool
      */
-    public static function sendEmail($recipient,$subject,$params,$template,$isAdmin=true){
+    public static function sendEmail($recipient, $subject, $params, $template, $isAdmin = true) {
 
-        if (!$recipient && !$subject && !$params){
+        if (!$recipient && !$subject && !$params) {
             echo "Recipient, Subject & Params are mandatory";
             return false;
         }
 
         $mail = new Mailer();
         $mail->setSubject($subject);
-        $mail->addAddress($recipient['email'],$recipient['name']);
-        $mail->setData('data',$params);
+        $mail->addAddress($recipient['email'], $recipient['name']);
+        $mail->setData('data', $params);
         $mail->setTemplate($template);
 
 
         try {
-            if ( !$mail->sendEmail() ) {
+            if (!$mail->sendEmail()) {
                 echo $mail->ErrorInfo;
                 return false;
             }
@@ -544,16 +525,27 @@ class Utils
         }
     }
 
-    public static function captcha(){
-        if (!isset($_SESSION)){
+    public static function captcha() {
+        if (!isset($_SESSION)) {
             session_start();
         }
 
         //$captcha = new Captcha();
         $captcha->CreateImage();
-
     }
 
+    public static function downloadPdf($file) {
+        $file = UPLOAD_DST_DIR . '/' . $file;
+        $filename = uniqid(rand(), true) . '.pdf';
+        if (file_exists($file) && is_readable($file) && preg_match('/\.pdf$/', $file)) {
+            header('Content-Type: application/pdf');
+            header("Content-Disposition: attachment; filename=\"$filename\"");
+            readfile($file);
+        } else {
+            header("HTTP/1.0 404 Not Found");
+            echo "<h1>Error 404: File Not Found: <br /><em>$file</em></h1>";
+        }
+    }
 
     /* end class */
 }

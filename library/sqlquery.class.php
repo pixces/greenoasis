@@ -88,12 +88,12 @@ class SQLQuery {
     }
 
     public function setDate($condition) {
-        $this->_extraConditions .=  $condition . ' AND ';
+        $this->_extraConditions .= $condition . ' AND ';
     }
-    
-    public function setCurDate(){
-        $currentDate=date('Y-m-d');
-        $this->_extraConditions .=  'DATE_FORMAT(`' . $this->_model . '`.`date_added`,"%Y-%m-%d")="'.$currentDate.'"  AND ';
+
+    public function setCurDate() {
+        $currentDate = date('Y-m-d');
+        $this->_extraConditions .= 'DATE_FORMAT(`' . $this->_model . '`.`date_added`,"%Y-%m-%d")="' . $currentDate . '"  AND ';
     }
 
     public function showHasOne() {
@@ -186,7 +186,7 @@ class SQLQuery {
             $offset = ($this->_page - 1) * $this->_limit;
             $conditions .= ' LIMIT ' . $this->_limit . ' OFFSET ' . $offset;
         }
-        
+
         //$this->_query = 'SELECT '.$this->_model .'.* FROM ' . $from . ' WHERE ' . $conditions;
         $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
 
@@ -459,8 +459,6 @@ class SQLQuery {
     /** Saves an Object i.e. Updates/Inserts Query * */
     public function save($doNoUpdateBlanks = false) {
         $query = '';
-
-
         if (isset($this->id)) {
             $updates = '';
             $fields = '';
@@ -496,10 +494,16 @@ class SQLQuery {
             $values = substr($values, 0, -1);
             $fields = substr($fields, 0, -1);
             $updatefields = substr($updatefields, 0, -1);
-            $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ') 
-                ON DUPLICATE KEY UPDATE ' . $updatefields;
+            $searchconditions .= '`' . $this->_model . '`.`id` = \'' . mysql_real_escape_string($this->id) . '\' AND ';
+            $searchtable = $this->_table . " AS `" . $this->_model . "`";
+            $checkIfExist = $this->CheckIfExist($searchtable, $searchconditions);
+            if ($checkIfExist):
+                      $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id`=\'' . mysql_real_escape_string($this->id) . '\'';
+            else:
+                     $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')  ON DUPLICATE KEY UPDATE ' . $updatefields;
+            endif;
 
-            // $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id`=\'' . mysql_real_escape_string($this->id) . '\'';
+        // $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id`=\'' . mysql_real_escape_string($this->id) . '\'';
         } else {
             $fields = '';
             $values = '';
@@ -612,6 +616,18 @@ class SQLQuery {
     /** Get error string * */
     function getError() {
         return mysql_error($this->_dbHandle);
+    }
+
+    private function CheckIfExist() {
+        $arg_list = func_get_args();
+        list($table, $condition) = $arg_list;
+        $conditions = substr($condition, 0, -4);
+        $query = 'SELECT * FROM ' . $table . ' WHERE ' . $conditions;
+        $result = mysql_query($query, $this->_dbHandle);
+        if (mysql_num_rows($result))
+            return true;
+        else
+            return false;
     }
 
 }
