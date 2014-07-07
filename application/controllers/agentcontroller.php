@@ -46,14 +46,18 @@ class AgentController extends Controller {
      */
     public function register() {
         $error = 0;
+
+        //force logout agent if already loggedin
+
+
         if ($_POST && $_POST['mm_form'] == 'registerAgent') {
             $newAgent = $_POST['agent'];
-
             //check for valid details added
             if (!empty($newAgent['email']) && !empty($newAgent['phone'])) {
 
                 //get the details of agent registered with same email
                 $agent = $this->fetchAgentDetails('email', $newAgent['email']);
+
                 if (!$agent) {
                     //save this agent details to the database
                     if ($this->saveAgent($newAgent)) {
@@ -89,7 +93,6 @@ class AgentController extends Controller {
      * @return array|bool
      */
     private function fetchAgentDetails($field, $value) {
-        $this->isAgentLoggedIn();
 
         if (!$field && !$value) {
             return false;
@@ -363,10 +366,6 @@ class AgentController extends Controller {
      * Upload visa by agent
      */
     public function uploadVisaByAgent() {
-
-        $this->isAgentLoggedIn();
-
-
         if ($_FILES['visaFile']['type'] == "application/pdf") {
             $application_id = $_POST['id'];
             $agent_id = $_POST['agent_id'];
