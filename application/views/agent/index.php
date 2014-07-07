@@ -53,7 +53,10 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($hotelReservations as $reservation): ?>
+                                <?php
+                                if ($hotelReservations):
+
+                                foreach ($hotelReservations as $reservation): ?>
                                     <tr id="BK-<?= $reservation['Hotel_Reservation']['id']; ?>">
                                         <td><?php echo $i++; ?></td>
                                         <td><a href="#hotelBookingModal" role="button" data-toggle="modal" data-remote="<?= SITE_URL . "/agent/viewBooking/" . $reservation['Hotel_Reservation']['id']; ?>"><?php echo '' . str_pad($reservation['Hotel_Reservation']['id'], 5, 0, STR_PAD_LEFT); ?></a></td>
@@ -73,7 +76,9 @@
                                         <td><button class="btn-small btn-primary">save</button></td>
                                         -->
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php endforeach;
+                                    endif;
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -94,7 +99,9 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($visaInfo as $visa): ?>
+                                <?php
+                                if ($visaInfo):
+                                foreach ($visaInfo as $visa): ?>
                                     <tr id="VS-<?= $visa['Visa']['id']; ?>">
                                         <td><a href="#visaAppModal" role="button" data-toggle="modal" data-remote="<?= SITE_URL . "/agent/viewVisa/" . $visa['Visa']['id']; ?>"># <?php echo '' . str_pad($visa['Visa']['id'], 5, 0, STR_PAD_LEFT); ?></a></td>
                                         <td><?php echo date("M d, Y", strtotime($visa['Visa']['date_added'])); ?></td>
@@ -121,7 +128,9 @@
                                             </span>
                                         </td>
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php endforeach;
+                                    endif;
+                                ?>
                             </tbody>
                         </table>
                     </div>

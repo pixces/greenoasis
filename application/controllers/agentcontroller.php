@@ -14,7 +14,6 @@ class AgentController extends Controller {
     public function index(){
         $this->isAgentLoggedIn();
 
-        //fetch the details by this agent to display on the agents dashboard
         $agentId = $this->agent['id'];
         $hotelreservations=$this->bookings($agentId);
         $visaInfo=$this->visa($agentId);
@@ -287,12 +286,9 @@ class AgentController extends Controller {
        
         $hotelResObj = new Hotel_Reservation();
         $hotelResObj->agent_id=$agentId;
-      //  $counts = $hotelResObj->getCounts();
 
-        //  $hotelResObj->setCurDate();
         $hotelResObj->orderBy('date_added', 'DESC');
-
-        $hotelreservations = $hotelResObj->getAll();
+        $hotelreservations = $hotelResObj->getByAgent($agentId);
 
        return  $hotelreservations;
     }
@@ -320,7 +316,7 @@ class AgentController extends Controller {
         //$visaObj->like("status", "pending");
         // $visaObj->setCurDate();
         $visaObj->orderBy('date_added', 'DESC');
-        $visaInfo = $visaObj->getAll();
+        $visaInfo = $visaObj->getByAgent($agentId);
 
       return $visaInfo;
     }

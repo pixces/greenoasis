@@ -45,6 +45,26 @@ class Hotel_Reservation extends Model {
         return false;
     }
 
+    public function getByAgent($id){
+
+        if (!isset($this->agent_id)){
+            $this->agent_id = $id;
+        }
+
+        $details = $this->getByField('agent_id',$this->agent_id);
+        if ($details) {
+            foreach ($details as &$reservation) {
+                $reservation['hotel_name'] = $this->getHotelSummary($reservation['Hotel_Reservation']['hotel_id']);
+                $reservation['agent_name'] = $this->getAgentSummary($reservation['Hotel_Reservation']['agent_id']);
+                $reservation['customer_name'] = $this->getCustomerSummary($reservation['Hotel_Reservation']['id']);
+            }
+            return $details;
+        }
+        return false;
+
+    }
+
+
     public function getHotelSummary($hotel_id) {
         $summary = $this->getHotel()->getHotelSummary($hotel_id);
         return $summary;
