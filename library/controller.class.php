@@ -73,6 +73,9 @@ class Controller
         if ($this->_addModels){
             $this->addModels();
         }
+
+        //set the default page type to be the controller name
+        $this->set_pageType(strtolower($this->_controller));
     }
 
     function set($name, $value)

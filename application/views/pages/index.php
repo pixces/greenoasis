@@ -97,7 +97,7 @@
     <div class="content">
         <div class="content-main pull-left">
             <section class="featured featured-item-list" data-name="tours">
-                <h1>Tour Packages</h1>
+                <h1>Tour Packages <span class="label-small all-tours-link"> | <a href="<?=SITE_URL; ?>/packages/">View all >></a></span></h1>
                 <?php if($package['tours']){
                     foreach($package['tours'] as $data){
                 ?>
@@ -114,7 +114,7 @@
                 <div class="clear"></div>
             </section>
             <section class="featured featured-item-list" data-name="combo">
-                <h1>Combo Offers</h1>
+                <h1>Combo Offers <span class="label-small all-tours-link"> | <a href="<?=SITE_URL; ?>/packages/">View all >></a></span> </h1>
                 <?php if($package['combo']){
                     foreach($package['combo'] as $data){
                         ?>

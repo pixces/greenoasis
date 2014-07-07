@@ -223,15 +223,20 @@ var ADMIN = {
     'allocateFunds': function() {
         var agent_id = $(this).attr('id');
         var agent_name = $(this).data('name');
-        var CONTENT = "<div class='fund-div'><label>Enter Amount:</label><input type='hidden' name='agentid' id='agent_id' value='" + agent_id + "'/><input type='text'  placeholder='enter amount' name='fundAmt' id='fundAmt' value=''/><br/><input type='button' id='fundUpdateBtn' name='Add' value='&laquo; &laquo; Add Fund &raquo; &raquo;'/></div>";
+        var CONTENT = "<div class='fund-div'>" +
+                        "<label>Enter Amount:</label>" +
+                        "<input type='hidden' name='agentid' id='agent_id' value='" + agent_id + "'/>" +
+                        "<input type='text' name='fundAmt' id='fundAmt' value=''/><br/><br/>" +
+                        "<input class='btn btn-primary' type='button' id='fundUpdateBtn' name='Add' value='Add Funds' />" +
+                       "</div>";
         $("#divAgentModel #myModalLabel").html("Add Funds to " + agent_name);
         $("#divAgentModel .modal-body").html(CONTENT);
     },
+
     'updateFunds': function() {
 
         if ($(".error").length > 0) {
             $('.error').empty();
-
         }
         if ($("#fundAmt").val() === '') {
             $(".fund-div").prepend("<div class='error' style='color:red'><span>*</span>Please Enter Amount.</div>");

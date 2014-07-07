@@ -21,7 +21,7 @@
         <script src="<?=SITE_JS; ?>ravs.JSQL.js" type="text/javascript"></script>
         <script src="<?=SITE_JS; ?>json2.js" type="text/javascript"></script>
     </head>
-    <body class="" data-type="">
+    <body class="" data-type="<?=$pageType; ?>">
         <!-- outer container -->
         <div class="container">
             <!-- Start: header -->
@@ -54,12 +54,12 @@
                     </div>
                     <div class="header_col02_raw2">
                         <ul>
-                            <li><a href="<?=SITE_URL; ?>/contact/">Contact</a></li>
-                            <li><a href="<?=SITE_URL; ?>/packages/">Packages</a></li>
-                            <li><a href="<?=SITE_URL; ?>/visa/">Visa</a></li>
-                            <li><a href="<?=SITE_URL; ?>/hotel/">Hotels</a></li>
-                            <li><a href="<?=SITE_URL; ?>/about-us/">About Us</a></li>
-                            <li><a href="<?=SITE_URL; ?>" class="on">Home</a></li>
+                            <li><a href="<?=SITE_URL; ?>/contact/" class="<?=($pageType=='contact') ? 'on' : ''; ?>">Contact</a></li>
+                            <li><a href="<?=SITE_URL; ?>/packages/" class="<?=($pageType=='tour') ? 'on' : ''; ?>">Packages</a></li>
+                            <li><a href="<?=SITE_URL; ?>/visa/" class="<?=($pageType=='visa') ? 'on' : ''; ?>">Visa</a></li>
+                            <li><a href="<?=SITE_URL; ?>/hotel/" class="<?=($pageType=='hotel') ? 'on' : ''; ?>">Hotels</a></li>
+                            <li><a href="<?=SITE_URL; ?>/about-us/" class="<?=($pageType=='about-us') ? 'on' : ''; ?>">About Us</a></li>
+                            <li><a href="<?=SITE_URL; ?>" class="<?=($pageType=='home') ? 'on' : ''; ?>">Home</a></li>
                         </ul>
                     </div>
                     <div class="clearfix"></div>

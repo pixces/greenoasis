@@ -218,6 +218,23 @@ form{
     margin-bottom: 0px;
 }
 
+.label-small{
+    font-size: 12px;
+}
+
+.all-tours-link{
+    color: #cccccc;
+}
+
+.all-tours-link a{
+    color:#3e9a3c;
+}
+
+.all-tours-link a:hover{
+    color:#3e9a3c;
+    text-decoration: underline;
+}
+
 .hotel-item-box01{
     font-size: 12px;
     margin-right: 4px;
@@ -1630,6 +1647,26 @@ table.room-info td{
     display: block;
 }
 
+/* booking popup box */
+.bookingPopup{
+    border-top: none;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px
+}
+
+.bookingPopup span,
+.visa-popup span{
+    display: block;
+}
+.tdLabel{
+    color: #777777;
+    font-size: 13px;
+    font-weight: bold;
+}
+.btmBrdr{
+    border-bottom: 1px solid #EFEFEF ;
+    padding-bottom: 5px;
+}
 
 
 /*

@@ -29,6 +29,7 @@ class PagesController extends Controller {
         $this->set('package',array('tours'=>$tours,'combo'=>$combo));
         $this->set('social',$social);
         $this->set('contact',$quickContact);
+        $this->set_pageType('home');
     }
 
     function display(){
@@ -37,9 +38,9 @@ class PagesController extends Controller {
         $pageDet = $this->Page->getByIdentifier($page_identifier);
         if ($pageDet){
             $this->set_pagetitle( $pageDet['Page']['title'] );
+            $this->set_pageType($page_identifier);
             $this->set('page',$pageDet['Page']);
         }
-        $this->set_pageType('page');
 
         //over ride the template file
         //to make sure that the page rendered is that of contact not display

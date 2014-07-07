@@ -1,7 +1,6 @@
 <?php
 class Template
 {
-
     protected $variables = array();
     protected $_controller;
     protected $_action;
@@ -43,7 +42,6 @@ class Template
     {
         $html = new HTML;
         $flash = $this->getFlashObj();
-
         extract($this->variables);
 
         $template_filename = !empty($this->_templateFile) ? $this->_templateFile : $this->_action;
@@ -62,9 +60,7 @@ class Template
         }*/
 
         //convert all view file names to lowercasse
-
         if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . strtolower($template_filename) . '.php')) {
-
             include (ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . strtolower($template_filename) . '.php');
         }
 
