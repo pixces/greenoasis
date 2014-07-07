@@ -16,6 +16,7 @@ class VisaController extends Controller {
             header("location: " . SITE_URL . "/agent/login");
             exit;
         }
+
         if ($_POST && isset($_SESSION['agent']['id'])) {
 
             //get the total passenger count applying for visa
@@ -27,6 +28,7 @@ class VisaController extends Controller {
 
             //check if all the details for each passenger is added
             if (count($_POST['pax']) == $pax_count) {
+
                 //also check if there are at least one image file for each passenger
                 if (count($_FILES['image']['name']) == $pax_count) {
 
@@ -36,7 +38,9 @@ class VisaController extends Controller {
                     //now upload this
                     foreach ($uploadList as $mainId => $imgFileList) {
                         foreach ($imgFileList as $idx => $file) {
-                            $paxList[$mainId]['image'][$idx] = Utils::uploadImage($file);
+                            if ($file['error'] == 0){
+                                $paxList[$mainId]['image'][$idx] = Utils::uploadImage($file);
+                            }
                         }
                     }
 

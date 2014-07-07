@@ -45,14 +45,7 @@ class AgentController extends Controller {
      * Register a mew agent
      */
     public function register() {
-
-        #check for the following fields
-        #Company Name
-        #Contact
-        #Email
-        #Phone Number
         $error = 0;
-
         if ($_POST && $_POST['mm_form'] == 'registerAgent') {
             $newAgent = $_POST['agent'];
 
@@ -69,15 +62,14 @@ class AgentController extends Controller {
                         $_SESSION['agent']['id'] = $agentId;
                         $_SESSION['agent']['status'] = 'confirmation';
 
-                        //send emails to the user
-                        if ($this->sendEmail($newAgent, 'registration')) {
-                            //redirect to the confirmation page
-                            $url = SITE_URL . "/agent/confirmation";
-                            header("location:" . $url);
-                            exit;
-                        } else {
-                            $this->set('error', "Cannot send Agent Email.");
-                        }
+                        //send email to the admin
+                        $this->sendEmail($newAgent, 'registration');
+
+                        //redirect to the agent confirmation page
+                        $url = SITE_URL . "/agent/confirmation";
+                        header("location:" . $url);
+                        exit;
+
                     } else {
                         $this->set('error', "Cannot save agent details.");
                     }
@@ -261,11 +253,7 @@ class AgentController extends Controller {
      * Check if agent is logged in
      */
     public function checkAgentSession() {
-
-        $this->isAgentLoggedIn();
-
         $this->doNotRenderHeader = true;
-
         if (!isset($_SESSION['isAgentLoggedIn'])) {
             $_SESSION['redirect_url'] = $_POST['reloadUrl'];
             echo json_encode(array('response' => 'ok', 'status' => 'failed', 'message' => "Your session has been expired.Please login."));

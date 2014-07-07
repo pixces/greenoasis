@@ -221,20 +221,19 @@ var SEARCH = {
             }
         }
     },
+
     //this will check for the valid agent signature
     //if present will redirect to the booking page
     //else it should throw a modal for Agent Login
     'preBooking': function() {
 
-        //alert(window.location);
-        //validate agent login
         var agentSession;
         var hrefUrl;
-        agentLoginSession = SEARCH.checkForsession();
+
+        var agentLoginSession = SEARCH.checkForsession();
 
         if (agentLoginSession == "FAILED") {
             hrefUrl = SITE_URL + "/agent/login/";
-
         } else {
             var obj = $(this);
             var id = $(obj).attr('id');
@@ -248,6 +247,7 @@ var SEARCH = {
         //redirect to the booking form
         window.location.href = hrefUrl;
     },
+
     'booking': function(e) {
         e.preventDefault;
 
@@ -278,6 +278,7 @@ var SEARCH = {
         }, 'json');
         return false;
     },
+
     'checkForsession': function() {
 
         var ajaxSessionResponse;
