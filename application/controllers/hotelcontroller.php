@@ -237,10 +237,11 @@ class HotelController extends Controller{
             $booking['nights'] =  $selectedRoom['nights'];
             $booking['price'] = $grandTotal;
             $booking['inclusions'] = json_encode($inclusion);
-            if ($booking['instructions']){
+
+            if ($_POST['booking']['instructions']){
                 $booking['instructions'] = json_encode(Utils::sanitizeParams($_POST['booking']['instructions']));
             }
-            if ($booking['addl_instructions']){
+            if ($_POST['booking']['special_instructions']){
                 $booking['addl_instructions'] = Utils::sanitize($_POST['booking']['special_instructions']);
             }
 
