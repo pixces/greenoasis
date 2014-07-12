@@ -25,6 +25,7 @@ $(function() {
     $(document).on('click', '.btn-funds', ADMIN.allocateFunds);
     $(document).on('click', '#fundUpdateBtn', ADMIN.updateFunds);
     $(document).on('submit', '#uploadform', ADMIN.uploadDocument);
+    $(document).on('submit', '#AgentEditForm', ADMIN.editAgentInfo);
 
     $('.modal').on('hide.bs.modal', function() {
         $('.modal').removeData();
@@ -318,5 +319,45 @@ var ADMIN = {
 
             }
         });
-    }
+        
+    },
+      'editAgentInfo':function(e){
+        //get the form data
+        var formData=$('form#AgentEditForm').serialize();
+       // process the form
+		$.ajax({
+			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+			url: SITE_URL + '/admin/save_agentInfo/',
+			data 		: formData, // our data object
+			dataType 	: 'json', // what type of data do we expect back from the server
+			encode 		: true
+		}) 
+                                        .done(function(data) {
+                                            $('.alert').show();
+                                            if (!data.success){
+                                                if(data.error){
+                                                    $(".alert").html("Error in updating agent information !");
+                                                }
+                                                
+                                            }
+                                            if (data.success){
+                                                
+                                               $(".agent-edit-section ").slideUp('slow'); 
+                                               $(".alert").html("Agent information Updated");
+                                                
+                                            }
+                                            
+                                        })
+                                        // using the fail promise callback
+			.fail(function(data) {
+
+				// show any errors
+				// best to remove for production
+				console.log(data);
+			});
+                        
+                        event.preventDefault() 
+       
+    },
+  
 }

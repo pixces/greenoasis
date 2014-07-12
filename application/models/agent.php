@@ -24,6 +24,7 @@ class Agent extends Model {
         }
     }
 
+
     //get the list of all agents
     //order by latest added
     public function getAll() {
@@ -86,23 +87,27 @@ class Agent extends Model {
         return false;
     }
 
-    public function getAgentSummary($id) {
+    public function getAgentSummary($id,$attributeMultiple=FALSE) {
         $sQl = 'SELECT *  FROM `' . $this->_table . '` where `id` = ' . $id;
         $res = $this->custom($sQl);
-
+        
+        
         if ($res) {
+            if($attributeMultiple){
+                return $res;
+            }
             return isset($res[0]['Agent']['contact']) ? $res[0]['Agent']['contact'] : $res[0]['Agent']['company'];
         }
 
         return;
     }
-    
+
     public function getNewAgent() {
         $sQl = 'SELECT *  FROM `' . $this->_table . '` where `status` ="pending" ';
         $res = $this->custom($sQl);
 
         if ($res) {
-           return $res;
+            return $res;
         }
 
         return;

@@ -50,7 +50,9 @@
                             <?php $btnType = ($agent['Agent']['status'] == 'approved') ? 'btn-success' : 'btn-warning'; ?>
                             <button class="toggle-status btn btn-mini <?=$btnType; ?>" type="button" data-type="agent" data-action="change_status" id="<?=$agent['Agent']['id']; ?>" data-value="<?=$agent['Agent']['status']; ?>" title="Click to Change Status"><?=ucwords($agent['Agent']['status']); ?></button>
                             <a class="btn btn-mini btn-funds" data-type="agent" data-action="add-funds" id="<?=$agent['Agent']['id']; ?>" data-name="<?=$agent['Agent']['company']; ?>" title="Add Funds" href="#divAgentModel" role="button" data-toggle="modal" date-agent-id="<?=$agent['Agent']['id']; ?>"><i class="icon-plus-sign"></i> Funds</a>
-                            <a href="<?=SITE_URL; ?>/admin/agent_edit/<?=$agent['Agent']['id']; ?>" id="<?=$agent['Agent']['id']; ?>" title="Edit Agent Details <?=$agent['Agent']['company']; ?>" class="btn btn-mini"><i class="icon-pencil"></i></a>
+                           <a href="#agentAppModal"  class="btn btn-mini" data-toggle="modal" 
+                                   data-remote="<?= SITE_URL . "/admin/edit_agent/" . $agent['Agent']['id']; ?>" title="Edit Agent Details <?=$agent['Agent']['company']; ?>"><i class="icon-pencil"></i></a>
+                            
                         <?php } ?>
                     </span>
                 </div>
@@ -69,3 +71,16 @@
     </div>
     <div class="modal-footer"></div>
 </div>
+
+<!--starts: modal for visa application -->
+<div id="agentAppModal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:620px; left:49%;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 style="color: 90c53f;" id="visaModalLabel">Edit Agent Information</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer"></div>
+</div>
+<!--ends: modal for visa application 

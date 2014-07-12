@@ -1511,7 +1511,7 @@ class AdminController extends Controller {
             $visa['pax_count'] = $details['Visa']['pax_count'];
             $visa['nationality'] = $details['Visa_Pax'][0]['Visa_Pax']['nationality'];
             $visa['parent_passport_status'] = $details['Visa']['status'];
-             $visa['visa_file_name']= $details['Visa']['visa_file_name'];
+            $visa['visa_file_name'] = $details['Visa']['visa_file_name'];
             $visa['status'] = $details['Visa']['status'];
             ;
 
@@ -1585,8 +1585,8 @@ class AdminController extends Controller {
             $visaObj->agent_id = $agent_id;
 
             if ($visaObj->save(true)) {
-                $download_link="<a href=". SITE_URL . "/admin/download_visa_document/". json_decode($visa["visa_file_name"]). "><i style=\"cursor: pointer\" class=\"icon-download-alt\"></i>Visa</a>";
-                echo json_encode(array('result' => 'Success', 'message' => 'Visa Uploaded And Approved Successfully.', 'applicationid' => $application_id,'download_link'=>$download_link));
+                $download_link = "<a href=" . SITE_URL . "/admin/download_visa_document/" . json_decode($visa["visa_file_name"]) . "><i style=\"cursor: pointer\" class=\"icon-download-alt\"></i>Visa</a>";
+                echo json_encode(array('result' => 'Success', 'message' => 'Visa Uploaded And Approved Successfully.', 'applicationid' => $application_id, 'download_link' => $download_link));
             } else {
                 echo json_encode(array('result' => 'Error', 'message' => 'Visa Upload Failed.'));
             }
@@ -1597,7 +1597,64 @@ class AdminController extends Controller {
     }
 
     public function download_visa_document($file) {
-             Utils::downloadPdf($file);
+        Utils::downloadPdf($file);
+    }
+
+    public function edit_agent() {
+        $this->doNotRenderHeader = true;
+        $agent_id = func_get_arg(func_num_args() - 1);
+        $agentObj = new Agent();
+        $agents = $agentObj->getAgentSummary($agent_id , TRUE);
+        $this->set_pageTitle('Manage Agents');
+        $this->set_pageType('agents');
+        $this->set('agents', $agents[0]);
+      
+    }
+
+    public function save_agentInfo() {
+        $this->check_is_ajax(__FILE__);
+        
+        $data = array();
+      
+        if ($_POST &&  $_POST['mm_form'] == 'editAgent') {
+            $newAgent = $_POST['agent'];
+       
+            if ($this->saveAgent($newAgent)) {
+                $data['success'] = true;
+                $data['error']=false;
+		
+            }else{
+                $data['success'] = false;
+                $data['error']=true;
+            }
+            
+           
+            // return all our data to an AJAX call
+            echo json_encode($data);
+        }
+    }
+
+    private function check_is_ajax($script) {
+
+        $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+        if (!$isAjax) {
+            $this->doNotRenderHeader = true;
+            echo 'Access denied - not an AJAX request...' . E_USER_ERROR;
+            die;
+        }
+        return true;
+    }
+
+    private function saveAgent($params) {
+         $agentObj = new Agent();
+        foreach ($params as $field => $value) {
+            $agentObj->{$field} = $value;
+        }
+
+        //add the date added
+         $agentObj->date_added = date('Y-m-d h:i:s');
+        return  $agentObj->save();
     }
 
 }
