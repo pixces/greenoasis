@@ -1489,17 +1489,13 @@ class AdminController extends Controller {
 
     public function view_visadetails() {
         $this->doNotRenderHeader = true;
-
         $application_id = func_get_arg(func_num_args() - 1);
-
         $visaObj = new Visa();
         $visaObj->id = $application_id;
         $details = $visaObj->getById();
         $visa = array();
         $paxes = array();
         if (!empty($details)) {
-
-
             $visa['order_id'] = $details['Visa']['id'];
             $visa['agent_name'] = $this->getAgentSummary($details['Visa']['agent_id']);
             $visa['agent_id'] = $details['Visa']['agent_id'];
@@ -1604,38 +1600,32 @@ class AdminController extends Controller {
         $this->doNotRenderHeader = true;
         $agent_id = func_get_arg(func_num_args() - 1);
         $agentObj = new Agent();
-        $agents = $agentObj->getAgentSummary($agent_id , TRUE);
+        $agents = $agentObj->getAgentSummary($agent_id, TRUE);
         $this->set_pageTitle('Manage Agents');
         $this->set_pageType('agents');
         $this->set('agents', $agents[0]);
-      
     }
 
     public function save_agentInfo() {
         $this->check_is_ajax(__FILE__);
-        
         $data = array();
-      
-        if ($_POST &&  $_POST['mm_form'] == 'editAgent') {
+        if ($_POST && $_POST['mm_form'] == 'editAgent') {
             $newAgent = $_POST['agent'];
-       
             if ($this->saveAgent($newAgent)) {
                 $data['success'] = true;
-                $data['error']=false;
-		
-            }else{
+                $data['error'] = false;
+            } else {
                 $data['success'] = false;
-                $data['error']=true;
+                $data['error'] = true;
             }
-            
-           
+
+
             // return all our data to an AJAX call
             echo json_encode($data);
         }
     }
 
     private function check_is_ajax($script) {
-
         $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND
                 strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
         if (!$isAjax) {
@@ -1647,14 +1637,44 @@ class AdminController extends Controller {
     }
 
     private function saveAgent($params) {
-         $agentObj = new Agent();
+        $agentObj = new Agent();
         foreach ($params as $field => $value) {
             $agentObj->{$field} = $value;
         }
-
         //add the date added
-         $agentObj->date_added = date('Y-m-d h:i:s');
-        return  $agentObj->save();
+        $agentObj->date_added = date('Y-m-d h:i:s');
+        return $agentObj->save();
+    }
+
+    ## Agent Password Reset ###################
+    public function resetAgentPassword() {
+        $this->doNotRenderHeader = 1;
+        $agent_id = func_get_arg(func_num_args() - 1);
+
+        if ($agent_id) {
+
+            //new password
+            $pass = Utils::generateCaptcha(8);
+
+            $agentObj = new Agent();
+            $agentObj->setId($agent_id);
+            $agent = $agentObj->getById();
+
+            $agent['Agent']['status'] = 'approved';
+            $agent['Agent']['date_approved'] = date('Y-m-d h:i:s');
+            $agent['Agent']['password'] = md5($pass);
+            foreach ($agent['Agent'] as $key => $val) {
+                $agentObj->{$key} = $val;
+            }
+            if ($agentObj->save()) {
+              
+               $msg="<strong>".ucwords($agent['Agent']['company'])." </strong>Password is reset and mailed to <strong>".$agent['Agent']['email']."</strong>";
+               echo $msg;
+                Utils::sendEmail(
+                        array('email' => $agent['Agent']['email'], 'name' => $agent['Agent']['contact']), "Your Password for GreenOasis Travel Agent Has Been Reset.", array('password' => $pass, 'name' => $agent['Agent']['contact']), 'password_reset'
+               );
+            }
+        }
     }
 
 }

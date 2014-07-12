@@ -52,8 +52,9 @@
                             <a class="btn btn-mini btn-funds" data-type="agent" data-action="add-funds" id="<?=$agent['Agent']['id']; ?>" data-name="<?=$agent['Agent']['company']; ?>" title="Add Funds" href="#divAgentModel" role="button" data-toggle="modal" date-agent-id="<?=$agent['Agent']['id']; ?>"><i class="icon-plus-sign"></i> Funds</a>
                            <a href="#agentAppModal"  class="btn btn-mini" data-toggle="modal" 
                                    data-remote="<?= SITE_URL . "/admin/edit_agent/" . $agent['Agent']['id']; ?>" title="Edit Agent Details <?=$agent['Agent']['company']; ?>"><i class="icon-pencil"></i></a>
-                            
-                        <?php } ?>
+                         <?php } ?>
+                         <a href="#agentPsswRstAppModal"  class="btn btn-mini agent-password-reset" data-toggle="modal" 
+                            data-remote="<?= SITE_URL . "/admin/resetAgentPassword/" . $agent['Agent']['id']; ?>" title="Reset Agent Password"><i class="icon-user" style="background-color:#ff0000"></i></a>   
                     </span>
                 </div>
             </li>
@@ -84,3 +85,19 @@
     <div class="modal-footer"></div>
 </div>
 <!--ends: modal for visa application 
+
+<!--Agent Password Reset Modal -->
+
+<div id="agentPsswRstAppModal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:620px; left:49%;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 style="color: 90c53f;" id="visaModalLabel">Agent Reset Password</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer"></div>
+</div>
+
+
+<!--End of password Modal Window-->

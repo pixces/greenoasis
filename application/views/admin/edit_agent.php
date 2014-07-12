@@ -14,10 +14,10 @@
                         <label class="control-label">Name of Company</label>
                         <div class="controls"><input name="agent[company]"  id="agent_company" type="text" class="span4" required value="<?php echo $agents['Agent']['company'];?>"></div>
                     </div>
-<!--                    <div class="control-group">
+                    <div class="control-group">
                         <label class="control-label">Email Address</label>
-                        <div class="controls"><input name="agent[email]"  id="agent_email" type="text" class="span4" required value="<?php echo $agents['Agent']['email'];?>"></div>
-                    </div>-->
+                        <div class="controls"><input name="agent[email]"  id="agent_email" type="text" class="span4" required value="<?php echo $agents['Agent']['email'];?>" readonly="true"></div>
+                    </div>
                     <div class="control-group">
                         <label class="control-label">Contact Person</label> 
                         <div class="controls"><input name="agent[contact]"  id="agent_contact" type="text" class="span4" required value="<?php echo $agents['Agent']['contact'];?>"></div>
