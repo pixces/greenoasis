@@ -1585,7 +1585,7 @@ class AdminController extends Controller {
             $visaObj->agent_id = $agent_id;
 
             if ($visaObj->save(true)) {
-                $download_link="<a href=". SITE_URL . "/admin/download_visa_document/". json_decode($visa["visa_file_name"]). "><i class=\"icon-file\"></i> </a>";
+                $download_link="<a href=". SITE_URL . "/admin/download_visa_document/". json_decode($visa["visa_file_name"]). "><i style=\"cursor: pointer\" class=\"icon-download-alt\"></i>Visa</a>";
                 echo json_encode(array('result' => 'Success', 'message' => 'Visa Uploaded And Approved Successfully.', 'applicationid' => $application_id,'download_link'=>$download_link));
             } else {
                 echo json_encode(array('result' => 'Error', 'message' => 'Visa Upload Failed.'));

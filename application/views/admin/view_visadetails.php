@@ -70,8 +70,8 @@
                     </span></td>
                 <td class="btmBrdr"><span class="tdContent download-visa-<?php echo $visa['order_id']?>">
                         
-                        <?php if ($visa['status'] == "approved") { ?>
-                                    <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-file"></i> </a>
+                        <?php if (!is_null($visa['visa_file_name'])){ ?>
+                                    <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-alt"></i>Visa </a>
                              <?php } else { ?><i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i><?php } ?>
                        
                     </span></td>

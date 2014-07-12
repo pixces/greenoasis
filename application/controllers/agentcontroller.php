@@ -11,13 +11,12 @@ class AgentController extends Controller {
 
     protected $agent = array();
 
-    public function index(){
+    public function index() {
         $this->isAgentLoggedIn();
 
         $agentId = $this->agent['id'];
-        $hotelreservations=$this->bookings($agentId);
-        $visaInfo=$this->visa($agentId);
-        
+        $hotelreservations = $this->bookings($agentId);
+        $visaInfo = $this->visa($agentId);
         $this->set('hotelReservations', $hotelreservations);
         $this->set('visaInfo', $visaInfo);
     }
@@ -25,7 +24,7 @@ class AgentController extends Controller {
     /**
      * Display all agent transactions
      */
-    public function transactions(){
+    public function transactions() {
         $this->isAgentLoggedIn();
         $agentId = $this->agent['id'];
 
@@ -36,8 +35,8 @@ class AgentController extends Controller {
         $oWallet = new Agent_Wallet();
         $details = $oWallet->getByAgent($agentId);
 
-        $this->set('summary',$summary);
-        $this->set('data',$details);
+        $this->set('summary', $summary);
+        $this->set('data', $details);
     }
 
     /**
@@ -72,7 +71,6 @@ class AgentController extends Controller {
                         $url = SITE_URL . "/agent/confirmation";
                         header("location:" . $url);
                         exit;
-
                     } else {
                         $this->set('error', "Cannot save agent details.");
                     }
@@ -268,7 +266,7 @@ class AgentController extends Controller {
     /**
      * Verify if agent is loggedin
      */
-    private function isAgentLoggedIn(){
+    private function isAgentLoggedIn() {
         //check if the agent is logged in
 
         if (!isset($_SESSION['isAgentLoggedIn'])) {
@@ -279,50 +277,49 @@ class AgentController extends Controller {
         $this->agent = $_SESSION['agent'];
     }
 
-     /* ***********************************
+    /*     * **********************************
      * Booking
      * *********************************** */
+
     public function bookings($agentId) {
-       
+
         $hotelResObj = new Hotel_Reservation();
-        $hotelResObj->agent_id=$agentId;
+        $hotelResObj->agent_id = $agentId;
 
         $hotelResObj->orderBy('date_added', 'DESC');
         $hotelreservations = $hotelResObj->getByAgent($agentId);
 
-       return  $hotelreservations;
+        return $hotelreservations;
     }
 
-    public function viewBooking(){
+    public function viewBooking() {
         $this->doNotRenderHeader = true;
         $hotel_bookingId = func_get_arg(func_num_args() - 1);
 
         //get the details of this booking id
         $hoteResObj = new Hotel_Reservation();
-        $hoteResObj->setId($hotel_bookingId );
+        $hoteResObj->setId($hotel_bookingId);
         $details = $hoteResObj->getById();
         $this->set('booking', $details);
     }
 
-
-    /* ***********************************
+    /*     * **********************************
      * Visa
      * *********************************** */
 
     public function visa($agentId) {
-        
+
         $visaObj = new Visa();
-        $visaObj->agent_id=$agentId;
-        //$visaObj->like("status", "pending");
+        $visaObj->agent_id = $agentId;
+        $counts = $visaObj->getCounts();
+        //$visaObj->like("status", "approved");
         // $visaObj->setCurDate();
         $visaObj->orderBy('date_added', 'DESC');
-        $visaInfo = $visaObj->getByAgent($agentId);
-
-      return $visaInfo;
+        $visaInfo = $visaObj->getAll();
+         return $visaInfo;
     }
 
-
-    public function viewVisa(){
+    public function viewVisa() {
         $this->doNotRenderHeader = true;
         $application_id = func_get_arg(func_num_args() - 1);
 
@@ -343,7 +340,7 @@ class AgentController extends Controller {
             $visa['pax_count'] = $details['Visa']['pax_count'];
             $visa['nationality'] = $details['Visa_Pax'][0]['Visa_Pax']['nationality'];
             $visa['parent_passport_status'] = $details['Visa']['status'];
-            $visa['visa_file_name']= $details['Visa']['visa_file_name'];
+            $visa['visa_file_name'] = $details['Visa']['visa_file_name'];
             $visa['status'] = $details['Visa']['status'];
 
             foreach ($details['Visa_Pax'] as $pax) {
@@ -378,8 +375,8 @@ class AgentController extends Controller {
             $visaObj->agent_id = $agent_id;
 
             if ($visaObj->save(true)) {
-                $download_link="<a href=". SITE_URL . "/admin/download_visa_document/". json_decode($visa["visa_file_name"]). "><i class=\"icon-file\"></i> </a>";
-                echo json_encode(array('result' => 'Success', 'message' => 'Visa Uploaded And Approved Successfully.', 'applicationid' => $application_id,'download_link'=>$download_link));
+                $download_link = "<a href=" . SITE_URL . "/admin/download_visa_document/" . json_decode($visa["visa_file_name"]) . "><i class=\"icon-file\"></i> </a>";
+                echo json_encode(array('result' => 'Success', 'message' => 'Visa Uploaded And Approved Successfully.', 'applicationid' => $application_id, 'download_link' => $download_link));
             } else {
                 echo json_encode(array('result' => 'Error', 'message' => 'Visa Upload Failed.'));
             }
@@ -392,8 +389,9 @@ class AgentController extends Controller {
     /*
      * Force download visa document
      */
+
     public function download_visa_document($file) {
-             Utils::downloadPdf($file);
+        Utils::downloadPdf($file);
     }
 
 }

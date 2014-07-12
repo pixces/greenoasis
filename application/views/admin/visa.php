@@ -61,8 +61,9 @@
                             </td>
                             <td><a href="#visaAppModal"  class="btn btn-success loadVisaView" data-toggle="modal" 
                                    data-application-id="<?php echo $visa['Visa']['id']; ?>" data-remote="<?= SITE_URL . "/admin/view_visadetails/" . $visa['Visa']['id']; ?>">view</a></td>
-                            <td>   <span class="download-visa-<?php echo $visa['Visa']['id']?>"><?php if ($visa['status'] == "approved") { ?>
-                              <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['Visa']['visa_file_name']); ?>"><i class="icon-file"></i> </a>
+                            <td>   <span class="download-visa-<?php echo $visa['Visa']['id']?>">
+                                <?php if (!is_null($visa['Visa']['visa_file_name'])) { ?>
+                              <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['Visa']['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-alt"></i>Visa  </a>
                              <?php } else { ?><i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i><?php } ?></span> </td>
                         </tr>
                     <?php endforeach; ?>

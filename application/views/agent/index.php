@@ -92,9 +92,10 @@
                                     <th>Passport Details</th>
                                     <th>Package</th>
                                     <th>Pax Count</th>
-                                    <th>Status</th>
                                     <th>Amount</th>
-                                    <th></th>
+                                    <th>Status</th>
+                                    <th>Download Visa</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
@@ -119,10 +120,10 @@
                                             <span  class="badge badge-<?= $btn; ?> <?php echo $visa['Visa']['id']; ?>-text-status"><?= ucwords(strtolower($visa['status'])); ?></span>
                                         </td>
                                         <td> <span class="download-visa-<?php echo $visa['Visa']['id'] ?>">
-                                                <?php if ($visa['status'] == "approved") { ?>
+                                                <?php if (!is_null($visa['Visa']['visa_file_name']))  { ?>
                                                     <a href="<?php echo SITE_URL . '/agent/download_visa_document/' . json_decode($visa['Visa']['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-alt"></i> Visa</a>
                                                 <?php } else { ?>
-                                                    <span> - </span>
+                                                    <span><i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i></span>
                                                 <?php } ?>
 
                                             </span>
