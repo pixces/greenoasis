@@ -63,6 +63,18 @@ input.span2{
     margin-top: 24px;
 }
 
+/* ---- Advance Hotel Search --- */
+.hotel-advance-search{
+
+}
+
+.hotel-advance-search div{
+    margin-bottom: 15px;
+}
+
+.pdR15{
+    padding-right: 15px;
+}
 
 /* ---- header --- */
 .header {
@@ -769,7 +781,6 @@ h1 {
     -moz-box-shadow: 0px 1px 10px #eee; /* Firefox */
     -webkit-box-shadow: 0px 1px 10px #eee; /* Safari and Chrome */
     box-shadow: 0px 1px 10px #eee; /* Opera 10.5+, future browsers and IE6+ using our behavior htc file */
-
 }
 
 /* hotel display list */

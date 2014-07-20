@@ -1518,7 +1518,6 @@ class AdminController extends Controller {
                     'status' => ucwords($visa['status']),
                     'document' => json_decode($pax['Visa_Pax']['image']));
             }
-
             $this->set('visa', $visa);
         }
     }

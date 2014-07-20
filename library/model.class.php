@@ -50,8 +50,9 @@ Abstract class Model extends SQLQuery
         if (!$field || !$value) { return false; }
         $this->where($field, $value);
         $result = $this->search();
+
         if ($result){
-            return $result[0];
+            return $result;
         } else {
             return false;
         }

@@ -536,14 +536,22 @@ class Utils {
 
     public static function downloadPdf($file) {
         $file = UPLOAD_DST_DIR . '/' . $file;
-        $filename = uniqid(rand(), true) . '.pdf';
-        if (file_exists($file) && is_readable($file) && preg_match('/\.pdf$/', $file)) {
-            header('Content-Type: application/pdf');
+
+        //get the file extension
+        $pos = strrpos($file, '.');
+        $ext = substr($file, $pos+1);
+
+        $filename = uniqid(rand(), true) . '.'.$ext;
+        if (file_exists($file) && is_readable($file)
+            //&& preg_match('/\.pdf$/', $file)
+            ) {
+            header('Content-Type: application/'.$ext);
             header("Content-Disposition: attachment; filename=\"$filename\"");
             readfile($file);
         } else {
             header("HTTP/1.0 404 Not Found");
             echo "<h1>Error 404: File Not Found: <br /><em>$file</em></h1>";
+            exit;
         }
     }
 

@@ -43,12 +43,11 @@
                     <span class="tdContent badge badge-<?= $btn; ?> <?php echo $visa['order_id']; ?>-text-status">
                         <?= $pax['status']; ?>
                     </span></td>
-                <td class="btmBrdr"><span class="tdContent download-visa-<?php echo $visa['order_id']?>">
-                        
-                        <?php if ($visa['status'] == "approved") { ?>
-                                    <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-file"></i> </a>
-                             <?php } else { ?><i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i><?php } ?>
-                       
+                <td class="btmBrdr">
+                    <span class="tdContent download-visa-<?php echo $visa['order_id']?>">
+                        <?php foreach($pax['document'] as $doc) { ?>
+                            <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . $doc; ?>"><i style="cursor: pointer" class="icon-file"></i> </a>
+                        <?php }  ?>
                     </span></td>
             </tr>
         <?php } ?>

@@ -123,7 +123,7 @@
                                                 <?php if (!is_null($visa['Visa']['visa_file_name']))  { ?>
                                                     <a href="<?php echo SITE_URL . '/agent/download_visa_document/' . json_decode($visa['Visa']['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-alt"></i> Visa</a>
                                                 <?php } else { ?>
-                                                    <span><i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i></span>
+                                                    <span>--</span>
                                                 <?php } ?>
 
                                             </span>

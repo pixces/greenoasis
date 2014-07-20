@@ -68,16 +68,15 @@
                     <span class="tdContent text-<?= $btn; ?> <?php echo $visa['order_id']; ?>-text-status">
                         <?= $pax['status']; ?>
                     </span></td>
-                <td class="btmBrdr"><span class="tdContent download-visa-<?php echo $visa['order_id']?>">
-                        
-                        <?php if (!is_null($visa['visa_file_name'])){ ?>
-                                    <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-alt"></i>Visa </a>
-                             <?php } else { ?><i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i><?php } ?>
-                       
-                    </span></td>
+                <td class="btmBrdr">
+                    <span class="tdContent download-visa-<?php echo $visa['order_id']?>">
+                        <?php foreach($pax['document'] as $doc){ ?>
+                            <a href="<?php echo SITE_URL . '/admin/download_visa_document/'.$doc; ?>"><i class="icon-file" style="cursor: pointer"></i> </a>&nbsp;
+                        <?php } ?>
+                    </span>
+                </td>
             </tr>
         <?php } ?>
     </table>
-        
 <?php } ?>
     </div>

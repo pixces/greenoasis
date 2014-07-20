@@ -50,8 +50,8 @@ class Hotel_Reservation extends Model {
         if (!isset($this->agent_id)){
             $this->agent_id = $id;
         }
-
         $details = $this->getByField('agent_id',$this->agent_id);
+
         if ($details) {
             foreach ($details as &$reservation) {
                 $reservation['hotel_name'] = $this->getHotelSummary($reservation['Hotel_Reservation']['hotel_id']);
@@ -61,7 +61,6 @@ class Hotel_Reservation extends Model {
             return $details;
         }
         return false;
-
     }
 
 

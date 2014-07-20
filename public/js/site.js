@@ -42,10 +42,7 @@ $(function() {
         //pass the search details to generate search query
         var fetchUrl = SITE_URL + '/hotel/buildQuery/';
 
-
         $.post(fetchUrl, $("#hotelSearch").serialize(), function(data) {
-
-            console.log(data);
             if (data.status == 'success') {
                 window.location.href = data.url;
             }
@@ -78,10 +75,10 @@ $(function() {
 
     //add more applicants based on selected numbers
     $("form.visa-form").on('change', '#visa_count', VISA.addApplicants);
-     $(document).on('submit', '#uploadform', VISA.uploadDocument);
+    $(document).on('submit', '#uploadform', VISA.uploadDocument);
 
     $('.modal').on('hide.bs.modal', function () {
-   $('.modal').removeData();
+    $('.modal').removeData();
 });
 
 

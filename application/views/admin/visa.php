@@ -37,12 +37,10 @@
             </thead>
             <tbody>
                 <?php
-                if (empty($visaInfo)) {
-
-                    echo '<tr><td>No Record Exist.</td></tr>';
-                } else {
-                    ?>
-
+                    if (empty($visaInfo)) {
+                        echo '<tr><td>No Record Exist.</td></tr>';
+                    } else {
+                ?>
                     <?php $i = 1; ?>
                     <?php foreach ($visaInfo as $visa): ?>
 
@@ -59,17 +57,21 @@
                                 <?php $btn = ($visa['status'] == 'approved') ? 'success' : ( ($visa['status'] == 'rejected') ? 'danger' : 'warning' ); ?>
                                 <span  class="text-<?= $btn; ?> <?php echo $visa['Visa']['id']; ?>-text-status"><?= ucwords(strtolower($visa['status'])); ?></span>
                             </td>
-                            <td><a href="#visaAppModal"  class="btn btn-success loadVisaView" data-toggle="modal" 
-                                   data-application-id="<?php echo $visa['Visa']['id']; ?>" data-remote="<?= SITE_URL . "/admin/view_visadetails/" . $visa['Visa']['id']; ?>">view</a></td>
-                            <td>   <span class="download-visa-<?php echo $visa['Visa']['id']?>">
+                            <td>
+                                <a href="#visaAppModal"  class="btn btn-success loadVisaView" data-toggle="modal" data-application-id="<?php echo $visa['Visa']['id']; ?>" data-remote="<?= SITE_URL . "/admin/view_visadetails/" . $visa['Visa']['id']; ?>">view</a>
+                            </td>
+                            <td>
+                                <span class="download-visa-<?php echo $visa['Visa']['id']?>">
                                 <?php if (!is_null($visa['Visa']['visa_file_name'])) { ?>
-                              <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['Visa']['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-alt"></i>Visa  </a>
-                             <?php } else { ?><i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i><?php } ?></span> </td>
+                                    <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['Visa']['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-alt"></i>Visa  </a>
+                                <?php } else { ?>
+                                    <!-- i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i -->
+                                    --
+                                <?php } ?>
+                                </span>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
-
-
-
                 <?php } ?>
             </tbody>
         </table>
@@ -81,7 +83,7 @@
 <div id="visaAppModal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:620px; left:49%;">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 style="color: 90c53f;" id="visaModalLabel">Visa Application Details</h3>
+        <h3 style="color: #90c53f;" id="visaModalLabel">Visa Application Details</h3>
     </div>
     <div class="modal-body">
         <p>One fine body…</p>

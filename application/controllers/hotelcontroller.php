@@ -55,6 +55,7 @@ class HotelController extends Controller{
 
     public function index(){
         //this is the advance search form
+
     }
 
     /**
@@ -113,8 +114,6 @@ class HotelController extends Controller{
             $hotelDet = $hotel['Hotel'];
 
             //get the hotel image for display
-
-
             $availabilityDet = $availability[$hotelDet['id']];
 
             $availIds = array_keys($availabilityDet);
@@ -381,7 +380,9 @@ class HotelController extends Controller{
         $paxDet = $this->roomList[$params['roomtype']];
 
         $params['roomtype'] = $paxDet[0];
-        $params['pax']['adult'] = $paxDet[1];
+
+        $params['pax']['adult'] = (isset($params['adult']) && !empty($params['adult'])) ? $params['adult'] : $paxDet[1];
+        $params['pax']['child'] = (isset($params['child']) && !empty($params['child'])) ? $params['child'] : 0;
 
         //prepare all the query params
         foreach($params as $field=>$value){
@@ -395,9 +396,13 @@ class HotelController extends Controller{
         }
 
         //get the nights of stay
-        $timeDiff = $this->queryParams['checkout'] - $this->queryParams['checkin'];
-        $dateDiff = $timeDiff / 24 / 3600;
-        $this->queryParams['nights']  = $dateDiff;
+        if (!isset($params['nights']) || empty($params['nights'])){
+            $timeDiff = $this->queryParams['checkout'] - $this->queryParams['checkin'];
+            $dateDiff = $timeDiff / 24 / 3600;
+            $this->queryParams['nights']  = $dateDiff;
+        } else {
+            $this->queryParams['nights'] = $params['nights'];
+        }
 
         $data['params'] = json_encode($this->queryParams);
 

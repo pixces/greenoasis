@@ -91,7 +91,7 @@
 <div id="agentPsswRstAppModal" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:620px; left:49%;">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 style="color: 90c53f;" id="visaModalLabel">Agent Reset Password</h3>
+        <h3 style="color: #90c53f;" id="visaModalLabel">Agent Reset Password</h3>
     </div>
     <div class="modal-body">
         <p>One fine body…</p>
