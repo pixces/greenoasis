@@ -20,13 +20,14 @@ class PagesController extends Controller {
         $packageModel = new Package();
         $tours = $packageModel->fetchAll(Package::TYPE_TOURS, 5, true);
         $combo = $packageModel->fetchAll(Package::TYPE_COMBO, 5, true);
+        $holiday = $packageModel->fetchAll(Package::TYPE_HOLIDAY, 5, true);
 
         //get the details form the social and contact group
         $quickContact = Configurator::get('contact',1);
 
         $social = Configurator::get('social',1);
 
-        $this->set('package',array('tours'=>$tours,'combo'=>$combo));
+        $this->set('package',array('tours'=>$tours,'combo'=>$combo, 'holiday'=>$holiday));
         $this->set('social',$social);
         $this->set('contact',$quickContact);
         $this->set_pageType('home');
@@ -71,7 +72,7 @@ class PagesController extends Controller {
 
             //send email to the admin regarding this form
             Utils::sendEmail(
-                array('email'=>'rizwanmy@gmail.com','name'=>'Admin'),
+                array('email'=>'rizwan@innoveins.com','name'=>'Admin'),
                 "Contact form submitted",
                 $details,
                 'site_contact'

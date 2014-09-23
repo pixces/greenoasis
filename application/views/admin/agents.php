@@ -6,8 +6,7 @@
                     <section class="title"><?=$agent['Agent']['company']; ?></section>
                     <section class="contact">
                         <i class="icon icon-user"></i> <strong><?=ucwords(strtolower($agent['Agent']['contact'])); ?></strong> |
-                        <i class="icon icon-envelope"></i> <?=$agent['Agent']['phone']; ?> |
-                        <a href="mailto:<?=strtolower($agent['Agent']['email']); ?>"><?=strtolower($agent['Agent']['email']); ?></a>
+                        <i class="icon icon-envelope"></i> <a href="mailto:<?=strtolower($agent['Agent']['email']); ?>"><?=strtolower($agent['Agent']['email']); ?></a> | <?=$agent['Agent']['phone']; ?>
                     </section>
                     <section class="small"><i class="icon icon-map-marker"></i> <?=strtolower($agent['Agent']['city']); ?>, <?=strtolower($agent['Agent']['country']); ?></section>
                     <section class="contact credit">

@@ -11,20 +11,20 @@
                 <ul class="visa-info pull-left clearfix">
                     <li class="pull-left">
                         <span class="meta-label">Application No.:</span>
-                        <span class="meta-details">VISA-<?=$visa['Visa']['id']; ?></span>
+                        <span class="meta-details">VISA-<?=$visa['Visa_Booking']['id']; ?></span>
                     </li>
                     <li class="pull-left bigbox">
                             <span class="pull-left info-section">
                                 <span class="meta-label">Package:</span>
-                                <span class="meta-details"><?=ucwords($visa['Visa']['type'])." (".$visa['Visa']['validity']." days)"; ?></span>
+                                <span class="meta-details"><?=ucwords($visa['Visa_Booking']['type'])." (".$visa['Visa_Booking']['validity']." days)"; ?></span>
                             </span>
                             <span class="pull-left info-section">
                                 <span class="meta-label">Pax Size:</span>
-                                <span class="meta-details"><?=$visa['Visa']['pax_count']." nos"; ?></span>
+                                <span class="meta-details"><?=$visa['Visa_Booking']['pax_count']." nos"; ?></span>
                             </span>
                             <span class="pull-left info-section">
                                 <span class="meta-label">Expected Arrival:</span>
-                                <span class="meta-details"><?=date('D d M, Y', strtotime($visa['Visa']['arrival'])); ?></span>
+                                <span class="meta-details"><?=date('D d M, Y', strtotime($visa['Visa_Booking']['arrival'])); ?></span>
                             </span>
                     </li>
                 </ul>
@@ -55,16 +55,13 @@
             </section>
         </div>
         <div class="sidebar pull-right">
-            <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/img03.png" width="300" height="170"/>
-                <div class="caption inverse">
-                    <span><small>Online visa for Dubai,</small></span>
-                    <span class="text-large">@ $100</span>
+            <?php foreach(Utils::getBanners('small') as $banner){ ?>
+                <div class="widget adv300-170">
+                    <a href="<?=$banner['url']; ?>" class="">
+                        <img src="<?=$banner['image']; ?>" width="300" height="250"/>
+                    </a>
                 </div>
-            </div>
-            <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/advt.png" width="300" height="250"/>
-            </div>
+            <?php } ?>
             <div class="clear"></div>
         </div>
         <div class="clearfix"></div>

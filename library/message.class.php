@@ -63,7 +63,7 @@ class Message {
 			header("Location: $redirect_to");
 			exit();
 		}
-		return true;
+		return;
 	}
 	
 	/**
@@ -89,10 +89,10 @@ class Message {
 			$data .= sprintf($this->msgWrapper, $this->msgClass, 'alert-'.$type, $messages);
 			
 			//Clear the viewed messages
-			$this->clear($type);
+
 		
 		// Print ALL queued messages
-		} elseif( $type == 'all' ) {
+		} else if( $type == 'all' ) {
 
             foreach( $_SESSION['flash_messages'] as $type => $msgArray ) {
 				$messages = '';
@@ -103,7 +103,7 @@ class Message {
             }
 
             // Clear ALL of the messages
-            $this->clear();
+            //$this->clear();
 
 		} else {
             // Invalid Message Type?
@@ -112,8 +112,10 @@ class Message {
 
         // Print everything to the screen or return the data
 		if( $print ) { 
-			echo $data; 
-		} else { 
+			echo $data;
+            $this->clear($type);
+		} else {
+            $this->clear($type);
 			return $data; 
 		}
 	}

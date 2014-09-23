@@ -15,8 +15,10 @@ class AgentController extends Controller {
         $this->isAgentLoggedIn();
 
         $agentId = $this->agent['id'];
+
         $hotelreservations = $this->bookings($agentId);
         $visaInfo = $this->visa($agentId);
+
         $this->set('hotelReservations', $hotelreservations);
         $this->set('visaInfo', $visaInfo);
     }
@@ -40,6 +42,64 @@ class AgentController extends Controller {
     }
 
     /**
+     * Display options to edit
+     * agent details - served to the loggin Agent only
+     */
+    public function profile(){
+        $this->isAgentLoggedIn();
+        $agentId = $this->agent['id'];
+
+        //get details of this agent
+        $this->Agent->setId($agentId);
+        $details = $this->Agent->getById();
+
+        $agent = $details['Agent'];
+        $post_error = false;
+
+        if ($_POST){
+            if ($_POST['formAction'] == 'profile'){
+                $data = $_POST['agent'];
+                foreach($data as $field=>$value){
+                    $agent[$field] = Utils::sanitize($value);
+                }
+            } else if ($_POST['formAction'] == 'password'){
+                $data = $_POST['agent'];
+
+                if ($agent['password'] == md5($data['old_password'])){
+
+                    if ($data['password'] == $data['confirm_password']){
+                        $agent['password'] = md5($data['password']);
+                    } else {
+                        $post_error = true;
+                        $this->setFlash("New and Confirm password are not identical.",'e');
+                    }
+                } else {
+                    $post_error = true;
+                    $this->setFlash("Wrong or invalid Existing Password provided.",'e');
+                }
+            }
+
+            if (!$post_error){
+                //save this agent details to the database
+                if ($this->saveAgent($agent)) {
+                    if ($_POST['formAction'] == 'profile'){
+                        $this->setFlash('Profile Successfully Update.','s');
+                        header("location:" . SITE_URL . "/agent/profile");
+                        exit;
+                    } else if ($_POST['formAction'] == 'password'){
+                        $this->setFlash('Password Updated successfully. Changes will be effective with your next login','s');
+                        header("location:" . SITE_URL . "/pages/logout");
+                        exit;
+                    }
+                } else {
+                    $this->setFlash("Cannot Update Agent ".$_POST['formAction'],'e');
+                }
+            }
+        }
+        $this->set('agent', $agent);
+    }
+
+    /**
      * Register a mew agent
      */
     public function register() {
@@ -51,6 +111,7 @@ class AgentController extends Controller {
         if ($_POST && $_POST['mm_form'] == 'registerAgent') {
             $newAgent = $_POST['agent'];
             //check for valid details added
+
             if (!empty($newAgent['email']) && !empty($newAgent['phone'])) {
 
                 //get the details of agent registered with same email
@@ -68,7 +129,7 @@ class AgentController extends Controller {
                         $this->sendEmail($newAgent, 'registration');
 
                         //redirect to the agent confirmation page
-                        $url = SITE_URL . "/agent/confirmation";
+                        $url = SITE_URL . "/agent/confirmation?agent=success&new=".$agentId."&email=".$newAgent['email']."&type=".confirmation;
                         header("location:" . $url);
                         exit;
                     } else {
@@ -124,11 +185,12 @@ class AgentController extends Controller {
         if (isset($_SESSION['agent']['id']) && $_SESSION['agent']['status'] == 'confirmation') {
 
             $agentId = $_SESSION['agent']['id'];
-            $agentDet = $this->fetchAgentDetails('id', $agentId);
-            $agent = $agentDet['Agent'];
 
             //unset the agent session
             unset($_SESSION['agent']);
+
+            $agentDet = $this->fetchAgentDetails('id', $agentId);
+            $agent = $agentDet[0]['Agent'];
 
             $agent['id'] = 'GO' . str_pad($agent['id'], 5, '0', STR_PAD_LEFT);
             $this->set('agent', $agent);
@@ -150,7 +212,6 @@ class AgentController extends Controller {
         //        - set session and redirect to home page with sessions set
         //        - else - throw error on the model window
         //        - error -> Invalid Login Credentials. Please try again.
-
 
         if ($_POST && $_POST['mm_action'] === 'doLogin') {
 
@@ -280,7 +341,6 @@ class AgentController extends Controller {
     /*     * **********************************
      * Booking
      * *********************************** */
-
     public function bookings($agentId) {
 
         $hotelResObj = new Hotel_Reservation();
@@ -306,17 +366,17 @@ class AgentController extends Controller {
     /*     * **********************************
      * Visa
      * *********************************** */
-
     public function visa($agentId) {
 
-        $visaObj = new Visa();
-        $visaObj->agent_id = $agentId;
+        $visaObj = new Visa_Booking();
+        //$visaObj->agent_id = $agentId;
         $counts = $visaObj->getCounts();
         //$visaObj->like("status", "approved");
         // $visaObj->setCurDate();
         $visaObj->orderBy('date_added', 'DESC');
-        $visaInfo = $visaObj->getAll();
-         return $visaInfo;
+        $visaInfo = $visaObj->getByAgent($agentId);
+
+        return $visaInfo;
     }
 
     public function viewVisa() {
@@ -389,7 +449,6 @@ class AgentController extends Controller {
     /*
      * Force download visa document
      */
-
     public function download_visa_document($file) {
         Utils::downloadPdf($file);
     }

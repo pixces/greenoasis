@@ -1,10 +1,13 @@
 <!-- Start: Banner --->
 <div class="banner container">
     <div id="gallery">
-        <a href="#" class="show"><img src="<?=SITE_URL; ?>/images/001.jpg" alt="Flowing Rock" title="" alt="" rel=""/></a>
-        <a href="#"><img src="<?=SITE_URL; ?>/images/002.jpg" alt="Grass Blades" title="" alt="" rel=""/></a>
-        <a href="#"><img src="<?=SITE_URL; ?>/images/003.jpg" alt="Ladybug" title="" alt="" rel=""/></a>
-        <a href="#"><img src="<?=SITE_URL; ?>/images/004.jpg" alt="Lightning" title="" alt="" rel=""/></a>
+        <?php foreach (Utils::getBanners('large') as $banner) { ?>
+            <a href="<?=$banner['url']; ?>" class="show"><img src="<?=$banner['image']; ?>" alt="<?=$banner['title']; ?>" title="<?=$banner['title']; ?>" rel=""/></a>
+        <?php } ?>
+
+        <!-- a href="#"><img src="<?=$bannerPath; ?>/images/002.jpg" alt="Grass Blades" title="" alt="" rel=""/></a>
+        <a href="#"><img src="<?=$bannerPath; ?>/images/003.jpg" alt="Ladybug" title="" alt="" rel=""/></a>
+        <a href="#"><img src="<?=$bannerPath; ?>/images/004.jpg" alt="Lightning" title="" alt="" rel=""/></a -->
         <div class="caption">
             <div class="content"></div>
         </div>
@@ -96,8 +99,25 @@
     <!-- Start: Main Content -->
     <div class="content">
         <div class="content-main pull-left">
+            <section class="featured featured-item-list" data-name="holiday">
+                <h1>Holiday Packages <span class="label-small all-tours-link"> | <a href="<?=SITE_URL; ?>/packages/holiday/">View all >></a></span></h1>
+                <?php if($package['holiday']){
+                    foreach($package['holiday'] as $data){
+                        ?>
+                        <div class="featured-items pull-left">
+                            <a href="<?=SITE_URL; ?>/packages/view/?pid=<?=$data['id']; ?>&city=5&pType=<?=$data['type']; ?>">
+                                <img src="<?php echo SITE_UPLOAD.PREFIX_THUMB.$data['image']; ?>" width="168" height="168"/>
+                                <h1><?=$data['title']; ?></h1>
+                            </a>
+                            <p><?=$data['details']; ?></p>
+                        </div>
+                    <?php
+                    }
+                } ?>
+                <div class="clear"></div>
+            </section>
             <section class="featured featured-item-list" data-name="tours">
-                <h1>Tour Packages <span class="label-small all-tours-link"> | <a href="<?=SITE_URL; ?>/packages/">View all >></a></span></h1>
+                <h1>Tour Packages <span class="label-small all-tours-link"> | <a href="<?=SITE_URL; ?>/packages/tour/">View all >></a></span></h1>
                 <?php if($package['tours']){
                     foreach($package['tours'] as $data){
                 ?>
@@ -114,7 +134,7 @@
                 <div class="clear"></div>
             </section>
             <section class="featured featured-item-list" data-name="combo">
-                <h1>Combo Offers <span class="label-small all-tours-link"> | <a href="<?=SITE_URL; ?>/packages/">View all >></a></span> </h1>
+                <h1>Combo Offers <span class="label-small all-tours-link"> | <a href="<?=SITE_URL; ?>/packages/combo/">View all >></a></span> </h1>
                 <?php if($package['combo']){
                     foreach($package['combo'] as $data){
                         ?>
@@ -159,13 +179,14 @@
             </section>
         </div>
         <div class="content-sidebar pull-left">
+            <?php foreach(Utils::getBanners('small') as $banner){ ?>
             <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/img03.png" width="300" height="170"/>
-                <div class="caption inverse">
-                    <span><small>Online visa for Dubai,</small></span>
-                    <span class="text-large">@ $100</span>
-                </div>
+                <a href="<?=$banner['url']; ?>" class="">
+                    <img src="<?=$banner['image']; ?>" width="300" height="250"/>
+                </a>
             </div>
+            <?php } ?>
+            <!--
             <div class="widget adv300-170">
                 <img src="<?=SITE_URL; ?>/images/advt.png" width="300" height="250"/>
             </div>
@@ -176,6 +197,7 @@
                     <span class="text-large">@ $100</span>
                 </div>
             </div>
+            -->
             <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>

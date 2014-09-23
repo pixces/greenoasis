@@ -18,27 +18,27 @@
                     <legend>Agent Details</legend>
                     <div class="control-group">
                         <label class="control-label">Name of Company</label>
-                        <div class="controls"><input name="agent[company]"  id="agent_company" type="text" class="span4" required></div>
+                        <div class="controls"><input name="agent[company]"  id="agent_company" type="text" class="span4"></div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Email Address</label>
-                        <div class="controls"><input name="agent[email]"  id="agent_email" type="text" class="span4" required></div>
+                        <div class="controls"><input name="agent[email]"  id="agent_email" type="text" class="span4"></div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Contact Person</label>
-                        <div class="controls"><input name="agent[contact]"  id="agent_contact" type="text" class="span4" required></div>
+                        <div class="controls"><input name="agent[contact]"  id="agent_contact" type="text" class="span4"></div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">City</label>
-                        <div class="controls"><input name="agent[city]"  id="agent_city" type="text" class="span4" required></div>
+                        <div class="controls"><input name="agent[city]"  id="agent_city" type="text" class="span4"></div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Country</label>
-                        <div class="controls"><input name="agent[country]"  id="agent_country" type="text" class="span4" required></div>
+                        <div class="controls"><input name="agent[country]"  id="agent_country" type="text" class="span4"></div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Phone Number</label>
-                        <div class="controls"><input name="agent[phone]"  id="agent_phone" type="text" class="span4" required></div>
+                        <div class="controls"><input name="agent[phone]"  id="agent_phone" type="text" class="span4"></div>
                     </div>
                     <div class="control-group">
                         <label class="control-label"></label>
@@ -50,19 +50,79 @@
             </div>
         </div>
         <div class="sidebar pull-right">
-            <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/img03.png" width="300" height="170"/>
-                <div class="caption inverse">
-                    <span><small>Online visa for Dubai,</small></span>
-                    <span class="text-large">@ $100</span>
+            <?php foreach(Utils::getBanners('small') as $banner){ ?>
+                <div class="widget adv300-170">
+                    <a href="<?=$banner['url']; ?>" class="">
+                        <img src="<?=$banner['image']; ?>" width="300" height="250"/>
+                    </a>
                 </div>
-            </div>
-            <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/advt.png" width="300" height="250"/>
-            </div>
+            <?php } ?>
             <div class="clear"></div>
         </div>
         <div class="clearfix"></div>
     </div>
 </div>
 <!-- End: Main Content --->
+<script>
+    $(document).ready(function(){
+        jQuery.validator.addMethod("alpha", function(value, element) {
+            return this.optional(element) || value == value.match(/^[a-zA-Z0-9._\s]+$/);
+        },"Valid names please.");
+
+        $("#AgentRegistration").validate({
+            debug:true,
+            rules:{
+                "agent[company]":{
+                    required: true,
+                    alpha: true
+                },
+                "agent[email]":{
+                    required: true,
+                    email: true
+                },
+                "agent[contact]":{
+                    required: true,
+                    alpha: true
+                },
+                "agent[city]":{
+                    required: true,
+                    alpha: true
+                },
+                "agent[country]":{
+                    required: true,
+                    alpha: true
+                },
+                "agent[phone]":{
+                    required: true,
+                    number: true,
+                    minlength:10,
+                    maxlength:15
+                }
+            },
+            message:{
+               "agent[contact]":{
+                   alpha: "Please enter a valid contact name"
+               },
+               "agent[city]":{
+                   alpha: "Enter a valid city name"
+               },
+               "agent[country]":{
+                   alpha: "Select Country from the list"
+               },
+               "agent[phone]":{
+                   alpha: "Enter a valid Phone/Mobile Number. No Special characters allowed"
+               }
+            },
+            highlight: function (element) {
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            unhighlight: function (element) {
+                $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+    });
+</script>

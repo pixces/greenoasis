@@ -83,7 +83,7 @@
                         <div>
                             <p class="">Total Package price</p>
                             <p class="price">
-                                <span class="curSymbl">AED</span>
+                                <span class="curSymbl">$</span>
                                 <span id="pkTotalPrice">0</span>
                             </p>
 
@@ -134,8 +134,8 @@
                                         <?foreach($package['Package_Rate'] as $item){ ?>
                                         <tr id="package-tariff-<?=$item['Package_Rate']['id']; ?>" style="">
                                             <td class="room_type"><?=$item['Package_Rate']['transfer_type']; ?></td>
-                                            <td class="meal_plan"><?='AED '.$item['Package_Rate']['price']; ?></td>
-                                            <td class=""><a href=""><?='AED '.$item['Package_Rate']['price_child']; ?></a></td>
+                                            <td class="meal_plan"><?='$ '.$item['Package_Rate']['price']; ?></td>
+                                            <td class=""><a href=""><?='$ '.$item['Package_Rate']['price_child']; ?></a></td>
                                             <td class=""><a href=""><?=$item['Package_Rate']['language']; ?></a></td>
                                             <td class=""><a href=""><?=$item['Package_Rate']['vehicle']; ?></a></td>
                                         </tr>
@@ -200,8 +200,8 @@
                                         <tr id="package-tariff-<?=$item['Package_Rate']['id']; ?>" style="">
                                             <td><input type="radio" name="pk[rate]" id="pkRateRadio" value="<?=$item['Package_Rate']['price']."|".$item['Package_Rate']['price_child']."|".$item['Package_Rate']['pax_unit']; ?>" <?=$checked; ?>></td>
                                             <td class="room_type"><?=$item['Package_Rate']['transfer_type']; ?></td>
-                                            <td class="meal_plan"><?='AED '.$item['Package_Rate']['price']; ?></td>
-                                            <td class=""><a href=""><?='AED '.$item['Package_Rate']['price_child']; ?></a></td>
+                                            <td class="meal_plan"><?='$ '.$item['Package_Rate']['price']; ?></td>
+                                            <td class=""><a href=""><?='$ '.$item['Package_Rate']['price_child']; ?></a></td>
                                             <td class=""><a href=""><?=$item['Package_Rate']['language']; ?></a></td>
                                             <td class=""><a href=""><?=$item['Package_Rate']['vehicle']; ?></a></td>
                                         </tr>
@@ -221,16 +221,13 @@
             </div>
         </div>
         <div class="sidebar pull-right">
-            <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/img03.png" width="300" height="170"/>
-                <div class="caption inverse">
-                    <span><small>Online visa for Dubai,</small></span>
-                    <span class="text-large">@ $100</span>
+            <?php foreach(Utils::getBanners('small') as $banner){ ?>
+                <div class="widget adv300-170">
+                    <a href="<?=$banner['url']; ?>" class="">
+                        <img src="<?=$banner['image']; ?>" width="300" height="250"/>
+                    </a>
                 </div>
-            </div>
-            <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/advt.png" width="300" height="250"/>
-            </div>
+            <?php } ?>
             <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>

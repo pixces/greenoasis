@@ -716,3 +716,814 @@
 [22-May-2014 21:53:40 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
 [28-May-2014 23:00:25 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
 [28-May-2014 23:01:04 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[03-Jun-2014 22:39:41 Asia/Kolkata] PHP Warning:  array_keys() expects parameter 1 to be array, boolean given in /mnt/www/greenoasis/application/controllers/hotelcontroller.php on line 101
+[03-Jun-2014 22:39:41 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /mnt/www/greenoasis/application/models/hotel.php on line 141
+[03-Jun-2014 22:39:41 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 401
+[03-Jun-2014 22:39:41 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 420
+[03-Jun-2014 22:40:16 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[03-Jun-2014 22:41:07 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[06-Jun-2014 16:33:18 Asia/Kolkata] PHP Warning:  require_once(/mnt/www/greenoasis/config/config.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/bootstrap.php on line 2
+[06-Jun-2014 16:33:18 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required '/mnt/www/greenoasis/config/config.php' (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/bootstrap.php on line 2
+[06-Jun-2014 16:33:23 Asia/Kolkata] PHP Warning:  require_once(/mnt/www/greenoasis/config/config.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/bootstrap.php on line 2
+[06-Jun-2014 16:33:23 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required '/mnt/www/greenoasis/config/config.php' (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/bootstrap.php on line 2
+[06-Jun-2014 16:44:28 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[06-Jun-2014 16:47:20 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[06-Jun-2014 23:55:08 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[10-Jun-2014 00:49:25 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'Hotel' (T_STRING), expecting ']' in /mnt/www/greenoasis/application/views/hotel/booking.php on line 174
+[10-Jun-2014 02:28:02 Asia/Kolkata] PHP Fatal error:  Class 'ApplicationController' not found in /mnt/www/greenoasis/library/common.php on line 151
+[11-Jun-2014 01:50:50 Asia/Kolkata] PHP Fatal error:  Undefined class constant 'roomType' in /mnt/www/greenoasis/application/controllers/hotelcontroller.php on line 226
+[11-Jun-2014 01:52:30 Asia/Kolkata] PHP Fatal error:  Undefined class constant 'roomTypes' in /mnt/www/greenoasis/application/controllers/hotelcontroller.php on line 226
+[11-Jun-2014 02:37:28 Asia/Kolkata] PHP Warning:  mysql_fetch_row() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 419
+[11-Jun-2014 02:37:28 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 422
+[11-Jun-2014 02:37:57 Asia/Kolkata] PHP Warning:  mysql_fetch_row() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 419
+[11-Jun-2014 02:37:57 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 422
+[11-Jun-2014 02:38:46 Asia/Kolkata] PHP Warning:  mysql_fetch_row() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 419
+[11-Jun-2014 02:38:46 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 422
+[11-Jun-2014 23:35:04 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[11-Jun-2014 23:37:11 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[12-Jun-2014 00:59:40 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 190
+[12-Jun-2014 00:59:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 195
+[12-Jun-2014 00:59:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 309
+[12-Jun-2014 00:59:40 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 190
+[12-Jun-2014 00:59:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 195
+[12-Jun-2014 00:59:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 309
+[12-Jun-2014 01:32:31 Asia/Kolkata] PHP Warning:  str_pad() expects parameter 4 to be long, string given in /mnt/www/greenoasis/application/views/hotel/confirmation.php on line 42
+[12-Jun-2014 02:56:40 Asia/Kolkata] PHP Fatal error:  Call to undefined function json_deconde() in /mnt/www/greenoasis/application/views/hotel/confirmation.php on line 93
+[12-Jun-2014 02:59:56 Asia/Kolkata] PHP Warning:  func_get_arg():  The argument number should be >= 0 in /mnt/www/greenoasis/application/controllers/pagescontroller.php on line 35
+[13-Jun-2014 02:59:16 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[13-Jun-2014 02:59:21 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 02:59:21 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 02:59:30 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 02:59:30 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 02:59:46 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 02:59:46 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:00:30 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:00:30 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:00:31 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:00:31 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:01:11 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:01:11 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:02:39 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:02:39 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:03:39 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:03:39 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:04:22 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:04:22 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:05:11 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:05:11 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:06:41 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:06:41 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[13-Jun-2014 03:06:42 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 379
+[13-Jun-2014 03:06:42 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 398
+[14-Jun-2014 00:55:06 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:11 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:13 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:13 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:13 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:22 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 00:55:24 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/library/utils.class.php on line 499
+[14-Jun-2014 01:01:02 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[14-Jun-2014 01:33:17 Asia/Kolkata] PHP Fatal error:  Call to undefined function ucowrds() in /mnt/www/greenoasis/application/views/admin/bookings.php on line 65
+[14-Jun-2014 01:38:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[16-Jun-2014 22:38:21 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[16-Jun-2014 22:47:22 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[16-Jun-2014 23:27:31 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[16-Jun-2014 23:27:35 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[16-Jun-2014 23:27:57 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[16-Jun-2014 23:31:29 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[16-Jun-2014 23:43:06 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[16-Jun-2014 23:56:26 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[17-Jun-2014 00:33:40 Asia/Kolkata] PHP Fatal error:  Class 'ApplicationController' not found in /mnt/www/greenoasis/library/common.php on line 151
+[17-Jun-2014 01:00:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 384
+[17-Jun-2014 01:00:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 403
+[17-Jun-2014 01:03:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:03:36 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:04:35 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:05:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:05:39 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:06:13 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:06:15 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:06:45 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:06:48 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:06:50 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 21
+[17-Jun-2014 01:31:53 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 76
+[17-Jun-2014 01:32:03 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 76
+[17-Jun-2014 01:36:59 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /mnt/www/greenoasis/application/views/admin/view_booking.php on line 55
+[17-Jun-2014 02:23:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 384
+[17-Jun-2014 02:23:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 403
+[17-Jun-2014 02:23:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 384
+[17-Jun-2014 02:23:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 403
+[17-Jun-2014 02:23:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[17-Jun-2014 02:23:12 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[17-Jun-2014 02:23:17 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[17-Jun-2014 02:23:17 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[18-Jun-2014 02:14:48 Asia/Kolkata] PHP Fatal error:  Call to undefined method AgentController::getById() in /mnt/www/greenoasis/application/controllers/agentcontroller.php on line 29
+[18-Jun-2014 02:16:32 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[18-Jun-2014 02:16:32 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[18-Jun-2014 02:16:36 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 384
+[18-Jun-2014 02:16:36 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 403
+[18-Jun-2014 02:16:36 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[18-Jun-2014 02:27:18 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 194
+[18-Jun-2014 02:27:18 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 199
+[18-Jun-2014 02:27:18 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 313
+[18-Jun-2014 02:28:10 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 194
+[18-Jun-2014 02:28:10 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 199
+[18-Jun-2014 02:28:10 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 313
+[18-Jun-2014 02:40:00 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/agent/transactions.php on line 56
+[21-Jun-2014 00:23:50 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[21-Jun-2014 00:23:50 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[21-Jun-2014 00:23:53 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[21-Jun-2014 00:23:53 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[21-Jun-2014 00:23:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/index.php on line 18
+[21-Jun-2014 00:23:55 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[21-Jun-2014 00:23:55 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[22-Jun-2014 17:33:08 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[22-Jun-2014 17:33:08 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[24-Jun-2014 01:05:14 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[24-Jun-2014 01:05:14 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[24-Jun-2014 01:10:54 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[24-Jun-2014 01:10:54 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[24-Jun-2014 01:11:01 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[24-Jun-2014 01:11:01 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[24-Jun-2014 01:17:26 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[24-Jun-2014 01:17:26 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[24-Jun-2014 01:18:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[24-Jun-2014 01:18:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[24-Jun-2014 01:18:33 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[24-Jun-2014 01:18:33 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[24-Jun-2014 01:19:41 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 389
+[24-Jun-2014 01:19:41 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 408
+[24-Jun-2014 02:04:11 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/admin/view_visadetails.php on line 107
+[24-Jun-2014 02:04:23 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/admin/view_visadetails.php on line 107
+[24-Jun-2014 02:04:40 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/admin/view_visadetails.php on line 107
+[24-Jun-2014 02:11:02 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/view_visadetails.php on line 40
+[25-Jun-2014 21:50:27 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[25-Jun-2014 22:12:50 Asia/Kolkata] PHP Fatal error:  Call to undefined method Package::getFeatured() in /mnt/www/greenoasis/application/controllers/tourcontroller.php on line 14
+[05-Jul-2014 12:59:35 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 13:00:06 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 13:00:07 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 13:01:43 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 13:05:16 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 15:10:30 Asia/Kolkata] PHP Fatal error:  Call to undefined method AgentController::getAgentSummary() in /mnt/www/greenoasis/application/controllers/agentcontroller.php on line 351
+[05-Jul-2014 15:11:17 Asia/Kolkata] PHP Fatal error:  Call to undefined method AgentController::getAgentSummary() in /mnt/www/greenoasis/application/controllers/agentcontroller.php on line 351
+[05-Jul-2014 15:20:54 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 16:13:37 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/404_page.php.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:13:37 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/404_page.php.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:13:57 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/404_page.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:13:57 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/404_page.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:15:14 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/pages/404_page.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:15:14 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/pages/404_page.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:44:43 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 16:44:43 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/pages/agent_edit.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:44:43 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/pages/agent_edit.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:47:35 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/pages/allocatefund.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:47:35 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/pages/allocatefund.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:49:17 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 16:49:17 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/pages/agent_edit.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:49:17 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/pages/agent_edit.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:49:25 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/pages/allocatefund.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:49:25 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/pages/allocatefund.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:49:43 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[05-Jul-2014 16:49:43 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/pages/agent_edit.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:49:43 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/pages/agent_edit.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:51:52 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/pages/agent_change_status.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:51:52 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/pages/agent_change_status.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:51:57 Asia/Kolkata] PHP Warning:  include(/mnt/www/greenoasis/application/views/pages/agent_change_status.php): failed to open stream: No such file or directory in /mnt/www/greenoasis/library/template.class.php on line 68
+[05-Jul-2014 16:51:57 Asia/Kolkata] PHP Warning:  include(): Failed opening '/mnt/www/greenoasis/application/views/pages/agent_change_status.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.4.10/lib/php') in /mnt/www/greenoasis/library/template.class.php on line 68
+[08-Jul-2014 00:28:46 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Exception' with message 'Cannot upload imagearray (
+  'image' => 
+  array (
+    'name' => 
+    array (
+      0 => 
+      array (
+        0 => 'booking_page.jpg',
+        1 => 'confirmation.jpg',
+        2 => '',
+        3 => '',
+        4 => '',
+      ),
+    ),
+    'type' => 
+    array (
+      0 => 
+      array (
+        0 => 'image/jpeg',
+        1 => 'image/jpeg',
+        2 => '',
+        3 => '',
+        4 => '',
+      ),
+    ),
+    'tmp_name' => 
+    array (
+      0 => 
+      array (
+        0 => '/Applications/MAMP/tmp/php/phppGDjjE',
+        1 => '/Applications/MAMP/tmp/php/phpQOaMg3',
+        2 => '',
+        3 => '',
+        4 => '',
+      ),
+    ),
+    'error' => 
+    array (
+      0 => 
+      array (
+        0 => 0,
+        1 => 0,
+        2 => 4,
+        3 => 4,
+        4 => 4,
+      ),
+    ),
+    'size' => 
+    array (
+      0 => 
+      array (
+        0 => 305508,
+        1 => 233135,
+        2 => 0,
+        3 => 0,
+        4 => 0,
+      ),
+    ),
+  ),
+)' in /mnt/www/greenoasi in /mnt/www/greenoasis/library/utils.class.php on line 432
+[08-Jul-2014 00:34:55 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[08-Jul-2014 00:47:29 Asia/Kolkata] PHP Warning:  array_keys() expects parameter 1 to be array, boolean given in /mnt/www/greenoasis/application/controllers/hotelcontroller.php on line 101
+[08-Jul-2014 00:47:29 Asia/Kolkata] PHP Warning:  implode(): Invalid arguments passed in /mnt/www/greenoasis/application/models/hotel.php on line 136
+[08-Jul-2014 00:47:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[08-Jul-2014 00:47:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[08-Jul-2014 00:55:19 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ']' in /mnt/www/greenoasis/application/controllers/hotelcontroller.php on line 242
+[08-Jul-2014 01:01:56 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[08-Jul-2014 01:14:31 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:14:31 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 97
+[08-Jul-2014 01:31:28 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:31:28 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 97
+[08-Jul-2014 01:34:43 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:36:51 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:37:43 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:37:45 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:37:50 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:37:51 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:38:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:38:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:38:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:38:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:38:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:38:10 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:38:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:38:38 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[08-Jul-2014 01:39:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/agent/index.php on line 56
+[19-Jul-2014 23:53:13 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[19-Jul-2014 23:54:11 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[19-Jul-2014 23:54:11 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[19-Jul-2014 23:54:11 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[19-Jul-2014 23:54:11 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[19-Jul-2014 23:54:11 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[19-Jul-2014 23:54:11 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[19-Jul-2014 23:54:33 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[19-Jul-2014 23:54:33 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[19-Jul-2014 23:54:33 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[19-Jul-2014 23:54:33 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[19-Jul-2014 23:54:33 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[19-Jul-2014 23:54:33 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[20-Jul-2014 02:04:29 Asia/Kolkata] PHP Warning:  Missing argument 1 for AdminController::download_visa_document() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1594
+[20-Jul-2014 02:06:06 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'print_r' (T_STRING), expecting ')' in /mnt/www/greenoasis/application/views/admin/view_visadetails.php on line 74
+[20-Jul-2014 02:08:19 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[20-Jul-2014 02:08:19 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[20-Jul-2014 02:08:19 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[20-Jul-2014 02:08:19 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[20-Jul-2014 02:08:19 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[20-Jul-2014 02:08:19 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[20-Jul-2014 02:09:53 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[20-Jul-2014 02:09:53 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[20-Jul-2014 02:09:53 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[20-Jul-2014 02:09:53 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[20-Jul-2014 02:09:53 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 390
+[20-Jul-2014 02:09:53 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 409
+[20-Jul-2014 02:11:18 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[20-Jul-2014 02:11:18 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[20-Jul-2014 02:11:18 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[20-Jul-2014 02:11:18 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[20-Jul-2014 02:11:18 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[20-Jul-2014 02:11:18 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[20-Jul-2014 02:13:07 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[20-Jul-2014 02:13:07 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[20-Jul-2014 02:13:07 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[20-Jul-2014 02:13:07 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[20-Jul-2014 02:13:07 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[20-Jul-2014 02:13:07 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[04-Aug-2014 00:52:34 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[13-Aug-2014 00:17:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[13-Aug-2014 00:40:07 Asia/Kolkata] PHP Fatal error:  Class 'Banner' not found in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1187
+[13-Aug-2014 00:47:53 Asia/Kolkata] PHP Fatal error:  Class 'Banner' not found in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1187
+[13-Aug-2014 01:34:39 Asia/Kolkata] PHP Fatal error:  Call to undefined method Banner::getActiveBanner() in /mnt/www/greenoasis/application/controllers/pagescontroller.php on line 27
+[13-Aug-2014 01:34:51 Asia/Kolkata] PHP Strict Standards:  Non-static method Banner::getAllActive() should not be called statically, assuming $this from incompatible context in /mnt/www/greenoasis/application/controllers/pagescontroller.php on line 27
+[13-Aug-2014 01:34:51 Asia/Kolkata] PHP Fatal error:  Call to undefined method PagesController::orderBy() in /mnt/www/greenoasis/application/models/banner.php on line 22
+[13-Aug-2014 01:35:27 Asia/Kolkata] PHP Fatal error:  Call to undefined function Banner() in /mnt/www/greenoasis/application/controllers/pagescontroller.php on line 27
+[13-Aug-2014 01:38:40 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/pages/index.php on line 4
+[13-Aug-2014 02:10:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 25
+[13-Aug-2014 02:31:27 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error creating thumb for image file 01-DSCF9812'No JPEG create support.'' in /mnt/www/greenoasis/library/utils.class.php:441
+Stack trace:
+#0 /mnt/www/greenoasis/application/controllers/admincontroller.php(1207): Utils::uploadImage(Array, 'banner')
+#1 [internal function]: AdminController->banners()
+#2 /mnt/www/greenoasis/library/common.php(157): call_user_func_array(Array, Array)
+#3 /mnt/www/greenoasis/library/common.php(36): Loader->callHook()
+#4 /mnt/www/greenoasis/library/common.php(224): Loader->__construct(Array)
+#5 /mnt/www/greenoasis/library/bootstrap.php(7): require_once('/mnt/www/greeno...')
+#6 /mnt/www/greenoasis/public/index.php(18): require_once('/mnt/www/greeno...')
+#7 {main}
+  thrown in /mnt/www/greenoasis/library/utils.class.php on line 441
+[13-Aug-2014 02:32:12 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error creating thumb for image file 01'No JPEG create support.'' in /mnt/www/greenoasis/library/utils.class.php:441
+Stack trace:
+#0 /mnt/www/greenoasis/application/controllers/admincontroller.php(1207): Utils::uploadImage(Array, 'banner')
+#1 [internal function]: AdminController->banners()
+#2 /mnt/www/greenoasis/library/common.php(157): call_user_func_array(Array, Array)
+#3 /mnt/www/greenoasis/library/common.php(36): Loader->callHook()
+#4 /mnt/www/greenoasis/library/common.php(224): Loader->__construct(Array)
+#5 /mnt/www/greenoasis/library/bootstrap.php(7): require_once('/mnt/www/greeno...')
+#6 /mnt/www/greenoasis/public/index.php(18): require_once('/mnt/www/greeno...')
+#7 {main}
+  thrown in /mnt/www/greenoasis/library/utils.class.php on line 441
+[13-Aug-2014 02:32:26 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error creating thumb for image file 01'No JPEG create support.'' in /mnt/www/greenoasis/library/utils.class.php:441
+Stack trace:
+#0 /mnt/www/greenoasis/application/controllers/admincontroller.php(1207): Utils::uploadImage(Array, 'banner')
+#1 [internal function]: AdminController->banners()
+#2 /mnt/www/greenoasis/library/common.php(157): call_user_func_array(Array, Array)
+#3 /mnt/www/greenoasis/library/common.php(36): Loader->callHook()
+#4 /mnt/www/greenoasis/library/common.php(224): Loader->__construct(Array)
+#5 /mnt/www/greenoasis/library/bootstrap.php(7): require_once('/mnt/www/greeno...')
+#6 /mnt/www/greenoasis/public/index.php(18): require_once('/mnt/www/greeno...')
+#7 {main}
+  thrown in /mnt/www/greenoasis/library/utils.class.php on line 441
+[13-Aug-2014 02:33:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 28
+[13-Aug-2014 02:34:00 Asia/Kolkata] PHP Fatal error:  Uncaught exception 'Exception' with message '  Error creating main file: Destination directory can't be created. Can't carry on a process.' in /mnt/www/greenoasis/library/utils.class.php:406
+Stack trace:
+#0 /mnt/www/greenoasis/application/controllers/admincontroller.php(1207): Utils::uploadImage(Array, 'banner')
+#1 [internal function]: AdminController->banners()
+#2 /mnt/www/greenoasis/library/common.php(157): call_user_func_array(Array, Array)
+#3 /mnt/www/greenoasis/library/common.php(36): Loader->callHook()
+#4 /mnt/www/greenoasis/library/common.php(224): Loader->__construct(Array)
+#5 /mnt/www/greenoasis/library/bootstrap.php(7): require_once('/mnt/www/greeno...')
+#6 /mnt/www/greenoasis/public/index.php(18): require_once('/mnt/www/greeno...')
+#7 {main}
+  thrown in /mnt/www/greenoasis/library/utils.class.php on line 406
+[13-Aug-2014 02:42:02 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 28
+[13-Aug-2014 03:01:56 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 38
+[13-Aug-2014 03:02:28 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 38
+[13-Aug-2014 03:02:52 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 38
+[13-Aug-2014 03:07:35 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 38
+[13-Aug-2014 03:08:18 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[13-Aug-2014 03:08:18 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 38
+[13-Aug-2014 03:09:55 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[13-Aug-2014 03:10:27 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[19-Aug-2014 22:21:33 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[19-Aug-2014 22:23:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[19-Aug-2014 22:26:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[19-Aug-2014 22:26:55 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[19-Aug-2014 22:27:04 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[19-Aug-2014 22:27:08 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[28-Aug-2014 01:34:32 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[29-Aug-2014 14:09:20 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 34
+[29-Aug-2014 19:05:21 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 56
+[29-Aug-2014 19:06:38 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 56
+[29-Aug-2014 19:09:32 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 56
+[29-Aug-2014 19:09:34 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 56
+[29-Aug-2014 19:10:41 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 56
+[29-Aug-2014 19:11:38 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 56
+[29-Aug-2014 19:23:48 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 56
+[29-Aug-2014 19:25:13 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/banners.php on line 56
+[29-Aug-2014 19:34:07 Asia/Kolkata] PHP Fatal error:  Call to undefined method Utils::getBanner() in /mnt/www/greenoasis/application/views/pages/index.php on line 165
+[29-Aug-2014 19:38:36 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/pages/index.php on line 4
+[29-Aug-2014 19:38:36 Asia/Kolkata] PHP Fatal error:  Call to undefined method Utils::getBanner() in /mnt/www/greenoasis/application/views/pages/index.php on line 165
+[29-Aug-2014 19:41:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/pages/index.php on line 4
+[29-Aug-2014 19:41:05 Asia/Kolkata] PHP Fatal error:  Call to undefined method Utils::getBanner() in /mnt/www/greenoasis/application/views/pages/index.php on line 165
+[29-Aug-2014 19:41:40 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/pages/index.php on line 4
+[29-Aug-2014 19:41:40 Asia/Kolkata] PHP Fatal error:  Call to undefined method Utils::getBanner() in /mnt/www/greenoasis/application/views/pages/index.php on line 165
+[29-Aug-2014 19:43:41 Asia/Kolkata] PHP Warning:  print_r() expects at least 1 parameter, 0 given in /mnt/www/greenoasis/application/controllers/pagescontroller.php on line 24
+[29-Aug-2014 19:43:41 Asia/Kolkata] PHP Fatal error:  Call to undefined method Utils::getBanner() in /mnt/www/greenoasis/application/views/pages/index.php on line 165
+[29-Aug-2014 19:43:58 Asia/Kolkata] PHP Fatal error:  Call to undefined method Utils::getBanner() in /mnt/www/greenoasis/application/views/pages/index.php on line 165
+[04-Sep-2014 00:40:24 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 35
+[04-Sep-2014 00:53:19 Asia/Kolkata] PHP Fatal error:  Call to undefined method Package::getFeatured() in /mnt/www/greenoasis/application/controllers/tourcontroller.php on line 16
+[04-Sep-2014 01:59:46 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 77
+[04-Sep-2014 02:06:07 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 77
+[04-Sep-2014 02:06:09 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 77
+[04-Sep-2014 02:07:18 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 80
+[04-Sep-2014 02:07:20 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 80
+[04-Sep-2014 02:07:37 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 78
+[04-Sep-2014 02:07:38 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 78
+[04-Sep-2014 02:07:56 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 78
+[04-Sep-2014 02:07:58 Asia/Kolkata] PHP Warning:  preg_match(): Unknown modifier 'v' in /mnt/www/greenoasis/library/common.php on line 78
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 20
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 20
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 22
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 24
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 37
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 37
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 38
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 39
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 54
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 54
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 55
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 56
+[04-Sep-2014 02:30:36 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 22
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 23
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 25
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 42
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 43
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 45
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 59
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 60
+[04-Sep-2014 02:33:20 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 62
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 22
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 23
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 25
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 42
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 43
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 45
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 59
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 60
+[04-Sep-2014 02:33:25 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 62
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 22
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 23
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 25
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 42
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 43
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 45
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 59
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 60
+[04-Sep-2014 02:33:28 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 62
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 22
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 23
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 25
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 41
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 42
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 43
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 45
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 58
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 59
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 60
+[04-Sep-2014 02:33:29 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 62
+[04-Sep-2014 02:33:46 Asia/Kolkata] PHP Warning:  Illegal string offset 'id' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:46 Asia/Kolkata] PHP Warning:  Illegal string offset 'type' in /mnt/www/greenoasis/application/views/tour/index.php on line 21
+[04-Sep-2014 02:33:46 Asia/Kolkata] PHP Warning:  Illegal string offset 'image' in /mnt/www/greenoasis/application/views/tour/index.php on line 22
+[04-Sep-2014 02:33:46 Asia/Kolkata] PHP Warning:  Illegal string offset 'title' in /mnt/www/greenoasis/application/views/tour/index.php on line 23
+[04-Sep-2014 02:33:46 Asia/Kolkata] PHP Warning:  Illegal string offset 'details' in /mnt/www/greenoasis/application/views/tour/index.php on line 25
+[04-Sep-2014 02:35:22 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}' in /mnt/www/greenoasis/application/views/tour/index.php on line 30
+[04-Sep-2014 02:40:47 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'foreach' (T_FOREACH) in /mnt/www/greenoasis/application/views/tour/index.php on line 15
+[06-Sep-2014 00:35:54 Asia/Kolkata] PHP Warning:  mysql_fetch_row() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 431
+[06-Sep-2014 00:35:54 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 434
+[06-Sep-2014 00:36:03 Asia/Kolkata] PHP Warning:  mysql_fetch_row() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 431
+[06-Sep-2014 00:36:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 434
+[06-Sep-2014 01:12:24 Asia/Kolkata] PHP Fatal error:  Call to undefined method Visa::fetchAll() in /mnt/www/greenoasis/application/controllers/visacontroller.php on line 15
+[06-Sep-2014 23:37:17 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';' in /mnt/www/greenoasis/application/controllers/visacontroller.php on line 21
+[07-Sep-2014 00:15:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 134
+[07-Sep-2014 00:15:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 165
+[07-Sep-2014 00:15:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 197
+[07-Sep-2014 00:15:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 134
+[07-Sep-2014 00:15:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 165
+[07-Sep-2014 00:15:37 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 197
+[07-Sep-2014 00:15:54 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 134
+[07-Sep-2014 00:15:54 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 165
+[07-Sep-2014 00:15:54 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/view.php on line 197
+[07-Sep-2014 17:12:55 Asia/Kolkata] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /mnt/www/greenoasis/application/controllers/visacontroller.php on line 47
+[07-Sep-2014 19:08:15 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[07-Sep-2014 19:14:26 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 35
+[07-Sep-2014 19:14:29 Asia/Kolkata] PHP Fatal error:  Call to undefined method Visa::getDetailsByDate() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1547
+[07-Sep-2014 19:15:25 Asia/Kolkata] PHP Fatal error:  Call to undefined method Visa::getDetailsByDate() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1547
+[07-Sep-2014 19:17:02 Asia/Kolkata] PHP Fatal error:  Call to undefined method Visa::getDetailsByDate() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1551
+[07-Sep-2014 19:41:58 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 35
+[07-Sep-2014 19:45:07 Asia/Kolkata] PHP Fatal error:  Cannot redeclare AdminController::visa() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 843
+[07-Sep-2014 19:57:06 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 35
+[07-Sep-2014 19:59:05 Asia/Kolkata] PHP Catchable fatal error:  Argument 2 passed to HTML::select() must be of the type array, null given, called in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 40 and defined in /mnt/www/greenoasis/library/html.class.php on line 200
+[07-Sep-2014 19:59:50 Asia/Kolkata] PHP Catchable fatal error:  Argument 2 passed to HTML::select() must be of the type array, null given, called in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 40 and defined in /mnt/www/greenoasis/library/html.class.php on line 200
+[07-Sep-2014 20:00:19 Asia/Kolkata] PHP Catchable fatal error:  Argument 2 passed to HTML::select() must be of the type array, null given, called in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 40 and defined in /mnt/www/greenoasis/library/html.class.php on line 200
+[07-Sep-2014 20:00:40 Asia/Kolkata] PHP Catchable fatal error:  Argument 2 passed to HTML::select() must be of the type array, null given, called in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 40 and defined in /mnt/www/greenoasis/library/html.class.php on line 200
+[07-Sep-2014 20:34:22 Asia/Kolkata] PHP Fatal error:  Cannot use object of type Visa as array in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 5
+[07-Sep-2014 20:34:25 Asia/Kolkata] PHP Fatal error:  Cannot use object of type Visa as array in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 5
+[07-Sep-2014 20:34:39 Asia/Kolkata] PHP Fatal error:  Cannot use object of type Visa as array in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 5
+[07-Sep-2014 20:34:56 Asia/Kolkata] PHP Fatal error:  Cannot use object of type Visa as array in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 5
+[07-Sep-2014 20:35:21 Asia/Kolkata] PHP Fatal error:  Cannot use object of type Visa as array in /mnt/www/greenoasis/application/views/admin/visa_form.php on line 5
+[07-Sep-2014 20:43:58 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 35
+[10-Sep-2014 23:14:32 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:20:39 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:29:56 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 200
+[10-Sep-2014 23:29:56 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 206
+[10-Sep-2014 23:29:56 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 320
+[10-Sep-2014 23:29:56 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:30:28 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 200
+[10-Sep-2014 23:30:28 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 206
+[10-Sep-2014 23:30:28 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 320
+[10-Sep-2014 23:30:28 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:31:05 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 200
+[10-Sep-2014 23:31:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 206
+[10-Sep-2014 23:31:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 320
+[10-Sep-2014 23:31:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:32:00 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 200
+[10-Sep-2014 23:32:00 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 206
+[10-Sep-2014 23:32:00 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 320
+[10-Sep-2014 23:32:00 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:33:22 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:33:55 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:34:33 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:34:34 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/visa/confirmation.php on line 39
+[10-Sep-2014 23:38:52 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 35
+[10-Sep-2014 23:38:54 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:38:54 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:38:54 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:38:54 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:38:54 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:38:54 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:38:54 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:38:54 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:38:55 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:38:55 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:38:55 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:38:55 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:38:55 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:38:55 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:38:55 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:38:55 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:39:51 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:40:50 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:14 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:14 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:14 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:14 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:14 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:14 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:14 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:14 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:45 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:59 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:59 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:59 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:59 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:59 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:59 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:41:59 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:41:59 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:42:40 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:43:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:44:05 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:45:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:17 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:17 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:17 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:17 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:47:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:03 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:20 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:20 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:48:20 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 391
+[10-Sep-2014 23:48:20 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 410
+[10-Sep-2014 23:55:43 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 200
+[10-Sep-2014 23:55:43 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 206
+[10-Sep-2014 23:55:43 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 320
+[10-Sep-2014 23:57:11 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 200
+[10-Sep-2014 23:57:11 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 206
+[10-Sep-2014 23:57:11 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 320
+[10-Sep-2014 23:57:47 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 202
+[10-Sep-2014 23:57:47 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 208
+[10-Sep-2014 23:57:47 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 322
+[10-Sep-2014 23:58:08 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 202
+[10-Sep-2014 23:58:08 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 208
+[10-Sep-2014 23:58:08 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 322
+[10-Sep-2014 23:59:12 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 202
+[10-Sep-2014 23:59:12 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 208
+[10-Sep-2014 23:59:12 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 322
+[11-Sep-2014 00:03:46 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 202
+[11-Sep-2014 00:03:46 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 208
+[11-Sep-2014 00:03:46 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 322
+[11-Sep-2014 00:03:46 Asia/Kolkata] PHP Warning:  mysql_num_fields() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 202
+[11-Sep-2014 00:03:46 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 208
+[11-Sep-2014 00:03:46 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 322
+[11-Sep-2014 00:04:52 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 00:04:52 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 00:04:52 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 00:04:52 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 00:52:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 00:52:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 00:52:29 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 00:52:29 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 00:52:33 Asia/Kolkata] PHP Warning:  func_get_arg():  The argument number should be >= 0 in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1692
+[11-Sep-2014 00:52:33 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 00:52:33 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 00:52:33 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1714
+[11-Sep-2014 00:52:59 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 00:52:59 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 00:52:59 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 00:52:59 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 00:53:44 Asia/Kolkata] PHP Warning:  func_get_arg():  The argument number should be >= 0 in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1692
+[11-Sep-2014 00:53:44 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 00:53:44 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 00:53:44 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1714
+[11-Sep-2014 01:10:15 Asia/Kolkata] PHP Fatal error:  Call to undefined method Visa_Booking::getVisaDetails() in /mnt/www/greenoasis/application/models/visa_booking.php on line 39
+[11-Sep-2014 01:18:12 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/admin/visa_bookings.php on line 57
+[11-Sep-2014 01:18:12 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/admin/visa_bookings.php on line 57
+[11-Sep-2014 01:20:42 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ';' in /mnt/www/greenoasis/application/views/admin/visa_bookings.php on line 57
+[11-Sep-2014 01:22:59 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 01:22:59 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 01:22:59 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1714
+[11-Sep-2014 01:24:42 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 01:24:42 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 01:24:42 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1714
+[11-Sep-2014 01:57:47 Asia/Kolkata] PHP Warning:  func_get_arg():  The argument number should be >= 0 in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1692
+[11-Sep-2014 01:57:47 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 01:57:47 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 01:57:47 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/controllers/admincontroller.php on line 1714
+[11-Sep-2014 01:59:06 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 01:59:06 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 02:13:17 Asia/Kolkata] PHP Fatal error:  Call to undefined method Visa::getByAgent() in /mnt/www/greenoasis/application/controllers/agentcontroller.php on line 321
+[11-Sep-2014 02:14:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 02:14:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 02:14:27 Asia/Kolkata] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 393
+[11-Sep-2014 02:14:27 Asia/Kolkata] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, boolean given in /mnt/www/greenoasis/library/sqlquery.class.php on line 412
+[11-Sep-2014 02:14:40 Asia/Kolkata] PHP Warning:  func_get_arg():  The argument number should be >= 0 in /mnt/www/greenoasis/application/controllers/agentcontroller.php on line 328
+[11-Sep-2014 02:14:40 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/controllers/agentcontroller.php on line 350
+[13-Sep-2014 01:55:15 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 35
+[13-Sep-2014 13:04:58 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 35

@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GREEN OASIS TOURISM L.L.C</title>
+        <title><?=(!empty($pageTitle) ? 'GREEN OASIS: '.$pageTitle : 'GREEN OASIS TOURISM L.L.C'); ?></title>
         <base href="<?=SITE_URL; ?>">
         <link rel="shortcut icon" href="<?=SITE_IMAGE; ?>favicon.ico" type="image/x-icon" />
         <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Roboto|Source+Sans+Pro:900italic,400,600' rel='stylesheet' type='text/css'>
@@ -20,6 +20,8 @@
         <script src="<?=SITE_JS; ?>bootstrap-datepicker.js" type="text/javascript"></script>
         <script src="<?=SITE_JS; ?>ravs.JSQL.js" type="text/javascript"></script>
         <script src="<?=SITE_JS; ?>json2.js" type="text/javascript"></script>
+        <script src="<?=SITE_JS; ?>jquery.validate.min.js" type="text/javascript" ></script>
+        <script src="<?=SITE_JS; ?>additional-methods.min.js" type="text/javascript" ></script>
     </head>
     <body class="" data-type="<?=$pageType; ?>">
         <!-- outer container -->
@@ -42,7 +44,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="<?php echo SITE_URL;?>/agent/"><i class="icon-home"></i> My Dashboard</a></li>
                                     <li><a href="<?php echo SITE_URL;?>/agent/transactions"><i class=" icon-retweet"></i> My Transactions</a></li>
-                                    <li><a href="<?php echo SITE_URL;?>/agent/update_profile"><i class="icon-user"></i> My Profile</a></li>
+                                    <li><a href="<?php echo SITE_URL;?>/agent/profile"><i class="icon-user"></i> My Profile</a></li>
                                     <li class="divider"></li>
                                     <li><a href="<?php echo SITE_URL;?>/pages/logout"><i class="icon-off"></i> Logout</a></li>
                                 </ul>

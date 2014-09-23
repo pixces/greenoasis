@@ -21,7 +21,6 @@ class Agent_Wallet extends Model{
         if(!isset($this->id)){
             return false;
         }
-
         $this->showHasOne();
         return $this->search();
 
@@ -51,7 +50,6 @@ class Agent_Wallet extends Model{
             'used' => $used,
             'balance' => $total -  $used
         );
-
     }
 
     public function getByAgent($agentId){

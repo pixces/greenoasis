@@ -14,15 +14,17 @@ return array(
 
     /* all routing rules comes under here */
     'routing' => array(
-        '/admin\/(.*)/' 					=> 'admin/\1',
-        //'/admin\/(.*?)\/(.*?)\/(.*)/'		=> 'admin/\1_\2/\3',
-        //'/admin\/(.*?)\/(.*?)\/(.*)/'  	=> '\1/admin_\2/\3',
-        '/packages\/(.*?)\/(.*)/'		    => 'tour/\1/\2',
-        '/hotel\/(.*?)\/(.*)/'		        => 'hotel/\1/\2',
-        '/visa\/(.*?)\/(.*)/'		        => 'visa/\1/\2',
-        '/agent\/(.*)/' 					=> 'agent/\1',
-        '/pages\/(.*)/' 					=> 'pages/\1',
-        '/(.*?)\/(.*)/'						=> 'pages/display/\1/\2'
+        '/admin\/(.*)/' 					        => 'admin/\1',
+        //'/admin\/(.*?)\/(.*?)\/(.*)/'		        => 'admin/\1_\2/\3',
+        //'/admin\/(.*?)\/(.*?)\/(.*)/'  	        => '\1/admin_\2/\3',
+        '/packages\/(view)\/(.*?)\/(.*)/'   	    => 'tour/view/\1/\2',
+        '/packages\/(holiday|tour|combo)\/(.*)/'    => 'tour/index/\1/\2',
+        '/packages\/(.*?)\/(.*)/'   	            => 'tour/\1/\2',
+        '/hotel\/(.*?)\/(.*)/'		                => 'hotel/\1/\2',
+        '/visa\/(.*?)\/(.*)/'		                => 'visa/\1/\2',
+        '/agent\/(.*)/' 					        => 'agent/\1',
+        '/pages\/(.*)/' 					        => 'pages/\1',
+        '/(.*?)\/(.*)/'						        => 'pages/display/\1/\2'
     ),
 
     /** Irregular Words

@@ -85,48 +85,49 @@
                     <div class="tab-pane" id="tabVisaOrder">
                         <table class="table table-bordered">
                             <thead class="well table-bordered">
-                                <tr>
-                                    <th>Order#</th>
-                                    <th>Date</th>
-                                    <th>Customer's Name</th>
-                                    <th>Passport Details</th>
-                                    <th>Package</th>
-                                    <th>Pax Count</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                    <th>Download Visa</th>
-                                   
-                                </tr>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Order Date</th>
+                                <th>Visa Details</th>
+                                <th>Applicants</th>
+                                <th>Agent's Name</th>
+                                <th>Value</th>
+                                <th>Visa</th>
+                                <th>Status</th>
+                            </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
                                 <?php
                                 if ($visaInfo):
                                 foreach ($visaInfo as $visa): ?>
-                                    <tr id="VS-<?= $visa['Visa']['id']; ?>">
-                                        <td><a href="#visaAppModal" role="button" data-toggle="modal" data-remote="<?= SITE_URL . "/agent/viewVisa/" . $visa['Visa']['id']; ?>"># <?php echo '' . str_pad($visa['Visa']['id'], 5, 0, STR_PAD_LEFT); ?></a></td>
-                                        <td><?php echo date("M d, Y", strtotime($visa['Visa']['date_added'])); ?></td>
-                                        <td><?php echo ucwords($visa['customer_name']); ?></td>
-                                        <td><?php
-                                                if (isset($visa['Visa_Pax'][0]['Visa_Pax']['passport'])){
-                                                    echo $visa['Visa_Pax'][0]['Visa_Pax']['passport']. " - ". date('M d, Y', strtotime($visa['Visa_Pax'][0]['Visa_Pax']['expiry']));
-                                                }
-                                            ?></td>
-                                        <td><?php echo sprintf('%s days - %s',$visa['Visa']['validity'],$visa['Visa']['type']); ?></td>
-                                        <td><?php echo $visa['Visa']['pax_count']." nos."; ?></td>
-                                        <td><?php echo CURRENCY . $visa['price']; ?></td>
+                                    <tr>
+                                        <td><a href="#visaAppModal" class="loadVisaView" data-toggle="modal" data-application-id="<?php echo $visa['Visa_Booking']['id']; ?>" data-remote="<?= SITE_URL . "/admin/view_visadetails/" . $visa['Visa_Booking']['id'].'?interface=agent'; ?>"><b>#<?php echo str_pad($visa['Visa_Booking']['id'], 5, 0, STR_PAD_LEFT); ?></b></a></td>
+                                        <td><?php echo date("M j, Y", strtotime($visa['Visa_Booking']['date_added'])); ?></td>
+                                        <td>
+                                            <span><b><?=$visa['Visa']['title']; ?></b></span>
+                                            <span><?="Validity: ".$visa['Visa']['validity']." days"; ?></span>
+                                        </td>
+                                        <td>
+                                            <span><a href="mailto:<?=$visa['Visa_Booking']['email']; ?>"><?php echo strtolower($visa['Visa_Booking']['email'])." | ".$visa['Visa_Booking']['phone']; ?></a></span>
+                                            <span><?="Arrival: ".date("M j, Y", strtotime($visa['Visa_Booking']['arrival'])); ?></span>
+                                            <span><?="Pax Size: ".str_pad($visa['Visa_Booking']['pax_count'], 2, '0', STR_PAD_LEFT); ?></span>
+                                        </td>
+                                        <td><?php echo ucwords($visa['agent_name'])." ( #".$visa['Visa_Booking']['agent_id']." )"; ?></td>
+                                        <td><?php echo ($visa['Visa_Booking']['price'] == 0) ? ' - ' : CURRENCY . " " . ($visa['Visa_Booking']['price']); ?></td>
+                                        <td>
+                                <span class="download-visa-<?php echo $visa['Visa']['id']?>">
+                                <?php if (!is_null($visa['Visa_Booking']['visa_file_name'])) { ?>
+                                    <a href="<?php echo SITE_URL . '/admin/download_visa_document/' . json_decode($visa['Visa_Booking']['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-visa-active"></i>Visa </a>
+                                <?php } else { ?>
+                                    <!-- i style="cursor: not-allowed" class="icon-file" onclick="javascript:alert('No Visa Document To Download');"></i -->
+                                    <i class="icon-download-visa"></i>
+                                <?php } ?>
+                                </span>
+                                        </td>
                                         <td>
                                             <?php $btn = ($visa['status'] == 'approved') ? 'success' : ( ($visa['status'] == 'rejected') ? 'danger' : 'warning' ); ?>
-                                            <span  class="badge badge-<?= $btn; ?> <?php echo $visa['Visa']['id']; ?>-text-status"><?= ucwords(strtolower($visa['status'])); ?></span>
-                                        </td>
-                                        <td> <span class="download-visa-<?php echo $visa['Visa']['id'] ?>">
-                                                <?php if (!is_null($visa['Visa']['visa_file_name']))  { ?>
-                                                    <a href="<?php echo SITE_URL . '/agent/download_visa_document/' . json_decode($visa['Visa']['visa_file_name']); ?>"><i style="cursor: pointer" class="icon-download-alt"></i> Visa</a>
-                                                <?php } else { ?>
-                                                    <span>--</span>
-                                                <?php } ?>
-
-                                            </span>
+                                            <span class="badge badge-<?=$btn; ?> <?php echo $visa['Visa_Booking']['id']; ?>-status"><?= ucwords(strtolower($visa['status'])); ?></span>
                                         </td>
                                     </tr>
                                 <?php endforeach;

@@ -127,7 +127,6 @@ class Loader
             $action = $this->default['action'];
         } else {
             $url = rtrim($this->routeURL($url), '/');
-
             $urlArray = array();
             $urlArray = explode("/", $url);
 

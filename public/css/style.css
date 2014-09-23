@@ -18,7 +18,7 @@ body {
     margin: auto
 }
 
-/* overriding bootstrap */
+/* overrorerriding bootstrap */
 input.span2{
     width: 115px;
 }
@@ -581,6 +581,7 @@ div .inverse{
 
 #gallery a img {
     border: none;
+    min-height: 450px;
 }
 
 #gallery a.show {
@@ -681,6 +682,14 @@ h1 {
     color: #8dc63f;
     padding-left: 0px;
     line-height: normal;
+}
+
+.container-main .main-header h1{
+    font-size: 20px;
+    text-shadow: 0 1px 0px rgba(255, 255, 255, 0.25);
+    font-family: 'Ropa Sans';
+    padding-left: 0px;
+    margin-bottom: 0px;
 }
 
 .green-title{
@@ -826,9 +835,33 @@ span.star5{
 .icon-map,.icon-contact,
 .icon-icHotel,.icon-icTravel,.icon-icOther,
 .icon-family,.icon-honeymoon,.icon-spouse,.icon-alone,
-.icon-cCalendar{
+.icon-cCalendar,
+.icon-download, .icon-download-visa, .icon-download-visa-active
+{
     background: url("../images/ui-sprite.png") no-repeat scroll 0 0 rgba(0,0,0,0);
 }
+
+.icon-download{
+    background-position: -222px -6px;
+    height: 20px;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.icon-download-visa{
+    background-position: -185px -89px;
+    height: 35px;
+    vertical-align: middle;
+    width: 38px;
+}
+
+.icon-download-visa-active{
+    background-position: -150px -89px;
+    height: 35px;
+    vertical-align: middle;
+    width: 38px;
+}
+
 
 span.star2{
     width: 28px;
@@ -1148,7 +1181,9 @@ ul.visa-pax-list li span:first-child{
     width: 595px;
     min-height: 50px;
 }
-.tour-main-panel{
+.tour-main-panel,
+.article-body
+{
     float: left;
     width: 100%;
     min-height: 50px;
@@ -1197,10 +1232,10 @@ ul.visa-pax-list li span:first-child{
 
 .container-main h3{
     color: #7B93AD;
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Ropa Sans', sans-serif;
     margin-bottom: 0px;
-
+    font-weight: normal;
 }
 
 .inclusion{
@@ -1679,6 +1714,18 @@ table.room-info td{
     padding-bottom: 5px;
 }
 
+table span{
+    display: block;
+}
+.tdLabel{
+    color: #777777;
+    font-size: 13px;
+    font-weight: bold;
+}
+.btmBrdr{
+    border-bottom: 1px solid #EFEFEF ;
+    padding-bottom: 5px;
+}
 
 /*
 table.room-info th{
@@ -1781,3 +1828,159 @@ table.room-info tr.tbl-row-grandtotal td{
     display: block;
 }
 */
+
+.error{
+    color: red;
+    font-weight: normal;
+}
+
+/* navigation for the Packages on page */
+.pkgNav{
+    background-color: #e5f1ff;
+    padding:10px;
+    text-align: center;
+    -moz-border-radius: 6px; /* Firefox */
+    -webkit-border-radius: 6px; /* Safari and Chrome */
+    border-radius: 6px; /* Opera 10.5+, future browsers, and now also our behavior htc file */
+    text-shadow: 0px 1px 0px #ffffff;
+}
+
+.pkgNav span a {
+    font-family: "Ropa Sans";
+    font-size: 18px;
+    font-weight: 200;
+    margin: 0 5px 8px 0;
+    padding-left: 12px;
+}
+
+.pkgNav span.active a{
+    color: #59923f;
+}
+
+.pkgNav span{
+    border-right: 1px solid #5c5c5c;
+    padding-right: 10px;
+}
+
+.pkgNav span.last{
+    border-right: none;
+    padding-right: 10px;
+}
+
+/* Visa details */
+.article-header{
+    margin-bottom: 25px;
+}
+
+section.info-box{
+    border-bottom: 2px solid #EFEFEF;
+    padding: 10px 0px;
+}
+
+section.info-box .info-section {
+    padding-right: 5px;
+    margin-right: 10px;
+    border-right: 2px solid #EFEFEF;
+}
+
+section.info-box span.last{
+    border-right: none;
+    padding: 0;
+    margin: 0;
+}
+
+section.info-box .info-section span{
+    display: block;
+    min-width: 150px;
+}
+
+.info-section span.meta-label{
+    font-size:16px;
+    font-family: "Ropa Sans";
+}
+
+.info-section span.meta-price{
+    font-size:25px;
+    font-family: "Ropa Sans";
+    font-weight: bold;
+    color: #3E9A3C;
+}
+
+.green{
+    color: #3E9A3C;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+.small{
+    font-size: 0.9em !important;
+}
+
+.info-section span.meta-details{
+    font-size: 1.2em;
+    font-family: "Ropa Sans";
+}
+
+.vertical-nav{
+    padding: 10px;
+}
+
+.vertical-nav > ul{
+    margin-left: 0px;
+    list-style: none;
+}
+
+.vertical-nav > ul > li{
+    border-bottom: 1px solid #EFEFEF;
+    padding: 5px;
+}
+
+.vertical-nav > ul > li span{
+    display: inline-block;
+    font-family: "Ropa Sans",sans-serif;
+    font-size: 14px;
+}
+
+.vertical-nav > ul > li.active{
+    background-color: #3E9A3C;
+}
+
+.vertical-nav > ul > li.active span{
+    color: #FFFFFF;
+}
+
+.vertical-nav > ul > li.noBorder{
+    border: none;
+}
+
+/* visa display */
+.visa-item{
+    width: 48%;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.visa-item img{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+.visa-item div.metadata{
+    width: 70%;
+}
+
+.metadata span.visa-price{
+    font-size:18px;
+    font-family: "Ropa Sans";
+}
+
+.metadata span.visa-price > small{
+    font-size:12px;
+    font-family: "Ropa Sans";
+    padding-left:5px;
+ }
+
+.block{
+    display: block;
+}
+

@@ -18,6 +18,7 @@ class Package extends Model{
 
     const TYPE_TOURS = "tour";
     const TYPE_COMBO = "combo";
+    const TYPE_HOLIDAY = 'holiday';
 
     #has many tariffs
     var $hasMany = array('Package_Rate' => 'Package_Rate', 'Package_Image' => 'Package_image', 'Package_Time' => 'Package_Time');

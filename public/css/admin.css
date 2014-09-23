@@ -595,7 +595,10 @@ a:hover.back-login {
     -moz-box-shadow: 0px 1px 10px #eee; /* Firefox */
     -webkit-box-shadow: 0px 1px 10px #eee; /* Safari and Chrome */
     box-shadow: 0px 1px 10px #eee; /* Opera 10.5+, future browsers and IE6+ using our behavior htc file */
+}
 
+.pd20{
+    padding: 20px;
 }
 
 /** All MISC */
@@ -631,4 +634,94 @@ table span{
 .btmBrdr{
     border-bottom: 1px solid #EFEFEF ;
     padding-bottom: 5px;
+}
+
+/* banner page */
+.bannerForm{
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.bannerForm form{
+    margin: 10px 0px;
+}
+
+.bannerForm form div{
+    margin: 10px 0px 15px 0px;
+}
+
+.bannerForm label{
+    font-weight: bold;
+}
+
+.bannerForm form div img{
+    max-height: 150px;
+    display: none;
+}
+
+.previewBannerWrapper div img{
+    max-height: 150px;
+    display: none;
+}
+
+.bannerList{
+
+}
+
+.bannerList > div{
+    margin-bottom: 25px;
+    max-width: 49%;
+    margin-right: 25px;
+}
+
+.bannerList img{
+    margin-bottom: 10px;
+    max-height: 185px;
+    display: block;
+}
+
+.bannerList span.action-bar{
+    background-color: #EFEFEF;
+    padding: 5px;
+    width: 98%;
+    float: left;
+    text-align: right;
+}
+
+.error{
+    color: #FF0000;
+}
+
+/* icon sprite */
+.icon-download,
+.icon-download-visa,
+.icon-download-visa-active{
+    background: url("../images/ui-sprite.png") no-repeat scroll 0 0 rgba(0,0,0,0);
+}
+
+.icon-download{
+    background-position: -222px -6px;
+    height: 20px;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.icon-download-visa{
+    background-position: -185px -89px;
+    height: 35px;
+    vertical-align: middle;
+    width: 38px;
+}
+
+.icon-download-visa-active{
+    background-position: -150px -89px;
+    height: 35px;
+    vertical-align: middle;
+    width: 38px;
+}
+
+/* visa form on model window */
+#uploadform{
+    margin: 0;
 }

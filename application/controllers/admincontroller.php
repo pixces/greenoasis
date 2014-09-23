@@ -79,7 +79,6 @@ class AdminController extends Controller {
     /*     * ***********************************
      * Packages
      * *********************************** */
-
     public function package() {
 
         $images = 0;
@@ -794,7 +793,6 @@ class AdminController extends Controller {
     /*     * ***********************************
      * Bookings
      * *********************************** */
-
     public function bookings() {
         $this->set_pageTitle('Hotel: Bookings');
         $this->set_pageType('bookings');
@@ -822,21 +820,103 @@ class AdminController extends Controller {
         $this->set('booking', $details);
     }
 
-    /*     * ***********************************
+    /* ***********************************
      * Visa
-     * *********************************** */
-
+     * ***********************************/
     public function visa() {
-        $this->set_pageTitle('Booking: Visa');
+        $this->set_pageTitle('Visa');
         $this->set_pageType('visa');
 
-        $visaObj = new Visa();
-        $counts = $visaObj->getCounts();
+        $model = new Visa();
+        $counts = $model->getCounts();
+        $model->orderBy('date_added', 'DESC');
+        $visaList = $model->getAll();
+
+        $this->set('addUrl', SITE_URL . '/admin/visa_add/');
+        $this->set('visas', $visaList);
+        $this->set('counts', $counts);
+    }
+
+    public function visa_add(){
+        $model = new Visa();
+
+        if ($_POST && $_POST['form_action'] == 'add' && $_POST['visa']) {
+            $error = 0;
+            $model->setAttributes($_POST['visa']);
+
+            if ($model->save()) {
+                $this->setFlash('Visa ' . $_POST['visa']['title'] . ' successfully added.', 's');
+            } else {
+                $this->setFlash('Cannot save visa ' . $_POST['visa']['title'], 'e');
+            }
+            header("location:" . SITE_URL . "/admin/visa/");
+            exit;
+        }
+
+        $this->set_pageTitle('Visa: Add Visa');
+        $this->set('action', 'add');
+        $this->set_pageType('visa');
+        $this->setTemplate('visa_form');
+    }
+
+    public function visa_edit(){
+        $model = new Visa();
+
+        if ($_POST && $_POST['form_action'] == 'edit' && $_POST['visa']) {
+            $error = 0;
+            $model->setAttributes($_POST['visa']);
+
+            if ($model->save()) {
+                $this->setFlash('Visa ' . $_POST['visa']['title'] . ' successfully updated.', 's');
+            } else {
+                $this->setFlash('Cannot update visa ' . $_POST['visa']['title'], 'e');
+            }
+            header("location:" . SITE_URL . "/admin/visa/");
+            exit;
+        }
+
+        $id = func_get_arg(func_num_args() - 1);
+        $model->setId($id);
+
+        $details = $model->getById();
+
+        $this->set('model', $details['Visa']);
+        $this->set_pageTitle('Visa: Edit Visa');
+        $this->set('action', 'edit');
+        $this->set_pageType('visa');
+        $this->setTemplate('visa_form');
+    }
+
+    //this is an ajax call
+    public function visa_change_status() {
+        if ($_POST) {
+            $id = $_POST['id'];
+            $currentStatus = $_POST['data'];
+
+            $model = new Visa();
+            $model->setId($id);
+            $result = $model->toggleStatus($currentStatus);
+            if ($result) {
+                echo json_encode(array('result' => 'Success', 'message' => 'Status updated; set to ' . $result, 'response' => $result));
+            } else {
+                echo json_encode(array('result' => 'Error', 'message' => "Cannot update status"));
+            }
+        }
+        exit;
+    }
+
+    public function visa_bookings() {
+        $this->set_pageTitle('Booking: Visa');
+        $this->set_pageType('visa_bookings');
+
+        $model = new Visa_Booking();
+        $counts = $model->getCounts();
         //$visaObj->like("status", "approved");
         // $visaObj->setCurDate();
-        $visaObj->orderBy('date_added', 'DESC');
-        $visaInfo = $visaObj->getAll();
+        $model->orderBy('date_added', 'DESC');
+        $visaInfo = $model->getAll();
 
+        $this->setTemplate('visa_bookings');
         $this->set('visaInfo', $visaInfo);
         $this->set('counts', $counts);
     }
@@ -912,7 +992,7 @@ class AdminController extends Controller {
             //update the details into the database
             if ($agentObj->save()) {
 
-                Utils::sendEmail(
+                Utils::sendAgentEmail(
                         array('email' => $agent['Agent']['email'], 'name' => $agent['Agent']['contact']), "Congratulation! Approved as GreenOasis Travel Agent", array('password' => $pass, 'name' => $agent['Agent']['contact']), 'agent_approval'
                 );
             }
@@ -962,10 +1042,9 @@ class AdminController extends Controller {
         
     }
 
-    /*     * ***********************************
+    /* * ***********************************
      * Pages: Static Site Content
      * *********************************** */
-
     public function pages() {
         if ($_SESSION['message'] || $_SESSION['error']) {
             foreach ($_SESSION as $key => $value) {
@@ -1169,19 +1248,140 @@ class AdminController extends Controller {
         }
     }
 
-    /*     * ***********************************
+    /* * ***********************************
+     * Banners: Static Site Content
+     * *********************************** */
+    public function banners() {
+        if ($_SESSION['message'] || $_SESSION['error']) {
+            foreach ($_SESSION as $key => $value) {
+                if (in_array($key, array('message', 'error'))) {
+                    $this->set('message', $value);
+                    $this->set('status', $key);
+                    unset($_SESSION[$key]);
+                }
+            }
+        }
+
+        $bannerPath = Configurator::get('banner_img_dir');
+
+        $bannerObj = new Banner();
+
+        if (isset($_POST)){
+
+            $this->error = false;
+            $data = array();
+            //upload the image
+            if ($_FILES['banner']['tmp_name']) {
+                $errorIdx = $_FILES['banner']['error'];
+
+                if ($errorIdx > 0) {
+                    $this->error = "Cannot Upload Banner";
+                } else {
+                    //check for the file extension
+                    // Get the extension from the filename.
+                    $imageExt = substr($_FILES['banner']['name'], strpos($_FILES['banner']['name'], '.'), strlen($_FILES['banner']['name']) - 1);
+                    if (in_array(strtolower($imageExt), array('.jpg','.jpeg','.png'))){
+                        //now process this image
+                        $uploadFilename = Utils::uploadImage($_FILES['banner'], 'banner');
+                        if ($uploadFilename == true) {
+                            $data['filename'] = $uploadFilename;
+                        } else {
+                            $data['filename'] = '';
+                        }
+                    } else {
+                        $this->error = "Invalid file type provided ".$_FILES['banner']['name'];
+                    }
+                }
+            }
+
+            //now do the data post
+            if (!$this->error && !empty($data['filename'])){
+                $data['status'] = 'active';
+                $data['date_created'] = date('Y-m-d h:i:s');
+                $data['title'] = $_POST['title'];
+                $data['url'] = $_POST['url'];
+                $data['type'] = $_POST['type'];
+
+                foreach ($data as $key => $value) {
+                    $bannerObj->{$key} = trim($value);
+                }
+                $bannerObj->save();
+
+                //redirect to display
+                header("location: " . SITE_URL . "/admin/banners");
+                exit;
+            }
+        }
+
+        $counts = $bannerObj->getCounts();
+        $banners = $bannerObj->getAll();
+
+
+        $this->set_pageTitle('Manage Banners');
+        $this->set_pageType('banners');
+        $this->set('banners', $banners);
+        $this->set('path',$bannerPath);
+        $this->set('counts', $counts);
+        $this->set('errorMsg', $this->error);
+    }
+
+    public function banner_status() {
+        $this->doNotRenderHeader = 1;
+        if ($_POST) {
+            $id = $_POST['id'];
+            $action = $_POST['action'];
+            $oldStatus = $_POST['data'];
+
+            $bannerObj = new Banner();
+            $bannerObj->setId($id);
+
+            $result = $bannerObj->updateStatus($oldStatus);
+
+            if ($result) {
+                echo json_encode(array('result' => 'Success', 'message' => 'Page Status updated set to ' . $result, 'response' => $result));
+                exit;
+            } else {
+                echo json_encode(array('result' => 'Error', 'message' => "Cannot update page status"));
+                exit;
+            }
+        }
+    }
+
+    public function banner_delete() {
+        $this->doNotRenderHeader = 1;
+        if ($_POST) {
+
+            $id = $_POST['id'];
+            $title = $_POST['title'];
+            $isAjax = $_POST['isAjax'];
+
+            $model = new Banner();
+            $model->setId($id);
+
+            try {
+                if ($model->delete()) {
+                    echo json_encode(array('status' => 'success', 'message' => "Banner " . $title . " has been deleted"));
+                } else {
+                    echo json_encode(array('status' => 'error', 'message' => "Failed removing banner " . $title));
+                }
+            } catch (Exception $e) {
+                echo json_encode(array('status' => 'error', 'message' => $e->getMessage()));
+            }
+        }
+        exit;
+    }
+
+    /* * ***********************************
      * TODO: Settings
      * *********************************** */
-
     public function settings() {
         $this->set_pageTitle('Settings');
         $this->set_pageType('settings');
     }
 
-    /*     * ***********************************
+    /* * ***********************************
      * admin specific / general methods
      * *********************************** */
-
     /**
      * @throws Exception
      */
@@ -1287,13 +1487,14 @@ class AdminController extends Controller {
     public function getNavigation() {
         $navigation = array(
             'dashboard' => array('url' => SITE_URL . '/admin/', 'name' => 'Dashboard'),
-            'hotel' => array('url' => SITE_URL . '/admin/hotel/', 'name' => 'Hotels'),
             'bookings' => array('url' => SITE_URL . '/admin/bookings/', 'name' => 'Bookings'),
+            'visa_bookings' => array('url' => SITE_URL . '/admin/visa_bookings/', 'name' => 'Visa Booking '),
+            'banners' => array('url' => SITE_URL . '/admin/banners/', 'name' => 'Banners'),
+            'hotel' => array('url' => SITE_URL . '/admin/hotel/', 'name' => 'Hotels'),
             'visa' => array('url' => SITE_URL . '/admin/visa/', 'name' => 'Visa'),
             'package' => array('url' => SITE_URL . '/admin/package/', 'name' => 'Packages'),
             'agents' => array('url' => SITE_URL . '/admin/agents/', 'name' => 'Agents'),
             'pages' => array('url' => SITE_URL . '/admin/pages/', 'name' => 'Pages'),
-                //'settings' => array('url' => SITE_URL . '/admin/settings/', 'name' => 'Settings'),
         );
         return $navigation;
     }
@@ -1390,18 +1591,21 @@ class AdminController extends Controller {
 
         //Today Hotel bookings
         $todaysBooking = self::getDashboardData('Hotel_Reservation');
-        //7 days Hotel Booking
-        $lastsevendaysBooking = self::getDashboardData('Hotel_Reservation', true);
         //Today Visa Application
-        $todayVisaApplications = self::getDashboardData('Visa');
-        //Last 7 days Visa 
-        $lastsevendaysVisa = self::getDashboardData('Visa', true);
+        $todayVisaApplications = self::getDashboardData('Visa_Booking');
         //Todays package booking
         $todayPackage = self::getDashboardData('Package');
+
+        //7 days Hotel Booking
+        $lastsevendaysBooking = self::getDashboardData('Hotel_Reservation', true);
+        //Last 7 days Visa
+        $lastsevendaysVisa = self::getDashboardData('Visa_Booking', true);
         // last 7 days Package
         $lastsevendaysPackage = self::getDashboardData('Package', true);
+
         //New Agent Application
         $newagentApplication = self::getDashboardData('Agent');
+
         //Low Credit Agents
         $lowCreditAgents = self::getLowCreditAgent();
 
@@ -1411,20 +1615,16 @@ class AdminController extends Controller {
     }
 
     private static function getDashboardData($class, $interval = false) {
-
-        $Obj = new $class();
+        $model = new $class();
         if ($class != 'Agent') {
             $condition = "DATE(date_added) ='" . date("Y-m-d") . "'";
-
             if ($interval) {
                 $condition = 'date_added >  DATE_SUB(CURDATE(), INTERVAL 7 DAY)';
             }
-            $dataList = $Obj->getDetailsByDate($condition);
+            $dataList = $model->getDetailsByDate($condition);
         } else {
-            $dataList = $Obj->getNewAgent();
+            $dataList = $model->getNewAgent();
         }
-
-
         return $dataList;
     }
 
@@ -1490,26 +1690,26 @@ class AdminController extends Controller {
     public function view_visadetails() {
         $this->doNotRenderHeader = true;
         $application_id = func_get_arg(func_num_args() - 1);
-        $visaObj = new Visa();
+        $visaObj = new Visa_Booking();
         $visaObj->id = $application_id;
         $details = $visaObj->getById();
+
         $visa = array();
         $paxes = array();
         if (!empty($details)) {
-            $visa['order_id'] = $details['Visa']['id'];
-            $visa['agent_name'] = $this->getAgentSummary($details['Visa']['agent_id']);
-            $visa['agent_id'] = $details['Visa']['agent_id'];
-            $visa['package'] = $details['Visa']['type'];
-            $visa['validity'] = $details['Visa']['validity'];
-            $visa['applied_date'] = $details['Visa']['date_added'];
+            $visa['order_id'] = $details['Visa_Booking']['id'];
+            $visa['agent_name'] = $this->getAgentSummary($details['Visa_Booking']['agent_id']);
+            $visa['agent_id'] = $details['Visa_Booking']['agent_id'];
+            $visa['package'] = $details['Visa_Booking']['type'];
+            $visa['validity'] = $details['Visa_Booking']['validity'];
+            $visa['applied_date'] = $details['Visa_Booking']['date_added'];
             $visa['parent_customername'] = $details['Visa_Pax'][0]['Visa_Pax']['fname'] . ' ' . $details['Visa_Pax'][0]['Visa_Pax']['mname'] . ' ' . $details['Visa_Pax'][0]['Visa_Pax']['lname'];
             $visa['parent_passport'] = $details['Visa_Pax'][0]['Visa_Pax']['passport'];
-            $visa['pax_count'] = $details['Visa']['pax_count'];
+            $visa['pax_count'] = $details['Visa_Booking']['pax_count'];
             $visa['nationality'] = $details['Visa_Pax'][0]['Visa_Pax']['nationality'];
             $visa['parent_passport_status'] = $details['Visa']['status'];
-            $visa['visa_file_name'] = $details['Visa']['visa_file_name'];
-            $visa['status'] = $details['Visa']['status'];
-            ;
+            $visa['visa_file_name'] = $details['Visa_Booking']['visa_file_name'];
+            $visa['status'] = $details['Visa_Booking']['status'];
 
             foreach ($details['Visa_Pax'] as $pax) {
                 $visa['paxes'][] = array('customer_name' => $pax['Visa_Pax']['fname'] . ' ' . $pax['Visa_Pax']['mname'] . ' ' . $pax['Visa_Pax']['lname'],
@@ -1519,6 +1719,7 @@ class AdminController extends Controller {
                     'document' => json_decode($pax['Visa_Pax']['image']));
             }
             $this->set('visa', $visa);
+            $this->set('interface',$_GET['interface']);
         }
     }
 
@@ -1567,19 +1768,41 @@ class AdminController extends Controller {
         if ($_FILES['visaFile']['type'] == "application/pdf") {
             $application_id = $_POST['id'];
             $agent_id = $_POST['agent_id'];
+            $price = $_POST['price'];
+            $paxCount = $_POST['pax'];
             $file = $_FILES['visaFile'];
+
+            //visavalue
+            $visa_value = $price * $paxCount;
+            //set deduction of this price from agent
+
             $uploadVisaFile = Utils::uploadImage($file);
             $visa['id'] = $application_id;
 
             $visa['visa_file_name'] = json_encode($uploadVisaFile);
             $visa['status'] = "approved";
-            $visaObj = new Visa();
+            $visaObj = new Visa_Booking();
             $visaObj->setId($application_id);
             $visaObj->visa_file_name = $visa['visa_file_name'];
             $visaObj->status = "approved";
             $visaObj->agent_id = $agent_id;
+            $visaObj->price = $visa_value;
+
 
             if ($visaObj->save(true)) {
+
+                $walletObj = new Agent_Wallet();
+                $wallet['agent_id'] = $agent_id;
+                $wallet['value'] = (int) $visa_value;
+                $wallet['type'] = 'withdrawl';
+                $wallet['item_type'] = 'visa';
+                $wallet['item_id'] = $application_id;
+                $wallet['date'] = date('Y-m-d h:i:s');
+                foreach ($wallet as $field => $value) {
+                    $walletObj->{$field} = $value;
+                }
+                $walletObj->save();
+
                 $download_link = "<a href=" . SITE_URL . "/admin/download_visa_document/" . json_decode($visa["visa_file_name"]) . "><i style=\"cursor: pointer\" class=\"icon-download-alt\"></i>Visa</a>";
                 echo json_encode(array('result' => 'Success', 'message' => 'Visa Uploaded And Approved Successfully.', 'applicationid' => $application_id, 'download_link' => $download_link));
             } else {
@@ -1669,11 +1892,13 @@ class AdminController extends Controller {
               
                $msg="<strong>".ucwords($agent['Agent']['company'])." </strong>Password is reset and mailed to <strong>".$agent['Agent']['email']."</strong>";
                echo $msg;
-                Utils::sendEmail(
+                Utils::sendAgentEmail(
                         array('email' => $agent['Agent']['email'], 'name' => $agent['Agent']['contact']), "Your Password for GreenOasis Travel Agent Has Been Reset.", array('password' => $pass, 'name' => $agent['Agent']['contact']), 'password_reset'
                );
             }
         }
     }
+
+
 
 }

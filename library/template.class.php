@@ -42,6 +42,7 @@ class Template
     {
         $html = new HTML;
         $flash = $this->getFlashObj();
+
         extract($this->variables);
 
         $template_filename = !empty($this->_templateFile) ? $this->_templateFile : $this->_action;

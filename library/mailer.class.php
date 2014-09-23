@@ -27,11 +27,11 @@ class Mailer
             $this->mailer->IsHTML();
             $this->mailer->CharSet="UTF-8";
             $this->mailer->SMTPAuth = true;
-            $this->mailer->SMTPSecure = "tls";
-            $this->mailer->Host = "smtp.gmail.com";
-            $this->mailer->Port = 587;
-            $this->mailer->Username = "pixces@gmail.com";
-            $this->mailer->Password = "zoya$123";
+            //$this->mailer->SMTPSecure = "tls";
+            $this->mailer->Host = "mail.dubaigot.com";
+            $this->mailer->Port = 26;
+            $this->mailer->Username = "contact@dubaigot.com";
+            $this->mailer->Password = "newmail123";
             $this->mailer->SMTPDebug = 2;
 
         }
@@ -66,7 +66,9 @@ class Mailer
     public function setFrom($email = '', $name = '')
     {
         if (empty($email)) {
-            $this->mailer->SetFrom(ADMIN_EMAIL, 'GreenOasis');
+            //$this->mailer->SetFrom(ADMIN_EMAIL, 'GreenOasis');
+            $this->mailer->SetFrom('contact@dubaigot.com', 'GreenOasis');
+
         } else {
             $this->mailer->SetFrom($email, $name);
         }
@@ -75,7 +77,7 @@ class Mailer
     public function addReplyTo($email = '', $name = '')
     {
         if (empty($email)) {
-            $this->mailer->SetFrom(ADMIN_EMAIL, 'GreenOasis');
+            $this->mailer->SetFrom('contact@dubaigot.com', 'GreenOasis');
         } else {
             $this->mailer->SetFrom($email, $name);
         }

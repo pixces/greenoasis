@@ -166,7 +166,6 @@ class Utils {
     /*
      * select box of country
      */
-
     public static function getCountrySelect($name = NULL, $selected = 'India') {
         $countryList = array('Afghanistan', 'Arabia', 'Saudi', 'Argentina', 'Australia', 'Bahrain', 'Bangladesh', 'Bhutan', 'Brazil', 'Cambodia', 'Canada', 'China', 'Colombia', 'Costa Rica', 'Cuba', 'Czech Republic', 'Denmark', 'Egypt', 'Europe', 'European Union', 'Fiji', 'Finland', 'France', 'Germany', 'Ghana', 'Haiti', 'Holland', 'Hong Kong, (China)', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran, Islamic Republic of', 'Iraq', 'Israel', 'Italy', 'Japan', 'Korea, Dem. Peoples Rep.', 'Korea, (South) Republic of', 'Kuwait',
             'Malaysia', 'Maldives', 'Mexico', 'Middle East', 'Morocco', 'Myanmar (ex-Burma)', 'Nepal', 'New Zealand', 'Oman', 'Pakistan', 'Philippines', 'Qatar', 'Russia (Russian Fed.)', 'Saudi Arabia', 'Seychelles', 'Singapore', 'South Africa', 'South America', 'Sri Lanka (ex-Ceilan)', 'Sudan', 'Switzerland', 'Syrian Arab Republic', 'Taiwan', 'Thailand', 'Turkey', 'United Arab Emirates', 'United Kingdom', 'United States');
@@ -335,6 +334,15 @@ class Utils {
                         'resize' => true,
                         'cropping' => true,
                     );
+                    break;
+                case 'banner':
+                    $resize['thumb'] = array(
+                        'prefix' => 'tn_',
+                        'height' => 200,
+                        'resize' => true,
+                        'ratio_x' => true,
+                    );
+                    break;
                 case 'package':
                     $resize['thumb'] = array(
                         'prefix' => PREFIX_THUMB,
@@ -350,10 +358,15 @@ class Utils {
                         'resize' => true,
                         'cropping' => true,
                     );
+                    break;
             }
         }
 
         $dest = UPLOAD_DST_DIR; // The place the files will be uploaded to (currently a 'files' directory). Should have write permission
+        if ($type == 'banner'){
+           $dest = ROOT . DS . 'public' . Configurator::get('banner_img_dir');
+        }
+
         #create new names of the uploaded image file
         $imageName = $file['name']; // Get the name of the file (including file extension).
         $imgFname = substr($imageName, 0, strpos($imageName, '.'));
@@ -405,9 +418,11 @@ class Utils {
                         $handle->image_y = $value['height'];
                         $handle->image_ratio_crop = true;
                     } else if ($value['ratio_y'] == true) {
+                        $handle->image_ratio = true;
                         $handle->image_x = $value['width'];
                         $handle->image_ratio_y = true;
                     } else if ($value['ratio_x'] == true) {
+                        $handle->image_ratio = true;
                         $handle->image_y = $value['height'];
                         $handle->image_ratio_x = true;
                     }
@@ -524,6 +539,35 @@ class Utils {
             return false;
         }
     }
+    //copied the same sendEmail() function and renamed it as sendAgentEmail() and added an email address to the send a copy of approval mail to the given mail id
+    public static function sendAgentEmail($recipient, $subject, $params, $template, $isAdmin = true) {
+
+        if (!$recipient && !$subject && !$params) {
+            echo "Recipient, Subject & Params are mandatory";
+            return false;
+        }
+
+        $mail = new Mailer();
+        $mail->setSubject($subject);
+        $mail->addAddress($recipient['email'], $recipient['name']);
+        $cc = "info@dubaigot.com";
+        $mail->AddAddress($cc,$ccName="GreenOasis");
+        $mail->setData('data', $params);
+        $mail->setTemplate($template);
+        
+
+
+        try {
+            if (!$mail->sendEmail()) {
+                echo $mail->ErrorInfo;
+                return false;
+            }
+            return true;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
     public static function captcha() {
         if (!isset($_SESSION)) {
@@ -553,6 +597,26 @@ class Utils {
             echo "<h1>Error 404: File Not Found: <br /><em>$file</em></h1>";
             exit;
         }
+    }
+
+    public static function getBanners($type = 'large'){
+        $bannerPath = SITE_URL.Configurator::get('banner_img_dir')."/";
+        $bannerObj = new Banner();
+        $bannerList = $bannerObj->getAllActive($type);
+        $list = array();
+
+        if ($bannerList){
+            $list = array();
+            foreach($bannerList as $banner){
+                $list[] = array(
+                    'title' => $banner['Banner']['title'],
+                    'url'   => ($banner['Banner']['url'] != '') ? $banner['Banner']['url'] : "#",
+                    'image' => $bannerPath.$banner['Banner']['filename']
+                );
+            }
+        }
+
+        return $list;
     }
 
     /* end class */

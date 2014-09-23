@@ -54,7 +54,7 @@
     <?php foreach ($dashBoardData['todaysVisa'] as $tvisa) { ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
-                    <td><?php echo date("F j, Y, g:i a", strtotime($tvisa['Visa']['date_added'])); ?></td>
+                    <td><?php echo date("F j, Y, g:i a", strtotime($tvisa['Visa_Booking']['date_added'])); ?></td>
                     <td><?php echo $tvisa['agent_name']; ?></td>
                     <td><?php echo $tvisa['customer_name']; ?></td>
                     <td><?php echo $tvisa['Visa']['pax_count']; ?></td>

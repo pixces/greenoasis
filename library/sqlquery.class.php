@@ -151,6 +151,8 @@ class SQLQuery {
 
         if ($this->_hO == 1 && isset($this->hasOne)) {
 
+            print_r($this->hasOne);
+
             foreach ($this->hasOne as $alias => $model) {
                 $table = strtolower(Inflection::pluralize($model));
                 $singularAlias = strtolower($alias);

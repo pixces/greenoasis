@@ -20,9 +20,8 @@
                     <p><?=$package['description']; ?></p>
                     <div class="media-meta-horizontal">
                         <span>Duration: <?=$package['duration']; ?></span>
-                        <span>Starts from <?=$package['price']; ?> AED</span>
+                        <span>Starts from <?=$package['price']; ?> $</span>
                     </div>
-
                 </div>
                 <div class="media-action pull-right">
                     <span><i class="icon-calendar"></i> <?=date('F d, Y h:i:s', strtotime($package['date_modified'])); ?></span>

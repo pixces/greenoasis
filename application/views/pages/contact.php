@@ -59,16 +59,13 @@
             </div>
         </div>
         <div class="sidebar pull-right">
-            <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/img03.png" width="300" height="170"/>
-                <div class="caption inverse">
-                    <span><small>Online visa for Dubai,</small></span>
-                    <span class="text-large">@ $100</span>
+            <?php foreach(Utils::getBanners('small') as $banner){ ?>
+                <div class="widget adv300-170">
+                    <a href="<?=$banner['url']; ?>" class="">
+                        <img src="<?=$banner['image']; ?>" width="300" height="250"/>
+                    </a>
                 </div>
-            </div>
-            <div class="widget adv300-170">
-                <img src="<?=SITE_URL; ?>/images/advt.png" width="300" height="250"/>
-            </div>
+            <?php } ?>
             <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>

@@ -28,13 +28,14 @@ class PackagesController  extends Controller {
         $packageModel = new Package();
         $tours = $packageModel->getFeatured(Package::TYPE_TOURS, 5);
         $combo = $packageModel->getFeatured(Package::TYPE_COMBO, 5);
+        $holiday = $packageModel->getFeatured(Package::TYPE_HOLIDAY, 5);
 
         //get the details form the social and contact group
         $quickContact = Configurator::get('contact',1);
 
         $social = Configurator::get('social',1);
 
-        $this->set('package',array('tours'=>$tours,'combo'=>$combo));
+        $this->set('package',array('tours'=>$tours,'combo'=>$combo, 'holiday'=>$holiday));
         $this->set('social',$social);
         $this->set('contact',$quickContact);
     }

@@ -1,5 +1,3 @@
-<div>
-</div>
 <ul class="list-panel">
     <?php if ($pages) {
         foreach($pages as $page) { ?>

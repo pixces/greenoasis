@@ -21,6 +21,10 @@
                 <label class="control-label" for="package_type">Package Type</label>
                 <div class="controls">
                     <label class="radio inline">
+                        <?php $checked = ($model['Package']['type'] == 'holiday') ? 'Checked = "checked"' : ''; ?>
+                        <input type="radio" name="package[type]" id="package_type" value="holiday" <?=$checked; ?>>Holiday Packages
+                    </label>
+                    <label class="radio inline">
                         <?php $checked = ($model['Package']['type'] == 'tour') ? 'Checked = "checked"' : ''; ?>
                         <input type="radio" name="package[type]" id="package_type" value="tour" <?=$checked; ?>>Tour Package
                     </label>

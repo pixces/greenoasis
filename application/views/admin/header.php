@@ -16,7 +16,8 @@
     <script src="<?=SITE_JS; ?>html5shiv.js" type="text/javascript"></script>
     <script src="<?=SITE_JS; ?>pngfix.js" type="text/javascript"></script>
     <script src="<?=SITE_JS; ?>bootstrap-datepicker.js" type="text/javascript"></script>
-    <script src="<?=SITE_JS; ?>jquery.form.min.js" type="text/javascript"></script>
+    <script src="<?=SITE_JS; ?>jquery.validate.min.js" type="text/javascript"></script>
+    <script src="<?=SITE_JS; ?>additional-methods.min.js" type="text/javascript"></script>
     
     <!--script src="<?=SITE_JS; ?>ckeditor_standard/ckeditor.js"></script -->
 </head>
@@ -32,8 +33,11 @@
                 <div class="top-nav">
                     <ul class="nav nav-pills">
                         <?php foreach ($navigation as $k=>$v) { ?>
-                            <li class="<?=$k; ?> <?php echo $t = ( $pageType == $k ) ? 'active' : ''; ?>"><a
-                                    class="<?=strtolower($v['name']); ?>" href="<?=$v['url']; ?>"><i></i><?=$v['name']; ?></a></li>
+                            <li class="<?=$k; ?> <?php echo $t = ( $pageType == $k ) ? 'active' : ''; ?>">
+                                <a class="<?=strtolower($v['name']); ?>" href="<?=$v['url']; ?>">
+                                    <i></i><?=$v['name']; ?>
+                                </a>
+                            </li>
                         <?php } ?>
                     </ul>
                 </div>

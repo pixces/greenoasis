@@ -36,6 +36,7 @@ $(function() {
     //actions to get sef title
     $("#page_title").on('blur', ADMIN.createSEF);
     $("#package_title").on('blur', ADMIN.createSEF);
+    $("#visa_title").on('blur', ADMIN.createSEF);
 
     //remove image from form
     $('a.form-change-image').on('click', function() {
@@ -116,14 +117,13 @@ var ADMIN = {
         var oldState = $(obj).attr('data-value');
 
         var fetchUrl = SITE_URL + '/admin/' + type + "_" + action;
-
         $.post(fetchUrl, {'id': id, 'action': action, 'data': oldState}, function(data) {
             if (data.result == 'Success') {
                 var newState = data.response;
 
                 $(obj).toggleClass('btn-inverse');
 
-                if (newState === 1) {
+                if( newState === 1 || newState == 'active' ){
                     $(obj).html('<i class="icon-thumbs-up icon-white"></i>');
                 } else {
                     $(obj).html('<i class="icon-thumbs-down"></i>');
@@ -306,8 +306,8 @@ var ADMIN = {
                         $("."+data.applicationid+"-text-status").removeClass("text-warning").addClass("text-success").html("Approved");
                         $(".download-visa-"+data.applicationid).html(data.download_link);
                         
-//window.parent.location.reload(false);
-                       // opener.location.href = opener.location.href;
+                        //window.parent.location.reload(false);
+                        // opener.location.href = opener.location.href;
                         
                     });
 
