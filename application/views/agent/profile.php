@@ -19,13 +19,13 @@
                         <div class="control-group">
                             <label class="control-label" for="inputCompany">Company Name</label>
                             <div class="controls">
-                                <input name="agent[company]" class="span4 title" type="text" id="inputCompany" required="required" value="<?=$agent['company']; ?>">
+                                <input name="agent[company]" class="span4 title" type="text" id="inputCompany" required="required"  disabled value="<?=$agent['company']; ?>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputContact">Contact Person</label>
                             <div class="controls">
-                                <input name="agent[contact]" class="span4" type="text" id="inputContact" required="required" value="<?=$agent['contact']; ?>">
+                                <input name="agent[contact]" class="span4" type="text" id="inputContact" required="required"  disabled value="<?=$agent['contact']; ?>">
                             </div>
                         </div>
                         <div class="control-group">
@@ -37,19 +37,19 @@
                         <div class="control-group">
                             <label class="control-label" for="inputAddress">Company Address</label>
                             <div class="controls">
-                                <textarea name="agent[address]" class="span6" id="inputAddress" rows="3" required="required"><?=$agent['address']; ?></textarea>
+                                <textarea name="agent[address]" class="span6" id="inputAddress" rows="3" disabled required="required"><?=$agent['address']; ?></textarea>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputCity">City</label>
                             <div class="controls">
-                                <input name="agent[city]" class="span4" type="text" id="inputCity" required="required" value="<?=$agent['city']; ?>">
+                                <input name="agent[city]" class="span4" type="text" id="inputCity" disabled required="required" value="<?=$agent['city']; ?>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputProvince">State/Province/County</label>
                             <div class="controls">
-                                <input name="agent[province]" class="span4" type="text" id="inputProvince" value="<?=$agent['province']; ?>">
+                                <input name="agent[province]" class="span4" type="text" id="inputProvince" disabled value="<?=$agent['province']; ?>">
                             </div>
                         </div>
                         <div class="control-group">
@@ -61,7 +61,7 @@
                         <div class="control-group">
                             <label class="control-label" for="inputZip">Zip Code</label>
                             <div class="controls">
-                                <input name="agent[zip]" class="span4" type="text" id="inputZip" value="<?=$agent['zip']; ?>">
+                                <input name="agent[zip]" class="span4" type="text" id="inputZip" disabled value="<?=$agent['zip']; ?>">
                             </div>
                         </div>
                         <div class="control-group">
@@ -73,19 +73,19 @@
                         <div class="control-group">
                             <label class="control-label" for="inputPhone">Alternate Phone Number</label>
                             <div class="controls">
-                                <input name="agent[alt_phone]" class="span4" type="text" id="inputAltPhone" value="<?=$agent['alt_phone']; ?>">
+                                <input name="agent[alt_phone]" class="span4" type="text" id="inputAltPhone" disabled value="<?=$agent['alt_phone']; ?>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputFax">Fax Number</label>
                             <div class="controls">
-                                <input name="agent[fax]" class="span4" type="text" id="inputFax" value="<?=$agent['fax']; ?>">
+                                <input name="agent[fax]" class="span4" type="text" id="inputFax" disabled value="<?=$agent['fax']; ?>">
                             </div>
                         </div>
 
                         <div class="control-group">
                             <div class="controls">
-                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                                <button type="submit" class="btn btn-primary" disabled>Update Profile</button>
                             </div>
                         </div>
                     </form>

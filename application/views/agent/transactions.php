@@ -7,7 +7,8 @@
                 <div class="span6">
                     <h1 style="margin:0;padding:0;">Current Balance :</h1>
                     <h1 style="margin:0;font-size:31.5px;padding:0;">USD <?=number_format($summary['balance'], 0); ?></h1>
-                    <p>Last Successful Payment 5/8/2014 ($99)</p></div>
+                    <p>Last Successful Payment <?=date('j/m/Y', strtotime($summary['lastTranDate'])); ?> <!--5/8/2014 -->
+                        ($<?=number_format($summary['lastTranAmt'], 0); ?>)</p></div>
                 <div class="pull-right span8">
                     <!-- form class="form-inline pull-right">
                         <label>From : </label>
@@ -68,7 +69,7 @@
                         <tr>
                             <td colspan="5">No transaction details found.</td>
                         </tr>
-                        <? } ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
