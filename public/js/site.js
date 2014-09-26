@@ -16,6 +16,32 @@ $(function() {
     //display datepicker for arrivaldate */
     $("#dpArrival").datepicker();
 
+    //Disable past date
+    $('#dpArrival').each(function() {
+        var minDate = new Date();
+        minDate.setHours(0);
+        minDate.setMinutes(0);
+        minDate.setSeconds(0, 0);
+
+        var $picker = $(this);
+        $picker.datepicker();
+
+        var pickerObject = $picker.data('datepicker');
+
+        $picker.on('changeDate', function(ev) {
+            if (ev.date.valueOf() < minDate.valueOf()) {
+
+                // Handle previous date
+                alert("Please select date greater than today's date");
+                pickerObject.setValue(minDate);
+
+                // And this for later versions (in case)
+                ev.preventDefault();
+                return false;
+            }
+        });
+    });
+
     $("#hotelSearch").submit(function(e) {
 
         e.preventDefault();
@@ -77,9 +103,10 @@ $(function() {
     $("form.visa-form").on('change', '#visa_count', VISA.addApplicants);
     $(document).on('submit', '#uploadform', VISA.uploadDocument);
 
-    $('.modal').on('hide.bs.modal', function () {
-    $('.modal').removeData();
-});
+    $('.modal').on('hide.bs.modal', function() {
+        $('.modal').removeData();
+
+    });
 
 
     //call the function to recalculate booking values on select of qty
@@ -218,7 +245,6 @@ var SEARCH = {
             }
         }
     },
-
     //this will check for the valid agent signature
     //if present will redirect to the booking page
     //else it should throw a modal for Agent Login
@@ -244,7 +270,6 @@ var SEARCH = {
         //redirect to the booking form
         window.location.href = hrefUrl;
     },
-
     'booking': function(e) {
         e.preventDefault;
 
@@ -275,15 +300,14 @@ var SEARCH = {
         }, 'json');
         return false;
     },
-
     'checkForsession': function() {
 
         var ajaxSessionResponse;
-        var reloadUrl=window.location;
+        var reloadUrl = window.location;
         $.ajax({
             type: "POST",
             async: false,
-            data:"reloadUrl="+reloadUrl,
+            data: "reloadUrl=" + reloadUrl,
             url: SITE_URL + '/agent/checkAgentSession/',
             cache: false,
             dataType: 'json',
@@ -345,7 +369,7 @@ var VISA = {
         }
 
     },
-            'uploadDocument': function(e) {
+    'uploadDocument': function(e) {
         e.preventDefault();
 
         $.ajax({
@@ -364,12 +388,12 @@ var VISA = {
                     $(".uploadvisa-form").slideUp("slow", function() {
                         $("#uploadError").empty();
                         $("#uploadStatus").html(data.message);
-                        $("."+data.applicationid+"-text-status").removeClass("text-warning").addClass("text-success").html("Approved");
-                        $(".download-visa-"+data.applicationid).html(data.download_link);
-                        
+                        $("." + data.applicationid + "-text-status").removeClass("text-warning").addClass("text-success").html("Approved");
+                        $(".download-visa-" + data.applicationid).html(data.download_link);
+
 //window.parent.location.reload(false);
-                       // opener.location.href = opener.location.href;
-                        
+                        // opener.location.href = opener.location.href;
+
                     });
 
                 } else {

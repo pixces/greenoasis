@@ -248,14 +248,15 @@ var ADMIN = {
         } else {
             var agent_id = $('.fund-div').find('input[name="agentid"]').val();
             var fund_amount = $('.fund-div').find('input[name="fundAmt"]').val();
+            var agent_totAmt = $("#agent-" + agent_id + " .total .count").data('count');
             $.ajax({
                 type: "POST",
-                data: {agentid: agent_id, fundamt: fund_amount},
+                data: {agentid: agent_id, fundamt: fund_amount,total_amount:agent_totAmt},
                 url: SITE_URL + '/admin/allocateFund/',
                 cache: false,
                 dataType: 'json',
                 success: function(data) {
-                    var agent_totAmt = $("#agent-" + agent_id + " .total .count").data('count');
+                    
                     if (data.result === "Success") {
                         agent_totAmt = parseFloat(fund_amount) + parseFloat(agent_totAmt);
                         $("#agent-" + agent_id).data('count', agent_totAmt);

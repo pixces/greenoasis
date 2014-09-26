@@ -79,6 +79,7 @@ class AdminController extends Controller {
     /*     * ***********************************
      * Packages
      * *********************************** */
+
     public function package() {
 
         $images = 0;
@@ -793,6 +794,7 @@ class AdminController extends Controller {
     /*     * ***********************************
      * Bookings
      * *********************************** */
+
     public function bookings() {
         $this->set_pageTitle('Hotel: Bookings');
         $this->set_pageType('bookings');
@@ -820,9 +822,10 @@ class AdminController extends Controller {
         $this->set('booking', $details);
     }
 
-    /* ***********************************
+    /*     * **********************************
      * Visa
-     * ***********************************/
+     * ********************************** */
+
     public function visa() {
         $this->set_pageTitle('Visa');
         $this->set_pageType('visa');
@@ -837,7 +840,7 @@ class AdminController extends Controller {
         $this->set('counts', $counts);
     }
 
-    public function visa_add(){
+    public function visa_add() {
         $model = new Visa();
 
         if ($_POST && $_POST['form_action'] == 'add' && $_POST['visa']) {
@@ -859,7 +862,7 @@ class AdminController extends Controller {
         $this->setTemplate('visa_form');
     }
 
-    public function visa_edit(){
+    public function visa_edit() {
         $model = new Visa();
 
         if ($_POST && $_POST['form_action'] == 'edit' && $_POST['visa']) {
@@ -1042,9 +1045,10 @@ class AdminController extends Controller {
         
     }
 
-    /* * ***********************************
+    /*     * ***********************************
      * Pages: Static Site Content
      * *********************************** */
+
     public function pages() {
         if ($_SESSION['message'] || $_SESSION['error']) {
             foreach ($_SESSION as $key => $value) {
@@ -1248,9 +1252,10 @@ class AdminController extends Controller {
         }
     }
 
-    /* * ***********************************
+    /*     * ***********************************
      * Banners: Static Site Content
      * *********************************** */
+
     public function banners() {
         if ($_SESSION['message'] || $_SESSION['error']) {
             foreach ($_SESSION as $key => $value) {
@@ -1266,7 +1271,7 @@ class AdminController extends Controller {
 
         $bannerObj = new Banner();
 
-        if (isset($_POST)){
+        if (isset($_POST)) {
 
             $this->error = false;
             $data = array();
@@ -1280,7 +1285,7 @@ class AdminController extends Controller {
                     //check for the file extension
                     // Get the extension from the filename.
                     $imageExt = substr($_FILES['banner']['name'], strpos($_FILES['banner']['name'], '.'), strlen($_FILES['banner']['name']) - 1);
-                    if (in_array(strtolower($imageExt), array('.jpg','.jpeg','.png'))){
+                    if (in_array(strtolower($imageExt), array('.jpg', '.jpeg', '.png'))) {
                         //now process this image
                         $uploadFilename = Utils::uploadImage($_FILES['banner'], 'banner');
                         if ($uploadFilename == true) {
@@ -1289,13 +1294,13 @@ class AdminController extends Controller {
                             $data['filename'] = '';
                         }
                     } else {
-                        $this->error = "Invalid file type provided ".$_FILES['banner']['name'];
+                        $this->error = "Invalid file type provided " . $_FILES['banner']['name'];
                     }
                 }
             }
 
             //now do the data post
-            if (!$this->error && !empty($data['filename'])){
+            if (!$this->error && !empty($data['filename'])) {
                 $data['status'] = 'active';
                 $data['date_created'] = date('Y-m-d h:i:s');
                 $data['title'] = $_POST['title'];
@@ -1320,7 +1325,7 @@ class AdminController extends Controller {
         $this->set_pageTitle('Manage Banners');
         $this->set_pageType('banners');
         $this->set('banners', $banners);
-        $this->set('path',$bannerPath);
+        $this->set('path', $bannerPath);
         $this->set('counts', $counts);
         $this->set('errorMsg', $this->error);
     }
@@ -1371,17 +1376,19 @@ class AdminController extends Controller {
         exit;
     }
 
-    /* * ***********************************
+    /*     * ***********************************
      * TODO: Settings
      * *********************************** */
+
     public function settings() {
         $this->set_pageTitle('Settings');
         $this->set_pageType('settings');
     }
 
-    /* * ***********************************
+    /*     * ***********************************
      * admin specific / general methods
      * *********************************** */
+
     /**
      * @throws Exception
      */
@@ -1666,12 +1673,16 @@ class AdminController extends Controller {
 
     public function allocateFund() {
         $this->doNotRenderHeader = true;
-
+        $total_amount=0;
         if (isset($_POST['agentid']))
             $agent_id = $_POST['agentid'];
         if (isset($_POST['fundamt']))
             $amount = $_POST['fundamt'];
+        if(isset($_POST['total_amount']))
+            $total_amount=$_POST['total_amount'];
+        $updated_amount=$total_amount+$amount ;
         $fundAmt = sprintf("$%s", number_format($amount));
+        $totalfundAmt= sprintf("$%s", number_format($total_amount));
         $walletObj = new Agent_Wallet();
         $wallet['agent_id'] = $agent_id;
         $wallet['value'] = (int) $amount;
@@ -1681,7 +1692,17 @@ class AdminController extends Controller {
             $walletObj->{$field} = $value;
         }
         if ($walletObj->save()) {
-            echo json_encode(array('result' => 'Success', 'message' => "<span style='color:green'>Funds($fundAmt) Added Successfully.</span>"));
+            $agentObj = new Agent();
+            $agentObj->setId($agent_id);
+            $agent = $agentObj->getById();
+            $message="<span style='color:green'>Funds($fundAmt) Added Successfully.</span>";
+            Utils::sendAgentEmail(
+                    array('email' => $agent['Agent']['email'], 'name' => $agent['Agent']['contact']), 
+                    "Fund Added To Your Wallet", 
+                    array('fund' => $fundAmt, 'total_amount' => $totalfundAmt), 'fund_allocate');
+            echo json_encode(array('result' => 'Success', 'message' => $message));
+           // $recipient, $subject, $params, $template, $isAdmin = true
+            
         } else {
             echo json_encode(array('result' => 'Error', 'message' => "<span style='color:red'>Sorry,Funds($fundAmt) Can't Be Added.</span>"));
         }
@@ -1719,7 +1740,7 @@ class AdminController extends Controller {
                     'document' => json_decode($pax['Visa_Pax']['image']));
             }
             $this->set('visa', $visa);
-            $this->set('interface',$_GET['interface']);
+            $this->set('interface', $_GET['interface']);
         }
     }
 
@@ -1869,6 +1890,7 @@ class AdminController extends Controller {
     }
 
     ## Agent Password Reset ###################
+
     public function resetAgentPassword() {
         $this->doNotRenderHeader = 1;
         $agent_id = func_get_arg(func_num_args() - 1);
@@ -1889,16 +1911,14 @@ class AdminController extends Controller {
                 $agentObj->{$key} = $val;
             }
             if ($agentObj->save()) {
-              
-               $msg="<strong>".ucwords($agent['Agent']['company'])." </strong>Password is reset and mailed to <strong>".$agent['Agent']['email']."</strong>";
-               echo $msg;
+
+                $msg = "<strong>" . ucwords($agent['Agent']['company']) . " </strong>Password is reset and mailed to <strong>" . $agent['Agent']['email'] . "</strong>";
+                echo $msg;
                 Utils::sendAgentEmail(
                         array('email' => $agent['Agent']['email'], 'name' => $agent['Agent']['contact']), "Your Password for GreenOasis Travel Agent Has Been Reset.", array('password' => $pass, 'name' => $agent['Agent']['contact']), 'password_reset'
-               );
+                );
             }
         }
     }
-
-
 
 }

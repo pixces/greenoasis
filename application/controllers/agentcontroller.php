@@ -68,6 +68,7 @@ class AgentController extends Controller {
                 if ($agent['password'] == md5($data['old_password'])){
 
                     if ($data['password'] == $data['confirm_password']){
+                        $agent['uncryptpassword']=$data['password'];
                         $agent['password'] = md5($data['password']);
                     } else {
                         $post_error = true;
@@ -78,7 +79,8 @@ class AgentController extends Controller {
                     $this->setFlash("Wrong or invalid Existing Password provided.",'e');
                 }
             }
-
+            
+            
             if (!$post_error){
                 //save this agent details to the database
                 if ($this->saveAgent($agent)) {
@@ -88,6 +90,7 @@ class AgentController extends Controller {
                         exit;
                     } else if ($_POST['formAction'] == 'password'){
                         $this->setFlash('Password Updated successfully. Changes will be effective with your next login','s');
+                        $this->sendEmail($agent, 'agent_password_update');
                         header("location:" . SITE_URL . "/pages/logout");
                         exit;
                     }
@@ -268,6 +271,11 @@ class AgentController extends Controller {
             //send mail for registration
             case 'registration':
                 $subject = 'Welcome to GreenOasis';
+                $mail->addAddress($params['email'], $params['contact']);
+                $mail->setData('agent', $params);
+                break;
+            case 'agent_password_update':
+                $subject='Greenoasis Password Reset';
                 $mail->addAddress($params['email'], $params['contact']);
                 $mail->setData('agent', $params);
                 break;
