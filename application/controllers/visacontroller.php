@@ -121,7 +121,18 @@ class VisaController extends Controller {
                                 $walletObj->{$field} = $value;
                             }
                             $walletObj->save();*/
-
+                            
+                           //send notifiaction on successful booking to  visa@dubaigot.com & info@dubaigot.com
+                           //Params to send in notification [booking-id,phone-no,eamil of the customer/agent-id,agent-contact,agent-email of the agent]
+                            $receipent[]=array('email' => 'visa@dubaigot.com', 'name' => 'Visa@Dubaigot');
+                            $receipent[]=array('email' => 'info@dubaigot.com', 'name' => 'Info@Dubaigot');
+                            $params=array('email' => $_SESSION['agent']['email'], 
+                                           'name' => $_SESSION['agent']['contact'],
+                                            'booking_id'=>$booking_id,
+                                            'visa_phone'=>$visa['phone'],
+                                            'visa_email'=>$visa['email']);
+                            $mail_content="Visa Application Notification";
+                            Utils::sendEmail($receipent,$mail_content,$params,'visa_booking_notification');
                         }
 
                         //redirect the user to the confirmation page

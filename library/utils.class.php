@@ -523,7 +523,14 @@ class Utils {
 
         $mail = new Mailer();
         $mail->setSubject($subject);
-        $mail->addAddress($recipient['email'], $recipient['name']);
+        //If multiple receipients
+        if(count($recipient) > 1):
+            foreach($recipient as $data):
+                 $mail->addAddress($data['email'], $data['name']);  
+            endforeach;
+         else:
+          $mail->addAddress($recipient['email'], $recipient['name']);  
+        endif;
         $mail->setData('data', $params);
         $mail->setTemplate($template);
 
