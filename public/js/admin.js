@@ -26,6 +26,7 @@ $(function() {
     $(document).on('click', '#fundUpdateBtn', ADMIN.updateFunds);
     $(document).on('submit', '#uploadform', ADMIN.uploadDocument);
     $(document).on('submit', '#AgentEditForm', ADMIN.editAgentInfo);
+    $(document).on('submit', "#uploadinvoiceform", ADMIN.uploadInvoice);
 
     $('.modal').on('hide.bs.modal', function() {
         $('.modal').removeData();
@@ -123,7 +124,7 @@ var ADMIN = {
 
                 $(obj).toggleClass('btn-inverse');
 
-                if( newState === 1 || newState == 'active' ){
+                if (newState === 1 || newState == 'active') {
                     $(obj).html('<i class="icon-thumbs-up icon-white"></i>');
                 } else {
                     $(obj).html('<i class="icon-thumbs-down"></i>');
@@ -225,15 +226,14 @@ var ADMIN = {
         var agent_id = $(this).attr('id');
         var agent_name = $(this).data('name');
         var CONTENT = "<div class='fund-div'>" +
-                        "<label>Enter Amount:</label>" +
-                        "<input type='hidden' name='agentid' id='agent_id' value='" + agent_id + "'/>" +
-                        "<input type='text' name='fundAmt' id='fundAmt' value=''/><br/><br/>" +
-                        "<input class='btn btn-primary' type='button' id='fundUpdateBtn' name='Add' value='Add Funds' />" +
-                       "</div>";
+                "<label>Enter Amount:</label>" +
+                "<input type='hidden' name='agentid' id='agent_id' value='" + agent_id + "'/>" +
+                "<input type='text' name='fundAmt' id='fundAmt' value=''/><br/><br/>" +
+                "<input class='btn btn-primary' type='button' id='fundUpdateBtn' name='Add' value='Add Funds' />" +
+                "</div>";
         $("#divAgentModel #myModalLabel").html("Add Funds to " + agent_name);
         $("#divAgentModel .modal-body").html(CONTENT);
     },
-
     'updateFunds': function() {
 
         if ($(".error").length > 0) {
@@ -251,12 +251,12 @@ var ADMIN = {
             var agent_totAmt = $("#agent-" + agent_id + " .total .count").data('count');
             $.ajax({
                 type: "POST",
-                data: {agentid: agent_id, fundamt: fund_amount,total_amount:agent_totAmt},
+                data: {agentid: agent_id, fundamt: fund_amount, total_amount: agent_totAmt},
                 url: SITE_URL + '/admin/allocateFund/',
                 cache: false,
                 dataType: 'json',
                 success: function(data) {
-                    
+
                     if (data.result === "Success") {
                         agent_totAmt = parseFloat(fund_amount) + parseFloat(agent_totAmt);
                         $("#agent-" + agent_id).data('count', agent_totAmt);
@@ -304,12 +304,12 @@ var ADMIN = {
                     $(".uploadvisa-form").slideUp("slow", function() {
                         $("#uploadError").empty();
                         $("#uploadStatus").html(data.message);
-                        $("."+data.applicationid+"-text-status").removeClass("text-warning").addClass("text-success").html("Approved");
-                        $(".download-visa-"+data.applicationid).html(data.download_link);
-                        
+                        $("." + data.applicationid + "-text-status").removeClass("text-warning").addClass("text-success").html("Approved");
+                        $(".download-visa-" + data.applicationid).html(data.download_link);
+
                         //window.parent.location.reload(false);
                         // opener.location.href = opener.location.href;
-                        
+
                     });
 
                 } else {
@@ -320,45 +320,81 @@ var ADMIN = {
 
             }
         });
-        
-    },
-      'editAgentInfo':function(e){
-        //get the form data
-        var formData=$('form#AgentEditForm').serialize();
-       // process the form
-		$.ajax({
-			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-			url: SITE_URL + '/admin/save_agentInfo/',
-			data 		: formData, // our data object
-			dataType 	: 'json', // what type of data do we expect back from the server
-			encode 		: true
-		}) 
-                                        .done(function(data) {
-                                            $('.alert').show();
-                                            if (!data.success){
-                                                if(data.error){
-                                                    $(".alert").html("Error in updating agent information !");
-                                                }
-                                                
-                                            }
-                                            if (data.success){
-                                                
-                                               $(".agent-edit-section ").slideUp('slow'); 
-                                               $(".alert").html("Agent information Updated");
-                                                
-                                            }
-                                            
-                                        })
-                                        // using the fail promise callback
-			.fail(function(data) {
 
-				// show any errors
-				// best to remove for production
-				console.log(data);
-			});
-                        
-                        event.preventDefault() 
-       
     },
-  
+    'editAgentInfo': function(e) {
+        //get the form data
+        var formData = $('form#AgentEditForm').serialize();
+        // process the form
+        $.ajax({
+            type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+            url: SITE_URL + '/admin/save_agentInfo/',
+            data: formData, // our data object
+            dataType: 'json', // what type of data do we expect back from the server
+            encode: true
+        })
+                .done(function(data) {
+            $('.alert').show();
+            if (!data.success) {
+                if (data.error) {
+                    $(".alert").html("Error in updating agent information !");
+                }
+
+            }
+            if (data.success) {
+
+                $(".agent-edit-section ").slideUp('slow');
+                $(".alert").html("Agent information Updated");
+
+            }
+
+        })
+                // using the fail promise callback
+                .fail(function(data) {
+
+            // show any errors
+            // best to remove for production
+            console.log(data);
+        });
+
+        event.preventDefault()
+
+    },
+    'uploadInvoice': function(e) {
+
+        $.ajax({
+            type: "POST",
+            url: SITE_URL + '/admin/uploadInvoiceByAdmin/',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: 'json',
+            beforeSend: function() {
+                $("#loader").show();
+            },
+            success: function(data) {
+                if (data.result == "Success") {
+                    $(".uploadinvoice-form").slideUp("slow", function() {
+                        $("#uploadError").empty();
+                        $("#uploadStatus").html(data.message);
+                        $("." + data.applicationid + "-text-status").removeClass("text-warning").addClass("text-success").html("Approved");
+                        $(".download-invoice-" + data.applicationid).html(data.download_link);
+
+                        //window.parent.location.reload(false);
+                        // opener.location.href = opener.location.href;
+
+                    });
+
+                } else {
+                    $("#uploadError").html(data.message);
+                }
+
+                $("#loader").hide();
+
+            }
+        });
+        e.preventDefault();
+
+    }
 }

@@ -918,7 +918,7 @@ class AdminController extends Controller {
         // $visaObj->setCurDate();
         $model->orderBy('date_added', 'DESC');
         $visaInfo = $model->getAll();
-
+        
         $this->setTemplate('visa_bookings');
         $this->set('visaInfo', $visaInfo);
         $this->set('counts', $counts);
@@ -1673,16 +1673,16 @@ class AdminController extends Controller {
 
     public function allocateFund() {
         $this->doNotRenderHeader = true;
-        $total_amount=0;
+        $total_amount = 0;
         if (isset($_POST['agentid']))
             $agent_id = $_POST['agentid'];
         if (isset($_POST['fundamt']))
             $amount = $_POST['fundamt'];
-        if(isset($_POST['total_amount']))
-            $total_amount=$_POST['total_amount'];
-        $updated_amount=$total_amount+$amount ;
+        if (isset($_POST['total_amount']))
+            $total_amount = $_POST['total_amount'];
+        $updated_amount = $total_amount + $amount;
         $fundAmt = sprintf("$%s", number_format($amount));
-        $totalfundAmt= sprintf("$%s", number_format($total_amount));
+        $totalfundAmt = sprintf("$%s", number_format($total_amount));
         $walletObj = new Agent_Wallet();
         $wallet['agent_id'] = $agent_id;
         $wallet['value'] = (int) $amount;
@@ -1695,14 +1695,11 @@ class AdminController extends Controller {
             $agentObj = new Agent();
             $agentObj->setId($agent_id);
             $agent = $agentObj->getById();
-            $message="<span style='color:green'>Funds($fundAmt) Added Successfully.</span>";
+            $message = "<span style='color:green'>Funds($fundAmt) Added Successfully.</span>";
             Utils::sendAgentEmail(
-                    array('email' => $agent['Agent']['email'], 'name' => $agent['Agent']['contact']), 
-                    "Fund Added To Your Wallet", 
-                    array('fund' => $fundAmt, 'total_amount' => $totalfundAmt), 'fund_allocate');
+                    array('email' => $agent['Agent']['email'], 'name' => $agent['Agent']['contact']), "Fund Added To Your Wallet", array('fund' => $fundAmt, 'total_amount' => $totalfundAmt), 'fund_allocate');
             echo json_encode(array('result' => 'Success', 'message' => $message));
-           // $recipient, $subject, $params, $template, $isAdmin = true
-            
+            // $recipient, $subject, $params, $template, $isAdmin = true
         } else {
             echo json_encode(array('result' => 'Error', 'message' => "<span style='color:red'>Sorry,Funds($fundAmt) Can't Be Added.</span>"));
         }
@@ -1731,7 +1728,7 @@ class AdminController extends Controller {
             $visa['parent_passport_status'] = $details['Visa']['status'];
             $visa['visa_file_name'] = $details['Visa_Booking']['visa_file_name'];
             $visa['status'] = $details['Visa_Booking']['status'];
-
+            $visa['remark']=$details['Visa_Booking']['remark'];
             foreach ($details['Visa_Pax'] as $pax) {
                 $visa['paxes'][] = array('customer_name' => $pax['Visa_Pax']['fname'] . ' ' . $pax['Visa_Pax']['mname'] . ' ' . $pax['Visa_Pax']['lname'],
                     'passport_no' => $pax['Visa_Pax']['passport'],
@@ -1791,6 +1788,7 @@ class AdminController extends Controller {
             $agent_id = $_POST['agent_id'];
             $price = $_POST['price'];
             $paxCount = $_POST['pax'];
+            $remark=$_POST['remark'];
             $file = $_FILES['visaFile'];
 
             //visavalue
@@ -1808,6 +1806,7 @@ class AdminController extends Controller {
             $visaObj->status = "approved";
             $visaObj->agent_id = $agent_id;
             $visaObj->price = $visa_value;
+            $visaObj->remark=$remark;
 
 
             if ($visaObj->save(true)) {
@@ -1919,6 +1918,60 @@ class AdminController extends Controller {
                 );
             }
         }
+    }
+
+    public function load_visa_form() {
+        $this->doNotRenderHeader = true;
+        $application_id = func_get_arg(func_num_args() - 1);
+        $visaObj = new Visa_Booking();
+        $visaObj->id = $application_id;
+        $details = $visaObj->getById();
+        $visa = array();
+        $paxes = array();
+        if (!empty($details)) {
+            $visa['order_id'] = $details['Visa_Booking']['id'];
+            $visa['agent_name'] = $this->getAgentSummary($details['Visa_Booking']['agent_id']);
+            $visa['agent_id'] = $details['Visa_Booking']['agent_id'];
+            $visa['pax_count'] = $details['Visa_Booking']['pax_count'];
+            $this->set('visa', $visa);
+            $this->set('interface', $_GET['interface']);
+        }
+    }
+
+    public function load_invoice_form() {
+        $this->doNotRenderHeader = true;
+        $application_id = func_get_arg(func_num_args() - 1);
+        $visa = array();
+        $visa['order_id'] = $application_id;
+        $this->set('visa', $visa);
+        $this->set('interface', $_GET['interface']);
+    }
+
+    public function uploadInvoiceByAdmin() {
+        if ($_FILES['invoiceFile']['type'] == "application/pdf") {
+            $application_id = $_POST['id'];
+            $invoice_no = $_POST['invoice_no'];
+            $file = $_FILES['invoiceFile'];
+
+            $uploadVisaFile = Utils::uploadImage($file);
+            $visa['id'] = $application_id;
+            $visa['invoice_file_name'] = json_encode($uploadVisaFile);
+            $visa['invoice_no'] = $invoice_no;
+            $visaObj = new Visa_Booking();
+            $visaObj->setId($application_id);
+            $visaObj->invoice_file_name = $visa['invoice_file_name'];
+            $visaObj->invoice_no = $visa['invoice_no'];
+            if ($visaObj->save(true)) {
+
+                $download_link = "<a href=" . SITE_URL . "/admin/download_invoice_document/" . json_decode($visa["invoice_file_name"]) . ">" . $visa['invoice_no'] . "</a>";
+                echo json_encode(array('result' => 'Success', 'message' => 'Invoice Uploaded Successfully.', 'applicationid' => $application_id, 'download_link' => $download_link));
+            } else {
+                echo json_encode(array('result' => 'Error', 'message' => 'Invoice Upload Failed.'));
+            }
+        } else {
+            echo json_encode(array('result' => 'Error', 'message' => 'Unsupported file.Please upload Pdf file only.'));
+        }
+        exit;
     }
 
 }

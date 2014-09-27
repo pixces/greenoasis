@@ -525,8 +525,8 @@ class Utils {
         $mail->setSubject($subject);
         //If multiple receipients
         if(count($recipient) > 1):
-            foreach($recipient as $data):
-                 $mail->addAddress($data['email'], $data['name']);  
+            foreach($recipient as $receipientInf):
+                 $mail->addAddress($receipientInf['email'], $receipientInf['name']);  
             endforeach;
          else:
           $mail->addAddress($recipient['email'], $recipient['name']);  
