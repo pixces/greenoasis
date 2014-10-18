@@ -716,3 +716,519 @@
 [22-May-2014 21:53:40 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
 [28-May-2014 23:00:25 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
 [28-May-2014 23:01:04 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /mnt/www/greenoasis/application/views/admin/header.php on line 32
+[02-Jun-2014 09:19:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\greenoasis\application\views\admin\header.php on line 32
+[02-Jun-2014 09:19:22 UTC] PHP Stack trace:
+[02-Jun-2014 09:19:22 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 09:19:22 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 09:19:22 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 09:19:22 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 09:19:22 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 09:19:22 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:155
+[02-Jun-2014 09:19:22 UTC] PHP   7. AdminController->beforeAction() C:\wamp\www\greenoasis\library\common.php:155
+[02-Jun-2014 09:19:22 UTC] PHP   8. Controller->__destruct() C:\wamp\www\greenoasis\library\controller.class.php:0
+[02-Jun-2014 09:19:22 UTC] PHP   9. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 09:19:22 UTC] PHP  10. include() C:\wamp\www\greenoasis\library\template.class.php:54
+[02-Jun-2014 10:06:00 UTC] PHP Parse error:  syntax error, unexpected end of file in C:\wamp\www\greenoasis\application\views\admin\pages.php on line 31
+[02-Jun-2014 10:06:00 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:00 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:00 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:00 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:00 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:00 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:00 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:00 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[02-Jun-2014 10:06:11 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[02-Jun-2014 10:06:11 UTC] PHP Stack trace:
+[02-Jun-2014 10:06:11 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[02-Jun-2014 10:06:11 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[02-Jun-2014 10:06:11 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[02-Jun-2014 10:06:11 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[02-Jun-2014 10:06:11 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[02-Jun-2014 10:06:11 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[02-Jun-2014 10:06:11 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[02-Jun-2014 10:06:11 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[02-Jun-2014 10:06:11 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[09-Jun-2014 06:37:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\greenoasis\application\views\admin\header.php on line 32
+[09-Jun-2014 06:37:58 UTC] PHP Stack trace:
+[09-Jun-2014 06:37:58 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[09-Jun-2014 06:37:58 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[09-Jun-2014 06:37:58 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[09-Jun-2014 06:37:58 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[09-Jun-2014 06:37:58 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[09-Jun-2014 06:37:58 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:155
+[09-Jun-2014 06:37:58 UTC] PHP   7. AdminController->beforeAction() C:\wamp\www\greenoasis\library\common.php:155
+[09-Jun-2014 06:37:58 UTC] PHP   8. Controller->__destruct() C:\wamp\www\greenoasis\library\controller.class.php:0
+[09-Jun-2014 06:37:58 UTC] PHP   9. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[09-Jun-2014 06:37:58 UTC] PHP  10. include() C:\wamp\www\greenoasis\library\template.class.php:54
+[17-Jun-2014 12:21:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\greenoasis\application\views\admin\header.php on line 32
+[17-Jun-2014 12:21:45 UTC] PHP Stack trace:
+[17-Jun-2014 12:21:45 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[17-Jun-2014 12:21:45 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[17-Jun-2014 12:21:45 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[17-Jun-2014 12:21:45 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[17-Jun-2014 12:21:45 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[17-Jun-2014 12:21:45 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:155
+[17-Jun-2014 12:21:45 UTC] PHP   7. AdminController->beforeAction() C:\wamp\www\greenoasis\library\common.php:155
+[17-Jun-2014 12:21:45 UTC] PHP   8. Controller->__destruct() C:\wamp\www\greenoasis\library\controller.class.php:0
+[17-Jun-2014 12:21:45 UTC] PHP   9. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[17-Jun-2014 12:21:45 UTC] PHP  10. include() C:\wamp\www\greenoasis\library\template.class.php:54
+[17-Jun-2014 12:22:12 UTC] PHP Parse error:  syntax error, unexpected end of file in C:\wamp\www\greenoasis\application\views\admin\pages.php on line 31
+[17-Jun-2014 12:22:12 UTC] PHP Stack trace:
+[17-Jun-2014 12:22:12 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[17-Jun-2014 12:22:12 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[17-Jun-2014 12:22:12 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[17-Jun-2014 12:22:12 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[17-Jun-2014 12:22:12 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[17-Jun-2014 12:22:12 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[17-Jun-2014 12:22:12 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[24-Jun-2014 13:21:55 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\greenoasis\application\views\admin\header.php on line 32
+[24-Jun-2014 13:21:55 UTC] PHP Stack trace:
+[24-Jun-2014 13:21:55 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[24-Jun-2014 13:21:55 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[24-Jun-2014 13:21:55 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[24-Jun-2014 13:21:55 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[24-Jun-2014 13:21:55 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[24-Jun-2014 13:21:55 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:155
+[24-Jun-2014 13:21:55 UTC] PHP   7. AdminController->beforeAction() C:\wamp\www\greenoasis\library\common.php:155
+[24-Jun-2014 13:21:55 UTC] PHP   8. Controller->__destruct() C:\wamp\www\greenoasis\library\controller.class.php:0
+[24-Jun-2014 13:21:55 UTC] PHP   9. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[24-Jun-2014 13:21:55 UTC] PHP  10. include() C:\wamp\www\greenoasis\library\template.class.php:54
+[07-Jul-2014 07:13:27 UTC] PHP Warning:  stream_socket_enable_crypto(): this stream does not support SSL/crypto in C:\wamp\www\greenoasis\library\smtp.class.php on line 201
+[07-Jul-2014 07:13:27 UTC] PHP Stack trace:
+[07-Jul-2014 07:13:27 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[07-Jul-2014 07:13:27 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[07-Jul-2014 07:13:27 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[07-Jul-2014 07:13:27 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[07-Jul-2014 07:13:27 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[07-Jul-2014 07:13:27 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:157
+[07-Jul-2014 07:13:27 UTC] PHP   7. AgentController->register() C:\wamp\www\greenoasis\library\common.php:157
+[07-Jul-2014 07:13:27 UTC] PHP   8. AgentController->sendEmail() C:\wamp\www\greenoasis\application\controllers\agentcontroller.php:47
+[07-Jul-2014 07:13:27 UTC] PHP   9. Mailer->sendEmail() C:\wamp\www\greenoasis\application\controllers\agentcontroller.php:145
+[07-Jul-2014 07:13:27 UTC] PHP  10. PHPMailer->Send() C:\wamp\www\greenoasis\library\mailer.class.php:130
+[07-Jul-2014 07:13:27 UTC] PHP  11. PHPMailer->SmtpSend() C:\wamp\www\greenoasis\library\phpmailer.class.php:591
+[07-Jul-2014 07:13:27 UTC] PHP  12. PHPMailer->SmtpConnect() C:\wamp\www\greenoasis\library\phpmailer.class.php:723
+[07-Jul-2014 07:13:27 UTC] PHP  13. SMTP->StartTLS() C:\wamp\www\greenoasis\library\phpmailer.class.php:822
+[07-Jul-2014 07:13:27 UTC] PHP  14. stream_socket_enable_crypto() C:\wamp\www\greenoasis\library\smtp.class.php:201
+[07-Jul-2014 09:31:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\greenoasis\application\views\admin\header.php on line 32
+[07-Jul-2014 09:31:05 UTC] PHP Stack trace:
+[07-Jul-2014 09:31:05 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[07-Jul-2014 09:31:05 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[07-Jul-2014 09:31:05 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[07-Jul-2014 09:31:05 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[07-Jul-2014 09:31:05 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[07-Jul-2014 09:31:05 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:155
+[07-Jul-2014 09:31:05 UTC] PHP   7. AdminController->beforeAction() C:\wamp\www\greenoasis\library\common.php:155
+[07-Jul-2014 09:31:05 UTC] PHP   8. Controller->__destruct() C:\wamp\www\greenoasis\library\controller.class.php:0
+[07-Jul-2014 09:31:05 UTC] PHP   9. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[07-Jul-2014 09:31:05 UTC] PHP  10. include() C:\wamp\www\greenoasis\library\template.class.php:54
+[07-Jul-2014 09:31:28 UTC] PHP Warning:  stream_socket_enable_crypto(): this stream does not support SSL/crypto in C:\wamp\www\greenoasis\library\smtp.class.php on line 201
+[07-Jul-2014 09:31:28 UTC] PHP Stack trace:
+[07-Jul-2014 09:31:28 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[07-Jul-2014 09:31:28 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[07-Jul-2014 09:31:28 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[07-Jul-2014 09:31:28 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[07-Jul-2014 09:31:28 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[07-Jul-2014 09:31:28 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:157
+[07-Jul-2014 09:31:28 UTC] PHP   7. AdminController->agent_approve() C:\wamp\www\greenoasis\library\common.php:157
+[07-Jul-2014 09:31:28 UTC] PHP   8. Utils::sendEmail() C:\wamp\www\greenoasis\application\controllers\admincontroller.php:899
+[07-Jul-2014 09:31:28 UTC] PHP   9. Mailer->sendEmail() C:\wamp\www\greenoasis\library\utils.class.php:519
+[07-Jul-2014 09:31:28 UTC] PHP  10. PHPMailer->Send() C:\wamp\www\greenoasis\library\mailer.class.php:130
+[07-Jul-2014 09:31:28 UTC] PHP  11. PHPMailer->SmtpSend() C:\wamp\www\greenoasis\library\phpmailer.class.php:591
+[07-Jul-2014 09:31:28 UTC] PHP  12. PHPMailer->SmtpConnect() C:\wamp\www\greenoasis\library\phpmailer.class.php:723
+[07-Jul-2014 09:31:28 UTC] PHP  13. SMTP->StartTLS() C:\wamp\www\greenoasis\library\phpmailer.class.php:822
+[07-Jul-2014 09:31:28 UTC] PHP  14. stream_socket_enable_crypto() C:\wamp\www\greenoasis\library\smtp.class.php:201
+[07-Jul-2014 10:45:16 UTC] PHP Warning:  stream_socket_enable_crypto(): this stream does not support SSL/crypto in C:\wamp\www\greenoasis\library\smtp.class.php on line 201
+[07-Jul-2014 10:45:16 UTC] PHP Stack trace:
+[07-Jul-2014 10:45:16 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[07-Jul-2014 10:45:16 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[07-Jul-2014 10:45:16 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[07-Jul-2014 10:45:16 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[07-Jul-2014 10:45:16 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[07-Jul-2014 10:45:16 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:157
+[07-Jul-2014 10:45:16 UTC] PHP   7. AdminController->agent_approve() C:\wamp\www\greenoasis\library\common.php:157
+[07-Jul-2014 10:45:16 UTC] PHP   8. Utils::sendEmail() C:\wamp\www\greenoasis\application\controllers\admincontroller.php:899
+[07-Jul-2014 10:45:16 UTC] PHP   9. Mailer->sendEmail() C:\wamp\www\greenoasis\library\utils.class.php:519
+[07-Jul-2014 10:45:16 UTC] PHP  10. PHPMailer->Send() C:\wamp\www\greenoasis\library\mailer.class.php:130
+[07-Jul-2014 10:45:16 UTC] PHP  11. PHPMailer->SmtpSend() C:\wamp\www\greenoasis\library\phpmailer.class.php:591
+[07-Jul-2014 10:45:16 UTC] PHP  12. PHPMailer->SmtpConnect() C:\wamp\www\greenoasis\library\phpmailer.class.php:723
+[07-Jul-2014 10:45:16 UTC] PHP  13. SMTP->StartTLS() C:\wamp\www\greenoasis\library\phpmailer.class.php:822
+[07-Jul-2014 10:45:16 UTC] PHP  14. stream_socket_enable_crypto() C:\wamp\www\greenoasis\library\smtp.class.php:201
+[09-Jul-2014 05:41:43 UTC] PHP Warning:  array_keys() expects parameter 1 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 469
+[09-Jul-2014 05:41:43 UTC] PHP Stack trace:
+[09-Jul-2014 05:41:43 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[09-Jul-2014 05:41:43 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[09-Jul-2014 05:41:43 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[09-Jul-2014 05:41:43 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[09-Jul-2014 05:41:43 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[09-Jul-2014 05:41:43 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:157
+[09-Jul-2014 05:41:43 UTC] PHP   7. VisaController->index() C:\wamp\www\greenoasis\library\common.php:157
+[09-Jul-2014 05:41:43 UTC] PHP   8. Utils::convertUploadArray() C:\wamp\www\greenoasis\application\controllers\visacontroller.php:28
+[09-Jul-2014 05:41:43 UTC] PHP   9. array_keys() C:\wamp\www\greenoasis\library\utils.class.php:469
+[09-Jul-2014 05:41:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\greenoasis\application\controllers\visacontroller.php on line 56
+[09-Jul-2014 05:41:43 UTC] PHP Stack trace:
+[09-Jul-2014 05:41:43 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[09-Jul-2014 05:41:43 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[09-Jul-2014 05:41:43 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[09-Jul-2014 05:41:43 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[09-Jul-2014 05:41:43 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[09-Jul-2014 05:41:43 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:157
+[09-Jul-2014 05:41:43 UTC] PHP   7. VisaController->index() C:\wamp\www\greenoasis\library\common.php:157
+[09-Jul-2014 05:41:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\greenoasis\application\views\visa\confirmation.php on line 39
+[09-Jul-2014 05:41:43 UTC] PHP Stack trace:
+[09-Jul-2014 05:41:43 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[09-Jul-2014 05:41:43 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[09-Jul-2014 05:41:43 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[09-Jul-2014 05:41:43 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[09-Jul-2014 05:41:43 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[09-Jul-2014 05:41:43 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[09-Jul-2014 05:41:43 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[09-Jul-2014 05:41:43 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp\www\greenoasis\application\views\admin\header.php on line 32
+[11-Jul-2014 09:56:02 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:02 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:02 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:02 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:02 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:02 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:02 UTC] PHP   6. call_user_func_array() C:\wamp\www\greenoasis\library\common.php:155
+[11-Jul-2014 09:56:02 UTC] PHP   7. AdminController->beforeAction() C:\wamp\www\greenoasis\library\common.php:155
+[11-Jul-2014 09:56:02 UTC] PHP   8. Controller->__destruct() C:\wamp\www\greenoasis\library\controller.class.php:0
+[11-Jul-2014 09:56:02 UTC] PHP   9. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:02 UTC] PHP  10. include() C:\wamp\www\greenoasis\library\template.class.php:54
+[11-Jul-2014 09:56:12 UTC] PHP Parse error:  syntax error, unexpected end of file in C:\wamp\www\greenoasis\application\views\admin\pages.php on line 31
+[11-Jul-2014 09:56:12 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:12 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:12 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:12 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:12 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:12 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:12 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:12 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:18 UTC] PHP Parse error:  syntax error, unexpected end of file in C:\wamp\www\greenoasis\application\views\admin\pages.php on line 31
+[11-Jul-2014 09:56:18 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:18 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:18 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:18 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:18 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:18 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:18 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:18 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:19 UTC] PHP Parse error:  syntax error, unexpected end of file in C:\wamp\www\greenoasis\application\views\admin\pages.php on line 31
+[11-Jul-2014 09:56:19 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:19 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:19 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:19 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:19 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:19 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:19 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:19 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:20 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\wamp\www\greenoasis\library\utils.class.php on line 282
+[11-Jul-2014 09:56:20 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:20 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:20 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:20 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:20 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:20 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:20 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97
+[11-Jul-2014 09:56:20 UTC] PHP   8. include() C:\wamp\www\greenoasis\library\template.class.php:68
+[11-Jul-2014 09:56:20 UTC] PHP   9. Utils::createSelectOptions() C:\wamp\www\greenoasis\application\views\admin\page_form.php:23
+[11-Jul-2014 09:56:20 UTC] PHP  10. in_array() C:\wamp\www\greenoasis\library\utils.class.php:282
+[11-Jul-2014 09:56:51 UTC] PHP Parse error:  syntax error, unexpected end of file in C:\wamp\www\greenoasis\application\views\admin\pages.php on line 31
+[11-Jul-2014 09:56:51 UTC] PHP Stack trace:
+[11-Jul-2014 09:56:51 UTC] PHP   1. {main}() C:\wamp\www\greenoasis\public\index.php:0
+[11-Jul-2014 09:56:51 UTC] PHP   2. require_once() C:\wamp\www\greenoasis\public\index.php:18
+[11-Jul-2014 09:56:51 UTC] PHP   3. require_once() C:\wamp\www\greenoasis\library\bootstrap.php:7
+[11-Jul-2014 09:56:51 UTC] PHP   4. Loader->__construct() C:\wamp\www\greenoasis\library\common.php:224
+[11-Jul-2014 09:56:51 UTC] PHP   5. Loader->callHook() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:51 UTC] PHP   6. Controller->__destruct() C:\wamp\www\greenoasis\library\common.php:36
+[11-Jul-2014 09:56:51 UTC] PHP   7. Template->render() C:\wamp\www\greenoasis\library\controller.class.php:97

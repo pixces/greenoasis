@@ -6,7 +6,7 @@ return array(
     'db'=>array(
         'name' => 'greenoasis',
         'user' => 'root',
-        'password' => 'root',
+        'password' => '',
         'host' => 'localhost',
         'charset' => 'utf8',
         'collate' => '',
